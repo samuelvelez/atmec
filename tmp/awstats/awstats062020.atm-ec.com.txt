@@ -1,0 +1,413 @@
+AWSTATS DATA FILE 7.7 (build 20180105)
+# If you remove this file, all statistics for date 202006 will be lost/reset.
+# Last config file used to build this data file was /home/atmeccom/tmp/awstats/awstats.atm-ec.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2007                
+POS_TIME 2680                
+POS_VISITOR 9051                
+POS_DAY 10092               
+POS_DOMAIN 3358                
+POS_LOGIN 3703                
+POS_ROBOT 3858                
+POS_WORMS 4143                
+POS_EMAILSENDER 4274                
+POS_EMAILRECEIVER 4417                
+POS_SESSION 10586               
+POS_SIDER 10749               
+POS_FILETYPES 4552                
+POS_DOWNLOADS 4787                
+POS_OS 5001                
+POS_BROWSER 5175                
+POS_SCREENSIZE 5622                
+POS_UNKNOWNREFERER 5696                
+POS_UNKNOWNREFERERBROWSER 5860                
+POS_ORIGIN 5968                
+POS_SEREFERRALS 6103                
+POS_PAGEREFS 6247                
+POS_SEARCHWORDS 6425                
+POS_KEYWORDS 6577                
+POS_MISC 2343                
+POS_ERRORS 6636                
+POS_CLUSTER 3559                
+POS_SIDER_404 6775                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20200701022818 1 0 12331039468302
+FirstTime 20200601123320
+LastTime 20200630082716
+LastUpdate 20200701194732 1 0 0 0 0
+TotalVisits 32                  
+TotalUnique 23                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 26                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+AddToFavourites 0 11 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+RealPlayerSupport 0 0 0
+FlashSupport 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+QuickTimeSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 8 8 31501 37 40 313856
+1 6 6 8884 12 12 6106
+2 1 20 2795 6 8 44846
+3 0 0 0 25 33 13985
+4 0 0 0 1 1 277
+5 1 1 1324 7 8 45027
+6 1 1 1321 10 11 288927
+7 2 2 3577 5 7 4178
+8 9 18 1054219 18 20 5202
+9 3 3 3968 14 14 6701
+10 31 34 572633 44 49 352491
+11 36 40 652567 18 25 51646
+12 2 2 5447 12 15 5690
+13 1 1 1323 9 12 8770
+14 2 3 288457 23 25 48089
+15 0 0 0 29 31 123965
+16 0 0 0 6 6 3341
+17 4 5 21599 19 20 15327
+18 1 4 345279 15 17 6654
+19 3 3 5725 5 5 2898
+20 4 4 7161 26 27 288467
+21 1 1 1325 4 5 3932
+22 3 7 410559 11 12 8225
+23 1 5 393483 1 2 1141
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 10
+ec 87 107 2752105
+us 13 22 1021220
+hu 7 7 9262
+ru 5 5 13368
+fr 3 3 5838
+de 1 1 4564
+ua 1 1 1323
+gb 1 4 1575
+in 1 17 2542
+ca 1 1 1324
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 4
+Googlebot/ 53 1351010 20200627004618 14
+unknown 2 52 20200629033832 2
+bot[\s_+:,\.\;\/\\-] 2 1352 20200630181344 1
+no_user_agent 1 4564 20200612223256 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 10
+Unknown 109 498266 0 0
+php 1 24 0 0
+js 9 2564397 0 0
+txt 19 1497 0 0
+jpg 2 74030 0 0
+woff2 2 154324 0 0
+png 10 164410 0 0
+css 8 340648 0 0
+html 4 6721 0 0
+env 4 8804 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 3
+/.well-known/pki-validation/E6E5F8C4AD9F17BEDFC71D3F3B31477D.txt 18 0 1407
+/.well-known/pki-validation/FCA5C7411F168A67018D868C8BA5BC8C.txt 1 0 64
+/robots.txt 0 1 26
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 9
+win7 12 9
+macosx 1 1
+Unknown 22 2
+winvista 1 1
+winxp 1 1
+win8.1 2 2
+linux 8 2
+linuxandroid 1 1
+win10 121 101
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 19
+firefox61.0 7 7
+mozilla 3 3
+chrome80.0.3987.149 3 3
+chrome41.0.2228.0 1 1
+Unknown 20 0
+chrome31.0.1650.57 1 1
+firefox76.0 2 2
+opera53.0.2907.68 1 1
+chrome83.0.4103.83 1 1
+chrome41.0.2225.0 1 1
+chrome83.0.4103.61 38 24
+chrome62.0.3202.94 2 2
+chrome63.0.3239.26 8 6
+chrome76.0.3809.100 2 1
+chrome80.0.3987.132 8 2
+chrome83.0.4103.97 68 62
+chrome81.0.4044.122 1 1
+chrome80.0.3987 1 1
+safari13.0 1 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 2
+COMODO_DCV 20200602023147
+Mozilla/5.0_(compatible;_ips-agent) 20200603005925
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 1
+COMODO_DCV 20200602023147
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 38 58
+From1 0 0
+From2 0 0
+From3 7 7
+From4 75 104
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+https://brandnewblogs.com 7 7
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 5
+404 109 222146
+301 1 230
+302 198 38848
+403 4 5296
+500 23 26243
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 53
+/sito/wp-includes/wlwmanifest.xml 3 -
+/editor-4.4.0.php 1 -
+/.well-known/security.txt 2 -
+/ 3 -
+/wp1/wp-login.php 1 -
+/en/wp-includes/wlwmanifest.xml 1 -
+/wp-includes/wlwmanifest.xml 3 -
+/portal/wp-includes/wlwmanifest.xml 1 -
+/newsite/wp-includes/wlwmanifest.xml 1 -
+/media/wp-includes/wlwmanifest.xml 2 -
+/xmlrpc.php 3 -
+/www/wp-includes/wlwmanifest.xml 1 -
+/2019/wp-includes/wlwmanifest.xml 3 -
+/wp/wp-includes/wlwmanifest.xml 4 -
+/backup/wp-login.php 2 -
+/site/wp-includes/wlwmanifest.xml 4 -
+/wordpress/wp-includes/wlwmanifest.xml 4 -
+/db/print.css 1 -
+/staging/wp-includes/wlwmanifest.xml 1 -
+/storage/lights/nz4ElqL5pdujZGww/2Jyp6jkDrm5DJhsG.jpg 3 http://atm-ec.com/traffic-lights/5444
+/oldsite/wp-includes/wlwmanifest.xml 1 -
+/storage/signals/f04/6e73ede6502ac309.jpg 1 http://atm-ec.com/vertical-signals/66515/edit
+/wp1/wp-includes/wlwmanifest.xml 3 -
+/backup/wp-includes/wlwmanifest.xml 1 -
+/wordpress/wp-login.php 1 -
+/web/wp-includes/wlwmanifest.xml 4 -
+/blogs/wp-includes/wlwmanifest.xml 1 -
+/storage/regulators/mU7DU1OMRfxCcQ7y.jpg 1 http://atm-ec.com/regulator-boxes/620
+/blog/wp-login.php 1 -
+/store/wp-includes/wlwmanifest.xml 1 -
+/blog 1 http://atm-ec.com/blog/
+/blog/wp-includes/wlwmanifest.xml 4 -
+/2020/wp-login.php 2 -
+/dev/wp-includes/wlwmanifest.xml 1 -
+/wordpress/wp-admin/install.php 1 -
+/test/wp-login.php 2 -
+/old/wp-includes/wlwmanifest.xml 1 -
+/v1/wp-includes/wlwmanifest.xml 1 -
+/test/wp-includes/wlwmanifest.xml 3 -
+/wp-login.php 4 -
+/shop/wp-includes/wlwmanifest.xml 3 -
+/2019/wp-login.php 1 -
+/_debugbar/assets/javascript 1 -
+/website/wp-includes/wlwmanifest.xml 4 -
+/storage/regulators/5TTUzlrIJRdgLUyh.jpg 1 http://atm-ec.com/regulator-boxes/620
+/v2/wp-includes/wlwmanifest.xml 1 -
+/cms/wp-includes/wlwmanifest.xml 3 -
+/robots.txt 2 -
+/news/wp-includes/wlwmanifest.xml 4 -
+/main/wp-includes/wlwmanifest.xml 1 -
+/wp2/wp-includes/wlwmanifest.xml 4 -
+/2018/wp-includes/wlwmanifest.xml 3 -
+/vendor/laravel/framework/composer.json 2 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 26
+181.199.60.21 62 68 1203602 20200613112016
+190.130.165.26 14 22 824844 20200602011618
+186.70.157.2 10 16 722776 20200602092358
+107.174.236.201 3 4 20273 20200626114552
+178.32.218.211 3 3 5838 20200601202739
+173.244.209.236 3 4 20276 20200628174450
+94.21.92.161 3 3 3967 20200611064448
+72.13.46.2 2 2 2506 20200603005925
+69.160.160.52 2 8 690558 20200630082716
+188.143.1.43 2 2 2647 20200617175923
+185.234.216.38 2 2 4402 20200606194832
+185.234.216.198 2 2 4402 20200615144037
+92.249.191.134 2 2 2648 20200623204548
+138.197.148.246 1 1 0 20200604111821
+135.181.30.133 1 1 1324 20200623020134
+181.188.200.69 1 1 883 20200601123320
+65.154.226.100 1 2 286256 20200614140532
+68.183.102.102 1 1 1325 20200620104259
+5.188.84.6 1 1 4564 20200625121151
+116.202.15.27 1 1 1323 20200606091844
+51.15.231.17 1 1 1323 20200603195809
+188.163.104.165 1 1 1323 20200612135637
+46.4.33.48 1 1 4564 20200608224605
+66.220.149.113 0 1 26 
+91.199.212.132 0 3 252 
+116.202.116.111 0 16 1219 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 21
+20200601 7 15 806199 5
+20200602 21 46 749613 2
+20200603 3 3 3829 2
+20200604 1 1 0 1
+20200605 2 5 346601 2
+20200606 3 3 5725 2
+20200607 1 1 1324 1
+20200608 1 1 4564 1
+20200611 1 1 1321 1
+20200612 2 2 2647 2
+20200613 62 68 1203602 1
+20200614 1 2 286256 1
+20200615 2 2 4402 2
+20200617 1 1 1323 1
+20200619 1 1 1325 1
+20200620 1 1 1325 1
+20200623 2 2 2647 2
+20200625 1 1 4564 1
+20200626 3 4 20273 1
+20200628 3 4 20276 1
+20200630 1 4 345279 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 3
+30mn-1h 2
+0s-30s 29
+1h+ 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 29
+/login 47 69629 23 22
+/traffic-lights 9 51429 0 1
+/cpanel 7 87563 3 3
+/home 5 12666 0 0
+/ 4 6721 2 2
+/.env 4 8804 3 3
+/api/today-tensors 3 66 0 0
+/traffic-lights/create 3 81948 0 0
+/password/reset 3 3552 0 1
+/regulator-boxes 3 17841 0 0
+/api/today-regulators 3 66 0 0
+/traffic-lights/5444 3 13021 0 0
+/workorders 3 9583 0 0
+/api/today-poles 3 66 0 0
+/alerts/create 2 48766 0 0
+/regulator-boxes/620 2 10152 0 0
+/fonts/vendor/font-awesome/fontawesome-webfont.woff2 2 154324 0 0
+/alerts 2 6523 0 0
+/reports 2 6457 0 0
+/traffic-lights/5444/audit 1 2540 0 0
+/vertical-signals 1 6226 0 0
+/vertical-signals/66515/edit 1 11809 0 0
+/traffic-poles/create 1 16009 0 0
+/traffic-lights/5444/edit 1 15898 0 0
+/intersections 1 5509 0 0
+/symlink.php 1 24 0 0
+/regulator-devices 1 6329 0 0
+/regulator-devices/create 1 14618 0 0
+/limpiar_cache 1 0 1 0
+END_SIDER

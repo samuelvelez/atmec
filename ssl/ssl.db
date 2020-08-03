@@ -1,0 +1,89 @@
+--- 
+files: 
+  certificate: 
+    atm_ec_com_a4f78_4e821_1620426867_5865cc86a92f29f4291c5afe1c58821f: 
+      created: '1588890867'
+      domains: 
+        - atm-ec.com
+        - mail.atm-ec.com
+        - www.atm-ec.com
+        - cpanel.atm-ec.com
+        - webmail.atm-ec.com
+        - webdisk.atm-ec.com
+        - cpcontacts.atm-ec.com
+        - cpcalendars.atm-ec.com
+        - autodiscover.atm-ec.com
+      friendly_name: Cert for “atm-ec.com”
+      id: atm_ec_com_a4f78_4e821_1620426867_5865cc86a92f29f4291c5afe1c58821f
+      is_self_signed: 1
+      issuer.commonName: atm-ec.com
+      issuer.organizationName: ~
+      modulus: a4f7894dec5a8f63c2bbb002ffcbcbd9615055a0cb2beb9d9f4394b1eb5b7e3ed8f32a4eb6296d30f8b13d19900accd7f0cab2d4dd4e09b141887377c6271f734c631aa62c12226ccf4659d5dc3ff6ca384176d5ed62f8b19c66220ab617ffdab1e85934bdbe329f67b4ce750450fecf788f466ad3f47f621139327a012391e24fce9884b4b0005f2deab665a13a0360b2e73484ed54518105219107d8353398f560008744f0fe8b0189be40d17561a98d51f7c3eb99d74715a2c005bdfe57f656c78aef98dd93bd94ef3c781e749d0cbc95af9d76927e5d6dbc6c31dea668753d480896961bca99f8ec916737b6a39279e36d2cf22f536d21fc24388994e821
+      modulus_length: 2048
+      not_after: '1620426867'
+      not_before: '1588890867'
+      serial: 0120d184a2
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: atm-ec.com
+      validation_type: ~
+    atm_ec_com_d1f39_528ff_1598918399_726a5d412a786f344a64032747e0fad6: 
+      created: '1591083189'
+      domains: 
+        - atm-ec.com
+        - autodiscover.atm-ec.com
+        - cpanel.atm-ec.com
+        - cpcalendars.atm-ec.com
+        - cpcontacts.atm-ec.com
+        - mail.atm-ec.com
+        - webdisk.atm-ec.com
+        - webmail.atm-ec.com
+        - www.atm-ec.com
+      friendly_name: Cert for “atm-ec.com” 1591083189.0
+      id: atm_ec_com_d1f39_528ff_1598918399_726a5d412a786f344a64032747e0fad6
+      is_self_signed: 0
+      issuer.commonName: cPanel, Inc. Certification Authority
+      issuer.organizationName: cPanel, Inc.
+      modulus: d1f39a4cd8166a6fb9524044dbe7a4e5bc61cbf40c400c02ce30fdd78f3ab817e7ea52fdb9936e02a4de298c36cde1b54bdd657643665dcd4076e3712796c0fd27da982c319ee7d5484527025f4a320473b54e80d57bd5ef9fd41306e06b864e61345cc5ce2dfa2da7cc269a050d2c7a7ffe620112ff1ec08d07533f3e7e8676a560435c7be17dcff9ca05f92d3afecafa17aba62b724cb724482ec7d8460e0ed0c37f7202ec13a23eab5c1a93a7ffbfb61348a55365bd038550eb18b866784dab82cdcef194fa61821eb9f7d686dd5b68e53c914c01dd3d4d1a34dd1c2570d39b5e6ccb9bc0d0b42f6e3ac294834035bb8398ec51feb7fd0cb9d65695c528ff
+      modulus_length: 2048
+      not_after: '1598918399'
+      not_before: '1591056000'
+      serial: 9f5966902ccbaaf5260caab1d0e697ff
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: atm-ec.com
+      validation_type: dv
+  key: 
+    a4f78_4e821_5cb823d07de6ef745db1857065fd20d4: 
+      created: '1588890867'
+      friendly_name: Key for “atm-ec.com”
+      id: a4f78_4e821_5cb823d07de6ef745db1857065fd20d4
+      modulus: a4f7894dec5a8f63c2bbb002ffcbcbd9615055a0cb2beb9d9f4394b1eb5b7e3ed8f32a4eb6296d30f8b13d19900accd7f0cab2d4dd4e09b141887377c6271f734c631aa62c12226ccf4659d5dc3ff6ca384176d5ed62f8b19c66220ab617ffdab1e85934bdbe329f67b4ce750450fecf788f466ad3f47f621139327a012391e24fce9884b4b0005f2deab665a13a0360b2e73484ed54518105219107d8353398f560008744f0fe8b0189be40d17561a98d51f7c3eb99d74715a2c005bdfe57f656c78aef98dd93bd94ef3c781e749d0cbc95af9d76927e5d6dbc6c31dea668753d480896961bca99f8ec916737b6a39279e36d2cf22f536d21fc24388994e821
+      modulus_length: 2048
+    d1f39_528ff_1359d61b6412237d1118285aa38a211a: 
+      created: '1591083189'
+      friendly_name: Key for “atm-ec.com” 1591083189.0
+      id: d1f39_528ff_1359d61b6412237d1118285aa38a211a
+      modulus: d1f39a4cd8166a6fb9524044dbe7a4e5bc61cbf40c400c02ce30fdd78f3ab817e7ea52fdb9936e02a4de298c36cde1b54bdd657643665dcd4076e3712796c0fd27da982c319ee7d5484527025f4a320473b54e80d57bd5ef9fd41306e06b864e61345cc5ce2dfa2da7cc269a050d2c7a7ffe620112ff1ec08d07533f3e7e8676a560435c7be17dcff9ca05f92d3afecafa17aba62b724cb724482ec7d8460e0ed0c37f7202ec13a23eab5c1a93a7ffbfb61348a55365bd038550eb18b866784dab82cdcef194fa61821eb9f7d686dd5b68e53c914c01dd3d4d1a34dd1c2570d39b5e6ccb9bc0d0b42f6e3ac294834035bb8398ec51feb7fd0cb9d65695c528ff
+      modulus_length: 2048
+indexes: 
+  certificate: 
+    modulus: 
+      a4f7894dec5a8f63c2bbb002ffcbcbd9615055a0cb2beb9d9f4394b1eb5b7e3ed8f32a4eb6296d30f8b13d19900accd7f0cab2d4dd4e09b141887377c6271f734c631aa62c12226ccf4659d5dc3ff6ca384176d5ed62f8b19c66220ab617ffdab1e85934bdbe329f67b4ce750450fecf788f466ad3f47f621139327a012391e24fce9884b4b0005f2deab665a13a0360b2e73484ed54518105219107d8353398f560008744f0fe8b0189be40d17561a98d51f7c3eb99d74715a2c005bdfe57f656c78aef98dd93bd94ef3c781e749d0cbc95af9d76927e5d6dbc6c31dea668753d480896961bca99f8ec916737b6a39279e36d2cf22f536d21fc24388994e821: 
+        atm_ec_com_a4f78_4e821_1620426867_5865cc86a92f29f4291c5afe1c58821f: ~
+      d1f39a4cd8166a6fb9524044dbe7a4e5bc61cbf40c400c02ce30fdd78f3ab817e7ea52fdb9936e02a4de298c36cde1b54bdd657643665dcd4076e3712796c0fd27da982c319ee7d5484527025f4a320473b54e80d57bd5ef9fd41306e06b864e61345cc5ce2dfa2da7cc269a050d2c7a7ffe620112ff1ec08d07533f3e7e8676a560435c7be17dcff9ca05f92d3afecafa17aba62b724cb724482ec7d8460e0ed0c37f7202ec13a23eab5c1a93a7ffbfb61348a55365bd038550eb18b866784dab82cdcef194fa61821eb9f7d686dd5b68e53c914c01dd3d4d1a34dd1c2570d39b5e6ccb9bc0d0b42f6e3ac294834035bb8398ec51feb7fd0cb9d65695c528ff: 
+        atm_ec_com_d1f39_528ff_1598918399_726a5d412a786f344a64032747e0fad6: ~
+    subject.commonName: 
+      atm-ec.com: 
+        atm_ec_com_a4f78_4e821_1620426867_5865cc86a92f29f4291c5afe1c58821f: ~
+        atm_ec_com_d1f39_528ff_1598918399_726a5d412a786f344a64032747e0fad6: ~
+uniques: 
+  certificate: 
+    friendly_name: 
+      Cert for “atm-ec.com”: atm_ec_com_a4f78_4e821_1620426867_5865cc86a92f29f4291c5afe1c58821f
+      Cert for “atm-ec.com” 1591083189.0: atm_ec_com_d1f39_528ff_1598918399_726a5d412a786f344a64032747e0fad6
+  key: 
+    friendly_name: 
+      Key for “atm-ec.com”: a4f78_4e821_5cb823d07de6ef745db1857065fd20d4
+      Key for “atm-ec.com” 1591083189.0: d1f39_528ff_1359d61b6412237d1118285aa38a211a
+    modulus: 
+      a4f7894dec5a8f63c2bbb002ffcbcbd9615055a0cb2beb9d9f4394b1eb5b7e3ed8f32a4eb6296d30f8b13d19900accd7f0cab2d4dd4e09b141887377c6271f734c631aa62c12226ccf4659d5dc3ff6ca384176d5ed62f8b19c66220ab617ffdab1e85934bdbe329f67b4ce750450fecf788f466ad3f47f621139327a012391e24fce9884b4b0005f2deab665a13a0360b2e73484ed54518105219107d8353398f560008744f0fe8b0189be40d17561a98d51f7c3eb99d74715a2c005bdfe57f656c78aef98dd93bd94ef3c781e749d0cbc95af9d76927e5d6dbc6c31dea668753d480896961bca99f8ec916737b6a39279e36d2cf22f536d21fc24388994e821: a4f78_4e821_5cb823d07de6ef745db1857065fd20d4
+      d1f39a4cd8166a6fb9524044dbe7a4e5bc61cbf40c400c02ce30fdd78f3ab817e7ea52fdb9936e02a4de298c36cde1b54bdd657643665dcd4076e3712796c0fd27da982c319ee7d5484527025f4a320473b54e80d57bd5ef9fd41306e06b864e61345cc5ce2dfa2da7cc269a050d2c7a7ffe620112ff1ec08d07533f3e7e8676a560435c7be17dcff9ca05f92d3afecafa17aba62b724cb724482ec7d8460e0ed0c37f7202ec13a23eab5c1a93a7ffbfb61348a55365bd038550eb18b866784dab82cdcef194fa61821eb9f7d686dd5b68e53c914c01dd3d4d1a34dd1c2570d39b5e6ccb9bc0d0b42f6e3ac294834035bb8398ec51feb7fd0cb9d65695c528ff: d1f39_528ff_1359d61b6412237d1118285aa38a211a

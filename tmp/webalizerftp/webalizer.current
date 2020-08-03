@@ -1,0 +1,2133 @@
+# Webalizer V2.23-08 Incremental Data - 01/28/2020 16:25:58
+2020 1 28 16 25 58
+1482 1482 3 1000 0 0 127614108 19 1 2
+2 1 1077 12 28
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+32 32 92514 1 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+1450 1450 127521594 2 19 1
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+2 2 54943652 0
+4 4 58734483 0
+28 28 53489 0
+338 338 1228328 0
+1077 1077 12547939 19
+0 0 0 0
+2 2 28815 0
+0 0 0 0
+31 31 77402 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0
+0
+0
+1482
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+# -urls- 
+/home/atmdeveqadoor/resources/views/partials/search-regulator-devices-form.blade.php
+0 1 7638992 1766 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravelblocker/deleted/
+0 1 0 5082 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_11I.png
+0 1 7704624 5233 0 0
+/home/atmdeveqadoor/config/laravel2step.php
+0 1 7601040 2748 0 0
+/home/atmdeveqadoor/app/Console/Kernel.php
+0 12 7580736 13416 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_2I.png
+0 1 7712896 4168 0 0
+/home/atmdeveqadoor/app/Models/Profile.php
+0 4 7592944 4272 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-14_c.png
+0 1 7724624 1346 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_5.png
+0 1 7720816 18593 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/destroy-sm.blade.php
+0 1 0 802 0 0
+/home/atmdeveqadoor/resources/assets/scss/laravel2step/_variables.scss
+0 2 0 592 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R6_-_2.png
+0 1 7733920 18023 0 0
+/home/atmdeveqadoor/database/migrations/2014_10_12_100000_create_password_resets_table.php
+0 1 7603936 730 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/S1_-_P.png
+0 1 7672096 1542 0 0
+/home/atmdeveqadoor/config/app.php
+0 1 7599328 10216 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_18_a.png
+0 1 7706912 8316 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_21.png
+0 1 7696528 5820 0 0
+/home/atmdeveqadoor/database/migrations/2016_01_26_115212_create_permissions_table.php
+0 2 7602896 2446 0 0
+/home/atmdeveqadoor/resources/views/signal-groups/
+0 1 7650336 2810 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-vsignals.blade.php
+0 1 0 6623 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-_2.png
+0 1 7722512 2230 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_6.png
+0 1 7693536 4855 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_11.png
+0 1 7712368 5800 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/S3.png
+0 1 0 509 0 0
+/home/atmdeveqadoor/resources/views/scripts/tooltips.blade.php
+0 1 0 254 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_12.png
+0 1 7698464 3835 0 0
+/home/atmdeveqadoor/config/queue.php
+0 1 7601856 2715 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_9.png
+0 1 7732160 6289 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_36.png
+0 1 7686496 5623 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_19_i.png
+0 1 7708496 3692 0 0
+/home/atmdeveqadoor/resources/views/vendor/notifications/email.blade.php
+0 1 7665264 1081 0 0
+/home/atmdeveqadoor/app/Models/Social.php
+0 4 7594096 1284 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_8D.png
+0 1 7710608 2953 0 0
+/home/atmdeveqadoor/app/Traits/ReadedByOperator.php
+0 3 7598336 939 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_6.png
+0 1 7718528 16451 0 0
+/home/atmdeveqadoor/app/Models/TrafficDevice.php
+0 4 7594528 13236 0 0
+/home/atmdeveqadoor/database/migrations/2019_12_10_151231_create_itorder_table.php
+0 1 7609904 752 0 0
+/home/atmdeveqadoor/app/Models/Alert.php
+0 4 7591072 6932 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D4_-_1.png
+0 1 7675952 1306 0 0
+/home/atmdeveqadoor/app/Models/MaterialReport.php
+0 3 7592080 3063 0 0
+/home/atmdeveqadoor/resources/lang/vendor/laravel2step/en/laravel-verification.php
+0 1 7628416 1863 0 0
+/home/atmdeveqadoor/resources/views/ito-templates/show.blade.php
+0 1 0 7694 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_5I.png
+0 1 7709904 2741 0 0
+/home/atmdeveqadoor/resources/views/scripts/resize-image-before-upload-rb.blade.php
+0 1 7647136 1684 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_14I.png
+0 1 7705680 3302 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_11_I_o_D.png
+0 1 7678928 5432 0 0
+/home/atmdeveqadoor/resources/views/devices-inventory/show-device-inventories.blade.php
+0 1 7631168 7063 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/promotion/button.blade.php
+0 1 7664912 26 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_34.png
+0 1 7686144 4470 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R1-1.png
+0 1 0 4889 0 0
+/home/atmdeveqadoor/database/migrations/2019_12_11_152007_create_material_report_table.php
+0 1 7610800 1147 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_6.png
+0 1 7713600 5813 0 0
+/home/atmdeveqadoor/config/hashing.php
+0 1 7600912 524 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_5.png
+0 1 7700752 5757 0 0
+/home/atmdeveqadoor/resources/lang/es/forms.php
+0 1 7623968 17956 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_4.png
+0 1 7718000 5419 0 0
+/home/atmdeveqadoor/database/seeds/BlockedTypeTableSeeder.php
+0 1 0 2097 0 0
+/home/atmdeveqadoor/resources/views/devices-inventory/edit-device-inventory.blade.php
+0 1 7630992 13693 0 0
+/home/atmdeveqadoor/resources/assets/sass/_forms.scss
+0 2 0 6804 0 0
+/home/atmdeveqadoor/resources/assets/sass/_wells.scss
+0 2 0 1936 0 0
+/home/atmdeveqadoor/resources/views/scripts/edit-modal-script.blade.php
+0 1 0 557 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D6_-_1I_o_D.png
+0 1 7677008 1695 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_7_I_o_D-fn.png
+0 1 7680336 5683 0 0
+/home/atmdeveqadoor/public_html/css/app.css
+0 2 7621440 485288 0 0
+/home/atmdeveqadoor/resources/views/errors/419.blade.php
+0 1 0 1144 0 0
+/home/atmdeveqadoor/resources/views/vendor/pagination/simple-bootstrap-4.blade.php
+0 1 7665776 782 0 0
+/home/atmdeveqadoor/resources/views/partials/errors.blade.php
+0 1 0 368 0 0
+/home/atmdeveqadoor/resources/lang/es/device-inventory.php
+0 1 0 3944 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_5.png
+0 1 7729696 8323 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_11.png
+0 1 7715888 14793 0 0
+/home/atmdeveqadoor/app/Http/Controllers/UsersManagementController.php
+0 4 0 34760 0 0
+/home/atmdeveqadoor/app/Models/ItorderMaterial.php
+0 4 7591792 5852 0 0
+/home/atmdeveqadoor/app/Http/Controllers/SignalInventoryController.php
+0 4 0 48348 0 0
+/home/atmdeveqadoor/resources/views/scripts/gmaps-report-create.blade.php
+0 1 7645728 5487 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P3_-_2.png
+0 1 7711488 6746 0 0
+/home/atmdeveqadoor/storage/framework/sessions/.gitkeep
+0 1 7739024 0 0 0
+/home/atmdeveqadoor/public_html/images/icons/pole.png
+0 2 7620000 502 0 0
+/home/atmdeveqadoor/public_html/images/wink.png
+0 2 7619568 796 0 0
+/home/atmdeveqadoor/app/Http/Controllers/GeoReportsController.php
+0 4 0 54520 0 0
+/home/atmdeveqadoor/resources/assets/sass/_socials.scss
+0 2 0 2698 0 0
+/home/atmdeveqadoor/app/Models/VerticalSignal.php
+0 4 7595232 12828 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/partials/item-note-input.blade.php
+0 1 7659088 1209 0 0
+/home/atmdeveqadoor/resources/views/themesmanagement/add-theme.blade.php
+0 1 7652752 7281 0 0
+/home/atmdeveqadoor/app/Http/Controllers/SignalGroupController.php
+0 4 0 17944 0 0
+/home/atmdeveqadoor/resources/views/devices-inventory/create-device-inventory.blade.php
+0 1 7630816 9052 0 0
+/home/atmdeveqadoor/resources/views/traffic-poles/traffic-poles-table.blade.php
+0 1 7655216 3118 0 0
+/home/atmdeveqadoor/resources/views/scripts/google-maps-save-pdf.blade.php
+0 1 7646784 3725 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_10.png
+0 1 7727408 6563 0 0
+/home/atmdeveqadoor/database/migrations/2016_01_26_115523_create_permission_role_table.php
+0 1 7604304 1372 0 0
+/home/atmdeveqadoor/database/migrations/2019_08_16_195338_create_metric_units_table.php
+0 1 7608816 755 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_8_I_o_D.png
+0 1 7680688 24387 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_4D.png
+0 1 7709376 4815 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_1I.png
+0 1 7701632 2657 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-8.png
+0 1 0 12366 0 0
+/home/atmdeveqadoor/resources/views/motives/edit.blade.php
+0 1 0 3718 0 0
+/home/atmdeveqadoor/resources/assets/js/bootstrap.js
+0 3 0 5940 0 0
+/home/atmdeveqadoor/resources/lang/es/metric-units.php
+0 1 7624688 2455 0 0
+/home/atmdeveqadoor/database/migrations/2019_12_11_092414_create_reports_table.php
+0 1 7610448 1641 0 0
+/home/atmdeveqadoor/resources/views/traffic-tensors/show-traffic-tensor.blade.php
+0 2 7655744 25590 0 0
+/home/atmdeveqadoor/app/Http/Controllers/Auth/ActivateController.php
+0 4 0 35796 0 0
+/home/atmdeveqadoor/resources/views/partials/search-devices-inventory-form.blade.php
+0 1 7638464 1730 0 0
+/home/atmdeveqadoor/resources/lang/es/ito-templates.php
+0 1 7624400 2671 0 0
+/home/atmdeveqadoor/resources/views/modals/modal-vsignal.blade.php
+0 1 0 5000 0 0
+/home/atmdeveqadoor/app/Http/Middleware/EncryptCookies.php
+0 4 0 1200 0 0
+/home/atmdeveqadoor/database/migrations/2019_12_10_082114_create_itorder_template_table.php
+0 1 7609520 720 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_12.png
+0 1 7712544 4183 0 0
+/home/atmdeveqadoor/app/Models/Status.php
+0 4 7594240 3064 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/S2.png
+0 1 0 1517 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_46.png
+0 1 7688432 4845 0 0
+/home/atmdeveqadoor/public_html/fonts/glyphicons-halflings-regular.svg
+0 2 0 217476 0 0
+/home/atmdeveqadoor/app/Traits/CaptureIpTrait.php
+0 4 7598048 3364 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_7.png
+0 1 7730048 15877 0 0
+/home/atmdeveqadoor/resources/views/metric-units/
+0 1 7635776 5823 0 0
+/home/atmdeveqadoor/resources/assets/sass/_panels.scss
+0 2 0 1676 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_7.png
+0 1 7718704 10912 0 0
+/home/atmdeveqadoor/app/Models/TrafficLight.php
+0 4 7594672 15284 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P3_-_1.png
+0 1 7711312 5886 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_3.png
+0 1 7736384 14032 0 0
+/home/atmdeveqadoor/app/Logic/Activation/ActivationRepository.php
+0 4 0 8552 0 0
+/home/atmdeveqadoor/database/seeds/StatusSeeder.php
+0 1 7615312 467 0 0
+/home/atmdeveqadoor/resources/views/errors/503.blade.php
+0 1 0 1222 0 0
+/home/atmdeveqadoor/resources/lang/es/modals.php
+0 1 7624832 1113 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_19.png
+0 1 7717472 8734 0 0
+/home/atmdeveqadoor/app/Models/Itorder.php
+0 4 7591648 3524 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-14_d.png
+0 1 7724800 3103 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_11.png
+0 1 7690016 5471 0 0
+/home/atmdeveqadoor/resources/lang/es/priorities.php
+0 1 7625552 2234 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_10.png
+0 1 7681744 18327 0 0
+/home/atmdeveqadoor/resources/assets/sass/_typography.scss
+0 2 0 744 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_14.png
+0 1 7682448 4617 0 0
+/home/atmdeveqadoor/public_html/css/laravel2step/app.css
+0 1 0 2940 0 0
+/home/atmdeveqadoor/resources/assets/sass/_user-profile.scss
+0 2 0 1562 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D5_-_3.png
+0 1 7676480 1412 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P5_-_3.png
+0 1 7714656 7691 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_47.png
+0 1 7688608 3814 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_2.png
+0 1 7699872 4944 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_5.png
+0 1 7731456 5951 0 0
+/home/atmdeveqadoor/config/debugbar.php
+0 1 7600240 139 0 0
+/home/atmdeveqadoor/database/seeds/DatabaseSeeder.php
+0 1 7613152 1252 0 0
+/home/atmdeveqadoor/app/Models/Novelty.php
+0 4 7592656 1260 0 0
+/home/atmdeveqadoor/database/migrations/2019_10_08_063819_create_audits_table.php
+0 1 7609344 1146 0 0
+/home/atmdeveqadoor/resources/views/signalsinventory/create-signal-inventory.blade.php
+0 1 7651584 22175 0 0
+/home/atmdeveqadoor/app/Http/Controllers/ItorderController.php
+0 4 0 24468 0 0
+/home/atmdeveqadoor/app/Http/Requests/UpdateUserPasswordRequest.php
+0 4 0 3972 0 0
+/home/atmdeveqadoor/resources/views/scripts/google-maps-geocode-and-map.blade.php
+0 1 7646432 2026 0 0
+/home/atmdeveqadoor/app/Http/Controllers/VerticalSignalController.php
+0 4 0 57492 0 0
+/home/atmdeveqadoor/config/logging.php
+0 1 7601472 1983 0 0
+/home/atmdeveqadoor/config/filesystems.php
+0 1 7600640 2441 0 0
+/home/atmdeveqadoor/database/seeds/MotiveSeeder.php
+0 1 7613776 467 0 0
+/home/atmdeveqadoor/database/scripts/motive.sql
+0 1 7611616 1828 0 0
+/home/atmdeveqadoor/config/laravelPhpInfo.php
+0 1 7601328 1008 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I3_-_2.png
+0 1 7681392 11792 0 0
+/home/atmdeveqadoor/public_html/fonts/fontawesome-webfont.woff
+0 2 0 196048 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-14_e-fn.png
+0 1 7724976 9708 0 0
+/home/atmdeveqadoor/database/migrations/2017_03_21_042918_create_profiles_table.php
+0 1 7605232 1221 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/T2.png
+0 1 0 2673 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P3_-_5.png
+0 1 7711840 4215 0 0
+/home/atmdeveqadoor/database/migrations/2019_06_19_064529_create_signal_variations_table.php
+0 1 7606944 993 0 0
+/home/atmdeveqadoor/resources/views/traffic-lights/create-traffic-light.blade.php
+0 1 7653632 36664 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_8.png
+0 1 7721344 8344 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_42.png
+0 1 7687728 3741 0 0
+/home/atmdeveqadoor/resources/lang/es/reports.php
+0 2 7626160 6248 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R5_-_4.png
+0 1 7733040 13689 0 0
+/home/atmdeveqadoor/database/migrations/2019_08_14_181234_create_statuses_table.php
+0 1 7608640 689 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_12.png
+0 1 7694768 7207 0 0
+/home/atmdeveqadoor/app/Models/Theme.php
+0 4 7594384 6124 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R6_-_1.png
+0 1 7733744 2932 0 0
+/home/atmdeveqadoor/public_html/images/ajax-loader.gif
+0 2 7618848 17642 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R5_-_3.png
+0 1 7732864 5002 0 0
+/home/atmdeveqadoor/resources/views/modals/modal-regulator.blade.php
+0 1 0 3444 0 0
+/home/atmdeveqadoor/resources/views/signal-groups/edit.blade.php
+0 1 0 5345 0 0
+/home/atmdeveqadoor/resources/assets/sass/_margins.scss
+0 2 0 2084 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_2D.png
+0 1 7712720 3896 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_6.png
+0 1 7736912 14557 0 0
+/home/atmdeveqadoor/database/migrations/2019_07_26_224854_create_pole_tensor_table.php
+0 2 7603440 1832 0 0
+/home/atmdeveqadoor/app/Http/Middleware/TrimStrings.php
+0 4 7588896 1368 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/PP1.png
+0 1 0 1515 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_3.png
+0 1 7696704 7180 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_4.png
+0 1 7731280 11362 0 0
+/home/atmdeveqadoor/app/Providers/RouteServiceProvider.php
+0 4 0 6176 0 0
+/home/atmdeveqadoor/config/gravatar.php
+0 1 7600784 1849 0 0
+/home/atmdeveqadoor/resources/views/usersmanagement/show-users.blade.php
+0 1 7656944 9499 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_7.png
+0 1 7713776 6169 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/header.blade.php
+0 1 7663680 26 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/ER3.png
+0 1 0 3110 0 0
+/home/atmdeveqadoor/resources/views/pages/admin/active-users.blade.php
+0 1 0 195 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_24.png
+0 1 7692480 5627 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_16.png
+0 1 7716768 17081 0 0
+/home/atmdeveqadoor/resources/lang/es/validation.php
+0 1 7627968 6302 0 0
+/home/atmdeveqadoor/resources/views/itorders/create.blade.php
+0 1 0 15920 0 0
+/home/atmdeveqadoor/storage/app/public_html/workorders/.gitkeep
+0 1 0 0 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_24.png
+0 1 7684384 6752 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/lights/.gitignore
+0 2 0 46 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D1_-_1.png
+0 1 7675072 6265 0 0
+/home/atmdeveqadoor/resources/views/errors/404.blade.php
+0 1 0 1209 0 0
+/home/atmdeveqadoor/app/Http/Controllers/SignalSubgroupController.php
+0 4 0 21804 0 0
+/home/atmdeveqadoor/resources/assets/sass/_logs.scss
+0 2 0 714 0 0
+/home/atmdeveqadoor/resources/views/emails/exception.blade.php
+0 2 0 32 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_10.png
+0 1 7736032 15751 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_5_b.png
+0 1 7718352 7803 0 0
+/home/atmdeveqadoor/app/Models/ItorderTemplate.php
+0 3 7591936 2409 0 0
+/home/atmdeveqadoor/resources/views/itorders/
+0 1 7635152 6285 0 0
+/home/atmdeveqadoor/resources/views/auth/exceeded.blade.php
+0 1 0 520 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_15.png
+0 1 7695296 5802 0 0
+/home/atmdeveqadoor/public_html/fonts/fontawesome-webfont.svg
+0 2 0 888758 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_17.png
+0 1 7716944 10088 0 0
+/home/atmdeveqadoor/config/cache.php
+0 1 7599984 2633 0 0
+/home/atmdeveqadoor/database/migrations/2019_06_19_064528_create_signals_inventory_table.php
+0 1 7606752 1428 0 0
+/home/atmdeveqadoor/database/scripts/devices_inventory.sql
+0 1 0 7596 0 0
+/home/atmdeveqadoor/resources/views/georeports/filters/geo-filter.blade.php
+0 1 7632800 16293 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R6_-_3.png
+0 1 7734096 2686 0 0
+/home/atmdeveqadoor/resources/views/themesmanagement/show-themes.blade.php
+0 1 7653280 7275 0 0
+/home/atmdeveqadoor/resources/lang/es/usersmanagement.php
+0 1 0 6457 0 0
+/home/atmdeveqadoor/resources/views/alerts/
+0 1 7629552 7858 0 0
+/home/atmdeveqadoor/resources/views/traffic-lights/show-traffic-lights.blade.php
+0 1 7654160 3792 0 0
+/home/atmdeveqadoor/resources/views/partials/search-traffic-poles-form.blade.php
+0 1 7639520 1718 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_6I.png
+0 1 7710256 2762 0 0
+/home/atmdeveqadoor/app/Traits/ReadedByCollector.php
+0 3 7598192 951 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D5_-_4.png
+0 1 7676656 1933 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D6_-_1I_o_D-fn.png
+0 1 7676832 5820 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/ER2_-_1-fn.png
+0 1 7678064 15916 0 0
+/home/atmdeveqadoor/resources/views/modals/modal-light.blade.php
+0 1 0 4955 0 0
+/home/atmdeveqadoor/resources/views/ito-templates/create.blade.php
+0 1 0 13169 0 0
+/home/atmdeveqadoor/resources/views/partials/search-traffic-tensors-form.blade.php
+0 1 7639696 1742 0 0
+/home/atmdeveqadoor/resources/views/errors/403.blade.php
+0 1 0 1151 0 0
+/home/atmdeveqadoor/resources/views/vendor/pagination/bootstrap-4.blade.php
+0 1 7665440 1502 0 0
+/home/atmdeveqadoor/config/view.php
+0 1 7602640 1004 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_5I.png
+0 1 7703040 2776 0 0
+/home/atmdeveqadoor/resources/assets/sass/app.scss
+0 2 0 1778 0 0
+/home/atmdeveqadoor/routes/channels.php
+0 1 7669632 620 0 0
+/home/atmdeveqadoor/storage/app/public_html/reports/.gitignore
+0 2 0 46 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_7.png
+0 1 7693712 4954 0 0
+/home/atmdeveqadoor/config/broadcasting.php
+0 1 7599840 1617 0 0
+/home/atmdeveqadoor/resources/views/scripts/google-maps-atm-edit.blade.php
+0 1 7646080 3328 0 0
+/home/atmdeveqadoor/app/Http/Controllers/WelcomeController.php
+0 3 0 792 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_19.png
+0 1 7683328 4998 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.woff
+0 2 7617744 46848 0 0
+/home/atmdeveqadoor/resources/assets/scss/laravel2step/_mixins.scss
+0 2 0 900 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_6D.png
+0 1 7703216 2973 0 0
+/home/atmdeveqadoor/storage/framework/views/.gitkeep
+0 1 7739312 0 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_18.png
+0 1 7683152 6137 0 0
+/home/atmdeveqadoor/config/models.php
+0 1 7601728 10833 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-_6I.png
+0 1 7723392 1524 0 0
+/home/atmdeveqadoor/app/Http/Controllers/DeviceInventoryController.php
+0 6 0 41646 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-traffic-tensors.blade.php
+0 1 7648880 6207 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/themes/default.css
+0 1 0 4413 0 0
+/home/atmdeveqadoor/public_html/fonts/fontawesome-webfont.ttf
+0 2 0 331096 0 0
+/home/atmdeveqadoor/database/migrations/2019_12_14_164950_create_workorders_table.php
+0 1 7610992 1636 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_5.png
+0 1 7736736 15363 0 0
+/home/atmdeveqadoor/app/Http/Controllers/StatusController.php
+0 3 0 10446 0 0
+/home/atmdeveqadoor/resources/views/reports/edit.blade.php
+0 1 0 34719 0 0
+/home/atmdeveqadoor/app/Providers/LocalEnvironmentServiceProvider.php
+0 4 0 5928 0 0
+/home/atmdeveqadoor/database/scripts/intersections.sql
+0 1 7611328 200746 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_25.png
+0 1 7692656 4118 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_1.png
+0 1 7715536 4533 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_1.png
+0 1 7678576 4738 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_3.png
+0 1 7720464 16042 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravel-log-viewer/log.blade.php
+0 1 7659616 4756 0 0
+/home/atmdeveqadoor/resources/assets/scss/laravel2step/app.scss
+0 2 0 206 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_18.png
+0 1 7707088 4799 0 0
+/home/atmdeveqadoor/resources/views/verticalsignals/create-vertical-signal.blade.php
+0 1 7668016 26377 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/destroy-full.blade.php
+0 1 0 816 0 0
+/home/atmdeveqadoor/resources/views/alerts/edit.blade.php
+0 2 0 24118 0 0
+/home/atmdeveqadoor/resources/views/partials/search-signals-inventory-form.blade.php
+0 1 7639168 1736 0 0
+/home/atmdeveqadoor/storage/app/public_html/lights/.gitkeep
+0 1 0 0 0 0
+/home/atmdeveqadoor/app/Http/Controllers/SoftDeletesController.php
+0 4 0 8904 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-19_a.png
+0 1 7726032 7160 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_9.png
+0 1 7719056 10439 0 0
+/home/atmdeveqadoor/resources/views/signal-subgroups/table.blade.php
+0 1 0 3301 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_7.png
+0 1 7731808 6318 0 0
+/home/atmdeveqadoor/resources/lang/es/traffic-poles.php
+0 1 7627504 4314 0 0
+/home/atmdeveqadoor/database/seeds/RolesTableSeeder.php
+0 1 7614368 2550 0 0
+/home/atmdeveqadoor/app/Exports/BaseExport.php
+0 6 7581024 12672 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_19_d.png
+0 1 7707616 5535 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_43.png
+0 1 7687904 4730 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D5_-_1.png
+0 1 7676128 1835 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/S3_-_G.png
+0 1 7673120 1760 0 0
+/home/atmdeveqadoor/resources/views/partials/search-vsignals-form.blade.php
+0 1 7640048 1708 0 0
+/home/atmdeveqadoor/database/migrations/2019_06_18_143339_create_configurations_table.php
+0 1 7605792 820 0 0
+/home/atmdeveqadoor/resources/lang/es/emails.php
+0 1 7623824 1307 0 0
+/home/atmdeveqadoor/storage/logs/.gitkeep
+0 1 7739600 0 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_16.png
+0 1 7690896 7237 0 0
+/home/atmdeveqadoor/app/Exports/VerticalSignalExport.php
+0 4 0 4636 0 0
+/home/atmdeveqadoor/app/Traits/ActivationTrait.php
+0 4 7597760 2888 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_5_I_o_D.png
+0 1 7679984 5212 0 0
+/home/atmdeveqadoor/resources/lang/es/alerts.php
+0 1 7623376 2998 0 0
+/home/atmdeveqadoor/resources/views/traffic-lights/audit-traffic-light.blade.php
+0 1 7653456 4391 0 0
+/home/atmdeveqadoor/app/Traits/CaptchaTrait.php
+0 4 7597904 2060 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-13.png
+0 1 7724096 12976 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_2-fn.png
+0 1 7679104 5249 0 0
+/home/atmdeveqadoor/resources/views/home.blade.php
+0 1 7628944 392 0 0
+/home/atmdeveqadoor/resources/views/vendor/partials/blocked-items-table.blade.php
+0 1 7666128 6548 0 0
+/home/atmdeveqadoor/vendor.zip
+0 1 7575920 21777196 0 0
+/home/atmdeveqadoor/app/Http/Controllers/ThemesManagementController.php
+0 4 0 17380 0 0
+/home/atmdeveqadoor/resources/views/devices-inventory/show-device-inventory.blade.php
+0 1 7631344 6638 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_4.png
+0 1 7713248 4311 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_15D.png
+0 1 7705856 2465 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/table.blade.php
+0 1 7664736 12 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravel2step/twostep/exceeded.blade.php
+0 1 7660160 1987 0 0
+/home/atmdeveqadoor/app/Http/Controllers/MotiveController.php
+0 4 0 13848 0 0
+/home/atmdeveqadoor/resources/lang/es/pagination.php
+0 1 7625120 543 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_6D.png
+0 1 7710080 2744 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_14.png
+0 1 7716416 12215 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_21.png
+0 1 7700224 4312 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_2D.png
+0 1 7701808 2350 0 0
+/home/atmdeveqadoor/resources/views/regulator-boxes/show-regulator-box.blade.php
+0 4 7642352 70472 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_4.png
+0 1 7693184 6644 0 0
+/home/atmdeveqadoor/resources/views/traffic-poles/create-traffic-pole.blade.php
+0 1 7654512 17621 0 0
+/home/atmdeveqadoor/resources/views/scripts/check-changed.blade.php
+0 1 0 823 0 0
+/home/atmdeveqadoor/public_html/fonts/glyphicons-halflings-regular.eot
+0 2 0 40254 0 0
+/home/atmdeveqadoor/app/Exceptions/Handler.php
+0 5 7580880 19435 0 0
+/home/atmdeveqadoor/public_html/css/laravel2step/app.min.css
+0 2 0 4832 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/font-awesome/fontawesome-webfont.svg
+0 2 7622416 888758 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-14_e.png
+0 1 7725152 3036 0 0
+/home/atmdeveqadoor/resources/views/scripts/form-modal-script.blade.php
+0 1 0 753 0 0
+/home/atmdeveqadoor/resources/lang/es/intersections.php
+0 1 7624256 4393 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-14_b.png
+0 1 7724448 6594 0 0
+/home/atmdeveqadoor/database/seeds/ConfigurationsTableSeeder.php
+0 1 0 4218 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_14.png
+0 1 7698816 7009 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R1-4.png
+0 1 0 5937 0 0
+/home/atmdeveqadoor/app/Console/Commands/CleanAppLogs.php
+0 4 0 4644 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_10.png
+0 1 7715712 12856 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-signals-inventory.blade.php
+0 1 7648352 5990 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_2.png
+0 1 7679280 9739 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_29.png
+0 1 7685264 4566 0 0
+/home/atmdeveqadoor/resources/views/modals/modal-form.blade.php
+0 1 0 1087 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_20.png
+0 1 7700048 4419 0 0
+/home/atmdeveqadoor/app/Providers/BroadcastServiceProvider.php
+0 4 0 1520 0 0
+/home/atmdeveqadoor/public_html/fonts/fontawesome-webfont.eot
+0 2 0 331484 0 0
+/home/atmdeveqadoor/resources/views/partials/status.blade.php
+0 1 0 302 0 0
+/home/atmdeveqadoor/resources/assets/sass/_visibility.scss
+0 2 0 7912 0 0
+/home/atmdeveqadoor/resources/views/scripts/filter-geolocation.blade.php
+0 1 7645040 16871 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/DI.png
+0 1 0 903 0 0
+/home/atmdeveqadoor/resources/views/vendor/partials/styles.blade.php
+0 1 0 3169 0 0
+/home/atmdeveqadoor/app/Http/Controllers/Controller.php
+0 3 7583280 1083 0 0
+/home/atmdeveqadoor/resources/views/motives/create.blade.php
+0 1 0 3640 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P5_-_2.png
+0 1 7714480 17190 0 0
+/home/atmdeveqadoor/resources/views/vendor/scripts/datatables.blade.php
+0 1 0 1060 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_12.png
+0 1 7716064 8769 0 0
+/home/atmdeveqadoor/app/Models/SignalSubgroup.php
+0 4 7593808 5572 0 0
+/home/atmdeveqadoor/public_html/images/atm.png
+0 2 7619136 32882 0 0
+/home/atmdeveqadoor/resources/views/usersmanagement/show-user.blade.php
+0 1 0 13572 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_4_I_o_D.png
+0 1 7679808 7277 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_3-fn.png
+0 1 7729168 12163 0 0
+/home/atmdeveqadoor/resources/assets/sass/_mixins.scss
+0 2 0 868 0 0
+/home/atmdeveqadoor/resources/views/profiles/edit.blade.php
+0 1 0 21798 0 0
+/home/atmdeveqadoor/resources/lang/es/profile.php
+0 1 7625696 3504 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R5_-_5_a.png
+0 1 7733216 4323 0 0
+/home/atmdeveqadoor/app/Http/Controllers/ProfilesController.php
+0 4 0 39548 0 0
+/home/atmdeveqadoor/resources/views/georeports/light-totals.blade.php
+0 1 0 2085 0 0
+/home/atmdeveqadoor/database/seeds/SignalsVariationsTableSeeder.php
+0 1 0 477 0 0
+/home/atmdeveqadoor/resources/lang/es/themes.php
+0 1 7627056 2407 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_3.png
+0 1 7731104 9330 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_8.png
+0 1 7697584 4198 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/E1_-_1.png
+0 1 7677536 15459 0 0
+/home/atmdeveqadoor/database/.gitignore
+0 2 7602768 18 0 0
+/home/atmdeveqadoor/resources/assets/sass/_badges.scss
+0 2 0 418 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_14.png
+0 1 7695120 7265 0 0
+/home/atmdeveqadoor/resources/assets/sass/_buttons.scss
+0 2 0 3456 0 0
+/home/atmdeveqadoor/resources/views/statuses/create.blade.php
+0 1 0 3653 0 0
+/home/atmdeveqadoor/config/session.php
+0 1 7602240 6875 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_9.png
+0 1 7714128 4918 0 0
+/home/atmdeveqadoor/resources/views/partials/socials-icons.blade.php
+0 1 0 593 0 0
+/home/atmdeveqadoor/database/migrations/2017_03_09_082526_create_activations_table.php
+0 1 7604880 850 0 0
+/home/atmdeveqadoor/public_html/images/error.jpg
+0 2 7619280 74030 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_3_I_o_D.png
+0 1 7679632 3680 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/message.blade.php
+0 1 7664032 644 0 0
+/home/atmdeveqadoor/app/Http/Controllers/Auth/ResetPasswordController.php
+0 4 7587760 3808 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_18-fn.png
+0 1 7717120 10337 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravelblocker/edit.blade.php
+0 1 7660688 3438 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/delete-sm.blade.php
+0 1 0 733 0 0
+/home/atmdeveqadoor/app/Models/SignalGroup.php
+0 4 7593520 3876 0 0
+/home/atmdeveqadoor/resources/views/traffic-tensors/edit-traffic-tensor.blade.php
+0 1 7655568 9986 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P7_-_1.png
+0 1 7719232 12380 0 0
+/home/atmdeveqadoor/app/Providers/AuthServiceProvider.php
+0 4 0 2152 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_13D.png
+0 1 7705152 5632 0 0
+/home/atmdeveqadoor/resources/views/alerts/show.blade.php
+0 1 0 6887 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/font-awesome/fontawesome-webfont.ttf
+0 2 7618320 331096 0 0
+/home/atmdeveqadoor/resources/views/regulator-devices/audit-regulator-device.blade.php
+0 1 7642704 4435 0 0
+/home/atmdeveqadoor/database/migrations/2019_07_26_223433_create_devices_inventory_table.php
+0 1 7607328 994 0 0
+/home/atmdeveqadoor/resources/views/priorities/
+0 1 7641184 5655 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_11.png
+0 1 7727584 2332 0 0
+/home/atmdeveqadoor/resources/views/signal-subgroups/show.blade.php
+0 1 0 6577 0 0
+/home/atmdeveqadoor/resources/lang/es/permsandroles.php
+0 1 7625408 180 0 0
+/home/atmdeveqadoor/resources/views/welcome.blade.php
+0 1 7629088 2302 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/CR.png
+0 1 0 2276 0 0
+/home/atmdeveqadoor/tests/TestCase.php
+0 2 7740352 326 0 0
+/home/atmdeveqadoor/resources/views/verticalsignals/audit-vertical-signal.blade.php
+0 1 7667840 4409 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_19_j.png
+0 1 7708672 3672 0 0
+/home/atmdeveqadoor/public_html/images/wink.svg
+0 2 7622592 4306 0 0
+/home/atmdeveqadoor/resources/views/partials/search-regulator-boxes-form.blade.php
+0 1 7638816 1728 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_10.png
+0 1 7720112 9145 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/PP3.png
+0 1 0 1672 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_7.png
+0 1 7737088 6769 0 0
+/home/atmdeveqadoor/app/Models/Configuration.php
+0 3 7591216 1410 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_9.png
+0 1 7701280 7705 0 0
+/home/atmdeveqadoor/resources/views/regulator-devices/show-regulator-device.blade.php
+0 4 7643408 52992 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_1D.png
+0 1 7701456 2665 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/button.blade.php
+0 1 0 743 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R5_-_6.png
+0 1 7733568 8563 0 0
+/home/atmdeveqadoor/public_html/fonts/glyphicons-halflings-regular.woff
+0 2 0 46848 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_9I.png
+0 1 7711136 3727 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/.gitkeep
+0 1 0 0 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_5D.png
+0 1 7702864 2717 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_7I.png
+0 1 7703744 4148 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D6_-_2_I_o_D.png
+0 1 7677184 1881 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_11.png
+0 1 7681920 4277 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R6_-_6.png
+0 1 7734624 3255 0 0
+/home/atmdeveqadoor/app/Models/Priority.php
+0 4 7592800 1968 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_1.png
+0 1 7719936 19306 0 0
+/home/atmdeveqadoor/app/Http/Controllers/PriorityController.php
+0 4 0 14356 0 0
+/home/atmdeveqadoor/database/scripts/signals_inventory.sql
+0 1 0 139950 0 0
+/home/atmdeveqadoor/resources/views/workorders/
+0 1 7669200 9406 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/header.blade.php
+0 1 0 112 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/SC.png
+0 1 0 3559 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/edit-form.blade.php
+0 1 0 895 0 0
+/home/atmdeveqadoor/resources/views/traffic-tensors/create-traffic-tensor.blade.php
+0 1 7655392 9191 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_17.png
+0 1 7695648 4214 0 0
+/home/atmdeveqadoor/resources/assets/scss/laravel2step/_modals.scss
+0 2 0 1562 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-regulator-devices.blade.php
+0 1 7648176 7942 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_13.png
+0 1 7698640 7921 0 0
+/home/atmdeveqadoor/resources/views/layouts/app.blade.php
+0 2 0 6210 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_2.png
+0 1 7696176 5446 0 0
+/home/atmdeveqadoor/resources/lang/es/motives.php
+0 1 7624976 2138 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_13_a.png
+0 1 7728640 3539 0 0
+/home/atmdeveqadoor/resources/views/itorders/show.blade.php
+0 1 0 7209 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_8.png
+0 1 7701104 7023 0 0
+/home/atmdeveqadoor/config/atm_app.php
+0 1 7599456 1819 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_3_I_o_D-fn.png
+0 1 7679456 13991 0 0
+/home/atmdeveqadoor/resources/lang/es/georeports.php
+0 1 7624112 663 0 0
+/home/atmdeveqadoor/config/roles.php
+0 1 7601984 10018 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_12_e.png
+0 1 7728464 10347 0 0
+/home/atmdeveqadoor/database/seeds/NoveltySeeder.php
+0 1 7613920 473 0 0
+/home/atmdeveqadoor/resources/views/partials/socials.blade.php
+0 1 0 1771 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_12_c.png
+0 1 7728112 9043 0 0
+/home/atmdeveqadoor/routes/api.php
+0 1 7669504 537 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.eot
+0 2 7617360 40254 0 0
+/home/atmdeveqadoor/bootstrap/cache/.gitignore
+0 1 7598896 14 0 0
+/home/atmdeveqadoor/app/Http/Controllers/IntersectionController.php
+0 6 0 39174 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_1.png
+0 1 7681568 4471 0 0
+/home/atmdeveqadoor/database/seeds/SignalsDimensionTableSeeder.php
+0 1 0 7810 0 0
+/home/atmdeveqadoor/bootstrap/cache/services.php
+0 4 7599184 73508 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R1-3.png
+0 1 0 3963 0 0
+/home/atmdeveqadoor/database/seeds/ThemesTableSeeder.php
+0 1 0 5815 0 0
+/home/atmdeveqadoor/resources/views/scripts/google-maps-signal-reports.blade.php
+0 1 7646960 842 0 0
+/home/atmdeveqadoor/database/seeds/VerticalSignalsTableSeeder.php
+0 1 0 473 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_1.png
+0 1 7703920 2306 0 0
+/home/atmdeveqadoor/resources/views/scripts/filter-selectelement.blade.php
+0 1 7645216 17144 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_2.png
+0 1 7691600 3919 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/E2_-_2.png
+0 1 7677712 22471 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_13.png
+0 1 7690368 4911 0 0
+/home/atmdeveqadoor/resources/lang/es/verticalsignals.php
+0 1 0 10366 0 0
+/home/atmdeveqadoor/database/migrations/2019_07_26_225554_create_traffic_light_table.php
+0 1 7608272 2056 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_18.png
+0 1 7695824 5581 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_5.png
+0 1 7688784 4504 0 0
+/home/atmdeveqadoor/resources/assets/sass/_variables.scss
+0 2 0 2180 0 0
+/home/atmdeveqadoor/resources/lang/es/titles.php
+0 1 7627200 2788 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_10.png
+0 1 7730752 2878 0 0
+/home/atmdeveqadoor/app/Traits/Reportable.php
+0 3 7598480 675 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_12_d.png
+0 1 7728288 7305 0 0
+/home/atmdeveqadoor/app/Http/Middleware/CheckCurrentUser.php
+0 4 0 3172 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/PP2.png
+0 1 0 2634 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.svg
+0 2 7622224 217476 0 0
+/home/atmdeveqadoor/resources/assets/sass/_helpers.scss
+0 2 0 1992 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/CT.png
+0 1 0 1844 0 0
+/home/atmdeveqadoor/database/scripts/priority.sql
+0 1 7611904 419 0 0
+/home/atmdeveqadoor/resources/views/scripts/gmaps-address-lookup-api3.blade.php
+0 1 7645552 456 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_35.png
+0 1 7686320 3727 0 0
+/home/atmdeveqadoor/app/Http/Controllers/RegulatorDevicesController.php
+0 4 0 35824 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_1.png
+0 1 7727232 6126 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R5_-_1.png
+0 1 7732512 5689 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/partials/item-value-input.blade.php
+0 1 7659440 1279 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_11.png
+0 1 7694592 5450 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_41.png
+0 1 7687552 3824 0 0
+/home/atmdeveqadoor/resources/assets/sass/_avatar.scss
+0 2 0 1778 0 0
+/home/atmdeveqadoor/resources/views/traffic-poles/show-traffic-pole.blade.php
+0 2 7654864 29582 0 0
+/home/atmdeveqadoor/database/seeds/SignalGroupsTableSeeder.php
+0 1 0 2368 0 0
+/home/atmdeveqadoor/app/Models/Motive.php
+0 4 7592512 1996 0 0
+/home/atmdeveqadoor/resources/assets/scss/laravel2step/_animations.scss
+0 2 0 2126 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R6_-_5.png
+0 1 7734448 1800 0 0
+/home/atmdeveqadoor/app/Http/Controllers/TrafficTensorController.php
+0 6 0 43788 0 0
+/home/atmdeveqadoor/resources/views/profiles/show.blade.php
+0 1 0 1869 0 0
+/home/atmdeveqadoor/resources/views/georeports/signal-totals.blade.php
+0 1 0 2128 0 0
+/home/atmdeveqadoor/resources/views/metric-units/edit.blade.php
+0 1 0 4797 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_16.png
+0 1 7699168 4699 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_5.png
+0 1 7693360 5671 0 0
+/home/atmdeveqadoor/routes/console.php
+0 3 7669760 1659 0 0
+/home/atmdeveqadoor/database/scripts/metric_units.sql
+0 1 7611472 1677 0 0
+/home/atmdeveqadoor/storage/app/public_html/signals/no-picture.png
+0 1 0 10270 0 0
+/home/atmdeveqadoor/resources/views/scripts/save-modal-script.blade.php
+0 1 0 555 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_31.png
+0 1 7685616 4203 0 0
+/home/atmdeveqadoor/app/Http/Middleware/CheckIsUserActivated.php
+0 4 0 10488 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_3.png
+0 1 7700400 7856 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_12.png
+0 1 7682096 4743 0 0
+/home/atmdeveqadoor/resources/views/scripts/user-avatar-dz.blade.php
+0 1 0 2707 0 0
+/home/atmdeveqadoor/resources/views/traffic-lights/show-traffic-light.blade.php
+0 2 7653984 32606 0 0
+/home/atmdeveqadoor/resources/views/traffic-lights/edit-traffic-light.blade.php
+0 1 7653808 23167 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D7_-_1.png
+0 1 7677360 13142 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-16.png
+0 1 7725504 2809 0 0
+/home/atmdeveqadoor/resources/views/georeports/tables/signals-totals-table.blade.php
+0 1 7633328 1384 0 0
+/home/atmdeveqadoor/app/Logic/Macros/HtmlMacros.php
+0 4 7590640 6052 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R7_-_3_b.png
+0 1 7735328 2962 0 0
+/home/atmdeveqadoor/storage/app/public_html/signals/.gitkeep
+0 1 0 0 0 0
+/home/atmdeveqadoor/app/Http/Middleware/RedirectIfAuthenticated.php
+0 4 0 2212 0 0
+/home/atmdeveqadoor/resources/views/partials/form-status.blade.php
+0 1 0 1443 0 0
+/home/atmdeveqadoor/app/Http/Controllers/UserController.php
+0 4 0 5032 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_1.png
+0 1 7689664 5801 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_19.png
+0 1 7691424 5309 0 0
+/home/atmdeveqadoor/database/migrations/2019_07_26_224884_create_traffic_devices_table.php
+0 1 7608080 1876 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P7_-_4.png
+0 1 7719760 6807 0 0
+/home/atmdeveqadoor/database/seeds/IntersectionsTableSeeder.php
+0 1 0 464 0 0
+/home/atmdeveqadoor/resources/assets/scss/laravel2step/_verification.scss
+0 2 0 2182 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravel2step/twostep/verification.blade.php
+0 1 7660336 13089 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-14_a.png
+0 1 7724272 1427 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravelblocker/show.blade.php
+0 1 7661024 9637 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/P1.png
+0 1 0 3144 0 0
+/home/atmdeveqadoor/resources/views/signal-subgroups/
+0 1 7651120 2867 0 0
+/home/atmdeveqadoor/resources/views/regulator-devices/edit-regulator-device.blade.php
+0 1 7643056 15084 0 0
+/home/atmdeveqadoor/bootstrap/autoload.php
+0 1 7598752 559 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-_4.png
+0 1 7722864 3548 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_9D.png
+0 1 7710960 3666 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_16.png
+0 1 7682800 4264 0 0
+/home/atmdeveqadoor/app/Http/Controllers/AlertController.php
+0 6 0 35310 0 0
+/home/atmdeveqadoor/todo-atm.zip
+0 1 7580608 58732080 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/RZ.png
+0 1 0 1807 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/subcopy.blade.php
+0 1 7664560 12 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_16D.png
+0 1 7706208 3534 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_3.png
+0 1 7685440 5256 0 0
+/home/atmdeveqadoor/app/Providers/ComposerServiceProvider.php
+0 4 0 2124 0 0
+/home/atmdeveqadoor/app/Exports/FilterRegulatorsExport.php
+0 4 0 7792 0 0
+/home/atmdeveqadoor/resources/views/usersmanagement/show-deleted-users.blade.php
+0 1 7656608 8611 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/search-blocked.blade.php
+0 1 7658720 2420 0 0
+/home/atmdeveqadoor/resources/lang/vendor/laravelPhpInfo/en/laravel-phpinfo.php
+0 1 7628768 267 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_11.png
+0 1 7698288 9009 0 0
+/home/atmdeveqadoor/app/Models/MaterialTemplate.php
+0 3 7592224 4335 0 0
+/home/atmdeveqadoor/resources/views/partials/search-intersections-form.blade.php
+0 1 7638640 1718 0 0
+/home/atmdeveqadoor/resources/views/signal-subgroups/edit.blade.php
+0 1 0 9807 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/DNI.png
+0 1 0 3156 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/message.blade.php
+0 1 0 648 0 0
+/home/atmdeveqadoor/app/Providers/AppServiceProvider.php
+0 4 0 3428 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_17.png
+0 1 7682976 6798 0 0
+/home/atmdeveqadoor/tests/Feature/PublicPagesTest.php
+0 1 7740480 1331 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_21.png
+0 1 7683856 4544 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_32.png
+0 1 7685792 4665 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_8.png
+0 1 7713952 5271 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-_3.png
+0 1 7722688 15786 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_10.png
+0 1 7694416 5009 0 0
+/home/atmdeveqadoor/public_html/js/app.js
+0 2 7620592 1846480 0 0
+/home/atmdeveqadoor/app/Http/Kernel.php
+0 4 7582672 10648 0 0
+/home/atmdeveqadoor/resources/views/regulator-boxes/show-regulator-boxes.blade.php
+0 1 7642528 3300 0 0
+/home/atmdeveqadoor/resources/views/reports/create.blade.php
+0 1 0 33745 0 0
+/home/atmdeveqadoor/resources/views/usersmanagement/create-user.blade.php
+0 1 7656096 12143 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R7_-_1.png
+0 1 7734800 17868 0 0
+/home/atmdeveqadoor/resources/views/signal-groups/show.blade.php
+0 1 0 5318 0 0
+/home/atmdeveqadoor/resources/views/georeports/tables/light-totals-table.blade.php
+0 1 7633152 1426 0 0
+/home/atmdeveqadoor/database/migrations/2019_07_26_224834_create_traffic_pole_table.php
+0 1 7607712 1414 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-_1.png
+0 1 7722336 2746 0 0
+/home/atmdeveqadoor/database/migrations/2019_02_19_032636_create_laravel_blocker_types_table.php
+0 1 7605600 1242 0 0
+/home/atmdeveqadoor/bootstrap/cache/packages.php
+0 2 7599040 9296 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R1-2.png
+0 1 0 12841 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_3.png
+0 1 7693008 5758 0 0
+/home/atmdeveqadoor/app/Models/TrafficTensor.php
+0 4 7594960 8788 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/T1.png
+0 1 0 2630 0 0
+/home/atmdeveqadoor/app/Http/Controllers/Auth/RegisterController.php
+0 4 0 16368 0 0
+/home/atmdeveqadoor/tests/Feature/ThemesTest.php
+0 2 7740624 2390 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P5_-_5I.png
+0 1 7715184 14110 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_15.png
+0 1 7716592 34452 0 0
+/home/atmdeveqadoor/resources/lang/es/socials.php
+0 1 7626768 463 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_6_I_o_D.png
+0 1 7680160 6480 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_4.png
+0 1 7696880 5624 0 0
+/home/atmdeveqadoor/resources/views/georeports/geolocation.blade.php
+0 1 0 7701 0 0
+/home/atmdeveqadoor/storage/users/.gitignore
+0 1 7739744 0 0 0
+/home/atmdeveqadoor/database/migrations/2019_12_11_093240_create_repairable_table.php
+0 1 7610624 615 0 0
+/home/atmdeveqadoor/app/Notifications/ReporteNotification.php
+0 4 0 6196 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_15I.png
+0 1 7706032 2706 0 0
+/home/atmdeveqadoor/resources/views/metric-units/create.blade.php
+0 1 0 4702 0 0
+/home/atmdeveqadoor/resources/views/usersmanagement/show-deleted-user.blade.php
+0 1 7656432 18005 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/S3_-_A.png
+0 1 7672944 1224 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_2.png
+0 1 7683504 6762 0 0
+/home/atmdeveqadoor/resources/views/regulator-boxes/audit-regulator-box.blade.php
+0 1 7641648 4410 0 0
+/home/atmdeveqadoor/resources/views/traffic-lights/traffic-lights-table.blade.php
+0 1 7654336 3275 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_5.png
+0 1 7713424 8360 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/S1.png
+0 1 0 1312 0 0
+/home/atmdeveqadoor/resources/views/workorders/show.blade.php
+0 1 0 8552 0 0
+/home/atmdeveqadoor/resources/views/signal-subgroups/create.blade.php
+0 1 0 9048 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P7_-_3.png
+0 1 7719584 8840 0 0
+/home/atmdeveqadoor/app/Http/Middleware/VerifyCsrfToken.php
+0 4 0 1244 0 0
+/home/atmdeveqadoor/resources/views/scripts/google-maps-light-reports.blade.php
+0 1 7646608 842 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_20.png
+0 1 7709024 5885 0 0
+/home/atmdeveqadoor/public_html/images/atm-logo.png
+0 2 7618992 19194 0 0
+/home/atmdeveqadoor/app/Models/User.php
+0 4 7595104 12708 0 0
+/home/atmdeveqadoor/resources/views/intersections/create-intersection.blade.php
+0 1 7633504 10893 0 0
+/home/atmdeveqadoor/public_html/fonts/glyphicons-halflings-regular.ttf
+0 2 0 90808 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_19.png
+0 1 7699696 5649 0 0
+/home/atmdeveqadoor/public_html/robots.txt
+0 3 7621152 72 0 0
+/home/atmdeveqadoor/resources/views/vendor/partials/bs-visibility-css.blade.php
+0 1 7666304 4377 0 0
+/home/atmdeveqadoor/public_html/.htaccess
+0 4 7620736 3684 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_8.png
+0 1 7693888 5127 0 0
+/home/atmdeveqadoor/database/migrations/2019_08_13_224238_create_novelties_table.php
+0 1 7608464 737 0 0
+/home/atmdeveqadoor/database/seeds/SignalSubgroupTableSeeder.php
+0 1 0 16740 0 0
+/home/atmdeveqadoor/resources/views/themesmanagement/edit-theme.blade.php
+0 1 7652928 8589 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-9I.png
+0 1 7727056 3536 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/lights/.gitkeep
+0 1 0 0 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P3_-_4.png
+0 1 7711664 5001 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_12_b.png
+0 1 7727936 5757 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P5_-_5D.png
+0 1 7715008 13243 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_4I.png
+0 1 7702688 3925 0 0
+/home/atmdeveqadoor/app/Http/Controllers/ReportController.php
+0 4 0 81372 0 0
+/home/atmdeveqadoor/resources/views/panels/welcome-panel.blade.php
+0 1 0 363 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-_6D.png
+0 1 7723216 1525 0 0
+/home/atmdeveqadoor/resources/assets/sass/_lists.scss
+0 2 3906926747789058862 452 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-10_I.png
+0 1 7723568 5281 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_38.png
+0 1 7686848 3533 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_3.png
+0 1 7729344 10338 0 0
+/home/atmdeveqadoor/resources/lang/es/regulator-devices.php
+0 1 0 7167 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_7_I_o_D.png
+0 1 7680512 28497 0 0
+/home/atmdeveqadoor/resources/views/vendor/pagination/simple-default.blade.php
+0 1 7665952 654 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_23.png
+0 1 7684208 3940 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/layout.blade.php
+0 1 7663856 143 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_11D.png
+0 1 7704448 5479 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-15.png
+0 1 7725328 3065 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_20.png
+0 1 7696352 5472 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_12.png
+0 1 7690192 5352 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_39.png
+0 1 7687024 7333 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_7D.png
+0 1 7703568 4104 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_8.png
+0 1 7731984 11672 0 0
+/home/atmdeveqadoor/database/migrations/2019_06_19_064529_create_vertical_signals_table.php
+0 1 7607136 1895 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_44.png
+0 1 7688080 3582 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/SF_-_T.png
+0 1 7673936 2593 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R5_-_5_b.png
+0 1 7733392 4802 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_2.png
+0 1 7728992 6124 0 0
+/home/atmdeveqadoor/config/database.php
+0 1 7600112 3918 0 0
+/home/atmdeveqadoor/resources/views/scripts/google-maps-atm-show.blade.php
+0 1 7646256 805 0 0
+/home/atmdeveqadoor/database/seeds/BlockedItemsTableSeeder.php
+0 1 0 2206 0 0
+/home/atmdeveqadoor/app/Console/Commands/DeleteExpiredActivations.php
+0 4 0 4212 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-12_I_o_D.png
+0 1 7723920 7315 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/D.png
+0 1 0 496 0 0
+/home/atmdeveqadoor/resources/views/auth/register.blade.php
+0 1 0 6293 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_7.png
+0 1 7710432 3283 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_15.png
+0 1 7690720 5932 0 0
+/home/atmdeveqadoor/app/Http/Middleware/TrustProxies.php
+0 4 0 1728 0 0
+/home/atmdeveqadoor/resources/views/traffic-poles/show-traffic-poles.blade.php
+0 1 7655040 3224 0 0
+/home/atmdeveqadoor/resources/views/intersections/show-intersection.blade.php
+0 1 7633856 11671 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_14.png
+0 1 7690544 3964 0 0
+/home/atmdeveqadoor/app/Models/Activation.php
+0 4 7590928 2204 0 0
+/home/atmdeveqadoor/resources/views/modals/modal-save.blade.php
+0 1 0 1499 0 0
+/home/atmdeveqadoor/config/usersmanagement.php
+0 1 7602496 1182 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/footer.blade.php
+0 1 7663504 12 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_10.png
+0 1 7712192 4929 0 0
+/home/atmdeveqadoor/config/audit.php
+0 1 7599584 3750 0 0
+/home/atmdeveqadoor/config/mail.php
+0 1 7601600 4217 0 0
+/home/atmdeveqadoor/resources/views/signalsinventory/show-signal-inventories.blade.php
+0 1 7651936 7442 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/RT.png
+0 1 0 1411 0 0
+/home/atmdeveqadoor/resources/views/scripts/resize-image-before-upload.blade.php
+0 1 7647312 1501 0 0
+/home/atmdeveqadoor/app/Providers/MacroServiceProvider.php
+0 4 0 2440 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/ER1_-_1.png
+0 1 7677888 19962 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D1_-_2.png
+0 1 7675248 6265 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/layout.blade.php
+0 1 0 1833 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R6_-_4.png
+0 1 7734272 8094 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_17.png
+0 1 7699344 3389 0 0
+/home/atmdeveqadoor/config/excel.php
+0 1 7600368 6398 0 0
+/home/atmdeveqadoor/resources/views/pages/admin/route-details.blade.php
+0 1 0 1225 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D5_-_2_I_o_D.png
+0 1 7676304 3571 0 0
+/home/atmdeveqadoor/app/Notifications/SendGoodbyeEmail.php
+0 4 0 6244 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P7_-_2.png
+0 1 7719408 15847 0 0
+/home/atmdeveqadoor/database/migrations/2019_08_29_181118_create_priorities_table.php
+0 1 7609168 693 0 0
+/home/atmdeveqadoor/resources/views/regulator-boxes/create-regulator-box.blade.php
+0 1 7641824 18587 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_2I.png
+0 1 7701984 2231 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P5_-_1.png
+0 1 7714304 15722 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_6.png
+0 1 7720992 16334 0 0
+/home/atmdeveqadoor/database/seeds/PermissionsTableSeeder.php
+0 1 0 4984 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/footer.blade.php
+0 1 0 316 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_12_a.png
+0 1 7727760 8418 0 0
+/home/atmdeveqadoor/app/Http/ViewComposers/ThemeComposer.php
+0 4 0 3456 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_26.png
+0 1 7684736 3865 0 0
+/home/atmdeveqadoor/app/Http/Controllers/Auth/ForgotPasswordController.php
+0 4 7587264 3336 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.ttf
+0 2 7617552 90808 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_8I.png
+0 1 7710784 2987 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_19_h.png
+0 1 7708320 4231 0 0
+/home/atmdeveqadoor/database/migrations/2017_03_09_082449_create_social_logins_table.php
+0 1 7604688 856 0 0
+/home/atmdeveqadoor/app/Models/Intersection.php
+0 4 7591504 5388 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/destroy-all.blade.php
+0 1 0 735 0 0
+/home/atmdeveqadoor/public_html/images/icons/tensor.png
+0 2 7620448 666 0 0
+/home/atmdeveqadoor/database/migrations/2019_06_18_143453_create_intersections_table.php
+0 1 7606560 928 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-11.png
+0 1 7723744 2545 0 0
+/home/atmdeveqadoor/storage/framework/cache/.gitkeep
+0 1 7738720 0 0 0
+/home/atmdeveqadoor/app/Models/Workorder.php
+0 3 7595376 6897 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_2.png
+0 1 7736208 6528 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_13.png
+0 1 7694944 5429 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_18_a-fn.png
+0 1 7706736 4190 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_17.png
+0 1 7706560 5771 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R7_-_4_I_o_D.png
+0 1 7735504 11903 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_40.png
+0 1 7687376 4219 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/PP4.png
+0 1 0 1675 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_25.png
+0 1 7684560 5942 0 0
+/home/atmdeveqadoor/resources/lang/vendor/laravelblocker/en/laravelblocker.php
+0 1 7628592 7244 0 0
+/home/atmdeveqadoor/config/exceptions.php
+0 1 7600496 2666 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_3.png
+0 1 7713072 4318 0 0
+/home/atmdeveqadoor/resources/views/pages/admin/home.blade.php
+0 1 0 412 0 0
+/home/atmdeveqadoor/resources/views/itorders/edit.blade.php
+0 1 0 16492 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravel2step/layouts/app.blade.php
+0 1 7659792 1281 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P5_-_6.png
+0 1 7715360 5620 0 0
+/home/atmdeveqadoor/database/migrations/2019_06_18_143349_create_signal_groups_table.php
+0 1 7605984 735 0 0
+/home/atmdeveqadoor/resources/views/workorders/edit.blade.php
+0 1 0 7183 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_10D.png
+0 1 7704096 4466 0 0
+/home/atmdeveqadoor/resources/lang/es/traffic-lights.php
+0 1 0 8029 0 0
+/home/atmdeveqadoor/app/Http/Requests/DeleteUserAccount.php
+0 4 0 3152 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R5_-_1-fn.png
+0 1 7732336 10369 0 0
+/home/atmdeveqadoor/resources/views/auth/passwords/email.blade.php
+0 1 0 1892 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_22.png
+0 1 7692128 4771 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_7.png
+0 1 7700928 5937 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_27.png
+0 1 7684912 4142 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-regulator-boxes.blade.php
+0 1 7648000 6433 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_4.png
+0 1 7700576 5289 0 0
+/home/atmdeveqadoor/resources/views/statuses/
+0 1 7652608 5565 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_10.png
+0 1 7689840 6225 0 0
+/home/atmdeveqadoor/public_html/symlink.php
+0 2 7621296 252 0 0
+/home/atmdeveqadoor/app/Exports/LightTotalsExport.php
+0 3 7582080 5757 0 0
+/home/atmdeveqadoor/resources/views/georeports/tables/geo-table.blade.php
+0 1 7632976 2024 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/.gitkeep
+0 1 0 0 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_9.png
+0 1 7689488 5482 0 0
+/home/atmdeveqadoor/resources/views/signalsinventory/edit-signal-inventory.blade.php
+0 1 7651760 24416 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravel2step/scripts/input-parsing-auto-stepper.blade.php
+0 1 7659968 1546 0 0
+/home/atmdeveqadoor/resources/views/vendor/scripts/blocked-form.blade.php
+0 1 7666992 2616 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/font-awesome/fontawesome-webfont.woff2
+0 2 7618672 154320 0 0
+/home/atmdeveqadoor/database/seeds/MetricUnitsSeeder.php
+0 1 0 483 0 0
+/home/atmdeveqadoor/config/laravelblocker.php
+0 1 7601184 6696 0 0
+/home/atmdeveqadoor/resources/views/vendor/scripts/search-blocked.blade.php
+0 1 7667504 8988 0 0
+/home/atmdeveqadoor/public_html/
+0 3 7620880 5601 1 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_14D.png
+0 1 7705504 3352 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_3.png
+0 1 7717824 6700 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_5.png
+0 1 7697056 5340 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_2.png
+0 1 7708848 3367 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_18.png
+0 1 7699520 6878 0 0
+/home/atmdeveqadoor/resources/assets/js/app.js
+0 3 7311988918205100333 5805 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R5_-_2.png
+0 1 7732688 19931 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_16I.png
+0 1 7706384 3495 0 0
+/home/atmdeveqadoor/app/Mail/ExceptionOccured.php
+0 4 7590784 7084 0 0
+/home/atmdeveqadoor/app/Exports/SignalTotalsExport.php
+0 4 7582224 8804 0 0
+/home/atmdeveqadoor/public_html/images/signs.png
+0 2 7619424 7512 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P4_-_1.png
+0 1 7712016 4757 0 0
+/home/atmdeveqadoor/resources/views/pages/user/home.blade.php
+0 1 0 4598 0 0
+/home/atmdeveqadoor/config/services.php
+0 1 7602112 2389 0 0
+/home/atmdeveqadoor/resources/views/errors/500.blade.php
+0 1 0 1246 0 0
+/home/atmdeveqadoor/resources/views/partials/search-traffic-lights-form.blade.php
+0 1 7639344 1730 0 0
+/home/atmdeveqadoor/database/migrations/2019_07_26_223640_create_regulator_box_table.php
+0 1 7607520 1411 0 0
+/home/atmdeveqadoor/database/migrations/2019_12_10_225013_create_alerts_table.php
+0 1 7610272 1397 0 0
+/home/atmdeveqadoor/resources/views/regulator-devices/regulator-devices-table.blade.php
+0 1 7643232 4657 0 0
+/home/atmdeveqadoor/app/Models/Report.php
+0 4 7593232 12628 0 0
+/home/atmdeveqadoor/app/Exports/BaseTotalsExport.php
+0 5 7581168 11085 0 0
+/home/atmdeveqadoor/resources/views/ito-templates/edit.blade.php
+0 1 0 13701 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_9.png
+0 1 7730400 6916 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_19_c.png
+0 1 7707440 6322 0 0
+/home/atmdeveqadoor/tests/Unit/ExampleTest.php
+0 2 7740768 486 0 0
+/home/atmdeveqadoor/database/migrations/2016_02_09_132439_create_permission_user_table.php
+0 1 7604496 1383 0 0
+/home/atmdeveqadoor/app/Http/Controllers/Auth/SocialController.php
+0 4 0 22220 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_19.png
+0 1 7696000 6721 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravelblocker/create.blade.php
+0 1 7660512 3060 0 0
+/home/atmdeveqadoor/app/Notifications/WorkOrderNotification.php
+0 4 0 6560 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_13.png
+0 1 7716240 14816 0 0
+/home/atmdeveqadoor/app/Providers/EventServiceProvider.php
+0 4 0 3960 0 0
+/home/atmdeveqadoor/resources/views/regulator-boxes/regulators-table.blade.php
+0 1 7642176 3373 0 0
+/home/atmdeveqadoor/app/Models/DevicesInventory.php
+0 4 7591360 5436 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D3_-1_Io_D-fn.png
+0 1 7675600 4325 0 0
+/home/atmdeveqadoor/public_html/fonts/glyphicons-halflings-regular.woff2
+0 2 7617184 36056 0 0
+/home/atmdeveqadoor/resources/assets/sass/_modals.scss
+0 2 0 1910 0 0
+/home/atmdeveqadoor/resources/views/vendor/modals/confirm-modal.blade.php
+0 1 7665088 1576 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/delete-full.blade.php
+0 1 0 790 0 0
+/home/atmdeveqadoor/public_html/favicon.ico
+0 2 7615920 0 0 0
+/home/atmdeveqadoor/app/Http/Controllers/RegulatorBoxController.php
+0 4 0 56740 0 0
+/home/atmdeveqadoor/resources/views/themesmanagement/show-theme.blade.php
+0 1 7653104 5090 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_3.png
+0 1 7709200 4786 0 0
+/home/atmdeveqadoor/resources/views/verticalsignals/edit-vertical-signal.blade.php
+0 1 7668192 28101 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_5D.png
+0 1 7709728 2724 0 0
+/home/atmdeveqadoor/resources/lang/es/auth.php
+0 1 7623520 3730 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_17.png
+0 1 7691072 6191 0 0
+/home/atmdeveqadoor/resources/assets/js/components/UsersCount.vue
+0 2 0 4292 0 0
+/home/atmdeveqadoor/resources/views/statuses/edit.blade.php
+0 1 0 3731 0 0
+/home/atmdeveqadoor/public_html/images/icons/light.png
+0 2 7619856 776 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-7.png
+0 1 0 3112 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/delete-item.blade.php
+0 1 0 716 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/promotion.blade.php
+0 1 7662496 213 0 0
+/home/atmdeveqadoor/resources/views/auth/passwords/reset.blade.php
+0 1 0 3597 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D3_-1_Io_D.png
+0 1 7675776 11513 0 0
+/home/atmdeveqadoor/database/seeds/UsersTableSeeder.php
+0 1 7615616 5722 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_33.png
+0 1 7685968 4926 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_9.png
+0 1 7697760 3998 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_7.png
+0 1 7689136 6731 0 0
+/home/atmdeveqadoor/resources/lang/es/traffic-tensors.php
+0 1 0 3812 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_9_I_o_D.png
+0 1 7680864 2336 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_10I.png
+0 1 7704272 4490 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravel-log-viewer/.gitkeep
+0 2 0 0 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/font-awesome/fontawesome-webfont.eot
+0 2 7618144 331484 0 0
+/home/atmdeveqadoor/resources/views/priorities/create.blade.php
+0 1 0 3683 0 0
+/home/atmdeveqadoor/public_html/images/icons/device.png
+0 2 7619712 788 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_4.png
+0 1 7687200 3126 0 0
+/home/atmdeveqadoor/resources/views/alerts/create.blade.php
+0 2 0 20956 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravelblocker/
+0 1 0 5276 0 0
+/home/atmdeveqadoor/tests/CreatesApplication.php
+0 2 7740208 892 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/ER2_-_1.png
+0 1 7678240 7445 0 0
+/home/atmdeveqadoor/database/seeds/DevicesInventoryTableSeeder.php
+0 1 0 475 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_28.png
+0 1 7685088 5116 0 0
+/home/atmdeveqadoor/resources/views/scripts/show-alert.blade.php
+0 1 0 3689 0 0
+/home/atmdeveqadoor/storage/framework/sessions/.gitignore
+0 1 0 0 0 0
+/home/atmdeveqadoor/database/migrations/2019_07_26_224844_create_traffic_tensor_table.php
+0 1 7607888 906 0 0
+/home/atmdeveqadoor/public_html/images/icons/regulator.png
+0 2 0 968 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-devices-inventory.blade.php
+0 1 7647648 6058 0 0
+/home/atmdeveqadoor/resources/views/auth/activation.blade.php
+0 1 0 674 0 0
+/home/atmdeveqadoor/app/Models/SignalDimension.php
+0 4 7593376 2336 0 0
+/home/atmdeveqadoor/storage/app/public_html/regulators/.gitkeep
+0 1 0 0 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_6.png
+0 1 7731632 8349 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_12I.png
+0 1 7704976 5320 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_3I.png
+0 1 7702336 3340 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_15.png
+0 1 7698992 5271 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_22.png
+0 1 0 5680 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_19_f.png
+0 1 7707968 6196 0 0
+/home/atmdeveqadoor/resources/views/vendor/partials/form-status.blade.php
+0 1 7666656 3013 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/button.blade.php
+0 1 7663328 24 0 0
+/home/atmdeveqadoor/bootstrap/app.php
+0 1 7598624 1602 0 0
+/home/atmdeveqadoor/database/scripts/signals_variations.sql
+0 1 0 127608 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_9.png
+0 1 7737440 13122 0 0
+/home/atmdeveqadoor/resources/lang/es/signal-subgroups.php
+0 1 0 3956 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/promotion.blade.php
+0 1 7664384 12 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_6.png
+0 1 7697232 4924 0 0
+/home/atmdeveqadoor/database/seeds/PrioritySeeder.php
+0 1 7614224 477 0 0
+/home/atmdeveqadoor/resources/views/motives/
+0 1 7637040 5530 0 0
+/home/atmdeveqadoor/resources/views/vendor/laravelPhpInfo/phpinfo/php-info.blade.php
+0 1 7661360 3755 0 0
+/home/atmdeveqadoor/app/Http/Requests/UpdateUserProfile.php
+0 4 0 3040 0 0
+/home/atmdeveqadoor/resources/views/priorities/edit.blade.php
+0 1 0 3771 0 0
+/home/atmdeveqadoor/app/Notifications/OSTNotification.php
+0 4 0 6000 0 0
+/home/atmdeveqadoor/database/migrations/2019_02_19_045158_create_laravel_blocker_table.php
+0 2 7603248 3658 0 0
+/home/atmdeveqadoor/config/settings.php
+0 1 7602368 1767 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_6.png
+0 1 7729872 7011 0 0
+/home/atmdeveqadoor/database/migrations/2017_12_09_070937_create_two_step_auth_table.php
+0 1 7605408 1569 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/markdown/panel.blade.php
+0 1 7664208 12 0 0
+/home/atmdeveqadoor/app/Http/Controllers/TrafficLightController.php
+0 4 0 62196 0 0
+/home/atmdeveqadoor/resources/views/regulator-devices/show-regulator-devices.blade.php
+0 1 7643584 3300 0 0
+/home/atmdeveqadoor/database/migrations/2014_10_12_000000_create_users_table.php
+0 1 7603760 1409 0 0
+/home/atmdeveqadoor/storage/framework/cache/.gitignore
+0 1 7738576 0 0 0
+/home/atmdeveqadoor/resources/views/signal-groups/table.blade.php
+0 1 0 2946 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_45.png
+0 1 7688256 3627 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/SE.png
+0 1 0 3474 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/table.blade.php
+0 1 0 72 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/TT.png
+0 1 0 704 0 0
+/home/atmdeveqadoor/resources/views/workorders/close.blade.php
+0 1 0 4037 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/S2_-_G.png
+0 1 7672608 1605 0 0
+/home/atmdeveqadoor/database/migrations/2019_06_18_143434_create_signal_subgroup_table.php
+0 1 7606176 1173 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_8.png
+0 1 7718880 7468 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_10.png
+0 1 7698112 4437 0 0
+/home/atmdeveqadoor/resources/views/intersections/show-intersections.blade.php
+0 1 7634032 7373 0 0
+/home/atmdeveqadoor/app/Http/Controllers/MetricUnitController.php
+0 4 0 15268 0 0
+/home/atmdeveqadoor/database/factories/ModelFactory.php
+0 1 7603616 1737 0 0
+/home/atmdeveqadoor/resources/lang/es/regulator-boxes.php
+0 1 0 7708 0 0
+/home/atmdeveqadoor/resources/views/vendor/scripts/confirm-modal.blade.php
+0 1 7667168 694 0 0
+/home/atmdeveqadoor/app/Notifications/SendActivationEmail.php
+0 4 0 6632 0 0
+/home/atmdeveqadoor/app/Exports/FilterTLightsExport.php
+0 4 7581792 8700 0 0
+/home/atmdeveqadoor/app/Http/Controllers/TrafficPoleController.php
+0 6 0 53148 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_6.png
+0 1 7688960 4907 0 0
+/home/atmdeveqadoor/resources/views/scripts/datatables.blade.php
+0 1 0 887 0 0
+/home/atmdeveqadoor/resources/lang/es/passwords.php
+0 1 7625264 875 0 0
+/home/atmdeveqadoor/resources/views/ito-templates/
+0 1 7634528 6431 0 0
+/home/atmdeveqadoor/resources/views/regulator-devices/create-regulator-device.blade.php
+0 1 7642880 15106 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_20.png
+0 1 7683680 7188 0 0
+/home/atmdeveqadoor/config/auth.php
+0 1 7599712 3489 0 0
+/home/atmdeveqadoor/app/Models/SignalVariation.php
+0 4 7593952 3772 0 0
+/home/atmdeveqadoor/pepe.php
+0 1 7580480 167 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_19_a_-_b.png
+0 1 7707264 10209 0 0
+/home/atmdeveqadoor/resources/views/scripts/google-maps-atm-create.blade.php
+0 1 7645904 3776 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_4.png
+0 1 7729520 11954 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R7_-_2.png
+0 1 7734976 7543 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_2.png
+0 1 7730928 13286 0 0
+/home/atmdeveqadoor/app/Http/Controllers/ItorderTemplateController.php
+0 4 0 23856 0 0
+/home/atmdeveqadoor/resources/assets/sass/_password.scss
+0 2 0 27742 0 0
+/home/atmdeveqadoor/database/migrations/2016_01_15_114412_create_role_user_table.php
+0 1 7604128 1345 0 0
+/home/atmdeveqadoor/resources/views/traffic-poles/edit-traffic-pole.blade.php
+0 1 7654688 18697 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_18.png
+0 1 7691248 7301 0 0
+/home/atmdeveqadoor/app/Http/Controllers/Auth/LoginController.php
+0 4 0 5724 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-9D.png
+0 1 7726880 3532 0 0
+/home/atmdeveqadoor/resources/lang/es/signal-groups.php
+0 1 7626304 3766 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/promotion/button.blade.php
+0 1 7662992 417 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-18_I_o_D.png
+0 1 7725856 7293 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/partials/item-type-select.blade.php
+0 1 7659264 1445 0 0
+/home/atmdeveqadoor/public_html/images/icons/signal.png
+0 2 7620304 928 0 0
+/home/atmdeveqadoor/resources/lang/es/signalsinventory.php
+0 1 0 5916 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I3_-_1.png
+0 1 7681040 6866 0 0
+/home/atmdeveqadoor/storage/app/public_html/reports/.gitkeep
+0 1 0 0 0 0
+/home/atmdeveqadoor/storage/framework/views/.gitignore
+0 1 7739168 0 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_5_a.png
+0 1 7718176 6643 0 0
+/home/atmdeveqadoor/resources/assets/sass/_hideShowPassword.scss
+0 2 0 1888 0 0
+/home/atmdeveqadoor/resources/lang/es/statuses.php
+0 1 7626912 2157 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R7_-_5.png
+0 1 7735680 4927 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R4_-_1.png
+0 1 7730576 5873 0 0
+/home/atmdeveqadoor/resources/views/reports/show.blade.php
+0 1 0 16652 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT2_-_1.png
+0 1 7697936 7912 0 0
+/home/atmdeveqadoor/resources/views/partials/search-users-form.blade.php
+0 1 7639872 1682 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-traffic-lights.blade.php
+0 1 7648528 6527 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_16.png
+0 1 7695472 7027 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.woff2
+0 2 7617936 36056 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/T3.png
+0 1 0 2952 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_4D.png
+0 1 7702512 3871 0 0
+/home/atmdeveqadoor/atm.zip
+0 1 7580400 33166456 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_6I.png
+0 1 7703392 2909 0 0
+/home/atmdeveqadoor/resources/views/partials/nav.blade.php
+0 5 0 75560 0 0
+/home/atmdeveqadoor/app/Notifications/AlertNotificacion.php
+0 4 0 6088 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/restore-item.blade.php
+0 1 0 1328 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_7.png
+0 1 7721168 7384 0 0
+/home/atmdeveqadoor/resources/views/reports/
+0 1 7644080 8075 0 0
+/home/atmdeveqadoor/resources/views/scripts/delete-modal-script.blade.php
+0 1 7644704 561 0 0
+/home/atmdeveqadoor/resources/views/intersections/edit-intersection.blade.php
+0 1 7633680 12133 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/create-new.blade.php
+0 1 0 753 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-20.png
+0 1 7726384 4079 0 0
+/home/atmdeveqadoor/app/Http/Middleware/Authenticate.php
+0 4 0 6288 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_2.png
+0 1 7720288 4079 0 0
+/home/atmdeveqadoor/resources/views/vendor/scripts/tooltips.blade.php
+0 1 0 252 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_8.png
+0 1 7737264 6795 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P1_-_3D.png
+0 1 7702160 2621 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_8.png
+0 1 7730224 11256 0 0
+/home/atmdeveqadoor/resources/views/partials/status-panel.blade.php
+0 1 0 481 0 0
+/home/atmdeveqadoor/public_html/fonts/fontawesome-webfont.woff2
+0 2 0 154320 0 0
+/home/atmdeveqadoor/app/Exports/TrafficLightsExport.php
+0 4 7582368 4628 0 0
+/home/atmdeveqadoor/database/migrations/2017_03_20_213554_create_themes_table.php
+0 1 7605056 874 0 0
+/home/atmdeveqadoor/database/scripts/status.sql
+0 1 7612368 1015 0 0
+/home/atmdeveqadoor/resources/assets/sass/_bootstrap-social.scss
+0 2 2 63392 0 0
+/home/atmdeveqadoor/resources/assets/js/components/ExampleComponent.vue
+0 2 0 1130 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/SB.png
+0 1 0 3183 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_21.png
+0 1 7691952 4624 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/devices/S2_-_1.png
+0 1 7672432 1169 0 0
+/home/atmdeveqadoor/database/migrations/2016_01_15_105324_create_roles_table.php
+0 2 7603072 2412 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_4I.png
+0 1 7709552 4744 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-users.blade.php
+0 1 0 6918 0 0
+/home/atmdeveqadoor/resources/views/pages/status.blade.php
+0 1 0 284 0 0
+/home/atmdeveqadoor/resources/views/signalsinventory/show-signal-inventory.blade.php
+0 1 7652112 11288 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_1.png
+0 1 7694240 6676 0 0
+/home/atmdeveqadoor/database/seeds/SignalsInventoryTableSeeder.php
+0 1 0 474 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_18.png
+0 1 7717296 12543 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-traffic-poles.blade.php
+0 1 7648704 6399 0 0
+/home/atmdeveqadoor/resources/lang/es/workorders.php
+0 1 7628272 4238 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/D1_-_3.png
+0 1 7675424 6265 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_26.png
+0 1 7692832 4810 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/restore-all.blade.php
+0 1 0 778 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_4.png
+0 1 7720640 20566 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R7_-_3_a.png
+0 1 7735152 3787 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_13.png
+0 1 7682272 6189 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_9.png
+0 1 7694064 5121 0 0
+/home/atmdeveqadoor/resources/views/workorders/create.blade.php
+0 1 0 9629 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_19_g.png
+0 1 7708144 4184 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P6_-_2.png
+0 1 7717648 14112 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-17.png
+0 1 7725680 1817 0 0
+/home/atmdeveqadoor/public_html/mix-manifest.json
+0 3 7621008 360 0 0
+/home/atmdeveqadoor/app/Http/Controllers/AdminDetailsController.php
+0 4 0 3500 0 0
+/home/atmdeveqadoor/resources/views/modals/modal-delete.blade.php
+0 2 0 2436 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-_5_I_o_D.png
+0 1 7723040 3405 0 0
+/home/atmdeveqadoor/storage/logs/.gitignore
+0 1 7739456 0 0 0
+/home/atmdeveqadoor/resources/views/verticalsignals/show-vertical-signals.blade.php
+0 1 7668544 8062 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/subcopy.blade.php
+0 1 0 181 0 0
+/home/atmdeveqadoor/resources/views/usersmanagement/edit-user.blade.php
+0 1 0 14166 0 0
+/home/atmdeveqadoor/resources/views/traffic-tensors/show-traffic-tensors.blade.php
+0 1 7655920 7144 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_23.png
+0 1 7692304 5924 0 0
+/home/atmdeveqadoor/resources/views/scripts/toggleStatus.blade.php
+0 1 0 224 0 0
+/home/atmdeveqadoor/public_html/fonts/vendor/font-awesome/fontawesome-webfont.woff
+0 2 7618496 196048 0 0
+/home/atmdeveqadoor/resources/lang/es/itorders.php
+0 1 7624544 2551 0 0
+/home/atmdeveqadoor/app/Models/RegulatorBox.php
+0 4 7593088 11168 0 0
+/home/atmdeveqadoor/resources/views/vendor/partials/flash-messages.blade.php
+0 1 7666480 265 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_15.png
+0 1 7682624 4727 0 0
+/home/atmdeveqadoor/database/migrations/2019_12_10_082842_create_material_template_table.php
+0 1 7609712 1207 0 0
+/home/atmdeveqadoor/app/Models/TrafficPole.php
+0 4 7594816 11748 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P8_-_9.png
+0 1 7721520 14095 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_13I.png
+0 1 7705328 5538 0 0
+/home/atmdeveqadoor/resources/views/scripts/search-intersections.blade.php
+0 1 7647824 6263 0 0
+/home/atmdeveqadoor/app/Models/MetricUnit.php
+0 4 7592368 2652 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I2_-_10_I_o_D.png
+0 1 7678752 2284 0 0
+/home/atmdeveqadoor/resources/views/vendor/mail/html/panel.blade.php
+0 1 0 412 0 0
+/home/atmdeveqadoor/database/migrations/2019_12_10_152007_create_itorder_material_table.php
+0 1 7610080 1193 0 0
+/home/atmdeveqadoor/database/seeds/ConnectRelationshipsSeeder.php
+0 1 0 1654 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R2_-20_a.png
+0 1 7726208 4231 0 0
+/home/atmdeveqadoor/resources/views/auth/login.blade.php
+0 1 0 3075 0 0
+/home/atmdeveqadoor/app/Exports/FilterVSignalExport.php
+0 3 7581936 6366 0 0
+/home/atmdeveqadoor/database/migrations/2019_08_29_180959_create_motives_table.php
+0 1 7608992 684 0 0
+/home/atmdeveqadoor/resources/views/verticalsignals/show-vertical-signal.blade.php
+0 3 7668368 58413 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/I3_-_2-fn.png
+0 1 7681216 10757 0 0
+/home/atmdeveqadoor/database/migrations/2019_06_18_143446_create_signal_dimensions_table.php
+0 1 7606368 713 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IT1_-_7.png
+0 1 7697408 5270 0 0
+/home/atmdeveqadoor/app/Models/SignalInventory.php
+0 4 7593664 7552 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_4.png
+0 1 7736560 13999 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS3_-_20.png
+0 1 7691776 7387 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P5_-_4.png
+0 1 7714832 8562 0 0
+/home/atmdeveqadoor/database/scripts/novelty.sql
+0 1 7611760 2115 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_19_e.png
+0 1 7707792 5964 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_37.png
+0 1 7686672 3587 0 0
+/home/atmdeveqadoor/resources/views/signal-groups/create.blade.php
+0 1 0 4675 0 0
+/home/atmdeveqadoor/resources/views/vendor/forms/partials/item-blocked-user-select.blade.php
+0 1 7658896 1497 0 0
+/home/atmdeveqadoor/resources/views/regulator-boxes/edit-regulator-box.blade.php
+0 1 7642000 21479 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/SR_5_-_1.png
+0 1 7735856 15178 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/P2_-_12D.png
+0 1 7704800 4439 0 0
+/home/atmdeveqadoor/app/Http/Controllers/WorkorderController.php
+0 4 0 36632 0 0
+/home/atmdeveqadoor/app/Http/Controllers/RestoreUserController.php
+0 4 0 7360 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/IS_4_-_8.png
+0 1 7689312 4097 0 0
+/home/atmdeveqadoor/routes/web.php
+0 4 7669888 53996 0 0
+/home/atmdeveqadoor/resources/views/vendor/pagination/default.blade.php
+0 1 0 1282 0 0
+/home/atmdeveqadoor/storage/app/public_html/inventory/signals/R3_-_13.png
+0 1 7728816 3995 0 0
+# End Of Table - urls
+# -sites- (monthly)
+2.cpe-186-70-157.gye.satnet.net
+0 1 1 13703 0 0
+-
+160.20.165.20
+0 1449 1449 127507891 1 1580221461
+/home/atmdeveqadoor/resources/views/workorders/
+54-193-237-104.reverse-dns.chicago
+0 32 32 92514 0 0
+-
+# End Of Table - sites (monthly)
+# -sites- (daily)
+2.cpe-186-70-157.gye.satnet.net
+0 1 1 13703 0 0
+-
+160.20.165.20
+0 1449 1449 127507891 1 1580221461
+/home/atmdeveqadoor/resources/views/workorders/
+# End Of Table - sites (daily)
+# -referrers- 
+# End Of Table - referrers
+# -agents- 
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+david@atmdev.eqadoor.com
+0 4 4 113689435 1 0
+atmdeveqadoor
+0 1478 1478 13924673 2 1580221461
+# End Of Table - usernames

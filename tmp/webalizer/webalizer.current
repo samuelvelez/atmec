@@ -1,0 +1,574 @@
+# Webalizer V2.23-08 Incremental Data - 07/28/2020 11:11:53
+2020 7 28 11 11 53
+512 251 82 23 29 49 8031438 368 95 0
+4 1 63 1 28
+22 12 63034 7 18 6
+3 0 1268 3 2 2
+8 4 6430 5 6 3
+30 8 351774 6 7 3
+0 0 0 0 0 0
+1 0 277 1 1 1
+9 5 46041 5 6 3
+0 0 0 0 0 0
+0 0 0 0 0 0
+16 6 349802 7 13 7
+5 3 286663 2 3 1
+3 1 1709 1 3 1
+17 11 377494 1 13 2
+20 12 678301 5 12 4
+12 5 290220 5 10 5
+27 15 993256 9 15 7
+1 0 183 1 1 1
+22 8 19231 10 21 10
+98 60 1685221 4 73 3
+33 18 471837 6 24 5
+31 22 540461 3 24 3
+55 41 1386845 3 37 4
+61 4 396093 7 48 6
+11 5 9534 6 8 4
+6 3 25573 2 5 4
+8 3 1911 3 7 2
+5 4 45474 3 3 2
+8 1 2806 4 8 6
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+9 3 12108 9
+37 1 28280 31
+36 6 47283 30
+37 10 356333 13
+17 9 71667 14
+6 2 2068 5
+26 14 992016 14
+2 1 277 1
+12 4 6483 11
+52 36 962216 37
+8 4 6035 6
+7 1 9516 5
+39 25 556484 32
+4 2 2629 2
+13 7 351119 9
+2 1 1685 2
+13 8 632594 7
+34 21 1115825 25
+21 13 460145 15
+6 4 25416 4
+80 52 2211702 53
+46 25 177672 39
+1 0 183 1
+4 2 1702 3
+0
+0
+0
+251
+0
+0
+0
+0
+0
+4
+0
+18
+165
+0
+0
+0
+0
+0
+0
+0
+0
+74
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+# -urls- 
+/css/app.css
+0 19 0 809039 0 0
+/workorders
+0 1 0 3321 0 0
+/alerts/create
+0 7 0 170890 0 1
+/alerts
+0 9 0 29015 0 0
+/intersections
+0 2 0 11026 0 0
+/reports
+0 1 0 3138 0 0
+/fonts/vendor/font-awesome/fontawesome-webfont.woff2
+0 5 0 385810 0 0
+/vertical-signals/create
+0 1 0 10697 0 0
+/password/reset
+0 9 0 10656 5 0
+/images/atm.png
+0 22 0 305949 0 0
+/favicon.ico
+0 18 0 0 0 0
+/vertical-signals/66515/edit
+0 4 0 46695 0 0
+/js/app.js
+0 20 0 5698660 0 0
+/.env
+0 2 0 4402 0 0
+/georeports/signal-totals
+0 1 0 5156 0 0
+/login
+0 75 0 114261 5 10
+/vertical-signals/66515
+0 6 0 28216 0 0
+/home
+0 9 0 22303 0 0
+/cpanel
+0 14 0 174989 6 5
+/vertical-signals
+0 12 48 67522 0 2
+/intersections/795
+0 1 8030590415766774574 4459 0 0
+/robots.txt
+0 16 25435920 416 0 0
+/traffic-poles/2738
+0 1 0 4072 0 0
+# End Of Table - urls
+# -sites- (monthly)
+ipv4-64-246-161-30.greenhousedata.net
+0 2 1 209 1 1595571077
+-
+p3plcpnl0865.prod.phx3.secureserver.net
+0 3 1 5190 1 1595550710
+/login
+23.90.31.105
+0 6 4 20650 1 1593578844
+/login
+195-154-191-98.rev.poneytelecom.eu
+0 1 0 0 1 1593623043
+-
+masq183-36-158-94.lds.net.ua
+0 9 3 8536 3 1595256512
+/password/reset
+211.176.125.70
+0 1 0 183 1 1593679863
+-
+host-181-199-62-15.ecua.net.ec
+0 5 3 25390 3 1595706100
+-
+111.7.100.25
+0 4 4 345140 1 1594882747
+/password/reset
+crawl-66-249-64-2.googlebot.com
+0 5 4 248 1 1594097403
+-
+crawl-66-249-73-185.googlebot.com
+0 3 3 42581 0 0
+-
+msnbot-207-46-13-139.search.msn.com
+0 1 1 1181 1 1595840829
+/password/reset
+23-94-65-18-host.colocrossing.com
+0 1 0 1085 0 0
+-
+121.79.135.146
+0 4 2 3037 2 1595046796
+/login
+msnbot-157-55-39-20.search.msn.com
+0 2 2 52 0 0
+-
+209.17.97.58.rdns.cloudsystemnetworks.com
+0 1 0 277 1 1595302237
+-
+host-181-199-60-79.ecua.net.ec
+0 9 7 358183 1 1595448174
+/cpanel
+host-181-199-62-213.ecua.net.ec
+0 3 2 44267 1 1595843911
+/login
+89.208.122.211
+0 11 0 9384 1 1595467689
+-
+32.142.89.34.bc.googleusercontent.com
+0 1 0 1085 0 0
+-
+199.244.88.132
+0 1 0 183 1 1595917577
+-
+209.17.96.250.rdns.cloudsystemnetworks.com
+0 1 0 277 1 1595934713
+-
+ec2-44-226-206-176.us-west-2.compute.amazonaws.com
+0 1 0 183 1 1595674016
+-
+94-21-145-125.pool.digikabel.hu
+0 12 3 5655 5 1595898574
+/login
+crawl-66-249-73-183.googlebot.com
+0 6 3 614 1 1594761787
+-
+host-209-59-228-150.static.sprious.com
+0 3 1 1702 1 1593819094
+/login
+msnbot-207-46-13-168.search.msn.com
+0 1 1 1323 1 1595587191
+/login
+crawl-66-249-66-153.googlebot.com
+0 12 5 47881 4 1594889247
+/login
+39.96.161.227
+0 1 0 183 1 1594385428
+-
+msnbot-157-55-39-16.search.msn.com
+0 3 3 78 0 0
+-
+51-159-30-34.rev.poneytelecom.eu
+0 1 0 0 1 1593629836
+-
+80.240.24.191.vultr.com
+0 1 0 183 1 1594863068
+-
+2.cpe-186-70-157.gye.satnet.net
+0 111 78 2393986 7 1595438824
+/cpanel
+94-21-92-246.pool.digikabel.hu
+0 4 1 1885 1 1594359037
+/login
+1-169-112-92.pool.ukrtel.net
+0 11 0 9384 1 1595470458
+-
+111.7.100.24
+0 2 2 286118 1 1594882752
+/password/reset
+95.59.235.170
+0 11 0 9384 1 1595471372
+-
+170.130.126.96
+0 1 0 0 1 1593635014
+-
+170.130.126.19
+0 1 0 0 1 1593665472
+-
+customer-190-63-1-183.claro.com.ec
+0 20 8 16049 2 1595258730
+/login
+209.17.96.234.rdns.cloudsystemnetworks.com
+0 1 0 277 1 1595043836
+-
+msnbot-40-77-167-9.search.msn.com
+0 3 1 1706 1 1594124858
+/login
+ec2-34-222-32-239.us-west-2.compute.amazonaws.com
+0 3 1 0 1 1595785491
+/login
+103-127-41-122.reverse.digitalhost.com
+0 5 2 3258 1 1595061621
+/login
+209.17.97.90.rdns.cloudsystemnetworks.com
+0 1 0 277 1 1595052895
+-
+crawl-66-249-66-155.googlebot.com
+0 4 3 571371 1 1594817299
+/login
+65.154.226.100
+0 4 2 286636 1 1594747583
+/login
+static.170.239.217.95.clients.your-server.de
+0 3 1 1701 1 1594831117
+/login
+cpanelhcm2.longvan.net
+0 2 0 1316 1 1593764934
+-
+47.91.74.159
+0 1 0 183 1 1594958313
+-
+46.101.9.216
+0 1 0 183 1 1593841528
+-
+ec2-18-236-141-237.us-west-2.compute.amazonaws.com
+0 1 0 277 1 1595261743
+-
+111.7.100.27
+0 2 2 3545 0 0
+-
+crawl-66-249-73-181.googlebot.com
+0 7 4 289477 2 1594761790
+/login
+120.24.200.157
+0 1 0 183 1 1594385430
+-
+111.7.100.17
+0 8 6 68531 1 1594881604
+/login
+ecs-139-9-137-182.compute.hwclouds-dns.com
+0 3 1 1709 1 1594525678
+/login
+111.7.100.18
+0 1 0 183 1 1594413362
+-
+crawl-66-249-64-4.googlebot.com
+0 2 1 222 1 1595079355
+-
+185.234.216.38
+0 19 2 22847 0 0
+-
+host-181-199-60-149.ecua.net.ec
+0 29 21 1384353 1 1595191668
+/login
+host-190-130-165-26.ecutel.net.ec
+0 54 36 641873 2 1595450075
+/cpanel
+171.13.14.75
+0 1 0 183 1 1594392888
+-
+crawl-66-249-66-156.googlebot.com
+0 5 3 1755 1 1593831878
+/login
+ns3008326.ip-151-80-45.eu
+0 1 0 1085 0 0
+-
+clients10-krd-204.freedom1.ru
+0 11 0 9384 1 1595469721
+-
+23.82.28.7
+0 6 4 20647 1 1593570533
+/login
+23.82.28.64
+0 6 4 20652 1 1593595062
+/login
+111.7.100.26
+0 1 1 1185 1 1594882736
+/password/reset
+43.239.207.65
+0 3 1 5218 1 1595462440
+/login
+104.192.108.9
+0 6 4 345666 1 1594392902
+/login
+crawl-66-249-64-31.googlebot.com
+0 5 4 45409 2 1595079610
+/login
+msnbot-157-55-39-3.search.msn.com
+0 1 1 1185 1 1593745790
+/password/reset
+116.ip-37-59-121.eu
+0 1 0 1085 0 0
+-
+111.7.100.16
+0 5 2 286828 1 1594881599
+-
+90.151.82.1
+0 11 0 9384 1 1595468762
+-
+209.17.96.202.rdns.cloudsystemnetworks.com
+0 1 0 277 1 1595899681
+-
+ec2-54-213-174-46.us-west-2.compute.amazonaws.com
+0 1 0 277 1 1594020166
+-
+67.227.77.247.rdns.colocationamerica.com
+0 3 1 1700 1 1595033810
+/login
+178.128.30.122
+0 3 0 6635 1 1595244101
+-
+5.188.84.6
+0 3 1 5190 1 1595046312
+/login
+ec2-52-11-121-247.us-west-2.compute.amazonaws.com
+0 1 0 183 1 1594850574
+-
+65.154.226.109
+0 6 4 345656 1 1594747583
+/login
+# End Of Table - sites (monthly)
+# -sites- (daily)
+199.244.88.132
+0 1 0 183 1 1595917577
+-
+209.17.96.250.rdns.cloudsystemnetworks.com
+0 1 0 277 1 1595934713
+-
+94-21-145-125.pool.digikabel.hu
+0 5 1 2069 3 1595898574
+/login
+209.17.96.202.rdns.cloudsystemnetworks.com
+0 1 0 277 1 1595899681
+-
+# End Of Table - sites (daily)
+# -referrers- 
+http://atm-ec.com/vertical-signals/66515
+0 11
+http://atm-ec.com/login
+0 119
+atm-ec.com
+0 1
+http://mail.atm-ec.com/home
+0 1
+http://atm-ec.com/vertical-signals
+0 10
+http://mail.atm-ec.com
+0 1
+http://www.google.com
+0 1
+http://atm-ec.com/vertical-signals/66515/edit
+0 8
+http://mail.atm-ec.com/password/reset
+0 6
+http://atm-ec.com/wp-login.php
+0 10
+http://atm-ec.com/administrator
+0 5
+- (Direct Request)
+0 245
+http://atm-ec.com/georeports/signal-totals
+0 1
+http://atm-ec.com/reports
+0 1
+http://www.bing.com/search
+0 3
+http://atm-ec.com
+0 9
+http://atm-ec.com/vertical-signals/create
+0 1
+http://atm-ec.com/
+0 1
+http://atm-ec.com/alerts/create
+0 11
+http://mail.atm-ec.com/login
+0 5
+http://atm-ec.com/css/app.css
+0 5
+http://atm-ec.com/admin/
+0 1
+http://www.atm-ec.com/login
+0 3
+http://atm-ec.com/home
+0 23
+http://atm-ec.com/workorders
+0 1
+http://atm-ec.com/intersections/795
+0 2
+https://brandnewblogs.com/
+0 16
+http://atm-ec.com/intersections
+0 1
+http://atm-ec.com/alerts
+0 10
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36
+0 23
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36
+0 3
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.122 Mobile 
+0 2
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36 Edg
+0 37
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
+0 14
+Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)
+0 5
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.92 Mobile S
+0 14
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0
+0 16
+Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.1) Gecko/2008070208 Firefox/3.0.1
+0 5
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.71 Safari/537.36
+0 3
+Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3765.0 Mob
+0 1
+Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+0 22
+Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0.4 Waterfox/56.0.4
+0 3
+Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)
+0 11
+python-requests/2.24.0
+0 2
+WhatsApp/2.20.194.16 A
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
+0 4
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36
+0 3
+Googlebot-Image/1.0
+0 7
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+0 17
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36
+0 1
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36
+0 3
+curl/7.58.0
+0 3
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:77.0) Gecko/20100101 Firefox/77.0
+0 7
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+0 2
+Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36 Lynt.cz
+0 1
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31
+0 1
+Mozilla/5.0 (Windows NT 6.1; rv:22.0) Firefox/22.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium
+0 3
+Mozilla/5.0 (Windows NT 6.3; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0
+0 4
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+0 17
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36
+0 1
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/76.0.3809.100 Safari/537.36
+0 3
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:59.0) Gecko/20100101 Firefox/59.0
+0 2
+Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36
+0 2
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
+0 8
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36
+0 16
+Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)
+0 1
+Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0
+0 55
+Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/83.0.41
+0 4
+Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
+0 4
+Mozilla/5.0 (Windows NT 6.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.5221.4
+0 18
+Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36
+0 4
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
+0 128
+Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36
+0 3
+Mozilla/5.0 (Linux; Android 9; SM-G9650) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Mobile Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36
+0 6
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36
+0 5
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36
+0 6
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames

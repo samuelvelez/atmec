@@ -1,0 +1,12 @@
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (1, 'Destruido','destruido desc', '2019-09-01 22:16:58', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (2, 'Roto','roto desc', '2019-09-01 22:16:58', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (3, 'Fragmentado','fragmentado desc', '2019-09-01 22:16:58', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (4, 'Agrietado','agrietado desc', '2019-09-01 22:16:58', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (5, 'Forzado','forzado desc', '2019-09-01 22:16:58', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (6, 'Descompuesto','descompuesto desc', '2019-09-01 22:16:58', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (7, 'Inoperativo','inoperativo desc', '2019-09-01 22:16:58', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (8, 'Defectuoso','defectuoso desc', '2019-09-01 22:16:58', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (9, 'Desgastado','desgastado desc', '2019-09-01 22:16:58', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (10, 'Revision','revision desc', '2019-09-01 22:16:59', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (11, 'Mantenimiento','mantenimiento desc', '2019-09-01 22:16:59', NULL);
+INSERT INTO `motives` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES (12, 'Desconocido','desconocido desc', '2019-09-01 22:16:59', NULL);

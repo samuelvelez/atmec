@@ -1,0 +1,14 @@
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('TRABAJOS','0','0','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('TRANSSUITE','0','0','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('INFORMATIVO','0','0','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('SEMÁFORO','1','0','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('SEÑALIZACIÓN','1','0','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('OTROS TRABAJOS','1','0','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('DISPOSITIVO SIN COMUNICACIÓN','1','0','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('NOVEDAD','1','0','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('SUSTITUCIÓN DE SEMÁFORO','1','1','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('REPARACIÓN DE SEMÁFORO','1','1','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('SUSTITUCIÓN DE CAJA REGULADORA','1','1','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('REPARACIÓN DE ELEMENTO DE CAJA REGULADORA','1','1','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('SUSTITUCIÓN DE TENSOR','1','1','2019-09-01 22:16:57', NULL);
+INSERT INTO `novelties` (`name`,`subcategory`,`group`, `created_at`, `updated_at`) VALUES ('SUSTITUCIÓN DE POSTE','1','1','2019-09-01 22:16:57', NULL);

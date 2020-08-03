@@ -1,0 +1,346 @@
+# Webalizer V2.23-08 Incremental Data - 01/28/2020 17:52:41
+2020 1 28 17 52 41
+572 453 19 36 35 12 112678567 225 28 0
+3 6 142 7 28
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+15 12 2145067 3 8 4
+142 124 33805287 1 47 1
+197 163 43696564 3 62 5
+0 0 0 0 0 0
+0 0 0 0 0 0
+2 0 0 2 2 2
+65 53 13341774 1 23 2
+97 73 16959976 3 44 4
+5 1 5071 3 5 3
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+1 0 0 1 1 1
+0 0 0 0 0 0
+3 1 5071 1 3 1
+2 0 640 1 2 1
+1 0 0 1 1 1
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+42 26 2719117 3 27 3
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+85 68 18121495 26
+71 62 17122392 21
+34 30 8430685 11
+0 0 0 0
+0 0 0 0
+0 0 0 0
+3 1 5071 3
+2 0 640 2
+1 0 0 1
+149 125 33810358 50
+12 9 1230458 7
+4 1 5071 4
+0 0 0 0
+1 0 0 1
+25 15 1352945 20
+16 12 2152860 6
+30 19 1497787 23
+28 20 4926084 10
+0 0 0 0
+0 0 0 0
+1 0 0 1
+59 53 14414214 18
+43 33 8420761 17
+8 5 1187746 4
+0
+0
+0
+453
+0
+0
+0
+0
+0
+0
+0
+0
+100
+0
+10
+0
+0
+0
+0
+0
+0
+1
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+8
+0
+0
+0
+0
+0
+# -urls- 
+/users
+0 14 7312272859200644471 699857 0 0
+/css/app.css
+0 95 0 22323248 0 0
+/workorders
+0 2 0 79838 0 0
+/reports/2
+0 1 0 20861 0 0
+/storage/
+0 1 33736256 1667 0 0
+/alerts
+0 2 0 65030 0 1
+/intersections
+0 1 0 57334 0 0
+/reports
+0 8 0 266276 0 1
+/signals-inventory/319
+0 1 33735808 23178 0 0
+/storage/reports/Y6YOREwBYe7FjQ0M.jpg
+0 1 0 57401 0 0
+/fonts/vendor/font-awesome/fontawesome-webfont.woff2
+0 9 0 694440 0 0
+/motives
+0 1 0 39123 0 0
+/vertical-signals/create
+0 2 0 173168 0 1
+/reports/5
+0 1 0 19866 0 0
+/metric-units
+0 1 0 37468 0 0
+/users/25/edit
+0 4 0 89926 0 0
+/images/atm.png
+0 39 0 591876 0 0
+/favicon.ico
+0 96 0 0 0 0
+/js/app.js
+0 96 0 85861320 0 0
+/storage/inventory/
+0 1 33736368 1159 0 0
+/reports/3
+0 1 0 18505 0 0
+/itorders
+0 3 0 39700 0 0
+/reports/4
+0 1 0 18404 0 0
+/login
+0 38 0 170024 3 4
+/users/create
+0 4 0 65004 0 0
+/home
+0 18 0 214007 0 1
+/storage/inventory/signals/
+0 1 33736576 66253 0 0
+/cpanel
+0 2 0 67868 0 0
+/images/error.jpg
+0 9 0 333135 0 0
+/vertical-signals
+0 3 0 142960 0 0
+/images/icons/signal.png
+0 1 7162181829957725807 464 0 0
+/signals-inventory
+0 2 8391179598783578112 107544 0 0
+/ito-templates
+0 1 0 13328 0 0
+/reports/4/create
+0 1 3618691985733415525 153946 0 0
+/profile/byron
+0 1 3602879701896396800 6482 0 0
+/storage/inventory/signals/D1 - 2.png
+0 1 33736016 6265 0 0
+# End Of Table - urls
+# -sites- (monthly)
+customer-190-63-119-92.claro.com.ec
+0 6 1 5071 1 1580233961
+/login
+customer-190-63-112-55.claro.com.ec
+0 5 1 13130 1 1578585179
+/home
+customer-190-63-235-220.claro.com.ec
+0 4 1 5337 2 1578395030
+/login
+customer-190-63-127-121.claro.com.ec
+0 4 4 948543 1 1578412004
+/login
+181.188.200.233
+0 2 2 8862 1 1578566178
+/login
+2.cpe-186-70-157.gye.satnet.net
+0 27 18 1492716 1 1580229253
+/storage/inventory/signals/
+181.188.200.190
+0 7 7 1191187 1 1578412099
+/login
+customer190-82-40.porta.net
+0 3 1 5071 1 1579105430
+/login
+160.20.165.20
+0 9 7 1221330 1 1580208061
+/cpanel
+customer-190-63-117-40.claro.com.ec
+0 1 0 0 1 1578863833
+-
+customer-190-63-150-205.claro.com.ec
+0 7 1 5071 1 1578995658
+/login
+host-157-100-53-139.ecua.net.ec
+0 462 394 106423593 8 1579039966
+/login
+230.3.178.186.static.anycast.cnt-grms.ec
+0 25 15 1352945 1 1579012440
+/login
+host217.ptr202.iplanet.ec
+0 5 1 5711 2 1579764908
+/home
+host-181-199-39-88.ecua.net.ec
+0 1 0 0 1 1578818919
+-
+customer-190-63-150-3.claro.com.ec
+0 1 0 0 1 1579094817
+-
+customer-190-63-150-215.claro.com.ec
+0 1 0 0 1 1579087880
+-
+45.235.142.4
+0 1 0 0 1 1579552186
+-
+200.77.189.82
+0 1 0 0 1 1579905305
+-
+# End Of Table - sites (monthly)
+# -sites- (daily)
+customer-190-63-119-92.claro.com.ec
+0 6 1 5071 1 1580233961
+/login
+2.cpe-186-70-157.gye.satnet.net
+0 27 18 1492716 1 1580229253
+/storage/inventory/signals/
+160.20.165.20
+0 9 7 1221330 1 1580208061
+/cpanel
+# End Of Table - sites (daily)
+# -referrers- 
+https://atmdev.eqadoor.com/workorders
+0 6
+https://atmdev.eqadoor.com/users
+0 52
+https://atmdev.eqadoor.com/reports/2
+0 4
+https://atmdev.eqadoor.com/itorders
+0 14
+https://atmdev.eqadoor.com/
+0 5
+https://atmdev.eqadoor.com/css/app.css
+0 9
+https://atmdev.eqadoor.com/logs
+0 4
+https://atmdev.eqadoor.com/login
+0 109
+https://atmdev.eqadoor.com/ito-templates
+0 1
+- (Direct Request)
+0 160
+https://atmdev.eqadoor.com/motives
+0 3
+https://atmdev.eqadoor.com/reports/4/create
+0 4
+https://atmdev.eqadoor.com/signals-inventory
+0 4
+https://atmdev.eqadoor.com/reports/4
+0 3
+https://atmdev.eqadoor.com/alerts
+0 9
+https://atmdev.eqadoor.com/vertical-signals
+0 9
+https://atmdev.eqadoor.com/users/25/edit
+0 12
+https://atmdev.eqadoor.com/metric-units
+0 3
+https://atmdev.eqadoor.com/active-users
+0 4
+https://atmdev.eqadoor.com/registrer
+0 1
+https://atmdev.eqadoor.com/routes
+0 4
+https://atmdev.eqadoor.com/users/create
+0 19
+https://atmdev.eqadoor.com/signals-inventory/319
+0 1
+https://atmdev.eqadoor.com/reports
+0 27
+https://atmdev.eqadoor.com/reports/3
+0 3
+https://atmdev.eqadoor.com/reports/5
+0 3
+http://localhost/internet/tasas/
+0 8
+https://atmdev.eqadoor.com/roles
+0 4
+https://atmdev.eqadoor.com/activity
+0 4
+https://atmdev.eqadoor.com/intersections
+0 3
+https://atmdev.eqadoor.com/storage/
+0 1
+https://atmdev.eqadoor.com/profile/byron
+0 1
+https://atmdev.eqadoor.com/home
+0 69
+https://atmdev.eqadoor.com/storage/inventory/
+0 1
+https://atmdev.eqadoor.com/vertical-signals/create
+0 8
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (Linux; Android 9; SM-G950F Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/
+0 1
+WhatsApp/0.3.9309 N
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0
+0 25
+Mozilla/5.0 (Linux; Android 8.0.0; WAS-LX3 Build/HUAWEIWAS-LX3; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome
+0 1
+Mozilla/5.0 (Linux; Android 9; SM-A205G Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/
+0 6
+Mozilla/5.0 (Linux; Android 10; SM-N975F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.93 Mobile Safari/537.36
+0 9
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
+0 471
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36
+0 27
+Mozilla/5.0 (Linux; Android 9; SM-G9600 Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/
+0 1
+Mozilla/5.0 (Linux; Android 7.1.1; SM-J250M Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.
+0 25
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36
+0 2
+Mozilla/5.0 (Linux; Android 7.0; SM-A310M Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.39
+0 2
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames
