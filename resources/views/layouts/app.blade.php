@@ -13,6 +13,9 @@
     <meta name="description" content="">
     <link rel="shortcut icon" href="/favicon.ico">
 
+
+    <meta name="google-site-verification" content="2LHQ9FhmPNIiLZ_e2hjMDRVYwLhhqsdKReqr1dk-NcE" />
+
     {{-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --}}
         <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -96,6 +99,7 @@
 
 @if(config('settings.googleMapsAPIStatus'))
     {!! HTML::script('//maps.googleapis.com/maps/api/js?key='.config("settings.googleMapsAPIKey").'&libraries=places&dummy=.js', array('type' => 'text/javascript')) !!}
+    
 @endif
 
 @yield('footer_scripts')

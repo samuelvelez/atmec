@@ -457,6 +457,7 @@
     </script>
 
     @if(config('settings.googleMapsAPIStatus'))
+    hola
         @include('scripts.google-maps-atm-create')
     @endif
 

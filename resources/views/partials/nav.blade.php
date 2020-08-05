@@ -19,7 +19,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item {{ (Request::is('roles') || Request::is('permissions')) ? 'active' : null }}"
-                           href="{{ route('laravelroles::roles.index') }}">
+                           href="#">
                             {!! trans('titles.laravelroles') !!}
                         </a>
                         <div class="dropdown-divider"></div>

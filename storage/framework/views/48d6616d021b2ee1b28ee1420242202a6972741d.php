@@ -21,7 +21,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item <?php echo e((Request::is('roles') || Request::is('permissions')) ? 'active' : null); ?>"
-                           href="<?php echo e(route('laravelroles::roles.index')); ?>">
+                           href="#">
                             <?php echo trans('titles.laravelroles'); ?>
 
                         </a>
