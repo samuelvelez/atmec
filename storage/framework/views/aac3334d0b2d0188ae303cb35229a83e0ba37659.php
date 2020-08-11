@@ -119,6 +119,28 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback row <?php echo e($errors->has('parish') ? ' has-error ' : ''); ?>">
+                            <?php echo Form::label('parish', trans('forms.create_vsignal_label_parish'), array('class' => 'col-md-3 control-label'));; ?>
+
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <?php echo Form::text('parish', NULL, array('id' => 'google_address', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_parish'))); ?>
+
+                                    <div class="input-group-append">
+                                        <label for="google_address" class="input-group-text">
+                                            <i class="fa fa-fw <?php echo e(trans('forms.create_vsignal_icon_gaddress')); ?>"
+                                               aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                <?php if($errors->has('google_address')): ?>
+                                    <span class="help-block">
+                                            <strong><?php echo e($errors->first('google_address')); ?></strong>
+                                        </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
                         <div class="form-group has-feedback row <?php echo e($errors->has('code') ? ' has-error ' : ''); ?>">
                             <?php echo Form::label('code', trans('forms.create_vsignal_label_code'), array('class' => 'col-md-3 control-label'));; ?>
 
@@ -478,8 +500,7 @@
         });
     </script>
 
-    <?php if(config('settings.googleMapsAPIStatus')): ?>
-    hola
+    <?php if(true): ?>//config('settings.googleMapsAPIStatus'))
         <?php echo $__env->make('scripts.google-maps-atm-create', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php endif; ?>
 

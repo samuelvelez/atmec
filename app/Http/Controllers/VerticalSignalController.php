@@ -87,7 +87,7 @@ class VerticalSignalController extends Controller
         if ($pagintaionEnabled) {
             $vsignals = $vsignals->paginate(config('atm_app.paginateListSize'));
         }
-
+        
         return View('verticalsignals.show-vertical-signals', compact('vsignals', 'vsignalstotal'));
     }
 

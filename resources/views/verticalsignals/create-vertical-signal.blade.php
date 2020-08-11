@@ -110,6 +110,26 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback row {{ $errors->has('parish') ? ' has-error ' : '' }}">
+                            {!! Form::label('parish', trans('forms.create_vsignal_label_parish'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('parish', NULL, array('id' => 'google_address', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_parish'))) !!}
+                                    <div class="input-group-append">
+                                        <label for="google_address" class="input-group-text">
+                                            <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_gaddress') }}"
+                                               aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('google_address'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('google_address') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group has-feedback row {{ $errors->has('code') ? ' has-error ' : '' }}">
                             {!! Form::label('code', trans('forms.create_vsignal_label_code'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -456,8 +476,7 @@
         });
     </script>
 
-    @if(config('settings.googleMapsAPIStatus'))
-    hola
+    @if(true)//config('settings.googleMapsAPIStatus'))
         @include('scripts.google-maps-atm-create')
     @endif
 

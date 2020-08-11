@@ -11,8 +11,18 @@
     border: 2px solid #8eb4cb;
     }
 
+@php
+
+ if(file_exists ($vsignal->get_picture_path())){
+    $ruta = $vsignal->get_picture_path();
+ }else{
+     
+     $ruta = "https://upload.wikimedia.org/wikipedia/commons/d/da/Imagen_no_disponible.svg";
+ }
+
+@endphp
     .pictureBg{
-    background-image: url("{{ asset($vsignal->get_picture_path()) }}");
+    background-image: url("{{ asset($ruta) }}");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -27,6 +37,9 @@
 @endsection
 
 @section('content')
+@php
+    
+@endphp
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
@@ -297,10 +310,12 @@
                         <br/>
                         <div class="row">
                             <div class="col-4">
+                            
                                 <a class="btn btn-sm btn-success btn-block"
                                    href="{{ URL::to('/vertical-signals/create') }}"><i
                                             class="fa fa-plus-square"></i><span
-                                            class="hidden-xs"> Nueva señal</span></a>
+                                            class="hidden-xs"> Nueva señal 
+</span></a>
                             </div>
                             <div class="col-4">
                                 <a class="btn btn-sm btn-info btn-block"

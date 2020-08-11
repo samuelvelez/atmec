@@ -148,6 +148,8 @@ class GeoReportsController extends Controller
                 'google_address' => $vsignal->google_address,
                 'neighborhood' => $vsignal->neighborhood,
                 'parish' => $vsignal->parish,
+                'signal' => $vsignal->signal_inventory->name,
+                'variation' => $vsignal,
                 'state' => $vsignal->state,
                 'material' => $vsignal->material,
                 'fastener' => $vsignal->fastener,
@@ -156,7 +158,6 @@ class GeoReportsController extends Controller
                 'subgroup' => $vsignal->signal_inventory->subgroup->name . ' (' . $vsignal->signal_inventory->subgroup->code . ')',
             ];
         }
-
         return response()->json([
             json_encode($result),
         ], Response::HTTP_OK);
