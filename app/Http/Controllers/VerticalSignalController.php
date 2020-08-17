@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use Image;
 use Validator;
+use DateTime;
 
 class VerticalSignalController extends Controller
 {
@@ -103,6 +104,7 @@ class VerticalSignalController extends Controller
         $fasteners = json_decode(Configuration::where('code', 'signal_fasteners')->first()->values);
         $normatives = json_decode(Configuration::where('code', 'normativa')->first()->values);
         $orientations = json_decode(Configuration::where('code', 'direction')->first()->values);
+        $parishs = json_decode(Configuration::where('code', 'parish')->first()->values);
         $states = json_decode(Configuration::where('code', 'estado')->first()->values);
 
         return view('verticalsignals.create-vertical-signal', compact(
@@ -111,6 +113,7 @@ class VerticalSignalController extends Controller
                 'fasteners',
                 'normatives',
                 'orientations',
+                'parishs',
                 'states')
         );
     }
@@ -152,6 +155,7 @@ class VerticalSignalController extends Controller
                 return back()->with('error', trans('Error guardando la imagen. Inténtelo de nuevo o contacte al administrador.'));
             }
         }
+        $fecha = new DateTime();
 
         $vsignal = VerticalSignal::create([
             'user_id' => Auth::user()->id,
@@ -170,6 +174,7 @@ class VerticalSignalController extends Controller
             'fastener' => $request->input('fastener'),
             'material' => $request->input('material'),
             'erp_code' => $request->input('erp_code'),
+            'unique_code' => $request->input('code').'_'.$request->input('erp_code'),
         ]);
 
         $vsignal->save();

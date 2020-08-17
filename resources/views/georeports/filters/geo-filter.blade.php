@@ -26,12 +26,54 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
+                                    <strong>{!! Form::label('s_parish', trans('forms.create_vsignal_label_parish'), array('class' => 'control-label')); !!}</strong>
+                                    <select name="s_parish" id="s_parish">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_parish') }}</option>
+                                        @if ($parishs)
+                                            @foreach($parishs as $parroquia)
+                                                <option value="{{ $parroquia }}" >{{ $parroquia }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <strong>{!! Form::label('s_orientation', trans('forms.create_vsignal_label_orientation'), array('class' => 'control-label')); !!}</strong>
+                                    <select name="s_orientation" id="s_orientation">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_orientation') }}</option>
+                                        @if ($orientations)
+                                            @foreach($orientations as $sector)
+                                                <option value="{{ $sector }}" {{ old('s_orientation') == $sector ? 'selected' : '' }}>{{ $sector }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
                                     <strong>{!! Form::label('s_street', trans('forms.create_label_street'), array('class' => 'control-label')); !!}</strong>
                                     <select name="s_street" id="s_street">
                                         <option value="">{{ trans('forms.create_ph_street') }}</option>
                                         @if ($all_vst)
                                             @foreach($all_vst as $street)
                                                 <option value="{{ $street->street }}" {{ old('s_street') == $street->street ? 'selected' : '' }}>{{ $street->street }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <strong>{!! Form::label('s_group', trans('forms.create_vsignal_label_group'), array('class' => 'control-label')); !!}</strong>
+                                    
+                                    <select name="s_group" id="s_group">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_group') }}</option>
+                                        @if ($groups)
+                                            @foreach($groups as $grupo)
+                                                <option value="{{ $grupo->code }}" {{ old('s_group') == $grupo->code ? 'selected' : '' }}>{{$grupo->name}} ({{ $grupo->code }})</option>
                                             @endforeach
                                         @endif
                                     </select>

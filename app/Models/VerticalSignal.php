@@ -68,7 +68,8 @@ class VerticalSignal extends Eloquent implements Auditable
 		'normative',
 		'fastener',
 		'material',
-        'erp_code'
+        'erp_code',
+        'unique_code',
 	];
 
     /**

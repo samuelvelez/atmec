@@ -110,10 +110,9 @@
                                 </div>
                                 <div class="col-sm-6 col-6">
                                     <strong class="text-larger">
-                                        {{ trans('verticalsignals.labelSubgroup') }}
+                                        {{ trans('verticalsignals.labelUniqueCode') }}
                                     </strong>
-                                    {{ $vsignal->signal_inventory->subgroup->name }}
-                                    ({{ $vsignal->signal_inventory->subgroup->code  }})
+                                    {{ $vsignal->unique_code  }}
                                 </div>
                             </div>
 
@@ -128,7 +127,11 @@
                                     @endif
                                 </div>
                                 <div class="col-sm-6 col-6">
-
+                                    <strong class="text-larger">
+                                        {{ trans('verticalsignals.labelSubgroup') }}
+                                    </strong>
+                                    {{ $vsignal->signal_inventory->subgroup->name }}
+                                    ({{ $vsignal->signal_inventory->subgroup->code  }})
                                 </div>
                             </div>
 

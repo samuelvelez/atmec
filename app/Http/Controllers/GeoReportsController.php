@@ -17,6 +17,7 @@ use App\Models\VerticalSignal;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use function GuzzleHttp\Psr7\parse_query;
+use App\Models\SignalGroup;
 
 
 class GeoReportsController extends Controller
@@ -45,6 +46,9 @@ class GeoReportsController extends Controller
             Intersection::select('cross_st as street')->distinct()
         )->get();
 
+        $parishs = json_decode(Configuration::where('code', 'parish')->first()->values);
+        $orientations = json_decode(Configuration::where('code', 'direction')->first()->values);
+        $groups = SignalGroup::select()->get();
         return view('georeports.geolocation', compact(
             'sinventories',
             'materials',
@@ -55,7 +59,10 @@ class GeoReportsController extends Controller
             'l_fasteners',
             's_fasteners',
             'ligth_brands',
-            'regulator_brands'
+            'regulator_brands',
+            'parishs',
+            'orientations',
+            'groups'
         ));
     }
 
@@ -100,28 +107,44 @@ class GeoReportsController extends Controller
     public function search_signals(Request $request)
     {
         $signals = VerticalSignal::select();
+       // 
+        
+       //$signals = $signals;
 
-        if ($request->input('s_street')) {
-            $signals = $signals->where('street1', 'like', '%' . $request->s_street . '%')->orWhere('street2', 'like', '%' . $request->s_street . '%');
-        }
-
-        if ($request->input('s_type')) {
+       //parroquia, sector, grupo
+       //calle, *tipo de señal , * estado, *material , *tipo de fijacion
+       
+        if ($request->input('s_type')!="") {
             $signals = $signals->where('signal_id', '=', $request->s_type);
         }
 
-        if ($request->input('s_state')) {
-            $signals = $signals->where('state', '=', $request->s_state);
+        if ($request->input('s_state')!="") {
+            $signals = $signals->where('state', $request->s_state);
         }
 
-        if ($request->input('s_material')) {
-            $signals = $signals->where('material', '=', $request->s_material);
+        if ($request->input('s_material')!="") {
+            $signals = $signals->where('material', $request->s_material);
         }
 
-        if ($request->input('s_fastener')) {
+        if ($request->input('s_fastener')!="") {
             $signals = $signals->where('fastener', '=', $request->s_fastener);
         }
+        if ($request->input('s_street')) {
+            $signals = $signals->where('street1', 'like', '%' . $request->s_street . '%');//->orWhere('street2', 'like', '%' . $request->s_street . '%')
+        }
+        if ($request->input('s_parish')!="") {
+            $signals = $signals->where('parish', '=', $request->s_parish);
+        }
+        if ($request->input('s_orientation')!="") {
+            $signals = $signals->where('orientation', '=', $request->s_orientation);
+        }
+        if ($request->input('s_group')!="") {
+            //$signals = $signals->where('fastener', '=', $request->s_fastener);
+        }
 
-        $signals = $signals->get();
+        //$signals = $signals->where('material', $request->s_material)->where('street1', 'like', '%' . $request->s_street . '%');
+       
+        $signals = $signals->get();//->paginate(10);
         $result = [];
 
         foreach ($signals as $vsignal) {
@@ -158,9 +181,13 @@ class GeoReportsController extends Controller
                 'subgroup' => $vsignal->signal_inventory->subgroup->name . ' (' . $vsignal->signal_inventory->subgroup->code . ')',
             ];
         }
+        
         return response()->json([
             json_encode($result),
         ], Response::HTTP_OK);
+        
+        
+       // return $request;//$signals->paginate(10);
     }
 
     public function signals_excel(Request $request)

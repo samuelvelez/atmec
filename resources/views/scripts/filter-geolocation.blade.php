@@ -1077,9 +1077,10 @@
                     data: params,
                     async: true,
                     success: function (result) {
+                      console.log(result);
                         let jsonData = JSON.parse(result);
                         clear_data();
-
+                        
                         if (jsonData.length !== 0) {
                             result_caption.html(jsonData.length + config[form_id].result_caption);
                             config[form_id].render(result_container, jsonData);

@@ -110,9 +110,29 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback row {{ $errors->has('orientation') ? ' has-error ' : '' }}">
+                            {!! Form::label('orientation', trans('forms.create_vsignal_label_orientation'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="orientation" id="orientation">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_orientation') }}</option>
+                                        @if ($orientations)
+                                            @foreach($orientations as $i => $value)
+                                                <option value="{{ $value }}" {{ old('orientation') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('orientation'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('orientation') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group has-feedback row {{ $errors->has('parish') ? ' has-error ' : '' }}">
                             {!! Form::label('parish', trans('forms.create_vsignal_label_parish'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
+                            <!--<div class="col-md-9">
                                 <div class="input-group">
                                     {!! Form::text('parish', NULL, array('id' => 'google_address', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_parish'))) !!}
                                     <div class="input-group-append">
@@ -125,6 +145,23 @@
                                 @if ($errors->has('google_address'))
                                     <span class="help-block">
                                             <strong>{{ $errors->first('google_address') }}</strong>
+                                        </span>
+                                @endif
+                            </div>-->
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="parish" id="parish">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_parish') }}</option>
+                                        @if ($parishs)
+                                            @foreach($parishs as $i => $value)
+                                                <option value="{{ $value }}" {{ old('parish') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('orientation'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('orientation') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -296,26 +333,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('orientation') ? ' has-error ' : '' }}">
-                            {!! Form::label('orientation', trans('forms.create_vsignal_label_orientation'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="orientation" id="orientation">
-                                        <option value="">{{ trans('forms.create_vsignal_ph_orientation') }}</option>
-                                        @if ($orientations)
-                                            @foreach($orientations as $i => $value)
-                                                <option value="{{ $value }}" {{ old('orientation') == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                                @if ($errors->has('orientation'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('orientation') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
+                        
 
                         <div class="form-group has-feedback row {{ $errors->has('picture_data') ? ' has-error ' : '' }}">
                             {!! Form::label('picture', trans('forms.create_vsignal_label_picture'), array('class' => 'col-md-3 control-label')); !!}
@@ -468,6 +486,12 @@
             });
 
             $("#orientation").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+            $("#parish").selectize({
                 allowClear: true,
                 create: false,
                 highlight: true,

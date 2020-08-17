@@ -131,8 +131,8 @@ return [
     'create_vsignal_ph_state'    => 'Seleccione un estado',
     'create_vsignal_icon_state'  => 'fa-map-signs',
 
-    'create_vsignal_label_orientation' => 'Dirección',
-    'create_vsignal_ph_orientation'    => 'Seleccione una dirección',
+    'create_vsignal_label_orientation' => 'Sector',
+    'create_vsignal_ph_orientation'    => 'Seleccione un sector',
     'create_vsignal_icon_orientation'  => 'fa-map-signs',
 
     'create_vsignal_label_normative' => 'Normativa',
@@ -171,6 +171,10 @@ return [
     'create_vsignal_label_dimension' => 'Dimensiones',
     'create_vsignal_ph_dimension'    => 'Seleccione las dimensiones',
     'create_vsignal_icon_dimension'  => 'fa-text-width',
+
+    'create_vsignal_label_group' => 'Grupo',
+    'create_vsignal_ph_group'    => 'Seleccione un grupo de señales',
+    'create_vsignal_icon_group'  => 'fa-bookmark-o',
 
     'create_vsignal_label_subgroup' => 'Subgrupo',
     'create_vsignal_ph_subgroup'    => 'Seleccione un subgrupo de señales',

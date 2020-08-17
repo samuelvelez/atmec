@@ -51,7 +51,7 @@ return [
     'regulator-boxes'     => 'Cajas reguladoras',
     'regulator-devices'     => 'Dispositivos de cajas reguladoras',
 
-    'geolocations'      => 'Gelocalización',
+    'geolocations'      => 'Geolocalización',
     'signal-totals'        => 'Totales de señales',
     'light-totals'        => 'Totales de semáforos',
 

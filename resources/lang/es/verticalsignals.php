@@ -84,6 +84,7 @@ return [
     'vsignalsBackBtn' => 'Regresar a señales verticales',
     'vsignalsPanelTitle' => 'User Information',
     'labelErpCode' => 'Código en el ERP:',
+    'labelUniqueCode' => 'Código Único:',
     'labelName' => 'Nombre de la señal:',
     'labelGroup' => 'Grupo:',
     'labelSubgroup' => 'Subgrupo:',
