@@ -307,16 +307,20 @@ class VerticalSignalController extends Controller
 
             $vsignal->picture = $picture_name;
         }
+        if($vsignal->user_id == Auth::user()->id){
+            $vsignal->user_id = Auth::user()->id;
 
-        $vsignal->user_id = Auth::user()->id;
+            if ($vsignal->save()) {
+                if ($old_picture) {
+                    File::delete($old_picture);
+                }
 
-        if ($vsignal->save()) {
-            if ($old_picture) {
-                File::delete($old_picture);
+                return redirect('vertical-signals/' . $vsignal->id)->with('success', trans('verticalsignals.updateSuccess'));
             }
-
-            return redirect('vertical-signals/' . $vsignal->id)->with('success', trans('verticalsignals.updateSuccess'));
+        }else{
+            return redirect('vertical-signals/' . $vsignal->id)->with('error', trans('No tiene permisos para modificar.'));
         }
+        
     }
 
     /**

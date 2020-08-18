@@ -19,7 +19,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item {{ (Request::is('roles') || Request::is('permissions')) ? 'active' : null }}"
-                           href="#">
+                           href="{{ url('/users') }}">
                             {!! trans('titles.laravelroles') !!}
                         </a>
                         <div class="dropdown-divider"></div>
@@ -100,7 +100,7 @@
                 </li>
                 @endrole
 
-                @role('atmadmin|atmcollector|atmoperator')
+                @role('atmadmin|atmcollector|atmoperator|atmsenales|atmconsultas|atmusuario')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -193,7 +193,7 @@
                 </li>
                 @endrole
 
-                @role('atmoperator|atmadmin')
+                @role('atmoperator|atmadmin|atmsenales|atmconsultas')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
