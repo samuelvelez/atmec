@@ -41,7 +41,7 @@
                                 {!! trans('verticalsignals.showing-all-vsignals') !!}
                             </span>
 
-                            @role('atmadmin|atmcollector')
+                            @role('atmadmin|atmcollector|atmusuario')
                             <div class="btn-group pull-right btn-group-xs">
                                 <a class="btn btn-primary btn-sm" href="/vertical-signals/create">
                                     <i class="fa fa-fw fa-plus" aria-hidden="true"></i>

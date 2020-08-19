@@ -134,11 +134,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity', 'c
 
 Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmcollector|atmoperator|atmsenales|atmconsultas|atmusuario', 'activity', 'checkblocked']], function () {
     Route::resource('vertical-signals', 'VerticalSignalController')->only([
-        'index', 'show'
-    ]);
-    /*->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
-    ]);*/
+    ]);
     Route::get('vertical-signals/export/xlsx', 'VerticalSignalController@export_xlsx')->name('vertical-signals.xlsx');
     Route::get('vertical-signals/{id}/audit', 'VerticalSignalController@audit')->name('vertical-signals.audit');
     Route::post('search-vertical-signals', 'VerticalSignalController@search')->name('search-vertical-signals');
@@ -203,16 +200,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmcollector|
     Route::post('/georeports/regulator-boxes', 'GeoReportsController@search_regulators')->name('regulator-filters');
     Route::post('/georeports/regulators-excel', 'GeoReportsController@regulators_excel')->name('regulators-excel');
 });
-Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmcollector|atmoperator|atmusuario', 'activity', 'checkblocked']], function () {
-    Route::resource('vertical-signals', 'VerticalSignalController')->only([
-        'create', 'store', 'edit', 'update', 'destroy'
-    ]);
-    Route::get('vertical-signals/export/xlsx', 'VerticalSignalController@export_xlsx')->name('vertical-signals.xlsx');
-    Route::get('vertical-signals/{id}/audit', 'VerticalSignalController@audit')->name('vertical-signals.audit');
-    Route::post('search-vertical-signals', 'VerticalSignalController@search')->name('search-vertical-signals');
 
-    Route::get('variations-by-signal', 'SignalInventoryController@variations')->name('variations-by-signal');
-});
 
 Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstockkeeper', 'activity', 'checkblocked']], function () {
     Route::resource('ito-templates', 'ItorderTemplateController')->only([

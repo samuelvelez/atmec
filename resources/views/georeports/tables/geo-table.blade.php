@@ -8,6 +8,8 @@
         <th>{!! trans('verticalsignals.vsignals-table.state') !!}</th>
         <th>{!! trans('verticalsignals.vsignals-table.fastener') !!}</th>
         <th>{!! trans('verticalsignals.vsignals-table.material') !!}</th>
+        <th>{!! trans('Tipo de señal') !!}</th>
+        <th>{!! trans('Variación') !!}</th>
         <th>{!! trans('verticalsignals.vsignals-table.parish') !!}</th>
         <th>{!! trans('verticalsignals.vsignals-table.neighborhood') !!}</th>
         <th>{!! trans('verticalsignals.vsignals-table.google_address') !!}</th>

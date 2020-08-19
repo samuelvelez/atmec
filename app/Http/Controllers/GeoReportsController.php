@@ -111,7 +111,7 @@ class GeoReportsController extends Controller
         
        //$signals = $signals;
 
-       //parroquia, sector, grupo
+       //*parroquia, *sector, grupo
        //calle, *tipo de señal , * estado, *material , *tipo de fijacion
        
         if ($request->input('s_type')!="") {
@@ -140,10 +140,17 @@ class GeoReportsController extends Controller
         }
         if ($request->input('s_group')!="") {
             //$signals = $signals->where('fastener', '=', $request->s_fastener);
+            $signals = $signals->whereIn('signal_id', function($query) use ($request){
+                $query->select('id')->from('signals_inventory')
+                ->whereIn('subgroup_id', function($query_in) use ($request){
+                    $query_in->select('id')->from('signal_subgroups')
+                    ->whereIn('group_id', function($query_sub) use ($request){
+                        $query_sub->select('id')->from('signal_groups')
+                        ->where('code', $request->input('s_group'));
+                    });
+                });
+            });
         }
-
-        //$signals = $signals->where('material', $request->s_material)->where('street1', 'like', '%' . $request->s_street . '%');
-       
         $signals = $signals->get();//->paginate(10);
         $result = [];
 
@@ -172,7 +179,7 @@ class GeoReportsController extends Controller
                 'neighborhood' => $vsignal->neighborhood,
                 'parish' => $vsignal->parish,
                 'signal' => $vsignal->signal_inventory->name,
-                'variation' => $vsignal,
+                'variation' => ($vsignal->variation != null)? $vsignal->variation->variation : "-",
                 'state' => $vsignal->state,
                 'material' => $vsignal->material,
                 'fastener' => $vsignal->fastener,

@@ -307,7 +307,7 @@ class VerticalSignalController extends Controller
 
             $vsignal->picture = $picture_name;
         }
-        if($vsignal->user_id == Auth::user()->id){
+        if($vsignal->user_id == Auth::user()->id || Auth::user()->hasRole('atmadmin')){
             $vsignal->user_id = Auth::user()->id;
 
             if ($vsignal->save()) {
@@ -333,7 +333,7 @@ class VerticalSignalController extends Controller
     {
         $vsignal = VerticalSignal::findOrFail($id);
 
-        if (Auth::user()->hasRole('atmadmin')) {
+        if (Auth::user()->hasRole('atmadmin') || $vsignal->user_id == Auth::user()->id) {
             $picture_path = storage_path('app/public_html/signals/') . $vsignal->signal_folder . DIRECTORY_SEPARATOR . $vsignal->picture;
             File::delete($picture_path);
             $vsignal->delete();
