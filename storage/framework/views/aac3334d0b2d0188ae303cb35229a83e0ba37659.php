@@ -119,10 +119,31 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback row <?php echo e($errors->has('orientation') ? ' has-error ' : ''); ?>">
+                            <?php echo Form::label('orientation', trans('forms.create_vsignal_label_orientation'), array('class' => 'col-md-3 control-label'));; ?>
+
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="orientation" id="orientation">
+                                        <option value=""><?php echo e(trans('forms.create_vsignal_ph_orientation')); ?></option>
+                                        <?php if($orientations): ?>
+                                            <?php $__currentLoopData = $orientations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e($value); ?>" <?php echo e(old('orientation') == $value ? 'selected' : ''); ?>><?php echo e($value); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <?php if($errors->has('orientation')): ?>
+                                    <span class="help-block">
+                                            <strong><?php echo e($errors->first('orientation')); ?></strong>
+                                        </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                         <div class="form-group has-feedback row <?php echo e($errors->has('parish') ? ' has-error ' : ''); ?>">
                             <?php echo Form::label('parish', trans('forms.create_vsignal_label_parish'), array('class' => 'col-md-3 control-label'));; ?>
 
-                            <div class="col-md-9">
+                            <!--<div class="col-md-9">
                                 <div class="input-group">
                                     <?php echo Form::text('parish', NULL, array('id' => 'google_address', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_parish'))); ?>
 
@@ -136,6 +157,23 @@
                                 <?php if($errors->has('google_address')): ?>
                                     <span class="help-block">
                                             <strong><?php echo e($errors->first('google_address')); ?></strong>
+                                        </span>
+                                <?php endif; ?>
+                            </div>-->
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="parish" id="parish">
+                                        <option value=""><?php echo e(trans('forms.create_vsignal_ph_parish')); ?></option>
+                                        <?php if($parishs): ?>
+                                            <?php $__currentLoopData = $parishs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e($value); ?>" <?php echo e(old('parish') == $value ? 'selected' : ''); ?>><?php echo e($value); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <?php if($errors->has('orientation')): ?>
+                                    <span class="help-block">
+                                            <strong><?php echo e($errors->first('orientation')); ?></strong>
                                         </span>
                                 <?php endif; ?>
                             </div>
@@ -312,27 +350,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row <?php echo e($errors->has('orientation') ? ' has-error ' : ''); ?>">
-                            <?php echo Form::label('orientation', trans('forms.create_vsignal_label_orientation'), array('class' => 'col-md-3 control-label'));; ?>
-
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="orientation" id="orientation">
-                                        <option value=""><?php echo e(trans('forms.create_vsignal_ph_orientation')); ?></option>
-                                        <?php if($orientations): ?>
-                                            <?php $__currentLoopData = $orientations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <option value="<?php echo e($value); ?>" <?php echo e(old('orientation') == $value ? 'selected' : ''); ?>><?php echo e($value); ?></option>
-                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                        <?php endif; ?>
-                                    </select>
-                                </div>
-                                <?php if($errors->has('orientation')): ?>
-                                    <span class="help-block">
-                                            <strong><?php echo e($errors->first('orientation')); ?></strong>
-                                        </span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
+                        
 
                         <div class="form-group has-feedback row <?php echo e($errors->has('picture_data') ? ' has-error ' : ''); ?>">
                             <?php echo Form::label('picture', trans('forms.create_vsignal_label_picture'), array('class' => 'col-md-3 control-label'));; ?>
@@ -492,6 +510,12 @@
             });
 
             $("#orientation").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+            $("#parish").selectize({
                 allowClear: true,
                 create: false,
                 highlight: true,

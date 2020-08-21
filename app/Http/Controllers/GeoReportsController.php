@@ -113,33 +113,41 @@ class GeoReportsController extends Controller
 
        //*parroquia, *sector, grupo
        //calle, *tipo de señal , * estado, *material , *tipo de fijacion
-       
+       $verify = false;
         if ($request->input('s_type')!="") {
             $signals = $signals->where('signal_id', '=', $request->s_type);
+            $verify = true;
         }
 
         if ($request->input('s_state')!="") {
             $signals = $signals->where('state', $request->s_state);
+            $verify = true;
         }
 
         if ($request->input('s_material')!="") {
             $signals = $signals->where('material', $request->s_material);
+            $verify = true;
         }
 
         if ($request->input('s_fastener')!="") {
             $signals = $signals->where('fastener', '=', $request->s_fastener);
+            $verify = true;
         }
         if ($request->input('s_street')) {
             $signals = $signals->where('street1', 'like', '%' . $request->s_street . '%');//->orWhere('street2', 'like', '%' . $request->s_street . '%')
+            $verify = true;
         }
         if ($request->input('s_parish')!="") {
-            $signals = $signals->where('parish', '=', $request->s_parish);
+            $signals = $signals->where('parish', '=', strtoupper($request->s_parish));
+            $verify = true;
         }
         if ($request->input('s_orientation')!="") {
             $signals = $signals->where('orientation', '=', $request->s_orientation);
+            $verify = true;
         }
         if ($request->input('s_group')!="") {
             //$signals = $signals->where('fastener', '=', $request->s_fastener);
+            $verify = true;
             $signals = $signals->whereIn('signal_id', function($query) use ($request){
                 $query->select('id')->from('signals_inventory')
                 ->whereIn('subgroup_id', function($query_in) use ($request){
@@ -151,7 +159,13 @@ class GeoReportsController extends Controller
                 });
             });
         }
-        $signals = $signals->get();//->paginate(10);
+        if($verify && $signals->count()<1000){
+            $signals = $signals->get();//->paginate(10);
+            //return $signals->count();
+        }else{
+            $signals = $signals->paginate(1000);//->paginate(10);
+        }
+        //$signals = $signals->get();//->paginate(10);
         $result = [];
 
         foreach ($signals as $vsignal) {

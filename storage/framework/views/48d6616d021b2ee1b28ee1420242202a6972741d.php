@@ -21,7 +21,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item <?php echo e((Request::is('roles') || Request::is('permissions')) ? 'active' : null); ?>"
-                           href="#">
+                           href="<?php echo e(url('/users')); ?>">
                             <?php echo trans('titles.laravelroles'); ?>
 
                         </a>
@@ -118,7 +118,7 @@
                 </li>
                 <?php endif; ?>
 
-                <?php if (Auth::check() && Auth::user()->hasRole('atmadmin|atmcollector|atmoperator')): ?>
+                <?php if (Auth::check() && Auth::user()->hasRole('atmadmin|atmcollector|atmoperator|atmsenales|atmconsultas|atmusuario')): ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -226,7 +226,7 @@
                 </li>
                 <?php endif; ?>
 
-                <?php if (Auth::check() && Auth::user()->hasRole('atmoperator|atmadmin')): ?>
+                <?php if (Auth::check() && Auth::user()->hasRole('atmoperator|atmadmin|atmsenales|atmconsultas')): ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

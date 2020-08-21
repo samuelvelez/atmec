@@ -28,12 +28,54 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
+                                    <strong><?php echo Form::label('s_parish', trans('forms.create_vsignal_label_parish'), array('class' => 'control-label'));; ?></strong>
+                                    <select name="s_parish" id="s_parish">
+                                        <option value=""><?php echo e(trans('forms.create_vsignal_ph_parish')); ?></option>
+                                        <?php if($parishs): ?>
+                                            <?php $__currentLoopData = $parishs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $parroquia): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e(strtoupper($parroquia)); ?>" ><?php echo e($parroquia); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <strong><?php echo Form::label('s_orientation', trans('forms.create_vsignal_label_orientation'), array('class' => 'control-label'));; ?></strong>
+                                    <select name="s_orientation" id="s_orientation">
+                                        <option value=""><?php echo e(trans('forms.create_vsignal_ph_orientation')); ?></option>
+                                        <?php if($orientations): ?>
+                                            <?php $__currentLoopData = $orientations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sector): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e($sector); ?>" <?php echo e(old('s_orientation') == $sector ? 'selected' : ''); ?>><?php echo e($sector); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
                                     <strong><?php echo Form::label('s_street', trans('forms.create_label_street'), array('class' => 'control-label'));; ?></strong>
                                     <select name="s_street" id="s_street">
                                         <option value=""><?php echo e(trans('forms.create_ph_street')); ?></option>
                                         <?php if($all_vst): ?>
                                             <?php $__currentLoopData = $all_vst; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $street): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <option value="<?php echo e($street->street); ?>" <?php echo e(old('s_street') == $street->street ? 'selected' : ''); ?>><?php echo e($street->street); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <strong><?php echo Form::label('s_group', trans('forms.create_vsignal_label_group'), array('class' => 'control-label'));; ?></strong>
+                                    
+                                    <select name="s_group" id="s_group">
+                                        <option value=""><?php echo e(trans('forms.create_vsignal_ph_group')); ?></option>
+                                        <?php if($groups): ?>
+                                            <?php $__currentLoopData = $groups; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $grupo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <option value="<?php echo e($grupo->code); ?>" <?php echo e(old('s_group') == $grupo->code ? 'selected' : ''); ?>><?php echo e($grupo->name); ?> (<?php echo e($grupo->code); ?>)</option>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                         <?php endif; ?>
                                     </select>

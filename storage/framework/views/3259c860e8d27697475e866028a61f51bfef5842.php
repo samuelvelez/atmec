@@ -242,6 +242,24 @@
                 highlight: true,
                 diacritics: true
             });
+            $("#s_orientation").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+            $("#s_parish").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+            $("#s_group").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
         });
     </script>
 

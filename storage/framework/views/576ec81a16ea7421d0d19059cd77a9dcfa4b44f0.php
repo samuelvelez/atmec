@@ -41,7 +41,7 @@
 
                             </span>
 
-                            <?php if (Auth::check() && Auth::user()->hasRole('atmadmin|atmcollector')): ?>
+                            <?php if (Auth::check() && Auth::user()->hasRole('atmadmin|atmcollector|atmusuario')): ?>
                             <div class="btn-group pull-right btn-group-xs">
                                 <a class="btn btn-primary btn-sm" href="/vertical-signals/create">
                                     <i class="fa fa-fw fa-plus" aria-hidden="true"></i>

@@ -117,12 +117,11 @@
                                 </div>
                                 <div class="col-sm-6 col-6">
                                     <strong class="text-larger">
-                                        <?php echo e(trans('verticalsignals.labelSubgroup')); ?>
+                                        <?php echo e(trans('verticalsignals.labelUniqueCode')); ?>
 
                                     </strong>
-                                    <?php echo e($vsignal->signal_inventory->subgroup->name); ?>
+                                    <?php echo e($vsignal->unique_code); ?>
 
-                                    (<?php echo e($vsignal->signal_inventory->subgroup->code); ?>)
                                 </div>
                             </div>
 
@@ -139,7 +138,13 @@
                                     <?php endif; ?>
                                 </div>
                                 <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        <?php echo e(trans('verticalsignals.labelSubgroup')); ?>
 
+                                    </strong>
+                                    <?php echo e($vsignal->signal_inventory->subgroup->name); ?>
+
+                                    (<?php echo e($vsignal->signal_inventory->subgroup->code); ?>)
                                 </div>
                             </div>
 

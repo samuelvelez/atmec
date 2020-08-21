@@ -8,6 +8,8 @@
         <th><?php echo trans('verticalsignals.vsignals-table.state'); ?></th>
         <th><?php echo trans('verticalsignals.vsignals-table.fastener'); ?></th>
         <th><?php echo trans('verticalsignals.vsignals-table.material'); ?></th>
+        <th><?php echo trans('Tipo de señal'); ?></th>
+        <th><?php echo trans('Variación'); ?></th>
         <th><?php echo trans('verticalsignals.vsignals-table.parish'); ?></th>
         <th><?php echo trans('verticalsignals.vsignals-table.neighborhood'); ?></th>
         <th><?php echo trans('verticalsignals.vsignals-table.google_address'); ?></th>

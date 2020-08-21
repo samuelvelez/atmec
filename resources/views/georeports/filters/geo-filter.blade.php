@@ -31,7 +31,7 @@
                                         <option value="">{{ trans('forms.create_vsignal_ph_parish') }}</option>
                                         @if ($parishs)
                                             @foreach($parishs as $parroquia)
-                                                <option value="{{ $parroquia }}" >{{ $parroquia }}</option>
+                                                <option value="{{ strtoupper($parroquia) }}" >{{ $parroquia }}</option>
                                             @endforeach
                                         @endif
                                     </select>
