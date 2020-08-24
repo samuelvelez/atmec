@@ -1,5 +1,20 @@
 <script>
 /**/
+
+function verificar(){
+  var total = 0;
+  $("select.v_signal_select").each(function(){
+    console.log($(this).val());
+    if($(this).val()!=""){
+      total = total +1;
+    }
+  });
+  if(total>2){
+    $("#filter-submit").prop('disabled', false);
+  }else{
+    $("#filter-submit").prop('disabled', true);
+  }
+}
 (function() {
     var AjaxMonitor, Bar, DocumentMonitor, ElementMonitor, ElementTracker, EventLagMonitor, Evented, Events, NoTargetError, Pace, RequestIntercept, SOURCE_KEYS, Scaler, SocketRequestTracker, XHRRequestTracker, animation, avgAmplitude, bar, cancelAnimation, cancelAnimationFrame, defaultOptions, extend, extendNative, getFromDOM, getIntercept, handlePushState, ignoreStack, init, now, options, requestAnimationFrame, result, runAnimation, scalers, shouldIgnoreURL, shouldTrack, source, sources, uniScaler, _WebSocket, _XDomainRequest, _XMLHttpRequest, _i, _intercept, _len, _pushState, _ref, _ref1, _replaceState,
       __slice = [].slice,
@@ -960,20 +975,28 @@
             result_caption: ' señales encontradas',
             render: function (container, data) {
                 $.each(data, function (index, val) {
-                  console.log(val);
+                  console.log(index);
+                  //JSON.parse
                     container.append('<tr>' +
                         '<td>' + val.code + '</td>' +
+                        '<td>' + val.group + '</td>' +
+                        '<td>' + val.signal + '</td>' +
+                        '<td>' + val.state + '</td>' +
+                        '<td>' + val.street1 + '</td>' +
+                        '<td>' + val.street2 + '</td>' +
                         '<td>' + val.latitude + '</td>' +
                         '<td>' + val.longitude + '</td>' +
-                        '<td>' + val.state + '</td>' +
+                        '<td>' + val.google_address + '</td>' +
+                        '<td>' + val.parish + '</td>' +
+                        /*
                         '<td>' + val.fastener + '</td>' +
                         '<td>' + val.material + '</td>' +
-                        '<td>' + val.signal + '</td>' +
+                        
                         '<td>' + val.variation + '</td>' +
 
-                        '<td>' + val.parish + '</td>' +
-                        '<td>' + val.neighborhood + '</td>' +
-                        '<td>' + val.google_address + '</td>' +
+                        
+                        '<td>' + val.neighborhood + '</td>' +*/
+                        
                         '</tr>');
 
                     add_signal_marker(val);
@@ -1078,16 +1101,22 @@
                     async: true,
                     success: function (result) {
                       console.log(result);
-                        let jsonData = JSON.parse(result);
+                        let jsonData = JSON.parse(result);//JSON.stringify(result.data);//
                         clear_data();
                         
                         if (jsonData.length !== 0) {
-                            result_caption.html(jsonData.length + config[form_id].result_caption);
+                            /*result_caption.html(jsonData.length + config[form_id].result_caption);
                             config[form_id].render(result_container, jsonData);
                             map.fitBounds(bounds);
 
                             $('#excel-export').attr("disabled", false);
                             $('#save-image-btn').attr("disabled", false);
+                            */
+                           console.log("entro");
+                           result_caption.html(jsonData.length + config[form_id].result_caption);
+                           config[form_id].render(result_container, jsonData);
+                           $('#excel-export').attr("disabled", false);
+                          $('#save-image-btn').attr("disabled", false);
                         } else {
                             result_container.append(config[form_id].no_result);
                         }
@@ -1095,8 +1124,9 @@
                         $(config[form_id].result_heading).show();
                     },
                     error: function (response, status, error) {
+                      console.log(response, status, error);
                         $(config[form_id].result_heading).show();
-                        console.log(response.responseText);
+                        //console.log(response.responseText);
                         if (response.status === 422) {
                             result_container.html(config[form_id].no_result);
                         } else if (response.status === 500) {

@@ -22,12 +22,13 @@
                     <div class="col-md-12">
                         {!! Form::open(array('id' => 'vsignal-filters', 'route' => 'vsignal-filters', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                         {!! csrf_field() !!}
+                        <h4 style="color:#007bff">Seleccione 3 filtros para la búsqueda</h4>
 
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <strong>{!! Form::label('s_parish', trans('forms.create_vsignal_label_parish'), array('class' => 'control-label')); !!}</strong>
-                                    <select name="s_parish" id="s_parish">
+                                    <select name="s_parish" id="s_parish" class="v_signal_select" onchange="verificar()">
                                         <option value="">{{ trans('forms.create_vsignal_ph_parish') }}</option>
                                         @if ($parishs)
                                             @foreach($parishs as $parroquia)
@@ -37,7 +38,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <!--<div class="col-md-4">
                                 <div class="form-group">
                                     <strong>{!! Form::label('s_orientation', trans('forms.create_vsignal_label_orientation'), array('class' => 'control-label')); !!}</strong>
                                     <select name="s_orientation" id="s_orientation">
@@ -49,11 +50,11 @@
                                         @endif
                                     </select>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <strong>{!! Form::label('s_street', trans('forms.create_label_street'), array('class' => 'control-label')); !!}</strong>
-                                    <select name="s_street" id="s_street">
+                                    <select name="s_street" id="s_street" class="v_signal_select" onchange="verificar()">
                                         <option value="">{{ trans('forms.create_ph_street') }}</option>
                                         @if ($all_vst)
                                             @foreach($all_vst as $street)
@@ -63,13 +64,12 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+                        
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <strong>{!! Form::label('s_group', trans('forms.create_vsignal_label_group'), array('class' => 'control-label')); !!}</strong>
                                     
-                                    <select name="s_group" id="s_group">
+                                    <select name="s_group" id="s_group" class="v_signal_select" onchange="verificar()">
                                         <option value="">{{ trans('forms.create_vsignal_ph_group') }}</option>
                                         @if ($groups)
                                             @foreach($groups as $grupo)
@@ -79,11 +79,13 @@
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
 
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <strong>{!! Form::label('s_type', trans('forms.create_vsignal_label_inventory'), array('class' => 'control-label')); !!}</strong>
-                                    <select name="s_type" id="s_type">
+                                    <select name="s_type" id="s_type" class="v_signal_select" onchange="verificar()">
                                         <option value="">{{ trans('forms.create_vsignal_ph_inventory') }}</option>
                                         @if ($inventories)
                                             @foreach($inventories as $inventory)
@@ -97,7 +99,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <strong>{!! Form::label('s_state', trans('forms.create_vsignal_label_state'), array('class' => 'control-label')); !!}</strong>
-                                    <select name="s_state" id="s_state">
+                                    <select name="s_state" id="s_state" class="v_signal_select" onchange="verificar()">
                                         <option value="">{{ trans('forms.create_vsignal_ph_state') }}</option>
                                         @if ($states)
                                             @foreach($states as $id => $value)
@@ -107,13 +109,11 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
+                        
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <strong>{!! Form::label('s_material', trans('forms.create_vsignal_label_material'), array('class' => 'control-label')); !!}</strong>
-                                    <select name="s_material" id="s_material">
+                                    <select name="s_material" id="s_material" class="v_signal_select" onchange="verificar()">
                                         <option value="">{{ trans('forms.create_vsignal_ph_material') }}</option>
                                         @if ($materials)
                                             @foreach($materials as $i => $value)
@@ -123,11 +123,13 @@
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
 
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <strong>{!! Form::label('s_fastener', trans('forms.create_vsignal_label_fastener'), array('class' => 'control-label')); !!}</strong>
-                                    <select name="s_fastener" id="s_fastener">
+                                    <select name="s_fastener" id="s_fastener" class="v_signal_select" onchange="verificar()">
                                         <option value="">{{ trans('forms.create_vsignal_ph_fastener') }}</option>
                                         @if ($s_fasteners)
                                             @foreach($s_fasteners as $i => $value)
@@ -284,8 +286,8 @@
         <hr>
         <div class="row">
             <div class="col-md-12">
-                {!! Form::button('<i class="fa fa-fw fa-filter" aria-hidden="true"></i> ' . trans('forms.filter_button_text'), array('class' => 'btn btn-sm btn-primary margin-bottom-1 mb-1 ml-1 float-right','type' => 'button', 'id' => 'filter-submit')) !!}&nbsp;&nbsp;
-                {!! Form::button('<i class="fa fa-fw fa-undo" aria-hidden="true"></i> ' . trans('forms.clear_button_text'), array('class' => 'btn btn-sm btn-secondary margin-bottom-1 mb-1 float-right','type' => 'reset', 'id' => 'filter-reset')) !!}
+                {!! Form::button('<i class="fa fa-fw fa-filter" aria-hidden="true"></i> ' . trans('forms.filter_button_text'), array('class' => 'btn btn-sm btn-primary margin-bottom-1 mb-1 ml-1 float-right','type' => 'button', 'id' => 'filter-submit', 'disabled'=>'disabled')) !!}&nbsp;&nbsp;
+                {!! Form::button('<i class="fa fa-fw fa-undo" aria-hidden="true"></i> ' . trans('forms.clear_button_text'), array('class' => 'btn btn-sm btn-secondary margin-bottom-1 mb-1 float-right','type' => 'reset', 'id' => 'filter-reset', )) !!}
             </div>
         </div>
     </div>
