@@ -975,8 +975,6 @@ function verificar(){
             result_caption: ' señales encontradas',
             render: function (container, data) {
                 $.each(data, function (index, val) {
-                  console.log(index);
-                  //JSON.parse
                     container.append('<tr>' +
                         '<td>' + val.code + '</td>' +
                         '<td>' + val.group + '</td>' +
@@ -988,15 +986,6 @@ function verificar(){
                         '<td>' + val.longitude + '</td>' +
                         '<td>' + val.google_address + '</td>' +
                         '<td>' + val.parish + '</td>' +
-                        /*
-                        '<td>' + val.fastener + '</td>' +
-                        '<td>' + val.material + '</td>' +
-                        
-                        '<td>' + val.variation + '</td>' +
-
-                        
-                        '<td>' + val.neighborhood + '</td>' +*/
-                        
                         '</tr>');
 
                     add_signal_marker(val);
@@ -1166,7 +1155,6 @@ function verificar(){
             });
 
             bounds.extend(marker.position);
-
             marker['infowindow'] = new google.maps.InfoWindow({
                 content: '<div class="card">\
                     <div class="card-horizontal">\

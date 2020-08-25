@@ -158,7 +158,7 @@ class GeoReportsController extends Controller
             }
 
             if ($vsignal->picture) {
-                $picture = $vsignal->picture;
+                $picture .= $vsignal->picture;
             } else {
                 $picture .= 'no-picture.png';
             }

@@ -311,6 +311,7 @@
                         <div class="border-bottom"></div>
 
                         <br/>
+                        @role('atmadmin|atmcollector|atmusuario')
                         <div class="row">
                             <div class="col-4">
                             
@@ -325,7 +326,7 @@
                                    href="{{ URL::to('vertical-signals/' . $vsignal->id . '/edit') }}"><i
                                             class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
                             </div>
-                            <div class="col-4">
+                            <!--<div class="col-4">
                                 <div class="btn-group float-right btn-block" role="group">
                                     <button id="btnGroupDrop1" type="button"
                                             class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown"
@@ -342,8 +343,9 @@
                                                     class="fa fa-plus-square"></i> Nueva reguladora</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
+                        @endrole
                     </div>
 
                 </div>

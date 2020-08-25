@@ -384,6 +384,8 @@ class VerticalSignalController extends Controller
         foreach ($vsignals->get() as $vsignal) {
             $result[] = [
                 'id' => $vsignal->id,
+                'group' => $signal->signal_inventory->subgroup->group->name . ' (' . $signal->signal_inventory->subgroup->group->code . ')',//$signal->grupo,
+                'signal' => $signal->signal_inventory->name,
                 'code' => $vsignal->code,
                 'erp_code' => $vsignal->erp_code,
                 'creator' => $vsignal->user->full_name(),

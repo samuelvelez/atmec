@@ -73,6 +73,8 @@
                                 <thead class="thead">
                                 <tr>
                                     <th>{!! trans('verticalsignals.vsignals-table.code') !!}</th>
+                                    <th>{!! trans('Grupo') !!}</th>
+                                    <th>{!! trans('Tipo de Señal') !!}</th>
                                     <th>{!! trans('verticalsignals.vsignals-table.creator') !!}</th>
                                     <th>{!! trans('verticalsignals.vsignals-table.state') !!}</th>
                                     <th>{!! trans('verticalsignals.vsignals-table.fastener') !!}</th>
@@ -87,6 +89,9 @@
                                 <tbody id="vsignals_table">
                                 @foreach($vsignals as $vsignal)
                                     <tr>
+                                        <td>{{$vsignal->code}}</td>
+                                        <td>{{$vsignal->signal_inventory->subgroup->group->name}}</td>
+                                        <td>{{$vsignal->signal_inventory->name}}</td>
                                         <td>{{$vsignal->code}}</td>
                                         <td>{{$vsignal->user->full_name()}}</td>
                                         <td>{{$vsignal->state}}</td>
@@ -110,7 +115,7 @@
                                             </a>
                                         </td>
                                         @endrole
-                                        @role('atmadmin')
+                                        @role('atmadmin|atmusuario')
                                         <td>
                                             {!! Form::open(array('url' => 'vertical-signals/' . $vsignal->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
                                             {!! Form::hidden('_method', 'DELETE') !!}
