@@ -40,17 +40,17 @@ class VerticalSignalExport extends BaseExport implements FromQuery, WithMapping,
             $signal->state,
             $signal->material,
             $signal->fastener,
-            $signal->normative,
-            $signal->street1,
-            $signal->street2,
-            $signal->latitude,
-            $signal->longitude,
+            //$signal->normative,
+            //$signal->street1,
+            //$signal->street2,
+            /*$signal->latitude,
+            $signal->longitude,*/
             $signal->google_address,
-            $signal->parish,
+            /*$signal->parish,
             $signal->neighborhood,
             ($signal->variation != null) ? $signal->variation->variation : "-",
             $signal->comment,
-            $signal->erp_code,
+            $signal->erp_code,*/
         ];
     }
 
@@ -70,16 +70,16 @@ class VerticalSignalExport extends BaseExport implements FromQuery, WithMapping,
             'Estado',
             'Material',
             'Fijador',
-            'Normativa',
-            'Dirección 1',
-            'Dirección 2',
-            'Latitud',
-            'Longitud',
+            //'Normativa',
+            //'Dirección 1',
+            //'Dirección 2',*/
+            //'Latitud',
+            //'Longitud',
             'Dirección en Google',
-            'Parroquia',
+            /*'Parroquia',
             'Barrio',
             'Variacion',
-            'Comentario',
+            'Comentario',*/
         ];
     }
 }

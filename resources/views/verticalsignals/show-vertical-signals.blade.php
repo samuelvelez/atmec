@@ -92,7 +92,6 @@
                                         <td>{{$vsignal->code}}</td>
                                         <td>{{$vsignal->signal_inventory->subgroup->group->name}}</td>
                                         <td>{{$vsignal->signal_inventory->name}}</td>
-                                        <td>{{$vsignal->code}}</td>
                                         <td>{{$vsignal->user->full_name()}}</td>
                                         <td>{{$vsignal->state}}</td>
                                         <td>{{$vsignal->fastener}}</td>

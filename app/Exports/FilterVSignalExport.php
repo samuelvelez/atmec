@@ -100,7 +100,7 @@ class FilterVSignalExport extends BaseExport implements FromQuery, WithMapping, 
     public function map($signal): array
     {
         return [
-            $signal->code,
+            /*$signal->code,
             $signal->signal_inventory->subgroup->group->name . ' (' . $signal->signal_inventory->subgroup->group->code . ')',//$signal->grupo,
             $signal->signal_inventory->name,
             $signal->state,
@@ -116,7 +116,14 @@ class FilterVSignalExport extends BaseExport implements FromQuery, WithMapping, 
             $signal->neighborhood,
             ($signal->variation != null) ? $signal->variation->variation : "-",
             $signal->comment,
-            $signal->erp_code,
+            $signal->erp_code,*/
+            $signal->code,
+            $signal->signal_inventory->subgroup->group->name . ' (' . $signal->signal_inventory->subgroup->group->code . ')',//$signal->grupo,
+            $signal->signal_inventory->name,
+            $signal->state,
+            $signal->material,
+            $signal->fastener,
+            $signal->google_address,
 
         ];
     }
@@ -125,7 +132,7 @@ class FilterVSignalExport extends BaseExport implements FromQuery, WithMapping, 
     {
         
         return[
-            'Código',
+            /*'Código',
             'Grupo',//
             'Tipo de Señal',
             'Estado',
@@ -140,7 +147,14 @@ class FilterVSignalExport extends BaseExport implements FromQuery, WithMapping, 
             'Parroquia',
             'Barrio',
             'Variacion',
-            'Comentario',
+            'Comentario',*/
+            'Código',
+            'Grupo',
+            'Tipo de Señal',
+            'Estado',
+            'Material',
+            'Fijador',
+            'Dirección en Google',
         ];
         /*return [
             'Código',
