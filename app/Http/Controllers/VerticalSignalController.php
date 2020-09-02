@@ -312,7 +312,8 @@ class VerticalSignalController extends Controller
 
             if ($vsignal->save()) {
                 if ($old_picture) {
-                    File::delete($old_picture);
+                    //no borramos la imagen anterior por respaldo
+                   // File::delete($old_picture);
                 }
 
                 return redirect('vertical-signals/' . $vsignal->id)->with('success', trans('verticalsignals.updateSuccess'));

@@ -2,18 +2,19 @@
     <div class="col-md-12">
         <ul class="nav nav-pills" id="pills-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="pills-signals-tab" data-toggle="pill" href="#pills-signals" role="tab"
+                <a class="nav-link active" onclick="filtros(1)" id="pills-signals-tab" data-toggle="pill" href="#pills-signals" role="tab"
                    aria-controls="pills-signals" aria-selected="true">Señales verticales</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-lights-tab" data-toggle="pill" href="#pills-lights" role="tab"
+                <a class="nav-link" onclick="filtros(2)" id="pills-lights-tab" data-toggle="pill" href="#pills-lights" role="tab"
                    aria-controls="pills-lights" aria-selected="false">Semáforos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-regulators-tab" data-toggle="pill" href="#pills-regulators" role="tab"
+                <a class="nav-link" onclick="filtros(3)" id="pills-regulators-tab" data-toggle="pill" href="#pills-regulators" role="tab"
                    aria-controls="pills-regulators" aria-selected="false">Reguladoras</a>
             </li>
         </ul>
+        <input type="hidden" value="1" id="filtro_no">
         <hr>
         <div class="tab-content">
             <div class="tab-pane fade show active" id="pills-signals" role="tabpanel"

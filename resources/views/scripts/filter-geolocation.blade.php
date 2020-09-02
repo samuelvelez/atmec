@@ -3,13 +3,14 @@
 
 function verificar(){
   var total = 0;
+  var filtro = $("#filtro_no").val();
   $("select.v_signal_select").each(function(){
     console.log($(this).val());
     if($(this).val()!=""){
       total = total +1;
     }
   });
-  if(total>2){
+  if(total>2 || filtro!="1"){
     $("#filter-submit").prop('disabled', false);
   }else{
     $("#filter-submit").prop('disabled', true);

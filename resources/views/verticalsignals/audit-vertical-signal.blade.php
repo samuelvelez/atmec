@@ -43,7 +43,13 @@
 
                                                 <ul>
                                                     @foreach ($audit->getModified() as $attribute => $modified)
-                                                        <li>@lang('verticalsignals.audit.'.$audit->event.'.modified.'.$attribute, $modified)</li>
+                                                        <li>@lang('verticalsignals.audit.'.$audit->event.'.modified.'.$attribute, $modified)
+                                                        @if($attribute == "picture"  && $audit->event == "updated")
+                                                            @if(file_exists(storage_path('app/public_html/signals/').$audit->auditable['signal_folder']."/".$audit->old_values['picture']))
+                                                                <a target="_blank" href="../../storage/signals/{{$audit->auditable['signal_folder']}}/{{$audit->old_values['picture']}}">Ver imagen Anterior</a>
+                                                            @endif
+                                                        @endif
+                                                        </li>
                                                     @endforeach
                                                 </ul>
                                             </td>

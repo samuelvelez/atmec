@@ -148,6 +148,12 @@
     <script type="text/javascript" src="{{ config('atm_app.html2canvasJsCdn') }}"></script>
 
     <script type="text/javascript">
+
+    function filtros(e){
+        //alert(e);
+        $("#filtro_no").val(e);
+        verificar();
+    }
         $(function() {
             $("#l_street").selectize({
                 allowClear: true,
