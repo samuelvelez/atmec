@@ -131,6 +131,84 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback row {{ $errors->has('orientation') ? ' has-error ' : '' }}">
+                            {!! Form::label('orientation', trans('forms.create_vsignal_label_orientation'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="orientation" id="orientation">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_orientation') }}</option>
+                                        @if ($orientations)
+                                            @foreach($orientations as $i => $value)
+                                                <option value="{{ $value }}" {{ $vsignal->orientation == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('orientation'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('orientation') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback row {{ $errors->has('parish') ? ' has-error ' : '' }}">
+                            {!! Form::label('parish', trans('forms.create_vsignal_label_parish'), array('class' => 'col-md-3 control-label')); !!}
+                            <!--<div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('parish', NULL, array('id' => 'google_address', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_parish'))) !!}
+                                    <div class="input-group-append">
+                                        <label for="google_address" class="input-group-text">
+                                            <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_gaddress') }}"
+                                               aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('google_address'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('google_address') }}</strong>
+                                        </span>
+                                @endif
+                            </div>-->
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="parish" id="parish">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_parish') }}</option>
+                                        @if ($parishs)
+                                            @foreach($parishs as $i => $value)
+                                                <option value="{{ $value }}" {{ $vsignal->parish == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('orientation'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('orientation') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('code') ? ' has-error ' : '' }}">
+                            {!! Form::label('code', trans('forms.create_vsignal_label_neighborhood'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('code', $vsignal->neighborhood, array('id' => 'code', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_neighborhood'))) !!}
+                                    
+                                    <div class="input-group-append">
+                                        <label for="code" class="input-group-text">
+                                            <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_neighborhood') }}"
+                                               aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('code'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('code') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group has-feedback row {{ $errors->has('code') ? ' has-error ' : '' }}">
                             {!! Form::label('code', trans('forms.create_vsignal_label_code'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -192,27 +270,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('variation') ? ' has-error ' : '' }}">
-                            {!! Form::label('variation', trans('forms.create_vsignal_label_variation'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="variation" id="variation">
-                                        <option value="">{{ trans('forms.create_vsignal_ph_variation') }}</option>
-                                        @if ($sinventories)
-                                            @foreach($vsignal->signal_inventory->variations as $variation)
-                                                <option value="{{ $variation->id }}" {{ $vsignal->variation_id == $variation->id ? 'selected' : '' }}>{{ $variation->variation . ' (' . $variation->signal_dimension->value . ')' }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                                @if ($errors->has('variation'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('variation') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group has-feedback row {{ $errors->has('fastener') ? ' has-error ' : '' }}">
                             {!! Form::label('fastener', trans('forms.create_vsignal_label_fastener'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -229,6 +286,27 @@
                                 @if ($errors->has('fastener'))
                                     <span class="help-block">
                                             <strong>{{ $errors->first('fastener') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('variation') ? ' has-error ' : '' }}">
+                            {!! Form::label('variation', trans('forms.create_vsignal_label_variation'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="variation" id="variation">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_variation') }}</option>
+                                        @if ($sinventories)
+                                            @foreach($vsignal->signal_inventory->variations as $variation)
+                                                <option value="{{ $variation->id }}" {{ $vsignal->variation_id == $variation->id ? 'selected' : '' }}>{{ $variation->variation . ' (' . $variation->signal_dimension->value . ')' }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('variation'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('variation') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -292,27 +370,6 @@
                                 @if ($errors->has('state'))
                                     <span class="help-block">
                                             <strong>{{ $errors->first('state') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('orientation') ? ' has-error ' : '' }}">
-                            {!! Form::label('orientation', trans('forms.create_vsignal_label_orientation'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="orientation" id="orientation">
-                                        <option value="">{{ trans('forms.create_vsignal_ph_orientation') }}</option>
-                                        @if ($orientations)
-                                            @foreach($orientations as $i => $value)
-                                                <option value="{{ $value }}" {{ $vsignal->orientation == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                                @if ($errors->has('orientation'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('orientation') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -477,7 +534,13 @@
                 highlight: true,
                 diacritics: true
             });
-
+            
+            $("#parish").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
         });
     </script>
 

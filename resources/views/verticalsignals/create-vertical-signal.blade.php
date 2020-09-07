@@ -159,29 +159,29 @@
                                         @endif
                                     </select>
                                 </div>
-                                @if ($errors->has('orientation'))
+                                @if ($errors->has('parish'))
                                     <span class="help-block">
-                                            <strong>{{ $errors->first('orientation') }}</strong>
+                                            <strong>{{ $errors->first('parish') }}</strong>
                                         </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('code') ? ' has-error ' : '' }}">
-                            {!! Form::label('code', trans('forms.create_vsignal_label_neighborhood'), array('class' => 'col-md-3 control-label')); !!}
+                        <div class="form-group has-feedback row {{ $errors->has('neighborhood') ? ' has-error ' : '' }}">
+                            {!! Form::label('neighborhood', trans('forms.create_vsignal_label_neighborhood'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('code', NULL, array('id' => 'code', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_neighborhood'))) !!}
+                                    {!! Form::text('neighborhood', NULL, array('id' => 'code', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_neighborhood'))) !!}
                                     <div class="input-group-append">
-                                        <label for="code" class="input-group-text">
+                                        <label for="neighborhood" class="input-group-text">
                                             <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_neighborhood') }}"
                                                aria-hidden="true"></i>
                                         </label>
                                     </div>
                                 </div>
-                                @if ($errors->has('code'))
+                                @if ($errors->has('neighborhood'))
                                     <span class="help-block">
-                                            <strong>{{ $errors->first('code') }}</strong>
+                                            <strong>{{ $errors->first('neighborhood') }}</strong>
                                         </span>
                                 @endif
                             </div>
