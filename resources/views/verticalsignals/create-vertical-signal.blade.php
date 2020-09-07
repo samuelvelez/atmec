@@ -168,6 +168,26 @@
                         </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('code') ? ' has-error ' : '' }}">
+                            {!! Form::label('code', trans('forms.create_vsignal_label_neighborhood'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('code', NULL, array('id' => 'code', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_neighborhood'))) !!}
+                                    <div class="input-group-append">
+                                        <label for="code" class="input-group-text">
+                                            <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_neighborhood') }}"
+                                               aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('code'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('code') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('code') ? ' has-error ' : '' }}">
                             {!! Form::label('code', trans('forms.create_vsignal_label_code'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
@@ -228,6 +248,27 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback row {{ $errors->has('fastener') ? ' has-error ' : '' }}">
+                            {!! Form::label('fastener', trans('forms.create_vsignal_label_fastener'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="fastener" id="fastener">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_fastener') }}</option>
+                                        @if ($fasteners)
+                                            @foreach($fasteners as $i => $value)
+                                                <option value="{{ $value }}" {{ old('fastener') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('fastener'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('fastener') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group has-feedback row {{ $errors->has('variation') ? ' has-error ' : '' }}">
                             {!! Form::label('variation', trans('forms.create_vsignal_label_variation'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -249,26 +290,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('fastener') ? ' has-error ' : '' }}">
-                            {!! Form::label('fastener', trans('forms.create_vsignal_label_fastener'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="fastener" id="fastener">
-                                        <option value="">{{ trans('forms.create_vsignal_ph_fastener') }}</option>
-                                        @if ($fasteners)
-                                            @foreach($fasteners as $i => $value)
-                                                <option value="{{ $value }}" {{ old('fastener') == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                                @if ($errors->has('fastener'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('fastener') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
+                        
 
                         <div class="form-group has-feedback row {{ $errors->has('material') ? ' has-error ' : '' }}">
                             {!! Form::label('material', trans('forms.create_vsignal_label_material'), array('class' => 'col-md-3 control-label')); !!}

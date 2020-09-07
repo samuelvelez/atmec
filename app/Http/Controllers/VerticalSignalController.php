@@ -385,10 +385,10 @@ class VerticalSignalController extends Controller
         foreach ($vsignals->get() as $vsignal) {
             $result[] = [
                 'id' => $vsignal->id,
-                'group' => $signal->signal_inventory->subgroup->group->name . ' (' . $signal->signal_inventory->subgroup->group->code . ')',//$signal->grupo,
-                'signal' => $signal->signal_inventory->name,
                 'code' => $vsignal->code,
-                'erp_code' => $vsignal->erp_code,
+                'group' => $vsignal->signal_inventory->subgroup->group->name . ' (' . $vsignal->signal_inventory->subgroup->group->code . ')',
+                'signal' => $vsignal->signal_inventory->name,
+                'erp_code' => $vsignal->erp_code != null ? $vsignal->erp_code : "", 
                 'creator' => $vsignal->user->full_name(),
                 'state' => $vsignal->state,
                 'fastener' => $vsignal->fastener,
@@ -397,10 +397,13 @@ class VerticalSignalController extends Controller
                 'google_address' => $vsignal->google_address
             ];
         }
+       
 
         return response()->json([
             json_encode($result),
         ], Response::HTTP_OK);
+        
+        //return $result;
     }
 
     public function export_xlsx()

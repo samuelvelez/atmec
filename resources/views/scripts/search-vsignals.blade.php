@@ -18,6 +18,7 @@
             }
         });
         searchform.submit(function(e) {
+            //console.log("searchform");
             e.preventDefault();
             resultsContainer.html(searching);
             vsignalsTable.hide();
@@ -58,12 +59,13 @@
 
                             resultsContainer.append('<tr>' +
                                 '<td>' + val.code + '</td>' +
+                                '<td>' + val.group + '</td>' +
+                                '<td>' + val.signal + '</td>' +
+
                                 '<td>' + val.creator + '</td>' +
                                 '<td>' + val.state + '</td>' +
                                 '<td>' + val.fastener + '</td>' +
                                 '<td>' + val.material + '</td>' +
-                                '<td>' + val.normative + '</td>' +
-                                '<td>' + val.google_address + '</td>' +
                                 '<td>' + showCellHtml + '</td>' +
                                 @role('atmadmin|atmcollector') '<td>' + editCellHtml + '</td>' + @endrole
                                 @role('atmadmin') '<td>' + deleteCellHtml + '</td>' + @endrole

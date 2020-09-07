@@ -119,7 +119,7 @@ return [
     'create_vsignal_ph_inventory'    => 'Seleccione un tipo de señal',
     'create_vsignal_icon_inventory'  => 'fa-map-signs',
 
-    'create_vsignal_label_code' => 'Código',
+    'create_vsignal_label_code' => 'Código de la señal',
     'create_vsignal_ph_code'    => 'Codificador de la señal',
     'create_vsignal_icon_code'  => 'fa-qrcode',
 
@@ -127,7 +127,7 @@ return [
     'create_vsignal_ph_fastener'    => 'Seleccione una fijación',
     'create_vsignal_icon_fastener'  => 'fa-map-signs',
 
-    'create_vsignal_label_state' => 'Estado',
+    'create_vsignal_label_state' => 'Estado de la señal',
     'create_vsignal_ph_state'    => 'Seleccione un estado',
     'create_vsignal_icon_state'  => 'fa-map-signs',
 
@@ -139,7 +139,7 @@ return [
     'create_vsignal_ph_normative'    => 'Normativa',
     'create_vsignal_icon_normative'  => 'fa-map-signs',
 
-    'create_vsignal_label_material' => 'Material',
+    'create_vsignal_label_material' => 'Material de la señal',
     'create_vsignal_ph_material'    => 'Seleccione un material',
     'create_vsignal_icon_material'  => 'fa-map-signs',
 
@@ -192,8 +192,8 @@ return [
     'create_vsignal_ph_parish'    => 'Seleccione una parroquia',
     'create_vsignal_icon_parish'  => 'fa-newspaper-o',
 
-    'create_vsignal_label_neighborhood' => 'Vecindario',
-    'create_vsignal_ph_neighborhood'    => 'Seleccione un vecindario',
+    'create_vsignal_label_neighborhood' => 'Barrio',
+    'create_vsignal_ph_neighborhood'    => 'Ingrese un barrio',
     'create_vsignal_icon_neighborhood'  => 'fa-newspaper-o',
 
     // Interceptions
@@ -257,11 +257,11 @@ return [
     'create_traffic_pole_ph_erp_code'    => 'Código en el ERP',
     'create_traffic_pole_icon_erp_code'  => 'fa-hashtag',
 
-    'create_traffic_pole_label_state' => 'Estado',
+    'create_traffic_pole_label_state' => 'Estado de la Señal',
     'create_traffic_pole_ph_state'    => 'Seleccione un estado',
     'create_traffic_pole_icon_state'  => 'fa-map-signs',
 
-    'create_traffic_pole_label_material' => 'Material',
+    'create_traffic_pole_label_material' => 'Material de la Señal',
     'create_traffic_pole_ph_material'    => 'Seleccione un material',
     'create_traffic_pole_icon_material'  => 'fa-map-signs',
 
@@ -288,7 +288,7 @@ return [
     'create_traffic_tensor_label_state' => 'Estado',
     'create_traffic_tensor_ph_state'    => 'Seleccione un estado',
 
-    'create_traffic_tensor_label_material' => 'Material',
+    'create_traffic_tensor_label_material' => 'Material de la',
     'create_traffic_tensor_ph_material'    => 'Seleccione un material',
 
     'create_traffic_tensor_label_comment' => 'Observaciones',
