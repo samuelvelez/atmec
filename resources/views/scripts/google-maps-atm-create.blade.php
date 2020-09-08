@@ -1,14 +1,17 @@
 <script type="text/javascript">
     var latitude = 0;
     var longitude = 0;
+    var zoom = 14;
 
     function show_location(position) {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
-
+        console.log("** show location **")
+        console.log(latitude, longitude),
         show_map();
         document.getElementById('latitude').value = latitude;
         document.getElementById('longitude').value = longitude;
+       
         get_google_address(latitude, longitude);
     }
 
@@ -56,7 +59,7 @@
                 timeout: 50000,
                 maximumAge: Infinity
             };
-
+            console.log("if");
             return navigator.geolocation.getCurrentPosition(show_location, error_location, options);
         } else {
             show_geocoding();
@@ -70,7 +73,7 @@
             scrollwheel: true,
             disableDefaultUI: false,
             draggable: true,
-            zoom: 14,
+            zoom: zoom,
             center: LatitudeAndLongitude,
             mapTypeId: google.maps.MapTypeId.TERRAIN // HYBRID, ROADMAP, SATELLITE, or TERRAIN
         };
@@ -83,11 +86,14 @@
             position: map.getCenter()
         });
 
-        /*google.maps.event.addDomListener(map, 'zoom_changed', function() {
+        google.maps.event.addDomListener(map, 'zoom_changed', function() {
             window.setTimeout(function () {
-                alert('zooming');
+                //alert('zooming');
+                var z = map.getZoom();
+                console.log(z);
+                zoom = z;
             }, 100);
-        });*/
+        });
 
         google.maps.event.addListener(map, 'center_changed', function () {
             window.setTimeout(function () {

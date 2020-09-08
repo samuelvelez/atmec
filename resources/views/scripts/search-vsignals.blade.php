@@ -66,6 +66,8 @@
                                 '<td>' + val.state + '</td>' +
                                 '<td>' + val.fastener + '</td>' +
                                 '<td>' + val.material + '</td>' +
+                                '<td>' + val.normative + '</td>' +
+                                '<td>' + val.google_address + '</td>' +
                                 '<td>' + showCellHtml + '</td>' +
                                 @role('atmadmin|atmcollector') '<td>' + editCellHtml + '</td>' + @endrole
                                 @role('atmadmin') '<td>' + deleteCellHtml + '</td>' + @endrole
