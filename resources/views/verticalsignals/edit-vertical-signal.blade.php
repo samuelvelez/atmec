@@ -71,6 +71,9 @@
                         </div>
 
                         <br>
+                        <div class="text-right mb-2">
+                        <a class="btn btn-info" onclick="get_location()">Ubicar en el Mapa</a>
+                        </div>
                         <div class="form-group has-feedback row {{ $errors->has('latitude') ? ' has-error ' : '' }}">
                             {!! Form::label('latitude', trans('forms.create_vsignal_label_latitude'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -548,12 +551,15 @@
     @include('scripts.save-modal-script')
 
     @if(config('settings.googleMapsAPIStatus'))
+        @include('scripts.google-maps-atm-create')
+    
         @include('scripts.google-maps-atm-edit', [
             'latitude' => $vsignal->latitude,
             'longitude' => $vsignal->longitude,
             'google_address' => $vsignal->google_address,
         ])
     @endif
+    
 
     @include('scripts.resize-image-before-upload')
 @endsection

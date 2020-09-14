@@ -525,7 +525,7 @@
         });
     </script>
 
-    @if(true)//config('settings.googleMapsAPIStatus'))
+    @if(config('settings.googleMapsAPIStatus'))
         @include('scripts.google-maps-atm-create')
     @endif
 

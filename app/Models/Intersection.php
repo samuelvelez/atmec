@@ -31,7 +31,11 @@ class Intersection extends Eloquent
 		'latitude',
 		'longitude',
 		'google_address',
-		'comment'
+        'comment',
+        'name',
+        'image',
+        'folder',
+        'parish'
 	];
 
     public static function rules($merge = [])
@@ -63,5 +67,23 @@ class Intersection extends Eloquent
     public function poles()
     {
         return $this->hasMany(TrafficPole::class, 'intersection_id');
+    }
+
+    public function get_picture_path()
+    {
+        $path = 'storage/signals/';
+
+        if ($this->signal_folder) {
+            $path .= $this->signal_folder . '/';
+        }
+
+        if ($this->picture) {
+            $path .= $this->picture;
+        }
+        else {
+            $path .= 'no-picture.png';
+        }
+
+        return $path;
     }
 }

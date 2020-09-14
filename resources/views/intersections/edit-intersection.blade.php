@@ -4,12 +4,33 @@
     {!! trans('intersections.editing-intersection', ['id' => $intersection->id]) !!}
 @endsection
 
+
 @section('template_fastload_css')
+    .picture {
+    height: 200px;
+    width: auto;
+    border: 2px solid #8eb4cb;
+    }
+
+    .pictureBg{
+    background-image: url("{{ asset($intersection->get_picture_path()) }}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 300px;
+    }
+
     #map-canvas{
     min-height: 300px;
     height: 100%;
     width: 100%;
     }
+@endsection
+
+@section('template_linked_css')
+    @if(config('atm_app.enabledSelectizeJs'))
+        <link rel="stylesheet" type="text/css" href="{{ config('atm_app.selectizeCssCDN') }}">
+    @endif
 @endsection
 
 @section('content')
@@ -42,12 +63,18 @@
                         {!! csrf_field() !!}
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-sm-4 col-md-6 pictureBg">
+                            </div>
+                            
+                            <div class="col-md-6">
                                 <div id="map-canvas"></div>
                             </div>
                         </div>
 
                         <br>
+                        <div class="text-right mb-2">
+                        <a class="btn btn-info" onclick="get_location()">Ubicar en el Mapa</a>
+                        </div>
                         <div class="form-group has-feedback row {{ $errors->has('latitude') ? ' has-error ' : '' }}">
                             {!! Form::label('latitude', trans('forms.create_vsignal_label_latitude'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -103,6 +130,47 @@
                                 @if ($errors->has('google_address'))
                                     <span class="help-block">
                                             <strong>{{ $errors->first('google_address') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('parish') ? ' has-error ' : '' }}">
+                            {!! Form::label('parish', trans('forms.create_vsignal_label_parish'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="parish" id="parish">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_parish') }}</option>
+                                        @if ($parishs)
+                                            @foreach($parishs as $i => $value)
+                                                <option value="{{ $value }}" {{ $intersection->parish == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('orientation'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('orientation') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
+                            {!! Form::label('name', trans('fNombre de Intersección'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('name', $intersection->name, array('id' => 'main_st', 'class' => 'form-control', 'placeholder' => trans('Nombre de la Intersección'))) !!}
+                                    <div class="input-group-append">
+                                        <label for="main_st" class="input-group-text">
+                                            <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_main_st') }}"
+                                               aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('main_st'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('main_st') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -182,6 +250,18 @@
 @endsection
 
 @section('footer_scripts')
+<script type="text/javascript" src="{{ config('atm_app.selectizeJsCDN') }}"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#parish").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+        });
+    </script>
     @include('scripts.delete-modal-script')
     @include('scripts.save-modal-script')
 
@@ -191,5 +271,8 @@
             'longitude' => $intersection->longitude,
             'google_address' => $intersection->google_address,
         ])
+        @include('scripts.google-maps-atm-create')
     @endif
+        
+    
 @endsection

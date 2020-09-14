@@ -3,15 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\Models\Intersection;
+use App\Models\Configuration;
 use App\Models\VerticalSignal;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+
+use DB;
+use Image;
+
 
 class IntersectionController extends Controller
 {
+    public function get_folder()
+    {
+        $folders = Intersection::select('folder as folder_name', DB::raw('count(folder) as folder_count'))
+            ->groupBy('folder')
+            ->havingRaw('COUNT(folder) < ' . env('APP_MAX_FOLDER_COUNT', 9998))
+            ->get();
+
+        if ($folders->count() > 0) {
+            foreach ($folders as $dir) {
+                $folder = $dir->folder_name;
+
+                if ($folder != null && File::isDirectory(storage_path('app/public_html/intersections/') . $folder)
+                    && count(File::files(storage_path('app/public_html/intersections/') . $folder)) < env('APP_MAX_FOLDER_COUNT', 9998)) {
+                    return $folder;
+                }
+            }
+        }
+
+        $folder = Str::random();
+        if (File::makeDirectory(storage_path('app/public_html/intersections/') . $folder)) {
+            return $folder;
+        }
+
+        return null;
+    }
+    
     /**
      * Create a new controller instance.
      *
@@ -47,7 +80,8 @@ class IntersectionController extends Controller
      */
     public function create()
     {
-        return view('intersections.create-intersection');
+        $parishs = json_decode(Configuration::where('code', 'parish')->first()->values);
+        return view('intersections.create-intersection', compact('parishs'));
     }
 
     /**
@@ -64,12 +98,40 @@ class IntersectionController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
+        $picture_name = null;
+        $folder = $this->get_folder();
+        if ($request->input('picture_data')) {
+            $picture_data = $request->input('picture_data');
+
+            $ext = null;
+            if (strpos($picture_data, 'data:image/jpeg;base64,') === 0) {
+                $picture_data = str_replace('data:image/jpeg;base64,', '', $picture_data);
+                $ext = '.jpg';
+            }
+            if (strpos($picture_data, 'data:image/png;base64,') === 0) {
+                $picture_data = str_replace('data:image/png;base64,', '', $picture_data);
+                $ext = '.png';
+            }
+
+            $picture_name = Str::random() . $ext;
+            $picture_data = str_replace(' ', '+', $picture_data);
+            $data = base64_decode($picture_data);
+
+            if (!file_put_contents(storage_path('app/public_html/intersections/') . $folder . DIRECTORY_SEPARATOR . $picture_name, $data)) {
+                return back()->with('error', trans('Error guardando la imagen. Inténtelo de nuevo o contacte al administrador.'));
+            }
+        }
+
         $intersection = Intersection::create([
             'main_st' => $request->input('main_st'),
             'cross_st' => $request->input('cross_st'),
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
             'google_address' => $request->input('google_address'),
+            'folder' => $folder,
+            'image' => $picture_name,
+            'parish' => $request->input('parish'),
+            'name'  => $request->input('main_st')." y ".$request->input('cross_st'),
             'comment' => $request->input('comment'),
         ]);
 
@@ -101,7 +163,9 @@ class IntersectionController extends Controller
     public function edit($id)
     {
         $intersection = Intersection::find($id);
-        return view('intersections.edit-intersection', compact('intersection'));
+        $parishs = json_decode(Configuration::where('code', 'parish')->first()->values);
+        
+        return view('intersections.edit-intersection', compact('intersection', 'parishs'));
     }
 
     /**

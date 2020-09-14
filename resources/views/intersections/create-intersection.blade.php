@@ -4,6 +4,12 @@
     {!! trans('intersections.create-new-intersection') !!}
 @endsection
 
+@section('template_linked_css')
+    @if(config('atm_app.enabledSelectizeJs'))
+        <link rel="stylesheet" type="text/css" href="{{ config('atm_app.selectizeCssCDN') }}">
+    @endif
+@endsection
+
 @section('template_fastload_css')
     #map-canvas{
     min-height: 300px;
@@ -32,7 +38,7 @@
                     </div>
 
                     <div class="card-body">
-                        {!! Form::open(array('route' => 'intersections.store', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                        {!! Form::open(array('route' => 'intersections.store', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'files' => true)) !!}
 
                         {!! csrf_field() !!}
 
@@ -43,6 +49,9 @@
                         </div>
 
                         <br>
+                        <div class="text-right mb-2">
+                        <a class="btn btn-info" onclick="get_location()">Ubicar en el Mapa</a>
+                        </div>
                         <div class="form-group has-feedback row {{ $errors->has('latitude') ? ' has-error ' : '' }}">
                             {!! Form::label('latitude', trans('forms.create_vsignal_label_latitude'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -103,6 +112,27 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback row {{ $errors->has('parish') ? ' has-error ' : '' }}">
+                            {!! Form::label('parish', trans('forms.create_vsignal_label_parish'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="parish" id="parish">
+                                        <option value="">{{ trans('forms.create_vsignal_ph_parish') }}</option>
+                                        @if ($parishs)
+                                            @foreach($parishs as $i => $value)
+                                                <option value="{{ $value }}" {{ old('parish') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('parish'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('parish') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group has-feedback row {{ $errors->has('main_st') ? ' has-error ' : '' }}">
                             {!! Form::label('main_st', trans('forms.create_vsignal_label_main_st'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -143,6 +173,27 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback row {{ $errors->has('picture_data') ? ' has-error ' : '' }}">
+                            {!! Form::label('picture', trans('forms.create_vsignal_label_picture'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::file('picture', array('id' => 'picture', 'placeholder' => trans('forms.create_vsignal_ph_picture'))) !!}
+                                    {!! Form::hidden("picture_data", null, array('id' => 'picture_data')) !!}
+                                    <div class="input-group-append">
+                                        <label class="input-group-text" for="picture">
+                                            <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_picture') }}"
+                                               aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('picture_data'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('picture_data') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group has-feedback row {{ $errors->has('comment') ? ' has-error ' : '' }}">
                             {!! Form::label('comment', trans('forms.create_vsignal_label_comment'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -175,6 +226,29 @@
 @endsection
 
 @section('footer_scripts')
+<script type="text/javascript" src="{{ config('atm_app.selectizeJsCDN') }}"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            set_selectize_options = function (selectize, options) {
+                selectize.disable();
+                selectize.clear();
+                selectize.clearOptions();
+                selectize.renderCache['option'] = {};
+                selectize.renderCache['item'] = {};
+                selectize.addOption(options);
+                selectize.enable();
+            };
+            $("#parish").selectize({
+                allowClear: true,
+                create: false,
+                highlight: false,
+                diacritics: true
+            });
+        });
+    </script>
+        @include('scripts.resize-image-before-upload')
+
     @if(config('settings.googleMapsAPIStatus'))
         @include('scripts.google-maps-atm-create')
     @endif
