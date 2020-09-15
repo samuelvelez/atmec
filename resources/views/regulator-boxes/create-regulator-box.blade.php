@@ -157,7 +157,7 @@
                                         <option value="">{{ trans('forms.create_traffic_pole_ph_intersection') }}</option>
                                         @if ($intersections)
                                             @foreach($intersections as $intersection)
-                                                <option value="{{ $intersection->id }}" {{ old('intersection') == $intersection->id ? 'selected' : '' }}>{{ $intersection->main_st }}
+                                                <option value="{{ $intersection->id }}" {{ old('intersection') == $intersection->id ? 'selected' : '' }}>{{ $intersection->id }} | {{ $intersection->main_st }}
                                                     y {{ $intersection->cross_st }}</option>
                                             @endforeach
                                         @endif

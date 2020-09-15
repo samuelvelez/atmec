@@ -257,11 +257,11 @@ return [
     'create_traffic_pole_ph_erp_code'    => 'Código en el ERP',
     'create_traffic_pole_icon_erp_code'  => 'fa-hashtag',
 
-    'create_traffic_pole_label_state' => 'Estado de la Señal',
+    'create_traffic_pole_label_state' => 'Estado del Poste',
     'create_traffic_pole_ph_state'    => 'Seleccione un estado',
     'create_traffic_pole_icon_state'  => 'fa-map-signs',
 
-    'create_traffic_pole_label_material' => 'Material de la Señal',
+    'create_traffic_pole_label_material' => 'Material del Poste',
     'create_traffic_pole_ph_material'    => 'Seleccione un material',
     'create_traffic_pole_icon_material'  => 'fa-map-signs',
 
@@ -361,7 +361,7 @@ return [
     'create_traffic_light_ph_light_type'    => 'Seleccione un tipo de semáforo',
     'create_traffic_light_icon_light_type'  => 'fa-map-signs',
 
-    'create_traffic_light_label_regulator' => 'Regulador',
+    'create_traffic_light_label_regulator' => 'Caja Reguladora(Regulador)',
     'create_traffic_light_ph_regulator'    => 'Seleccione un regulador de tráfico',
     'create_traffic_light_icon_regulator'  => 'fa-map-marker',
 

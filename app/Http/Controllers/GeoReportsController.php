@@ -75,7 +75,7 @@ class GeoReportsController extends Controller
 
         $states = json_decode(Configuration::where('code', 'estado')->first()->values);
         $materials = json_decode(Configuration::where('code', 'material')->first()->values);
-
+        
         $state_totals = [];
         foreach ($states as $state) {
             $count = VerticalSignal::where('state', 'like', '%' . substr($state, 0, -1) . '%')->count();

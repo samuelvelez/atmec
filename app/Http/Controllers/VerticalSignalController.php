@@ -175,10 +175,6 @@ class VerticalSignalController extends Controller
             'material' => $request->input('material'),
             'erp_code' => $request->input('erp_code'),
             'unique_code' => $request->input('code').'_'.$request->input('erp_code'),
-            'parish'        => $request->input('parish'),
-            'neighborhood'  => $request->input('neighborhood'),
-            'street1'       => $request->input('street1'),
-            'street2'       => $request->input('street2'),
         ]);
 
         $vsignal->save();
@@ -214,8 +210,7 @@ class VerticalSignalController extends Controller
         $normatives = json_decode(Configuration::where('code', 'normativa')->first()->values);
         $orientations = json_decode(Configuration::where('code', 'direction')->first()->values);
         $states = json_decode(Configuration::where('code', 'estado')->first()->values);
-        $parishs = json_decode(Configuration::where('code', 'parish')->first()->values);
-        
+
         return view('verticalsignals.edit-vertical-signal', compact(
                 'vsignal',
                 'sinventories',
@@ -223,7 +218,6 @@ class VerticalSignalController extends Controller
                 'fasteners',
                 'normatives',
                 'orientations',
-                'parishs',
                 'states')
         );
     }
@@ -391,10 +385,10 @@ class VerticalSignalController extends Controller
         foreach ($vsignals->get() as $vsignal) {
             $result[] = [
                 'id' => $vsignal->id,
+                'group' => $signal->signal_inventory->subgroup->group->name . ' (' . $signal->signal_inventory->subgroup->group->code . ')',//$signal->grupo,
+                'signal' => $signal->signal_inventory->name,
                 'code' => $vsignal->code,
-                'group' => $vsignal->signal_inventory->subgroup->group->name . ' (' . $vsignal->signal_inventory->subgroup->group->code . ')',
-                'signal' => $vsignal->signal_inventory->name,
-                'erp_code' => $vsignal->erp_code != null ? $vsignal->erp_code : "", 
+                'erp_code' => $vsignal->erp_code,
                 'creator' => $vsignal->user->full_name(),
                 'state' => $vsignal->state,
                 'fastener' => $vsignal->fastener,
@@ -403,13 +397,10 @@ class VerticalSignalController extends Controller
                 'google_address' => $vsignal->google_address
             ];
         }
-       
 
         return response()->json([
             json_encode($result),
         ], Response::HTTP_OK);
-        
-        //return $result;
     }
 
     public function export_xlsx()

@@ -436,19 +436,21 @@
                 selectOnTab: true,
                 placeholder: '{{ trans('forms.create_traffic_light_ph_regulator') }}',
                 sortField: [{field: 'updated_at', direction: 'desc'}, {field: '$score'}],
-                searchField: ['code', 'brand'],
+                searchField: ['id','code', 'brand'],
                 options: [],
                 valueField: 'id',
                 labelField: 'code',
                 render: {
                     option: function (item, escape) {
                         return '<div>'
+                            + '<span>' + escape(item.id) + '</span> | '
                             + '<span>' + escape(item.code) + '</span> | '
                             + '<span>' + escape(item.brand) + '</span>'
                             + '</div>';
                     },
                     item: function (item, escape) {
                         return '<div>'
+                            + '<span>' + escape(item.id) + '</span> | '
                             + '<span>' + escape(item.code) + '</span> | '
                             + '<span>' + escape(item.brand) + '</span>'
                             + '</div>';
