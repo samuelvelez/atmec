@@ -9,8 +9,9 @@
     <tr>
         <th>{!! trans('traffic-lights.traffic-lights-table.id') !!}</th>
         <th>{!! trans('traffic-lights.traffic-lights-table.intersection') !!}</th>
-        <th class="hidden-xs">{!! trans('traffic-lights.traffic-lights-table.brand') !!}</th>
-        <th class="hidden-xs">{!! trans('traffic-lights.traffic-lights-table.model') !!}</th>
+        <th class="hidden-xs">{!! trans('Id Poste') !!}</th>
+        <th class="hidden-xs">{!! trans('Tipo') !!}</th>
+        <!--<th class="hidden-xs">{!! trans('traffic-lights.traffic-lights-table.model') !!}</th>-->
         <th class="hidden-xs">{!! trans('traffic-lights.traffic-lights-table.state') !!}</th>
         <th>{!! trans('traffic-lights.traffic-lights-table.orientation') !!}</th>
 
@@ -26,8 +27,11 @@
         <tr>
             <td><a href="{{ URL::to('traffic-lights/' . $light->id) }}" target="_blank">{{ $light->id }}</td>
             <td>{{$light->intersection->main_st}} y {{$light->intersection->cross_st}}</td>
-            <td class="hidden-xs">{{$light->brand}}</td>
-            <td class="hidden-xs">{{$light->model}}</td>
+            <td>{{ $light->pole_id }}</td>
+            <td>{{ print_r($light->light_type->name) }}</td>
+
+            <!--<td class="hidden-xs">{{$light->brand}}</td>
+            <td class="hidden-xs">{{$light->model}}</td>-->
             <td class="hidden-xs">{{$light->state}}</td>
             <td>{{$light->orientation}}</td>
 

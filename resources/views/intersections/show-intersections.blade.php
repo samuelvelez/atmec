@@ -67,6 +67,7 @@
                                     <th>{!! trans('intersections.intersections-table.cross_st') !!}</th>
                                     <th class="hidden-xs">{!! trans('intersections.intersections-table.latitude') !!}</th>
                                     <th class="hidden-xs">{!! trans('intersections.intersections-table.longitude') !!}</th>
+                                    <th>{!! trans('Dirección en Google') !!}</th>
                                     <th>{!! trans('intersections.intersections-table.actions') !!}</th>
                                     <th class="no-search no-sort"></th>
                                     <th class="no-search no-sort"></th>
@@ -80,6 +81,7 @@
                                         <td>{{$intersection->cross_st}}</td>
                                         <td class="hidden-xs">{{$intersection->latitude}}</td>
                                         <td class="hidden-xs">{{$intersection->longitude}}</td>
+                                        <td class="hidden-xs">{{$intersection->google_address}}</td>
                                         <td>
                                             <a class="btn btn-sm btn-success btn-block"
                                                href="{{ URL::to('intersections/' . $intersection->id) }}"

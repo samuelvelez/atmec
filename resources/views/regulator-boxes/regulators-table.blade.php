@@ -10,6 +10,8 @@
         <th>{!! trans('regulator-boxes.regulator-boxes-table.intersection') !!}</th>
         <th class="hidden-xs">{!! trans('regulator-boxes.regulator-boxes-table.brand') !!}</th>
         <th class="hidden-xs">{!! trans('regulator-boxes.regulator-boxes-table.state') !!}</th>
+        <th class="hidden-xs">{!! trans('Latitud') !!}</th>
+        <th class="hidden-xs">{!! trans('Longitud') !!}</th>
         <th class="hidden-xs">{!! trans('regulator-boxes.regulator-boxes-table.google_address') !!}</th>
 
         @if ($actions)
@@ -27,6 +29,9 @@
             <td>{{$regulator_box->intersection->main_st}} y {{$regulator_box->intersection->cross_st}}</td>
             <td class="hidden-xs">{{$regulator_box->brand}}</td>
             <td class="hidden-xs">{{$regulator_box->state}}</td>
+
+            <td class="hidden-xs">{{$regulator_box->latitude}}</td>
+            <td class="hidden-xs">{{$regulator_box->longitude}}</td>
             <td class="hidden-xs">{{$regulator_box->google_address}}</td>
 
             @if ($actions)
