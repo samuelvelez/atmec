@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        {!! Form::open(array('route' => ['intersections.update', $intersection->id], 'method' => 'PUT', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                        {!! Form::open(array('route' => ['intersections.update', $intersection->id], 'method' => 'PUT', 'role' => 'form', 'class' => 'needs-validation', 'files' => true)) !!}
 
                         {!! csrf_field() !!}
 
@@ -157,10 +157,10 @@
                         </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-                            {!! Form::label('name', trans('fNombre de Intersección'), array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('name', trans('Nombre de Intersección'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('name', $intersection->name, array('id' => 'main_st', 'class' => 'form-control', 'placeholder' => trans('Nombre de la Intersección'))) !!}
+                                    {!! Form::text('name', $intersection->name, array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('Nombre de la Intersección'))) !!}
                                     <div class="input-group-append">
                                         <label for="main_st" class="input-group-text">
                                             <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_main_st') }}"
@@ -168,9 +168,9 @@
                                         </label>
                                     </div>
                                 </div>
-                                @if ($errors->has('main_st'))
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                            <strong>{{ $errors->first('main_st') }}</strong>
+                                            <strong>{{ $errors->first('name') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -211,6 +211,27 @@
                                 @if ($errors->has('cross_st'))
                                     <span class="help-block">
                                             <strong>{{ $errors->first('cross_st') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('picture_data') ? ' has-error ' : '' }}">
+                            {!! Form::label('picture', trans('forms.create_vsignal_label_picture'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::file('picture', array('id' => 'picture', 'placeholder' => trans('forms.create_vsignal_ph_picture'))) !!}
+                                    {!! Form::hidden("picture_data", null, array('id' => 'picture_data')) !!}
+                                    <div class="input-group-append">
+                                        <label class="input-group-text" for="picture">
+                                            <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_picture') }}"
+                                               aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('picture_data'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('picture_data') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -264,6 +285,7 @@
     </script>
     @include('scripts.delete-modal-script')
     @include('scripts.save-modal-script')
+    @include('scripts.resize-image-before-upload')
 
     @if(config('settings.googleMapsAPIStatus'))
         @include('scripts.google-maps-atm-edit', [

@@ -5,6 +5,19 @@
 @endsection
 
 @section('template_fastload_css')
+    .picture {
+    height: 200px;
+    width: auto;
+    border: 2px solid #8eb4cb;
+    }
+
+    .pictureBg{
+    background-image: url("{{ asset($intersection->get_picture_path()) }}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 300px;
+    }
     #map-canvas{
     min-height: 300px;
     height: 100%;
@@ -35,7 +48,9 @@
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12" id="map-canvas">
+                            <div class="col-sm-4 col-md-6 pictureBg">
+                            </div>
+                            <div class="col-sm-4 col-md-6 " id="map-canvas">
                                 map
                             </div>
                         </div>
@@ -86,6 +101,30 @@
                         </div>
 
                         <div class="row">
+                            @if ($intersection->name)
+
+                                <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        {{ trans('Nombre de la Intersección') }}
+                                    </strong>
+                                    {{ $intersection->name }}
+                                </div>
+
+                            @endif
+
+                            @if ($intersection->parish)
+
+                                <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        {{ trans('Parroquia') }}
+                                    </strong>
+                                    {{ $intersection->parish }}
+                                </div>
+
+                            @endif
+                        </div>
+
+                        <div class="row">
                             @if ($intersection->google_address)
                                 <div class="col-sm-6 col-6">
                                     <strong class="text-larger">
@@ -127,6 +166,8 @@
 
                             @endif
                         </div>
+
+                        
 
                         <div class="clearfix"></div>
                         <div class="border-bottom"></div>

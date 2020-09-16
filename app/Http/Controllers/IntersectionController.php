@@ -195,6 +195,10 @@ class IntersectionController extends Controller
             $intersection->comment = $request->input('comment');
         }
 
+        if ($request->get('name') && $intersection->name != $request->input('name')) {
+            $intersection->name = $request->input('name');
+        }
+
         if ($request->get('main_st') && $intersection->main_st != $request->input('main_st')) {
             $intersection->main_st = $request->input('main_st');
         }
@@ -203,9 +207,39 @@ class IntersectionController extends Controller
             $intersection->cross_st = $request->input('cross_st');
         }
 
+        if ($request->get('parish') && $intersection->parish != $request->input('parish')) {
+            $intersection->parish = $request->input('parish');
+        }
+
+        if($request->get('picture_data')){
+            $folder = $this->get_folder();
+            if ($request->input('picture_data')) {
+                $picture_data = $request->input('picture_data');
+
+                $ext = null;
+                if (strpos($picture_data, 'data:image/jpeg;base64,') === 0) {
+                    $picture_data = str_replace('data:image/jpeg;base64,', '', $picture_data);
+                    $ext = '.jpg';
+                }
+                if (strpos($picture_data, 'data:image/png;base64,') === 0) {
+                    $picture_data = str_replace('data:image/png;base64,', '', $picture_data);
+                    $ext = '.png';
+                }
+
+                $picture_name = Str::random() . $ext;
+                $picture_data = str_replace(' ', '+', $picture_data);
+                $data = base64_decode($picture_data);
+
+                if (!file_put_contents(storage_path('app/public_html/intersections/') . $folder . DIRECTORY_SEPARATOR . $picture_name, $data)) {
+                    return back()->with('error', trans('Error guardando la imagen. Inténtelo de nuevo o contacte al administrador.'));
+                }
+            }
+        }
         if ($intersection->save()) {
             return redirect('intersections/' . $intersection->id)->with('success', trans('verticalsignals.message.update-intersection-success'));
         }
+
+       
 
         return back()->with('error', trans('verticalsignals.message.update-intersection-error'));
     }

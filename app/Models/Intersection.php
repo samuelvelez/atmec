@@ -71,14 +71,14 @@ class Intersection extends Eloquent
 
     public function get_picture_path()
     {
-        $path = 'storage/signals/';
+        $path = 'storage/intersections/';
 
-        if ($this->signal_folder) {
-            $path .= $this->signal_folder . '/';
+        if ($this->folder) {
+            $path .= $this->folder . '/';
         }
 
-        if ($this->picture) {
-            $path .= $this->picture;
+        if ($this->image) {
+            $path .= $this->image;
         }
         else {
             $path .= 'no-picture.png';

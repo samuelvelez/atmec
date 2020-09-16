@@ -92,6 +92,9 @@
                             </div>
                         </div>
                         <br/>
+                        <div class="text-right mb-2">
+                        <a class="btn btn-info" onclick="get_location()">Ubicar en el Mapa</a>
+                        </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('latitude') ? ' has-error ' : '' }}">
                             {!! Form::label('latitude', trans('forms.create_regulator_box_label_latitude'), array('class' => 'col-md-3 control-label')); !!}
@@ -323,6 +326,7 @@
     @include('scripts.save-modal-script')
 
     @if(config('settings.googleMapsAPIStatus'))
+    @include('scripts.google-maps-atm-create')
         @include('scripts.google-maps-atm-edit', [
             'latitude' => $regulator_box->latitude,
             'longitude' => $regulator_box->longitude,
