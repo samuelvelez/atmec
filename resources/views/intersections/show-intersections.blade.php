@@ -45,6 +45,12 @@
                                     <i class="fa fa-fw fa-plus" aria-hidden="true"></i>
                                     <span class="hidden-xs">{!! trans('intersections.buttons.create-new') !!}</span>
                                 </a>
+                                <a href="{{ URL::to('intersections/export/xlsx') }}" class="btn btn-success btn-sm float-right ml-2"
+                                   data-toggle="tooltip" data-placement="left"
+                                   title="{{ trans('verticalsignals.buttons.xlsx') }}">
+                                    <i class="fa fa-fw fa-file-excel-o" aria-hidden="true"></i>
+                                    <span class="hidden-xs">{!! trans('verticalsignals.buttons.xlsx') !!}</span>
+                                </a>
                             </div>
                             @endrole
                         </div>

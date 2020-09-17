@@ -249,7 +249,7 @@
     </script>
         @include('scripts.resize-image-before-upload')
 
-    @if(config('settings.googleMapsAPIStatus'))
+    @if(true)//config('settings.googleMapsAPIStatus'))
         @include('scripts.google-maps-atm-create')
     @endif
 @endsection

@@ -145,6 +145,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmcollector|
     Route::resource('intersections', 'IntersectionController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
+    Route::get('intersections/export/xlsx', 'IntersectionController@export_xlsx')->name('IntersectionController.xlsx');
+   
     Route::post('search-intersections', 'IntersectionController@search')->name('search-intersections');
     /*Route::get('api/today-intersections', 'IntersectionController@today')->name('today-intersections');
     Route::get('api/all-intersections', 'IntersectionController@all')->name('all-intersections');*/

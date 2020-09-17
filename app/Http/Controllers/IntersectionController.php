@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\IntersectionExport;
 use App\Models\Intersection;
 use App\Models\Configuration;
 use App\Models\VerticalSignal;
@@ -288,6 +289,11 @@ class IntersectionController extends Controller
         return response()->json([
             json_encode($intersections),
         ], Response::HTTP_OK);
+    }
+
+    public function export_xlsx()
+    {
+        return new IntersectionExport();
     }
 
     /*public function today()
