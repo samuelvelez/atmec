@@ -35,7 +35,9 @@ class Intersection extends Eloquent
         'name',
         'image',
         'folder',
-        'parish'
+        'parish',
+	'street1',
+        'street2'
 	];
 
     public static function rules($merge = [])
