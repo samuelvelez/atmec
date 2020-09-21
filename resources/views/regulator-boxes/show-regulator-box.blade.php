@@ -146,6 +146,26 @@
                                 </div>
                             @endif
                         </div>
+                        
+                          <div class="row">
+                            @if ($regulator->street1)
+                                <div class="col-sm-6 col-6">
+                                   <strong class="text-larger">
+                                        {{ trans('regulator-boxes.labelStreet1') }}
+                                    </strong>
+                                    {{ $regulator->street1 }}
+                                </div>
+                            @endif
+
+                            @if ($regulator->street2)
+                                <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        {{ trans('regulator-boxes.labelStreet2') }}
+                                    </strong>
+                                    {{ $regulator->street2 }}
+                                </div>
+                            @endif
+                        </div>
 
                         <div class="row">
                             @if ($regulator->brand)
