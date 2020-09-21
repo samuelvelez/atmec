@@ -6,6 +6,7 @@ use App\Exports\VerticalSignalExport;
 use App\Models\Configuration;
 use App\Models\TrafficLight;
 use App\Models\VerticalSignal;
+use App\Models\SignalStreet;
 use App\Models\SignalInventory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -106,7 +107,8 @@ class VerticalSignalController extends Controller
         $orientations = json_decode(Configuration::where('code', 'direction')->first()->values);
         $parishs = json_decode(Configuration::where('code', 'parish')->first()->values);
         $states = json_decode(Configuration::where('code', 'estado')->first()->values);
-
+        $direction_unifieds = SignalStreet::select('id','DIRECCION_UNIFICADA')->where('DIRECCION_UNIFICADA','like','%%')->get();
+        
         return view('verticalsignals.create-vertical-signal', compact(
                 'sinventories',
                 'materials',
@@ -114,7 +116,8 @@ class VerticalSignalController extends Controller
                 'normatives',
                 'orientations',
                 'parishs',
-                'states')
+                'states',
+                'direction_unifieds')
         );
     }
 
@@ -175,6 +178,8 @@ class VerticalSignalController extends Controller
             'material' => $request->input('material'),
             'erp_code' => $request->input('erp_code'),
             'unique_code' => $request->input('code').'_'.$request->input('erp_code'),
+             'street1'       => $request->input('street1'),
+                'street2'       => $request->input('street2')
         ]);
 
         $vsignal->save();
