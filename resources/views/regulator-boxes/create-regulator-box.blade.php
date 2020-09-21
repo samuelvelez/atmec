@@ -168,6 +168,39 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('intersection') ? ' has-error ' : '' }}">
+                            {!! Form::label('intersection', "Calle 1", array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="street1" id="street1">
+                                        <option value="">Seleccione la calle 1</option>
+                                        @if ($intersections)
+                                       @foreach($direction_unifieds as $i => $value)
+                                                <option value="{{ $value['DIRECCION_UNIFICADA'] }}" {{ old('direction_unifieds') == $value ? 'selected' : '' }}>{{ $value['DIRECCION_UNIFICADA'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         <div class="form-group has-feedback row {{ $errors->has('intersection') ? ' has-error ' : '' }}">
+                            {!! Form::label('intersection',  "Calle 2", array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="street2" id="street2">
+                                        <option value="">Seleccione la calle 2</option>
+                                        @if ($intersections)
+                                       @foreach($direction_unifieds as $i => $value)
+                                                <option value="{{ $value['DIRECCION_UNIFICADA'] }}" {{ old('direction_unifieds') == $value ? 'selected' : '' }}>{{ $value['DIRECCION_UNIFICADA'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('state') ? ' has-error ' : '' }}">
                             {!! Form::label('state', trans('forms.create_regulator_box_label_state'), array('class' => 'col-md-3 control-label')); !!}
@@ -284,6 +317,20 @@
     <script type="text/javascript">
         $(function () {
             $("#intersection").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+            
+            $("#street1").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+            
+             $("#street2").selectize({
                 allowClear: true,
                 create: false,
                 highlight: true,
