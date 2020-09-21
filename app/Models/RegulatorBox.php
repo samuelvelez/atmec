@@ -57,7 +57,9 @@ class RegulatorBox extends Eloquent implements Auditable
 		'picture_in',
 		'picture_out',
 		'comment',
-		'erp_code'
+		'erp_code',
+		'street1',
+                'street2'
 	];
 
     public function generateTags(): array
