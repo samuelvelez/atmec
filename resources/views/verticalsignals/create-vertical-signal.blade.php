@@ -546,6 +546,20 @@
                 highlight: true,
                 diacritics: true
             });
+            
+             $("#street1").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+            
+             $("#street2").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
 
             $("#state").selectize({
                 allowClear: true,
