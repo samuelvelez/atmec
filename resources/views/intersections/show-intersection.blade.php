@@ -142,6 +142,28 @@
                                 </div>
                             @endif
                         </div>
+                        
+                        <div class="row">
+                            @if ($intersection->street1)
+
+                                <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        {{ trans('intersections.labelStreet1') }}
+                                    </strong>
+                                    {{ $intersection->street1 }}
+                                </div>
+                            @endif
+
+                            @if ($intersection->street2)
+                                <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        {{ trans('intersections.labelStreet2') }}
+                                    </strong>
+                                    {{ $intersection->street2 }}
+                                </div>
+                            @endif
+                        </div>
+
 
                         <div class="row">
                             @if ($intersection->created_at)
