@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\RegulatorBoxExport;
 use App\Models\Configuration;
 use App\Models\Intersection;
+use App\Models\SignalStreet;
 use App\Models\RegulatorBox;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -54,8 +55,8 @@ class RegulatorBoxController extends Controller
         $intersections = Intersection::orderby('updated_at', 'desc')->get();
         $states = json_decode(Configuration::where('code', 'estado')->first()->values);
         $brands = json_decode(Configuration::where('code', 'regulator_brands')->first()->values);
-
-        return View('regulator-boxes.create-regulator-box', compact('intersections', 'states', 'brands'));
+      $direction_unifieds = SignalStreet::select('id','DIRECCION_UNIFICADA')->where('DIRECCION_UNIFICADA','like','%%')->get();
+        return View('regulator-boxes.create-regulator-box', compact('intersections', 'states', 'brands','direction_unifieds'));
     }
 
     /**
@@ -131,6 +132,8 @@ class RegulatorBoxController extends Controller
             'picture_out' => $picture_out,
             'comment' => $request->input('comment'),
             'erp_code' => $request->input('erp_code'),
+            'street1' => $request->input('street1'),
+            'street2' => $request->input('street2'),
         ]);
 
         if ($regulator) {
