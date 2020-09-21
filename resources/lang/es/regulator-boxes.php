@@ -82,6 +82,8 @@ return [
     'labelUser'         => 'Usuario:',
     'labelState'         => 'Estado:',
     'labelIntersection'         => 'Intersección:',
+    'labelStreet1'         => 'Calle 1:',
+    'labelStreet2'         => 'Calle 2:',
     'labelPicuteIn'         => 'Foto interior:',
     'labelPicuteOut'         => 'Foto exterior:',
     'labelCreatedAt'         => 'Creado el:',
