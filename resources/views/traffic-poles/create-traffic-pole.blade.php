@@ -49,6 +49,9 @@
                         </div>
 
                         <br>
+                        <div class="text-right mb-2">
+                        <a class="btn btn-info" onclick="get_location()">Ubicar en el Mapa</a>
+                        </div>
                         <div class="form-group has-feedback row {{ $errors->has('latitude') ? ' has-error ' : '' }}">
                             {!! Form::label('latitude', trans('forms.create_traffic_pole_label_latitude'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">

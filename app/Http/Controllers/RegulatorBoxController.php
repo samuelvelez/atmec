@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\RegulatorBoxExport;
 use App\Models\Configuration;
 use App\Models\Intersection;
 use App\Models\RegulatorBox;
@@ -295,11 +296,11 @@ class RegulatorBoxController extends Controller
 
             if ($regulator->save()) {
                 if ($old_picture_in) {
-                    File::delete($old_picture_in);
+                    //File::delete($old_picture_in);
                 }
 
                 if ($old_picture_out) {
-                    File::delete($old_picture_out);
+                    //File::delete($old_picture_out);
                 }
 
                 return redirect('regulator-boxes/' . $regulator->id)->with('success', trans('regulator-boxes.updateSuccess'));
@@ -377,5 +378,10 @@ class RegulatorBoxController extends Controller
     public function all()
     {
         return response()->json(RegulatorBox::all(), Response::HTTP_OK);
+    }
+
+    public function export_xlsx()
+    {
+        return new RegulatorBoxExport();
     }
 }

@@ -318,7 +318,7 @@ return [
     'create_regulator_box_ph_erp_code'    => 'Código en el ERP',
     'create_regulator_box_icon_erp_code'  => 'fa-hashtag',
 
-    'create_regulator_box_label_state' => 'Estado',
+    'create_regulator_box_label_state' => 'Estado de la Caja',
     'create_regulator_box_ph_state'    => 'Seleccione un estado',
     'create_regulator_box_icon_state'  => 'fa-map-signs',
 

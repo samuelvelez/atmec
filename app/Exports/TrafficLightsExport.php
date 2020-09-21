@@ -26,11 +26,13 @@ class TrafficLightsExport extends BaseExport implements FromQuery, WithMapping, 
     {
         return [
             'Identificador',
+            'Tipo',
             'Fabricante',
             'Fijador',
             'Estado',
             'Orientación',
             'Intersección',
+
         ];
     }
 
@@ -38,6 +40,7 @@ class TrafficLightsExport extends BaseExport implements FromQuery, WithMapping, 
     {
         return [
             $light->id,
+            $light->light_type->name,
             $light->brand,
             $light->fastener,
             $light->state,

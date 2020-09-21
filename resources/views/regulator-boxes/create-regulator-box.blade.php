@@ -170,11 +170,11 @@
                         </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('state') ? ' has-error ' : '' }}">
-                            {!! Form::label('state', trans('forms.create_traffic_pole_label_state'), array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('state', trans('forms.create_regulator_box_label_state'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <select name="state" id="state">
-                                        <option value="">{{ trans('forms.create_traffic_pole_ph_state') }}</option>
+                                        <option value="">{{ trans('forms.create_regulator_box_ph_state') }}</option>
                                         @if ($states)
                                             @foreach($states as $id => $value)
                                                 <option value="{{ $value }}" {{ old('state') == $value ? 'selected' : '' }}>{{ $value }}</option>

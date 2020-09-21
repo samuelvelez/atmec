@@ -28,7 +28,7 @@
             <td><a href="{{ URL::to('traffic-lights/' . $light->id) }}" target="_blank">{{ $light->id }}</td>
             <td>{{$light->intersection->main_st}} y {{$light->intersection->cross_st}}</td>
             <td>{{ $light->pole_id }}</td>
-            <td>{{ print_r($light->light_type->name) }}</td>
+            <td>{{ $light->light_type->name }}</td>
 
             <!--<td class="hidden-xs">{{$light->brand}}</td>
             <td class="hidden-xs">{{$light->model}}</td>-->

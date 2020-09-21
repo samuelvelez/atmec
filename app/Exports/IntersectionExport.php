@@ -32,7 +32,6 @@ class IntersectionExport extends BaseExport implements FromQuery, WithMapping, W
             $intersection->latitude,
             $intersection->longitude,
             $intersection->name,
-            $intersection->parish,
             $intersection->google_address,
         ];
     }
@@ -46,7 +45,6 @@ class IntersectionExport extends BaseExport implements FromQuery, WithMapping, W
             'Latitud',
             'Longitud',
             'Nombre',
-            'Parroquia',
             'Dirección en Google',
         ];
     }

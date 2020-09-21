@@ -194,7 +194,7 @@
                                         <option value="">{{ trans('forms.create_traffic_light_ph_intersection') }}</option>
                                         @if ($intersections)
                                             @foreach($intersections as $intersection)
-                                                <option value="{{ $intersection->id }}" {{ $traffic_light->intersection_id == $intersection->id ? 'selected' : '' }}>{{ $intersection->main_st }} y {{ $intersection->cross_st }}</option>
+                                                <option value="{{ $intersection->id }}" {{ $traffic_light->intersection_id == $intersection->id ? 'selected' : '' }}></option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -210,7 +210,7 @@
                                         <option value="">{{ trans('forms.create_traffic_light_ph_regulator') }}</option>
                                         @if ($traffic_regulators)
                                             @foreach($traffic_regulators as $traffic_regulator)
-                                                <option value="{{ $traffic_regulator->id }}" {{ $traffic_light->regulator_id == $traffic_regulator->id ? 'selected' : '' }}>{{ $traffic_regulator->code }} - {{ $traffic_regulator->brand }} | {{ $traffic_regulator->intersection->main_st }} y {{ $traffic_regulator->intersection->cross_st }}</option>
+                                                <option value="{{ $traffic_regulator->id }}" {{ $traffic_light->regulator_id == $traffic_regulator->id ? 'selected' : '' }}>{{ $traffic_regulator->code }} - {{ $traffic_regulator->brand }} | {{ $traffic_regulator->intersection()->main_st }} y {{ $traffic_regulator->intersection()->cross_st }}</option>
                                             @endforeach
                                         @endif
                                     </select>

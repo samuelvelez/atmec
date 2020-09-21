@@ -234,6 +234,8 @@ class IntersectionController extends Controller
                 if (!file_put_contents(storage_path('app/public_html/intersections/') . $folder . DIRECTORY_SEPARATOR . $picture_name, $data)) {
                     return back()->with('error', trans('Error guardando la imagen. Inténtelo de nuevo o contacte al administrador.'));
                 }
+                $intersection->folder = $folder;
+                $intersection->image = $picture_name;
             }
         }
         if ($intersection->save()) {
