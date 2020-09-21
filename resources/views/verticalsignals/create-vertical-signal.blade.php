@@ -189,6 +189,50 @@
                                 @endif
                             </div>
                         </div>
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('parish') ? ' has-error ' : '' }}">
+                            {!! Form::label('direction_unifieds', "Calle 1", array('class' => 'col-md-3 control-label')); !!}
+                          
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="street1" id="street1">
+                                        <option value="">Seleccione la calle 1</option>
+                                        @if ($parishs)
+                                            @foreach($direction_unifieds as $i => $value)
+                                                <option value="{{ $value['DIRECCION_UNIFICADA'] }}" {{ old('direction_unifieds') == $value ? 'selected' : '' }}>{{ $value['DIRECCION_UNIFICADA'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('parish'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('parish') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('parish') ? ' has-error ' : '' }}">
+                            {!! Form::label('direction_unifieds', "Calle 2", array('class' => 'col-md-3 control-label')); !!}
+                          
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="street2" id="street2">
+                                        <option value="">Seleccione la calle 2</option>
+                                        @if ($parishs)
+                                            @foreach($direction_unifieds as $i => $value)
+                                                <option value="{{ $value['DIRECCION_UNIFICADA'] }}" {{ old('direction_unifieds') == $value ? 'selected' : '' }}>{{ $value['DIRECCION_UNIFICADA'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('parish'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('parish') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('code') ? ' has-error ' : '' }}">
                             {!! Form::label('code', trans('forms.create_vsignal_label_code'), array('class' => 'col-md-3 control-label')); !!}
