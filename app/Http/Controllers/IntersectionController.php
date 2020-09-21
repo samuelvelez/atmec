@@ -6,6 +6,7 @@ use App\Exports\IntersectionExport;
 use App\Models\Intersection;
 use App\Models\Configuration;
 use App\Models\VerticalSignal;
+use App\Models\SignalStreet;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -82,7 +83,8 @@ class IntersectionController extends Controller
     public function create()
     {
         $parishs = json_decode(Configuration::where('code', 'parish')->first()->values);
-        return view('intersections.create-intersection', compact('parishs'));
+           $direction_unifieds = SignalStreet::select('id','DIRECCION_UNIFICADA')->where('DIRECCION_UNIFICADA','like','%%')->get();
+        return view('intersections.create-intersection', compact('parishs','direction_unifieds'));
     }
 
     /**
@@ -134,6 +136,8 @@ class IntersectionController extends Controller
             'parish' => $request->input('parish'),
             'name'  => $request->input('main_st')." y ".$request->input('cross_st'),
             'comment' => $request->input('comment'),
+            'street1' => $request->input('street1'),
+            'street2' => $request->input('street2'),
         ]);
 
         if ($intersection) {
