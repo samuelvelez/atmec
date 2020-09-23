@@ -167,10 +167,10 @@ class IntersectionController extends Controller
      */
     public function edit($id)
     {
-        $intersection = Intersection::find($id);
+        $intersection = Intersection::find($id);        
         $parishs = json_decode(Configuration::where('code', 'parish')->first()->values);
-        
-        return view('intersections.edit-intersection', compact('intersection', 'parishs'));
+        $direction_unifieds = SignalStreet::select('id','DIRECCION_UNIFICADA')->where('DIRECCION_UNIFICADA','like','%%')->get();
+        return view('intersections.edit-intersection', compact('intersection', 'parishs','direction_unifieds'));
     }
 
     /**
@@ -210,6 +210,14 @@ class IntersectionController extends Controller
 
         if ($request->get('cross_st') && $intersection->cross_st != $request->input('cross_st')) {
             $intersection->cross_st = $request->input('cross_st');
+        }
+        
+        if ($request->get('street1') && $intersection->street1 != $request->input('street1')) {
+            $intersection->street1 = $request->input('street1');
+        }
+        
+        if ($request->get('street2') && $intersection->street2 != $request->input('street2')) {
+            $intersection->street2 = $request->input('street2');
         }
 
         if ($request->get('parish') && $intersection->parish != $request->input('parish')) {
