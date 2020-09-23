@@ -157,10 +157,10 @@
                         </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-                            {!! Form::label('name', trans('Nombre de Intersección'), array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('name', trans('Nombre de Intersecci贸n'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('name', $intersection->name, array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('Nombre de la Intersección'))) !!}
+                                    {!! Form::text('name', $intersection->name, array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('Nombre de la Intersecci贸n'))) !!}
                                     <div class="input-group-append">
                                         <label for="main_st" class="input-group-text">
                                             <i class="fa fa-fw {{ trans('forms.create_vsignal_icon_main_st') }}"
@@ -211,6 +211,48 @@
                                 @if ($errors->has('cross_st'))
                                     <span class="help-block">
                                             <strong>{{ $errors->first('cross_st') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('street1') ? ' has-error ' : '' }}">
+                            {!! Form::label('parish', 'Calle 1', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="street1" id="street1">
+                                        <option value="">Seleccione la calle 1</option>
+                                        @if ($parishs)
+                                            @foreach($direction_unifieds as $i => $value)
+                                                <option value="{{ $value['DIRECCION_UNIFICADA'] }}" {{ $intersection->street1 == $value['DIRECCION_UNIFICADA'] ? 'selected' : '' }}>{{ $value['DIRECCION_UNIFICADA'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('orientation'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('orientation') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                           <div class="form-group has-feedback row {{ $errors->has('street2') ? ' has-error ' : '' }}">
+                            {!! Form::label('parish','Calle 2', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group mb-0">
+                                    <select name="street2" id="street2">
+                                        <option value="">Seleccione la calle 2</option>
+                                        @if ($parishs)
+                                            @foreach($direction_unifieds as $i => $value)
+                                                <option value="{{ $value['DIRECCION_UNIFICADA'] }}" {{ $intersection->street2 == $value['DIRECCION_UNIFICADA'] ? 'selected' : '' }}>{{ $value['DIRECCION_UNIFICADA'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                @if ($errors->has('orientation'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('orientation') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -276,6 +318,20 @@
     <script type="text/javascript">
         $(function () {
             $("#parish").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+            
+             $("#street1").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true
+            });
+            
+             $("#street2").selectize({
                 allowClear: true,
                 create: false,
                 highlight: true,
