@@ -27,6 +27,8 @@ return [
     'labelLongitude'         => 'Longitud:',
     'labelMainStreet'         => 'Calle principal:',
     'labelCrossStreet'         => 'Calle cruzada:',
+        'labelStreet1'         => 'Calle 1:',
+    'labelStreet2'         => 'Calle 2:',
     'labelComment'         => 'Comentario:',
     'labelGoogleAddress'         => 'Dirección en Google:',
     'usersDeletedPanelTitle' => 'Información del usuario eliminado',
