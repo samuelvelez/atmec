@@ -147,7 +147,7 @@
                             @endif
                         </div>
                         
-                          <div class="row">
+                        <div class="row">
                             @if ($regulator->street1)
                                 <div class="col-sm-6 col-6">
                                    <strong class="text-larger">
@@ -244,13 +244,7 @@
                                             class="fa fa-plus-square"></i><span
                                             class="hidden-xs"> Nueva reguladora</span></a>
                             </div>
-                            <div class="col-4">
-                                <a class="btn btn-sm btn-info btn-block"
-                                   href="{{ URL::to('regulator-boxes/' . $regulator->id . '/edit') }}"
-                                   data-toggle="tooltip" title="Edit">
-                                    {!! trans('regulator-boxes.buttons.edit') !!}
-                                </a>
-                            </div>
+                            
                             <div class="col-4">
                                 <div class="btn-group float-right btn-block" role="group">
                                     <button id="btnGroupDrop1" type="button"
@@ -272,6 +266,14 @@
                                                     class="fa fa-plus-square"></i> Nuevo dispositivo</a>
                                     </div>
                                 </div>
+                            </div>
+                            
+                            <div class="col-4">
+                                <a class="btn btn-sm btn-info btn-block"
+                                   href="{{ URL::to('regulator-boxes/' . $regulator->id . '/edit') }}"
+                                   data-toggle="tooltip" title="Edit">
+                                    {!! trans('regulator-boxes.buttons.edit') !!}
+                                </a>
                             </div>
                         </div>
                     </div>
