@@ -37,27 +37,7 @@
 
                         {!! csrf_field() !!}
 
-                        <div class="form-group has-feedback row {{ $errors->has('height') ? ' has-error ' : '' }}">
-                            {!! Form::label('height', trans('forms.create_traffic_tensor_label_height'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::text('height', NULL, array('id' => 'height', 'class' => 'form-control', 'placeholder' => trans('forms.create_traffic_tensor_ph_height'))) !!}
-                                    <div class="input-group-append">
-                                        <label for="height" class="input-group-text">
-                                            <i class="fa fa-fw {{ trans('forms.create_traffic_tensor_icon_height') }}"
-                                               aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('height'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('height') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('poles') ? ' has-error ' : '' }}">
+ <div class="form-group has-feedback row {{ $errors->has('poles') ? ' has-error ' : '' }}">
                             {!! Form::label('poles', trans('forms.create_traffic_tensor_label_poles'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
@@ -72,9 +52,46 @@
                                 </div>
                             </div>
                         </div>
+                       
+
+                       <div class="form-group has-feedback row {{ $errors->has('material') ? ' has-error ' : '' }}">
+                            {!! Form::label('material','Material del sensor', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="material" id="material">
+                                        <option value="">{{ trans('forms.create_traffic_tensor_ph_material') }}</option>
+                                        @if ($materials)
+                                            @foreach($materials as $id => $value)
+                                                <option value="{{ $value }}" {{ old('material') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         <div class="form-group has-feedback row {{ $errors->has('height') ? ' has-error ' : '' }}">
+                            {!! Form::label('height', 'Altura en metros', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('height', NULL, array('id' => 'height', 'class' => 'form-control', 'placeholder' => trans('forms.create_traffic_tensor_ph_height'))) !!}
+                                    <div class="input-group-append">
+                                        <label for="height" class="input-group-text">
+                                           
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('height'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('height') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+                        
 
                         <div class="form-group has-feedback row {{ $errors->has('state') ? ' has-error ' : '' }}">
-                            {!! Form::label('state', trans('forms.create_traffic_tensor_label_state'), array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('state','Estado del sensor' , array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <select name="state" id="state">
@@ -89,21 +106,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('material') ? ' has-error ' : '' }}">
-                            {!! Form::label('material', trans('forms.create_traffic_tensor_label_material'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="material" id="material">
-                                        <option value="">{{ trans('forms.create_traffic_tensor_ph_material') }}</option>
-                                        @if ($materials)
-                                            @foreach($materials as $id => $value)
-                                                <option value="{{ $value }}" {{ old('material') == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="form-group has-feedback row {{ $errors->has('comment') ? ' has-error ' : '' }}">
                             {!! Form::label('comment', trans('forms.create_traffic_tensor_label_comment'), array('class' => 'col-md-3 control-label')); !!}
