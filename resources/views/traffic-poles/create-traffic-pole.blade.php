@@ -152,37 +152,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('height') ? ' has-error ' : '' }}">
-                            {!! Form::label('height', trans('forms.create_traffic_pole_label_height'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::text('height', NULL, array('id' => 'height', 'class' => 'form-control', 'placeholder' => trans('forms.create_traffic_pole_ph_height'))) !!}
-                                    <div class="input-group-append">
-                                        <label for="height" class="input-group-text">
-                                            <i class="fa fa-fw {{ trans('forms.create_traffic_pole_icon_height') }}"
-                                               aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('height'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('height') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('atm_own') ? ' has-error ' : '' }}">
-                            {!! Form::label('atm_own', trans('forms.create_traffic_pole_label_atm_own'), array('class' => 'col-md-3 form-check-label')); !!}
-                            <div class="col-md-9">
-                                {!! Form::checkbox('atm_own', 1, false, array('id' => 'atm_own')) !!}
-                                @if ($errors->has('atm_own'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('atm_own') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
+                        
 
                         <div class="form-group has-feedback row {{ $errors->has('intersection') ? ' has-error ' : '' }}">
                             {!! Form::label('intersection', trans('forms.create_traffic_pole_label_intersection'), array('class' => 'col-md-3 control-label')); !!}
@@ -198,6 +168,41 @@
                                         @endif
                                     </select>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('material') ? ' has-error ' : '' }}">
+                            {!! Form::label('material', trans('forms.create_traffic_pole_label_material'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="material" id="material">
+                                        <option value="">{{ trans('forms.create_traffic_pole_ph_material') }}</option>
+                                        @if ($materials)
+                                            @foreach($materials as $id => $value)
+                                                <option value="{{ $value }}" {{ old('material') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('height') ? ' has-error ' : '' }}">
+                            {!! Form::label('height', 'Altura en metros', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('height', NULL, array('id' => 'height', 'class' => 'form-control', 'placeholder' => trans('forms.create_traffic_pole_ph_height'))) !!}
+                                    <div class="input-group-append">
+                                        <label for="height" class="input-group-text">
+                                           
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('height'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('height') }}</strong>
+                                        </span>
+                                @endif
                             </div>
                         </div>
 
@@ -217,19 +222,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('material') ? ' has-error ' : '' }}">
-                            {!! Form::label('material', trans('forms.create_traffic_pole_label_material'), array('class' => 'col-md-3 control-label')); !!}
+                          <div class="form-group has-feedback row {{ $errors->has('atm_own') ? ' has-error ' : '' }}">
+                            {!! Form::label('atm_own', trans('forms.create_traffic_pole_label_atm_own'), array('class' => 'col-md-3 form-check-label')); !!}
                             <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="material" id="material">
-                                        <option value="">{{ trans('forms.create_traffic_pole_ph_material') }}</option>
-                                        @if ($materials)
-                                            @foreach($materials as $id => $value)
-                                                <option value="{{ $value }}" {{ old('material') == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
+                                {!! Form::checkbox('atm_own', 1, false, array('id' => 'atm_own')) !!}
+                                @if ($errors->has('atm_own'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('atm_own') }}</strong>
+                                        </span>
+                                @endif
                             </div>
                         </div>
 
