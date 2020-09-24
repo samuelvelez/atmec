@@ -99,6 +99,29 @@
                                 </div>
                             @endif
                         </div>
+                        
+                        
+                        
+                          <div class="row">
+                            @if ($intersection->street1)
+
+                                <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        {{ trans('intersections.labelStreet1') }}
+                                    </strong>
+                                    {{ $intersection->street1 }}
+                                </div>
+                            @endif
+
+                            @if ($intersection->street2)
+                                <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        {{ trans('intersections.labelStreet2') }}
+                                    </strong>
+                                    {{ $intersection->street2 }}
+                                </div>
+                            @endif
+                        </div>
 
                         <div class="row">
                             @if ($intersection->name)
@@ -142,28 +165,6 @@
                                 </div>
                             @endif
                         </div>
-                        
-                        <div class="row">
-                            @if ($intersection->street1)
-
-                                <div class="col-sm-6 col-6">
-                                    <strong class="text-larger">
-                                        {{ trans('intersections.labelStreet1') }}
-                                    </strong>
-                                    {{ $intersection->street1 }}
-                                </div>
-                            @endif
-
-                            @if ($intersection->street2)
-                                <div class="col-sm-6 col-6">
-                                    <strong class="text-larger">
-                                        {{ trans('intersections.labelStreet2') }}
-                                    </strong>
-                                    {{ $intersection->street2 }}
-                                </div>
-                            @endif
-                        </div>
-
 
                         <div class="row">
                             @if ($intersection->created_at)
@@ -202,11 +203,7 @@
                                             class="fa fa-plus-square"></i><span
                                             class="hidden-xs"> Nueva intersección</span></a>
                             </div>
-                            <div class="col-4">
-                                <a class="btn btn-sm btn-info btn-block"
-                                   href="{{ URL::to('intersections/' . $intersection->id . '/edit') }}"><i
-                                            class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
-                            </div>
+                            
                             <div class="col-4">
                                 <div class="btn-group float-right btn-block" role="group">
                                     <button id="btnGroupDrop1" type="button"
@@ -229,6 +226,13 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="col-4">
+                                <a class="btn btn-sm btn-info btn-block"
+                                   href="{{ URL::to('intersections/' . $intersection->id . '/edit') }}"><i
+                                            class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
