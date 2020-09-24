@@ -222,10 +222,7 @@
                             <div class="col-4">
                                 <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('/traffic-lights/create') }}"><i class="fa fa-plus-square"></i> Nuevo semáforo</a>
                             </div>
-                            <div class="col-4"><a class="btn btn-sm btn-info btn-block"
-                                                  href="{{ URL::to('traffic-lights/' . $traffic_light->id . '/edit') }}"><i
-                                            class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
-                            </div>
+                            
                             <div class="col-4">
                                 <div class="btn-group float-right btn-block" role="group">
                                     <button id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -240,6 +237,12 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="col-4"><a class="btn btn-sm btn-info btn-block"
+                                                  href="{{ URL::to('traffic-lights/' . $traffic_light->id . '/edit') }}"><i
+                                            class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

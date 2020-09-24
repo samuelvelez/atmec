@@ -42,73 +42,7 @@
                         {!! Form::open(array('route' => 'traffic-lights.store', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'files' => true)) !!}
 
                         {!! csrf_field() !!}
-
-                        <div class="form-group has-feedback row {{ $errors->has('code') ? ' has-error ' : '' }}">
-                            {!! Form::label('code', trans('forms.create_traffic_light_label_code'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::text('code', NULL, array('id' => 'code', 'disabled' => true, 'class' => 'form-control', 'placeholder' => trans('forms.create_traffic_light_ph_code'))) !!}
-                                    <div class="input-group-append">
-                                        <label for="code" class="input-group-text">
-                                            <i class="fa fa-fw {{ trans('forms.create_traffic_light_icon_code') }}"
-                                               aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('code'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('code') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('erp_code') ? ' has-error ' : '' }}">
-                            {!! Form::label('erp_code', trans('forms.create_traffic_light_label_erp_code'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::text('erp_code', NULL, array('id' => 'erp_code', 'disabled' => true, 'class' => 'form-control', 'placeholder' => trans('forms.create_traffic_light_ph_erp_code'))) !!}
-                                    <div class="input-group-append">
-                                        <label for="erp_code" class="input-group-text">
-                                            <i class="fa fa-fw {{ trans('forms.create_traffic_light_icon_erp_code') }}"
-                                               aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('erp_code'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('erp_code') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('light_type') ? ' has-error ' : '' }}">
-                            {!! Form::label('light_type', trans('forms.create_traffic_light_label_light_type'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="light_type" id="light_type"></select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('fastener') ? ' has-error ' : '' }}">
-                            {!! Form::label('fastener', trans('forms.create_traffic_light_label_fastener'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="fastener" id="fastener">
-                                        <option value="">{{ trans('forms.create_traffic_light_ph_fastener') }}</option>
-                                        @if ($fasteners)
-                                            @foreach($fasteners as $id => $value)
-                                                <option value="{{ $value }}" {{ old('fastener') == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('intersection') ? ' has-error ' : '' }}">
+<div class="form-group has-feedback row {{ $errors->has('intersection') ? ' has-error ' : '' }}">
                             {!! Form::label('intersection', trans('forms.create_traffic_light_label_intersection'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
@@ -128,7 +62,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('regulator') ? ' has-error ' : '' }}">
+<div class="form-group has-feedback row {{ $errors->has('regulator') ? ' has-error ' : '' }}">
                             {!! Form::label('regulator', trans('forms.create_traffic_light_label_regulator'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
@@ -150,8 +84,11 @@
                                 </div>
                             </div>
                         </div>
+                        
+                           
 
-                        <div class="form-group has-feedback row {{ $errors->has('pole') ? ' has-error ' : '' }}">
+                       
+<div class="form-group has-feedback row {{ $errors->has('pole') ? ' has-error ' : '' }}">
                             {!! Form::label('pole', trans('forms.create_traffic_light_label_pole'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
@@ -173,7 +110,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group has-feedback row {{ $errors->has('tensor') ? ' has-error ' : '' }}">
                             {!! Form::label('tensor', trans('forms.create_traffic_light_label_tensor'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -196,39 +133,16 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('state') ? ' has-error ' : '' }}">
-                            {!! Form::label('state', trans('forms.create_traffic_light_label_state'), array('class' => 'col-md-3 control-label')); !!}
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('light_type') ? ' has-error ' : '' }}">
+                            {!! Form::label('light_type', trans('forms.create_traffic_light_label_light_type'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <select name="state" id="state">
-                                        <option value="">{{ trans('forms.create_traffic_light_ph_state') }}</option>
-                                        @if ($states)
-                                            @foreach($states as $id => $value)
-                                                <option value="{{ $value }}" {{ old('state') == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
+                                    <select name="light_type" id="light_type"></select>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('orientation') ? ' has-error ' : '' }}">
-                            {!! Form::label('orientation', trans('forms.create_traffic_light_label_orientation'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="orientation" id="orientation">
-                                        <option value="">{{ trans('forms.create_traffic_light_ph_orientation') }}</option>
-                                        @if ($orientations)
-                                            @foreach($orientations as $id => $value)
-                                                <option value="{{ $value }}" {{ old('orientation') == $value ? 'selected' : '' }}>{{ $value }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
+                        
                         <div class="form-group has-feedback row {{ $errors->has('brand') ? ' has-error ' : '' }}">
                             {!! Form::label('brand', trans('forms.create_traffic_light_label_brand'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -252,8 +166,7 @@
                                     {!! Form::text('model', NULL, array('id' => 'model', 'class' => 'form-control', 'placeholder' => trans('forms.create_traffic_light_ph_model'))) !!}
                                     <div class="input-group-append">
                                         <label for="model" class="input-group-text">
-                                            <i class="fa fa-fw {{ trans('forms.create_traffic_light_icon_model') }}"
-                                               aria-hidden="true"></i>
+                                          
                                         </label>
                                     </div>
                                 </div>
@@ -264,6 +177,83 @@
                                 @endif
                             </div>
                         </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                         
+                        
+                        
+
+
+
+
+                        
+
+                        
+
+                        <div class="form-group has-feedback row {{ $errors->has('fastener') ? ' has-error ' : '' }}">
+                            {!! Form::label('fastener', trans('forms.create_traffic_light_label_fastener'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="fastener" id="fastener">
+                                        <option value="">{{ trans('forms.create_traffic_light_ph_fastener') }}</option>
+                                        @if ($fasteners)
+                                            @foreach($fasteners as $id => $value)
+                                                <option value="{{ $value }}" {{ old('fastener') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                          
+                        
+                        
+                        
+                     
+
+                        <div class="form-group has-feedback row {{ $errors->has('state') ? ' has-error ' : '' }}">
+                            {!! Form::label('state', "Estado del semáforo", array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="state" id="state">
+                                        <option value="">{{ trans('forms.create_traffic_light_ph_state') }}</option>
+                                        @if ($states)
+                                            @foreach($states as $id => $value)
+                                                <option value="{{ $value }}" {{ old('state') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('orientation') ? ' has-error ' : '' }}">
+                            {!! Form::label('orientation', "Orientación del semáforo", array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="orientation" id="orientation">
+                                        <option value="">{{ trans('forms.create_traffic_light_ph_orientation') }}</option>
+                                        @if ($orientations)
+                                            @foreach($orientations as $id => $value)
+                                                <option value="{{ $value }}" {{ old('orientation') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                      
 
                         <div class="form-group has-feedback row {{ $errors->has('picture_data') ? ' has-error ' : '' }}">
                             {!! Form::label('picture', trans('forms.create_vsignal_label_picture'), array('class' => 'col-md-3 control-label')); !!}
@@ -281,6 +271,44 @@
                                 @if ($errors->has('picture_data'))
                                     <span class="help-block">
                                             <strong>{{ $errors->first('picture_data') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+<div class="form-group has-feedback row {{ $errors->has('code') ? ' has-error ' : '' }}">
+                            {!! Form::label('code', trans('forms.create_traffic_light_label_code'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('code', NULL, array('id' => 'code', 'disabled' => true, 'class' => 'form-control', 'placeholder' => trans('forms.create_traffic_light_ph_code'))) !!}
+                                    <div class="input-group-append">
+                                        <label for="code" class="input-group-text">
+                                           
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('code'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('code') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('erp_code') ? ' has-error ' : '' }}">
+                            {!! Form::label('erp_code', trans('forms.create_traffic_light_label_erp_code'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('erp_code', NULL, array('id' => 'erp_code', 'disabled' => true, 'class' => 'form-control', 'placeholder' => trans('forms.create_traffic_light_ph_erp_code'))) !!}
+                                    <div class="input-group-append">
+                                        <label for="erp_code" class="input-group-text">
+                                           
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('erp_code'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('erp_code') }}</strong>
                                         </span>
                                 @endif
                             </div>
