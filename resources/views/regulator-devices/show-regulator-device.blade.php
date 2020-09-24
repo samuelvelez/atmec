@@ -158,11 +158,7 @@
                                 <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('/regulator-devices/create') }}"><i
                                             class="fa fa-plus-square"></i><span class="hidden-xs"> Nuevo dispositivo</span></a>
                             </div>
-                            <div class="col-4">
-                                <a class="btn btn-sm btn-info btn-block"
-                                   href="{{ URL::to('regulator-devices/' . $device->id . '/edit') }}"><i
-                                            class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
-                            </div>
+                            
                             <div class="col-4">
                                 <div class="btn-group float-right btn-block" role="group">
                                     <button id="btnGroupDrop1" type="button"
@@ -185,6 +181,13 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="col-4">
+                                <a class="btn btn-sm btn-info btn-block"
+                                   href="{{ URL::to('regulator-devices/' . $device->id . '/edit') }}"><i
+                                            class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
