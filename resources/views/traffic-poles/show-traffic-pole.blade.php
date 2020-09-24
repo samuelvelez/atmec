@@ -197,10 +197,7 @@
                                 <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('/traffic-poles/create') }}"><i
                                             class="fa fa-plus-square"></i><span class="hidden-xs"> Nuevo poste</span></a>
                             </div>
-                            <div class="col-4"><a class="btn btn-sm btn-info btn-block"
-                                                  href="{{ URL::to('traffic-poles/' . $traffic_pole->id . '/edit') }}"><i
-                                            class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
-                            </div>
+                            
                             <div class="col-4">
                                 <div class="btn-group float-right btn-block" role="group">
                                     <button id="btnGroupDrop1" type="button"
@@ -222,6 +219,11 @@
                                                     class="fa fa-plus-square"></i> Nuevo semáforo</a>
                                     </div>
                                 </div>
+                            </div>
+                            
+                            <div class="col-4"><a class="btn btn-sm btn-info btn-block"
+                                                  href="{{ URL::to('traffic-poles/' . $traffic_pole->id . '/edit') }}"><i
+                                            class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
                             </div>
                         </div>
                     </div>
