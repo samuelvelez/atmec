@@ -102,7 +102,7 @@ class TrafficLightController extends Controller
         $intersections = Intersection::orderby('updated_at', 'desc')->get();
         $traffic_poles = Auth::user()->traffic_poles()->with('intersection')->get();
         $traffic_tensors = Auth::user()->traffic_tensors()->orderby('updated_at', 'desc')->get();
-        $traffic_regulators = Auth::user()->regulator_boxes()->orderby('updated_at', 'desc')->get();
+        $traffic_regulators = RegulatorBox::orderby('updated_at', 'desc')->get();//Auth::user()->regulator_boxes()->
 
         if (count(RegulatorBox::all()) == 0 && (count(TrafficPole::all()) == 0 || count(TrafficTensor::all()) == 0)) {
             return redirect('/traffic-lights')->with('error', 'Aun no existen reguladoras de tráfico, postes o tensores. Debe crearlos antes.');

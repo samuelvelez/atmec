@@ -86,6 +86,8 @@
                             </div>
                         </div>
 
+                        
+
                         <div class="form-group has-feedback row {{ $errors->has('light_type') ? ' has-error ' : '' }}">
                             {!! Form::label('light_type', trans('forms.create_traffic_light_label_light_type'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -110,7 +112,7 @@
                                         <option value="">{{ trans('forms.create_traffic_light_ph_fastener') }}</option>
                                         @if ($fasteners)
                                             @foreach($fasteners as $id => $value)
-                                                <option value="{{ $value }}" {{ old('fastener') == $value ? 'selected' : '' }}>{{ $value }}</option>
+                                                <option value="{{ $value }}" {{ $traffic_light->fastener == $value ? 'selected' : '' }}>{{ $value }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -194,7 +196,24 @@
                                         <option value="">{{ trans('forms.create_traffic_light_ph_intersection') }}</option>
                                         @if ($intersections)
                                             @foreach($intersections as $intersection)
-                                                <option value="{{ $intersection->id }}" {{ $traffic_light->intersection_id == $intersection->id ? 'selected' : '' }}></option>
+                                                <option value="{{ $intersection->id }}" {{ $traffic_light->intersection_id == $intersection->id ? 'selected' : '' }}>{{ $intersection->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('regulator') ? ' has-error ' : '' }}">
+                            {!! Form::label('regulator', trans('forms.create_traffic_light_label_regulator'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="regulator" id="regulator">
+                                        <option value="">{{ trans('forms.create_traffic_light_ph_regulator') }}</option>
+                                        
+                                        @if ($traffic_regulators)
+                                            @foreach($traffic_regulators as $traffic_regulator)
+                                                <option value="{{ $traffic_regulator->id }}" {{ $traffic_light->regulator_id == $traffic_regulator->id ? 'selected' : '' }}>{{ $traffic_regulator->code }} - {{ $traffic_regulator->brand }} | {{ $traffic_regulator->intersection->main_st }} y {{ $traffic_regulator->intersection->cross_st }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -202,21 +221,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('regulator') ? ' has-error ' : '' }}">
-                            {!! Form::label('regulator', trans('forms.create_traffic_light_label_regulator'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="regulator" id="regulator">
-                                        <option value="">{{ trans('forms.create_traffic_light_ph_regulator') }}</option>
-                                        @if ($traffic_regulators)
-                                            @foreach($traffic_regulators as $traffic_regulator)
-                                                <option value="{{ $traffic_regulator->id }}" {{ $traffic_light->regulator_id == $traffic_regulator->id ? 'selected' : '' }}>{{ $traffic_regulator->code }} - {{ $traffic_regulator->brand }} | {{ $traffic_regulator->intersection()->main_st }} y {{ $traffic_regulator->intersection()->cross_st }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="form-group has-feedback row {{ $errors->has('pole') ? ' has-error ' : '' }}">
                             {!! Form::label('pole', trans('forms.create_traffic_light_label_pole'), array('class' => 'col-md-3 control-label')); !!}
@@ -226,7 +231,7 @@
                                         <option value="">{{ trans('forms.create_traffic_light_ph_pole') }}</option>
                                         @if ($traffic_poles)
                                             @foreach($traffic_poles as $traffic_pole)
-                                                <option value="{{ $traffic_pole->id }}" {{ $traffic_light->pole_id == $traffic_pole->id ? 'selected' : '' }}>{{ $traffic_pole->code }} | {{ $traffic_pole->intersection->main_st }} y {{ $traffic_pole->intersection->cross_st }}</option>
+                                                <option value="{{ $traffic_pole->id }}" {{ $traffic_light->pole_id == $traffic_pole->id ? 'selected' : '' }} >{{ $traffic_pole->id }} | {{ $traffic_pole->intersection->main_st }} y {{ $traffic_pole->intersection->cross_st }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -242,7 +247,7 @@
                                         <option value="">{{ trans('forms.create_traffic_light_ph_tensor') }}</option>
                                         @if ($traffic_tensors)
                                             @foreach($traffic_tensors as $tensor)
-                                                <option value="{{ $tensor->id }}" {{ $traffic_light->tensor_id == $tensor->id ? 'selected' : '' }}>{{ $tensor->id }} | {{ $tensor->intersection()->main_st }} y {{ $tensor->intersection()->cross_st }}</option>
+                                                <option value="{{ $tensor->id }}" {{ $traffic_light->tensor_id == $tensor->id ? 'selected' : '' }}>{{ $tensor->id }} | {{ $tensor->material }} y {{ $tensor->state }}</option>
                                             @endforeach
                                         @endif
                                     </select>
