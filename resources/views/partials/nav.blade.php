@@ -154,14 +154,14 @@
                 </li>
                 @endrole
 
-                @role('atmstockkeeper|atmoperator|atmcollector|atmadmin')
+                @role('atmstockkeeper|atmoperator|atmcollector|atmadmin|ccitt')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {!! trans('titles.workOrdersDropdownNav') !!}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @role('atmcollector|atmoperator|atmadmin')
+                        @role('atmcollector|atmoperator|atmadmin|ccitt')
                         <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
                            href="{{ URL::to('/alerts/') }}">
                             {!! trans('titles.alertsList') !!}
@@ -193,7 +193,7 @@
                 </li>
                 @endrole
 
-                @role('atmoperator|atmadmin|atmsenales|atmconsultas')
+                @role('atmoperator|atmadmin|atmsenales|atmconsultas|ccitt')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -45,7 +45,8 @@ class ReportController extends Controller
         $pagintaionEnabled = config('atm_app.enablePagination');
 
         if (Auth::user()->hasRole('atmcollector')) {
-            $reports = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->where('alerts.collector_id', Auth::user()->id)->orderby('id', 'asc');
+            $reports = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');
+            //->where('alerts.collector_id', Auth::user()->id)
         }
         else {
             $reports = Report::orderby('id', 'asc');

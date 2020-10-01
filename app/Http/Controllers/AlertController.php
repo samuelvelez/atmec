@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Alert;
 use App\Models\Intersection;
 use App\Models\Status;
+use App\Models\Priority;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,19 +33,21 @@ class AlertController extends Controller
         $pagintaionEnabled = config('atm_app.enablePagination');
 
         if (Auth::user()->hasRole('atmcollector')) {
-            $alerts = Alert::where('collector_id', Auth::user()->id)->orderby('id', 'asc');
+            $alerts = Alert::orderby('id', 'asc');
+            //where('collector_id', Auth::user()->id)->
         }
         else {
             $alerts = Alert::orderby('id', 'asc');
         }
 
         $alertstotal = $alerts->count();
+        $priorities = Priority::all();
 
         if ($pagintaionEnabled) {
             $alerts = $alerts->paginate(config('atm_app.paginateListSize'));
         }
 
-        return View('alerts.index', compact('alerts', 'alertstotal'));
+        return View('alerts.index', compact('alerts', 'alertstotal', 'priorities'));
     }
 
     /**
@@ -56,8 +59,9 @@ class AlertController extends Controller
     {
         $collectors = User::whereHas("roles", function($q){ $q->where("slug", "atmcollector"); })->get();
         $intersections = Intersection::all();
+        $priorities = Priority::all();
 
-        return view('alerts.create', compact('collectors', 'intersections'));
+        return view('alerts.create', compact('collectors', 'intersections', 'priorities'));
     }
 
     /**
@@ -75,7 +79,7 @@ class AlertController extends Controller
         }
 
         $collector_id = null;
-        if (!$request->input('collector') && Auth::user()->hasRole('atmcollector')) {
+        if (!$request->input('collector') && (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('ccitt'))) {
             $collector_id = Auth::user()->id;
         }
         else {
@@ -88,6 +92,8 @@ class AlertController extends Controller
             'status_id' => Status::where('name', Alert::STATUS_UNATTENDED)->first()->id,
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
+            'priority_id'  => $request->input('priority'),
+            'reason'    => $request->input('motivo'),
             'google_address' => $request->input('google_address'),
             'description' => $request->input('description'),
         ]);

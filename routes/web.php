@@ -216,13 +216,13 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstockkeepe
     ]);
 });
 
-Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|atmcollector', 'activity', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|atmcollector|ccitt', 'activity', 'checkblocked']], function () {
     Route::resource('alerts', 'AlertController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
 });
 
-Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|atmcollector', 'activity', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|atmcollector|ccitt', 'activity', 'checkblocked']], function () {
     Route::resource('workorders', 'WorkorderController')->only([
         'index', 'show', 'store', 'edit', 'update', 'destroy'
     ]);
@@ -233,7 +233,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
     Route::post('/workorders/{id}/complete', 'WorkorderController@complete');
 });
 
-Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|atmcollector', 'activity', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|atmcollector|ccitt', 'activity', 'checkblocked']], function () {
     Route::resource('reports', 'ReportController')->only([
         'index', 'show', 'store', 'edit', 'update', 'destroy'
     ]);
