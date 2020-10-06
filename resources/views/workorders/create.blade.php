@@ -132,7 +132,7 @@
 @section('footer_scripts')
     <script type="text/javascript" src="{{ config('atm_app.selectizeJsCDN') }}"></script>
 
-    @role('atmoperator')
+    @role('atmoperator|ccitt')
     <script>
         $(document).ready(function () {
             $("#collector").selectize({

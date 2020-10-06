@@ -177,7 +177,7 @@
 
     <script>
         $(document).ready(function () {
-        @role('atmoperator')
+        @role('atmoperator|ccitt')
             $("#collector").selectize({
                 allowClear: true,
                 create: false,
