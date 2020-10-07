@@ -69,4 +69,7 @@ return [
     'atm-management' => 'Gestión ATM',
     'groupsList' => 'Grupos de señales',
     'subgroupsList' => 'Subgrupos de señales',
+    'brandsList' => 'Fabricantes',
+    'tlightstypeList' => 'Tipos de semáforos',
+    'device-types' => 'Tipos de dispositivos',
 ];

@@ -96,6 +96,22 @@
                            href="{{ URL::to('/metric-units/') }}">
                             {!! trans('titles.metric-unitsList') !!}
                         </a>
+                          <div class="dropdown-divider"></div>
+                        <a class="dropdown-item {{ Request::is('brands', 'brands/*') ? 'active' : null }}"
+                           href="{{ URL::to('/brands/') }}">
+                            {!! trans('titles.brandsList') !!}
+                        </a>
+                        <a class="dropdown-item {{ Request::is('traffic-light-type', 'traffic-light-type/*') ? 'active' : null }}"
+                           href="{{ URL::to('/traffic-light-type/') }}">
+                            {!! trans('titles.tlightstypeList') !!}
+                        </a>
+                          <a class="dropdown-item {{ Request::is('device-types', 'device-types/*') ? 'active' : null }}"
+                           href="{{ URL::to('/device-types/') }}">
+                            {!! trans('titles.device-types') !!}
+                        </a>
+                        <!--<div class="dropdown-divider"></div>-->
+                        
+                        
                     </div>
                 </li>
                 @endrole

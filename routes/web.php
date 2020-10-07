@@ -276,6 +276,23 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin', 'activity',
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::post('search-signal-subgroup', 'SignalSubgroupController@search')->name('search-signal-subgroup');
+    
+    Route::resource('brands', 'BrandController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('search-brand', 'BrandController@search')->name('search-brand');
+    
+    Route::resource('traffic-light-type', 'TrafficLightTypeController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('search-trafficlighttype', 'TrafficLightTypeController@search')->name('search-trafficlighttype');
+    
+    Route::resource('device-types', 'DeviceTypesController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('search-devicetypes', 'DeviceTypesController@search')->name('search-devicetypes');
+    
+    
 });
 
 Route::get('/limpiar_cache', function () {
