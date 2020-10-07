@@ -39,7 +39,7 @@
                                 {!! trans('alerts.showing-all-alerts') !!}
                             </span>
 
-                            @role('atmoperator|atmcollector')
+                            @role('atmoperator|atmcollector|ccitt')
                             <div class="btn-group pull-right btn-group-xs">
                                 <a class="btn btn-primary btn-sm" href="/alerts/create">
                                     {!! trans('alerts.buttons.create') !!}
@@ -89,7 +89,7 @@
                                         <td class="hidden-xs">{{$alert->description}}</td>
 
                                         <td>
-                                            @if (!$alert->report && Auth::user()->hasRole('atmcollector'))
+                                            @if (!$alert->report &&  (Auth::user()->hasRole('atmcollector') ||  Auth::user()->hasRole('ccitt')))
                                                 <a class="btn btn-sm btn-danger btn-block"
                                                    href="{{ URL::to('reports/' . $alert->id . '/create/') }}"
                                                    data-toggle="tooltip" title="Crear reporte">

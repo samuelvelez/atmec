@@ -104,7 +104,7 @@
                             </div>
                         </div>
 
-                        @role('atmoperator')
+                        @role('atmoperator|ccitt')
                         <div class="form-group has-feedback row {{ $errors->has('collector') ? ' has-error ' : '' }}">
                             {!! Form::label('collector', 'Escalera', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -116,6 +116,36 @@
                             </div>
                         </div>
                         @endrole
+
+                        <div class="form-group has-feedback row {{ $errors->has('priority') ? ' has-error ' : '' }}">
+                            {!! Form::label('priority', 'Prioridad', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="priority" id="priority">
+                                        <option value="">Seleccione la prioridad</option>
+                                    </select>
+                                </div>
+                                @if ($errors->has('priority'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('priority') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('motivo') ? ' has-error ' : '' }}">
+                            {!! Form::label('motivo', trans('Motivo'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                {!! Form::text('motivo', NULL, array('id' => 'motivo', 'class' => 'form-control', 'placeholder' => trans('Escriba el Motivo'))) !!}
+                                </div>
+                                @if ($errors->has('motivo'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('motivo') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('description') ? ' has-error ' : '' }}">
                             {!! Form::label('description', trans('alerts.create_label_description'), array('class' => 'col-md-3 control-label')); !!}
@@ -147,7 +177,7 @@
 
     <script>
         $(document).ready(function () {
-        @role('atmoperator')
+        @role('atmoperator|ccitt')
             $("#collector").selectize({
                 allowClear: true,
                 create: false,
@@ -203,6 +233,29 @@
                     item: function (item, escape) {
                         return '<div>'
                             + '<span>' + escape(item.main_st) + ' / ' + escape(item.cross_st) + '</span>'
+                            + '</div>';
+                    }
+                },
+            });
+
+            $("#priority").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true,
+                options: {!! json_encode($priorities) !!},
+                valueField: 'id',
+                labelField: ['name'],
+                searchField: ['id', 'name'],
+                render: {
+                    option: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + '</span>'
+                            + '</div>';
+                    },
+                    item: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + '</span>'
                             + '</div>';
                     }
                 },

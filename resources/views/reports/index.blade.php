@@ -85,7 +85,7 @@
                                         <td class="hidden-xs">{{$report->description}}</td>
 
                                         <td>
-                                            @if ( Auth::user()->hasRole('atmoperator') && !$report->workorder)
+                                            @if ( (Auth::user()->hasRole('atmoperator') || Auth::user()->hasRole('ccitt')) && !$report->workorder)
                                                 <a class="btn btn-sm btn-warning btn-block"
                                                    href="{{ URL::to('workorders/' . $report->id . '/create/') }}"
                                                    data-toggle="tooltip" title="Crear órden de trabajo">
@@ -102,7 +102,7 @@
                                             </a>
                                         </td>
 
-                                        @role('atmoperator')
+                                        @role('atmoperator|ccitt')
                                         <td>
                                             <a class="btn btn-sm btn-info btn-block"
                                                href="{{ URL::to('reports/' . $report->id . '/edit') }}"
@@ -112,7 +112,7 @@
                                         </td>
                                         @endrole
 
-                                        @role('atmoperator|atmcollector')
+                                        @role('atmoperator|atmcollector|ccitt')
                                         <td>
                                             {!! Form::open(array('url' => 'reports/' . $report->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Eliminar')) !!}
                                             {!! Form::hidden('_method', 'DELETE') !!}
