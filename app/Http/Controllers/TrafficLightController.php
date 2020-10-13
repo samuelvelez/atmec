@@ -8,6 +8,7 @@ use App\Models\DevicesInventory;
 use App\Models\Intersection;
 use App\Models\RegulatorBox;
 use App\Models\TrafficLight;
+use App\Models\TrafficLightType;
 use App\Models\TrafficPole;
 use App\Models\TrafficTensor;
 use Illuminate\Http\Request;
@@ -108,7 +109,7 @@ class TrafficLightController extends Controller
             return redirect('/traffic-lights')->with('error', 'Aun no existen reguladoras de tráfico, postes o tensores. Debe crearlos antes.');
         }
 
-        $light_types = DevicesInventory::where('name', 'like', '%SEMAFORO%')->get();
+        $light_types = TrafficLightType::where('description', 'like', '%%')->get();
         $brands = json_decode(Configuration::where('code', 'light_brands')->first()->values);
         $fasteners = json_decode(Configuration::where('code', 'light_fasteners')->first()->values);
         $states = json_decode(Configuration::where('code', 'estado')->first()->values);
@@ -209,7 +210,7 @@ class TrafficLightController extends Controller
             $traffic_poles = Auth::user()->traffic_poles()->orderby('updated_at', 'desc')->get();
             $traffic_tensors = Auth::user()->traffic_tensors()->orderby('updated_at', 'desc')->get();
             $traffic_regulators = Auth::user()->regulator_boxes()->orderby('updated_at', 'desc')->get();
-            $light_types = DevicesInventory::where('name', 'like', '%SEMAFORO%')->get();
+            $light_types = TrafficLightType::where('description', 'like', '%%')->get();
             $brands = json_decode(Configuration::where('code', 'light_brands')->first()->values);
             $fasteners = json_decode(Configuration::where('code', 'light_fasteners')->first()->values);
             $states = json_decode(Configuration::where('code', 'estado')->first()->values);

@@ -138,7 +138,12 @@
                             {!! Form::label('light_type', trans('forms.create_traffic_light_label_light_type'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
-                                    <select name="light_type" id="light_type"></select>
+                                    <select name="light_type" id="light_type">
+                                         <option value="">Seleccione el tipo de semáforo</option>
+                                            @foreach($light_types as $i => $value)
+                                                <option value="{{ $value['id'] }}" {{ old('light_types') == $value ? 'selected' : '' }}>{{ $value['description'] }}</option>
+                                            @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -637,26 +642,6 @@
                 },
             });
 
-            $("#light_type").selectize({
-                create: false,
-                highlight: true,
-                selectOnTab: true,
-                valueField: 'id',
-                labelField: 'name',
-                searchField: ['name'],
-                options: {!! json_encode($light_types) !!},
-                sortField: [{field: 'updated_at', direction: 'desc'}, {field: '$score'}],
-                placeholder: '{{ trans('forms.create_traffic_light_ph_light_type') }}',
-                render: {
-                    option: function (item, escape) {
-                        return '<div>' + escape(item.name) + '</div>';
-                    },
-                    item: function (item, escape) {
-                        return '<div>' + escape(item.name) + '</div>';
-                    }
-                },
-            });
-
             $("#state").selectize({
                 create: false,
                 selectOnTab: true,
@@ -670,6 +655,14 @@
                 highlight: true,
                 selectOnTab: true
             });
+
+            $("#light_type").selectize({
+                create: false,
+                selectOnTab: true,
+                highlight: true,
+                selectOnTab: true
+            });
+
 
             $("#brand").selectize({
                 create: false,

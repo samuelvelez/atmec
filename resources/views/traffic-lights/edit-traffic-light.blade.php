@@ -96,7 +96,7 @@
                                         <option value="">{{ trans('forms.create_traffic_light_ph_light_type') }}</option>
                                         @if ($light_types)
                                             @foreach($light_types as $type)
-                                                <option value="{{ $type->id }}" {{ $traffic_light->type_id == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+                                                <option value="{{ $type->id }}" {{ $traffic_light->type_id == $type->id ? 'selected' : '' }}>{{ $type->description }}</option>
                                             @endforeach
                                         @endif
                                     </select>

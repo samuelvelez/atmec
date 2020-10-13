@@ -140,7 +140,7 @@
                                     <strong class="text-larger">
                                         {{ trans('traffic-lights.labelType') }}
                                     </strong>
-                                    {{ $traffic_light->light_type->name }}
+                                    {{ $traffic_light->light_type->description }}
                                 </div>
                             @endif
                         </div>

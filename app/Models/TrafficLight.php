@@ -114,7 +114,7 @@ class TrafficLight extends Eloquent implements Auditable
 
     public function light_type()
     {
-        return $this->belongsTo(\App\Models\DevicesInventory::class, 'type_id');
+        return $this->belongsTo(\App\Models\TrafficLightType::class, 'type_id');
     }
 
     public function traffic_tensor()
