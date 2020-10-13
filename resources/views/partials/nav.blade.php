@@ -195,6 +195,10 @@
                         @endrole
 
                         @role('atmstockkeeper|atmadmin')
+                        <a class="dropdown-item {{ Request::is('storage-inventoy', 'storage-inventory/*') ? 'active' : null }}"
+                           href="{{ URL::to('/storage-inventory/') }}">
+                            {!! trans('Gestion de Bodega') !!}
+                        </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item {{ Request::is('itorders', 'itorders/*') ? 'active' : null }}"
                            href="{{ URL::to('/itorders/') }}">
