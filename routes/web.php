@@ -240,6 +240,12 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
     Route::get('/reports/{id}/create', 'ReportController@create');
 });
 
+Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstorage', 'activity', 'checkblocked']], function () {
+    Route::resource('storage-inventory', 'StorageInventoryController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+});
+
 // Registered, activated, and is atmadmin routes.
 Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin', 'activity', 'checkblocked']], function () {
     Route::resource('signals-inventory', 'SignalInventoryController')->only([
