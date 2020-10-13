@@ -3,6 +3,7 @@
 return [
     // Titles
     'showing-all-ts' => 'Mostrando todos los tipos de semáforos',
+    'showing-all-tlt' => 'Mostrando todos los tipos de semáforos',
     'signal-subgroups-menu-alt' => 'Mostrar menú de gestión de subgrupos de señales',
     'create-new-tlt' => 'Crear nuevo tipo de semáforo',
     'editing-signal-subgroup' => 'Editando el tipo de semáforo: :id',
