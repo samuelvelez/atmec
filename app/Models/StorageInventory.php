@@ -43,4 +43,10 @@ class StorageInventory extends Eloquent
 		return $this->hasOne(Storage::class, 'id');
 	}
 
+        public function devices()
+    {
+        return $this->hasMany(DevicesInventory::class, 'device_id');
+    }
+        
+        
 }

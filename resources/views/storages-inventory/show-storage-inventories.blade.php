@@ -72,8 +72,22 @@
                                 <tbody id="inventory_table">
                                 @foreach($inventories as $inventory)
                                     <tr>
-                                        <td>{{$inventory->device->name}}</td>
-                                        <td>@if($inventory->storage){{$inventory->storage->name}} @else --- @endif</td>
+                                        <td>
+   @if ($products)
+  @foreach($products as $product)
+{{ $inventory->device_id == $product->id ? $product->name : '' }}                                                
+                                            @endforeach
+                                        @endif                                                         
+                                            
+                                            </td>
+                                        <td>
+     @if ($storages)
+  @foreach($storages as $storage)
+{{ $inventory->storage_id == $storage->id ? $storage->name : '' }}                                                
+                                            @endforeach
+                                        @endif                                                          
+                                        
+                                        </td>
                                         <td>{{$inventory->quantity}}</td>
                                         <td>
                                             <a class="btn btn-sm btn-success btn-block"

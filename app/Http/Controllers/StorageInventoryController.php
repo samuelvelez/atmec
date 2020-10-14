@@ -32,12 +32,14 @@ class StorageInventoryController extends Controller
         $pagintaionEnabled = config('atm_app.enablePagination');
         $inventoriestotal = StorageInventory::count();
         $inventories = StorageInventory::orderby('id', 'asc');
+        $products = DevicesInventory::orderby('code', 'asc')->get();
+        $storages = Storage::where('status',1)->get();
 
         if ($pagintaionEnabled) {
             $inventories = $inventories->paginate(config('atm_app.paginateListSize'));
         }
 
-        return View('storages-inventory.show-storage-inventories', compact('inventories', 'inventoriestotal'));
+        return View('storages-inventory.show-storage-inventories', compact('inventories', 'inventoriestotal', 'products','storages'));
     }
 
     /**
@@ -87,7 +89,9 @@ class StorageInventoryController extends Controller
         $device = StorageInventory::findOrFail($id);
 
         if ($device) {
-            return view('storage-inventory.show-storage-inventory', compact('device'));
+            $groups = DevicesInventory::orderby('id', 'asc')->get();
+        $storages = Storage::where('status',1)->get();
+            return view('storages-inventory.show-storage-inventory', compact('device','groups','storages'));
         }
 
         return back()->with('error', trans('Ocurrio un Error al mostrar el detalle'));
@@ -101,10 +105,11 @@ class StorageInventoryController extends Controller
      */
     public function edit($id)
     {
-        $device = DevicesInventory::findOrFail($id);
-
+        $device = StorageInventory::findOrFail($id);
+        $products = DevicesInventory::orderby('code', 'asc')->get();
+        $storages = Storage::where('status',1)->get();
         if ($device) {
-            return view('devices-inventory.edit-device-inventory', compact('device'));
+            return view('storages-inventory.edit-storage-inventory', compact('device','products','storages'));
         }
 
         return back()->with('error', trans('device-inventory.messages.show-error'));
@@ -120,45 +125,29 @@ class StorageInventoryController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:1|max:100'
+            'quantity' => 'required|min:1|max:1000'
         ]);
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
-        $device = DevicesInventory::find($id);
+        $device = StorageInventory::find($id);
 
         if ($device) {
-            if ($request->name && $request->name != $device->name_id) {
-                $device->name = $request->name;
+            if ($request->storage && $request->storage != $device->storage_id) {
+                $device->storage_id = $request->storage;
             }
 
-            if ($request->erp_code && $request->erp_code != $device->erp_code_id) {
-                $device->erp_code = $request->erp_code;
+            if ($request->product && $request->product != $device->device_id) {
+                $device->device_id = $request->product;
             }
 
-            if ($request->dimensions && $request->dimensions != $device->dimensions_id) {
-                $device->dimensions = $request->dimensions;
+            if ($request->quantity && $request->quantity != $device->quantity) {
+                $device->quantity = $request->quantity;
             }
-
-            $device_name = null;
-            $old_symbol = null;
-            if ($request->hasFile('symbol')) {
-                $symbol = $request->file('symbol');
-                $device_name = $device->code . '.' . $symbol->getClientOriginalExtension();
-
-                if ($device->symbol) {
-                    $old_symbol = storage_path('app/public_html//inventory/devices/' . $device->symbol);
-                    File::delete($old_symbol);
-                }
-                $symbol->storeAs('inventory/devices/', $device_name);
-
-                $device->symbol = $device_name;
-            }
-
             if ($device->save()) {
-                return redirect('devices-inventory/' . $device->id)->with('success', trans('device-inventory.updateSuccess'));
+                return redirect('storage-inventory/' . $device->id)->with('success', trans('device-inventory.updateSuccess'));
             }
         }
 
