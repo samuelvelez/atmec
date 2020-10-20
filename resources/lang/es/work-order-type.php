@@ -57,7 +57,7 @@ return [
         'update-signal-subgroup-success' => '¡Tipo de semáforo actualizado con éxito!',
         'update-signal-subgroup-error' => 'Actualización del tipo de semáforo fallida.',
         'show-signal-subgroup-error' => 'Tipo de semáforo no encontrado.',
-        'delete-success' => '¡Tipo de semáforo eliminado con éxito!'
+        'delete-success' => '¡Tipo de orden eliminado con éxito!'
     ],
 
     'show-signal-subgroup' => [
