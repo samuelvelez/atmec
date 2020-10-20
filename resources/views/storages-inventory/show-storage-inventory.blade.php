@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {!! trans('intersections.showing-intersection', ['id' => $device->id]) !!}
+    {!! trans('storage-inventory.showing-si', ['id' => $device->id]) !!}
 @endsection
 
 @section('template_fastload_css')
@@ -23,13 +23,13 @@
 
                     <div class="card-header text-white bg-success">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            {!! trans('intersections.showing-intersection-title', ['id' => $device->id]) !!}
+                            {!! trans('storage-inventory.showing-si-title', ['id' => $device->id]) !!}
                             <div class="float-right">
                                 <a href="{{ route('storage-inventory.index') }}" class="btn btn-light btn-sm float-right"
                                    data-toggle="tooltip" data-placement="left"
-                                   title="{{ trans('device-inventory.tooltips.back-intersections') }}">
+                                   title="{{ trans('storage-inventory.tooltips.back-si') }}">
                                     <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-                                    {!! trans('intersections.buttons.back-to-intersections') !!}
+                                    {!! trans('storage-inventory.buttons.back-to-si') !!}
                                 </a>
                             </div>
                         </div>
@@ -119,12 +119,12 @@
                         <div class="row">
                             <div class="col-4">
                                 <a class="btn btn-sm btn-success btn-block"
-                                   href="{{ URL::to('/intersections/create') }}"><i
+                                   href="{{ URL::to('/storage-inventory/create') }}"><i
                                             class="fa fa-plus-square"></i><span
-                                            class="hidden-xs"> Nueva intersección</span></a>
+                                            class="hidden-xs"> Nuevo producto en bodega</span></a>
                             </div>
                             
-                            <div class="col-4">
+<!--                            <div class="col-4">
                                 <div class="btn-group float-right btn-block" role="group">
                                     <button id="btnGroupDrop1" type="button"
                                             class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown"
@@ -145,11 +145,11 @@
                                                     class="fa fa-plus-square"></i> Nuevo poste</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             
                             <div class="col-4">
                                 <a class="btn btn-sm btn-info btn-block"
-                                   href="{{ URL::to('intersections/' . $device->id . '/edit') }}"><i
+                                   href="{{ URL::to('storage-inventory/' . $device->id . '/edit') }}"><i
                                             class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
                             </div>
                             

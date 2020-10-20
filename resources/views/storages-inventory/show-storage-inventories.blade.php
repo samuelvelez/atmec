@@ -59,7 +59,7 @@
                         <div class="table-responsive devices-inventories-table">
                             <table class="table table-striped table-sm data-table">
                                 <caption id="inventory_count">
-                                    {{ trans('device-inventory.devices-inventories-table.caption', ['inventoriescount' => $inventories->count(), 'inventoriestotal' => $inventoriestotal]) }}
+                                    {{ trans('storage-inventory.storage-inventory-table.caption', ['inventoriescount' => $inventories->count(), 'inventoriestotal' => $inventoriestotal]) }}
                                 </caption>
                                 <thead class="thead">
                                 <tr>
