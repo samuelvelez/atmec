@@ -109,6 +109,15 @@
                            href="{{ URL::to('/device-types/') }}">
                             {!! trans('titles.device-types') !!}
                         </a>
+                     <div class="dropdown-divider"></div>
+                        <a class="dropdown-item {{ Request::is('motive-work-order', 'motive-work-order/*') ? 'active' : null }}"
+                           href="{{ URL::to('/motive-work-order/') }}">
+                            {!! trans('titles.motivewolist') !!}
+                        </a>
+                        <a class="dropdown-item {{ Request::is('work-order-type', 'work-order-type/*') ? 'active' : null }}"
+                           href="{{ URL::to('/work-order-type/') }}">
+                            {!! trans('titles.typeworkordersList') !!}
+                        </a>
                         <!--<div class="dropdown-divider"></div>-->
                         
                         

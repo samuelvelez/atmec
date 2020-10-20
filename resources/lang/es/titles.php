@@ -65,6 +65,8 @@ return [
     'metric-unitsList'      => 'Unidades métricas',
     'itorders'      => 'Órdenes en tránsito (OET)',
     'ito-templates'      => 'Plantillas de OET',
+    'motivewolist'      => 'Motivos de Ordenes de Trabajo',
+    'typeworkordersList'      => 'Tipos de Ordenes de Trabajo',
 
     'atm-management' => 'Gestión ATM',
     'groupsList' => 'Grupos de señales',

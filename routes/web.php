@@ -298,6 +298,14 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin', 'activity',
     ]);
     Route::post('search-devicetypes', 'DeviceTypesController@search')->name('search-devicetypes');
     
+    Route::resource('motive-work-order', 'MotiveWOController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('search-workordertype', 'WorkOrderTypeController@search')->name('search-workordertype');
+     Route::resource('work-order-type', 'WorkOrderTypeController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('search-workordertype', 'WorkOrderTypeController@search')->name('search-workordertype');
     
 });
 
