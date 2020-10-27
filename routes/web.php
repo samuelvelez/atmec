@@ -217,6 +217,10 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstockkeepe
 });
 
 Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|atmcollector|ccitt', 'activity', 'checkblocked']], function () {
+    //Route::get('/ordenes','OrdenController@index');
+    Route::resource('/ordenes','OrdenController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
     Route::resource('alerts', 'AlertController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);

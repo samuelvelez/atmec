@@ -1,0 +1,209 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Alert;
+use App\Models\Intersection;
+use App\Models\Status;
+use App\Models\Priority;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+
+class OrdenController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $pagintaionEnabled = config('atm_app.enablePagination');
+
+        if (Auth::user()->hasRole('atmcollector')) {
+            $alerts = Alert::orderby('id', 'desc');
+            //where('collector_id', Auth::user()->id)->
+        }
+        else {
+            $alerts = Alert::orderby('id', 'desc');
+        }
+
+        $alertstotal = $alerts->count();
+        $priorities = Priority::all();
+
+        if ($pagintaionEnabled) {
+            $alerts = $alerts->paginate(config('atm_app.paginateListSize'));
+        }
+
+        return View('ordenes.index', compact('alerts', 'alertstotal', 'priorities'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $collectors = User::whereHas("roles", function($q){ $q->where("slug", "atmcollector"); })->get();
+        $intersections = Intersection::all();
+        $priorities = Priority::all();
+
+        return view('ordenes.create', compact('collectors', 'intersections', 'priorities'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), Alert::rules());
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        $collector_id = null;
+        if (!$request->input('collector') && (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('ccitt'))) {
+            $collector_id = Auth::user()->id;
+        }
+        else {
+            $collector_id = $request->input('collector');
+        }
+
+        $alert = Alert::create([
+            'owner_id' => Auth::user()->id,
+            'collector_id' => $collector_id,
+            'status_id' => Status::where('name', Alert::STATUS_UNATTENDED)->first()->id,
+            'latitude' => $request->input('latitude'),
+            'longitude' => $request->input('longitude'),
+            'priority_id'  => $request->input('priority'),
+            'reason'    => $request->input('motivo'),
+            'google_address' => $request->input('google_address'),
+            'description' => $request->input('description'),
+        ]);
+
+        if ($alert) {
+            return redirect('ordenes/')->with('success', trans('Orden creada con exito'));
+        }
+
+        return back()->with('error', trans('Ocurrio un error al crear la orden de trabajo'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $alert = Alert::find($id);
+        $collectors = User::whereHas("roles", function($q){ $q->where("slug", "atmcollector"); })->get();
+        $intersections = Intersection::all();
+
+        if ($alert) {
+            return view('alerts.edit', compact('alert', 'collectors', 'intersections'));
+        }
+
+        return back()->with('error', trans('alerts.editError'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $alert = Alert::find($id);
+
+        if ($alert) {
+            $alert->owner_id = Auth::user()->id;
+
+            if ($request->collector && $request->collector != $alert->collector_id) {
+                $alert->collector_id = $request->collector;
+            }
+
+            if ($request->latitude && $request->latitude != $alert->latitude) {
+                $alert->latitude = $request->latitude;
+            }
+
+            if ($request->longitude && $request->longitude != $alert->longitude) {
+                $alert->longitude = $request->longitude;
+            }
+
+            if ($request->google_address && $request->google_address != $alert->google_address) {
+                $alert->google_address = $request->google_address;
+            }
+
+            if ($request->description && $request->description != $alert->description) {
+                $alert->description = $request->description;
+            }
+
+            if ($alert->save()) {
+                $alert->mask_as_read();
+                return redirect('alerts/')->with('success', trans('alerts.updateSuccess'));
+            }
+        }
+
+        return back()->with('error', trans('alerts.udpateError'));
+    }
+
+    public function show($id)
+    {
+        $alert = Alert::find($id);
+
+        if ($alert) {
+            $alert->mask_as_read();
+
+            return view('alerts.show', compact('alert'));
+        }
+
+        return back()->with('error', 'Alerta no encontrada.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $alert = Alert::find($id);
+
+        if ($alert) {
+            if ($alert->report) {
+                return redirect('alerts/')->with('error', 'No puede eliminar una alerta que ya posee un reporte.');
+            }
+
+            if (!Auth::user()->hasRole('atmadmin|atmoperator')) {
+                return redirect('alerts/')->with('error', 'No tiene permisos para realizar esta acción.');
+            }
+
+            $alert->delete();
+
+            return redirect('alerts')->with('success', trans('alerts.deleteSuccess'));
+        }
+
+        return back()->with('error', trans('alerts.deleteError'));
+    }
+}

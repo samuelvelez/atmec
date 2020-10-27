@@ -38,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="card-body">
                         <div class="text-center" style="color: royalblue;"><strong>Dispositivos a {{ env('APP_MAP_RADIUS', 0.2) }} km alrededor de la
                                 alerta: #{{ $alert->id }}</strong></div>
@@ -215,63 +215,135 @@
                             </div>
                         </div>
 
-                        <div class="text-center" style="color: royalblue;"><strong>Materiales requeridos</strong></div>
                         <div class="row">
-                            <div class="col-md-7">
-                                {!! Form::label('material_slt', 'Material', array('class' => 'control-label')); !!}
-                                <div class="form-group">
-                                    <select id="material_slt" name="material_slt">
-                                        <option value="">Seleccione el material</option>
-                                    </select>
+                            <input type="checkbox" name="materiales" id="mat_escalera" class="form-control col-3"/>
+                            <label for="mat_escalera" class="col-3">Usa Materiales</label>
+                        </div>
+                        <div id="cont_materiales">
+                            <div class="text-center" style="color: royalblue;"><strong>Materiales requeridos</strong></div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    {!! Form::label('material_slt', 'Material', array('class' => 'control-label')); !!}
+                                    <div class="form-group">
+                                        <select id="material_slt" name="material_slt">
+                                            <option value="">Seleccione el material</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    {!! Form::label('metric', 'Unidad de medida', array('class' => 'control-label')); !!}
+                                    <div class="form-group">
+                                        <select id="metric" name="metric">
+                                            <option value="">Seleccione la unidad</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    {!! Form::label('amount', 'Cantidad', array('class' => 'control-label')); !!}
+                                    <div class="input-group">
+                                        {!! Form::text('amount', null, array('id' => 'amount', 'class' => 'form-control mr-2', 'placeholder' => '##')) !!}
+                                        <button id="add-material" type="button" class="btn btn-sm btn-primary float-right">
+                                            <i class="fa fa-fw fa-plus"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
-                                {!! Form::label('metric', 'Unidad de medida', array('class' => 'control-label')); !!}
-                                <div class="form-group">
-                                    <select id="metric" name="metric">
-                                        <option value="">Seleccione la unidad</option>
-                                    </select>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table id="materials"
+                                        class="table table-striped table-hover table-sm data-table mt-4 mb-4">
+                                        <thead class="thead">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Material</th>
+                                            <th>Unidad de medida</th>
+                                            <th>Cantidad</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-
-                            <div class="col-md-2">
-                                {!! Form::label('amount', 'Cantidad', array('class' => 'control-label')); !!}
-                                <div class="input-group">
-                                    {!! Form::text('amount', null, array('id' => 'amount', 'class' => 'form-control mr-2', 'placeholder' => '##')) !!}
-                                    <button id="add-material" type="button" class="btn btn-sm btn-primary float-right">
-                                        <i class="fa fa-fw fa-plus"></i>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <span class="red">Para eliminar un material debe seleccionarlo con click en la tabla y
+                                    luego presionar el boton eliminar</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <button id="del-material" type="button" class="btn btn-sm btn-danger float-right">
+                                        <i class="fa fa-fw fa-trash"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <table id="materials"
-                                       class="table table-striped table-hover table-sm data-table mt-4 mb-4">
-                                    <thead class="thead">
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Material</th>
-                                        <th>Unidad de medida</th>
-                                        <th>Cantidad</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <hr>
+                        <div class="row mt-3">
+                            <input type="checkbox" name="materiales" id="mat_bodega" class="form-control col-3"/>
+                            <label for="mat_bodega" class="col-3">Requiere Materiales Adicionales</label>
                         </div>
-                        <div class="row">
-                            <div class="col-md-10">
-                                <span class="red">Para eliminar un material debe seleccionarlo con click en la tabla y
-                                luego presionar el boton eliminar</span>
+                        <div id="cont_bodega">
+                            <div class="text-center" style="color: royalblue;"><strong>Materiales requeridos</strong></div>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    {!! Form::label('material_slt', 'Material', array('class' => 'control-label')); !!}
+                                    <div class="form-group">
+                                        <select id="material_slt" name="material_slt">
+                                            <option value="">Seleccione el material</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    {!! Form::label('metric', 'Unidad de medida', array('class' => 'control-label')); !!}
+                                    <div class="form-group">
+                                        <select id="metric" name="metric">
+                                            <option value="">Seleccione la unidad</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    {!! Form::label('amount', 'Cantidad', array('class' => 'control-label')); !!}
+                                    <div class="input-group">
+                                        {!! Form::text('amount', null, array('id' => 'amount', 'class' => 'form-control mr-2', 'placeholder' => '##')) !!}
+                                        <button id="add-material" type="button" class="btn btn-sm btn-primary float-right">
+                                            <i class="fa fa-fw fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-2">
-                                <button id="del-material" type="button" class="btn btn-sm btn-danger float-right">
-                                    <i class="fa fa-fw fa-trash"></i>
-                                </button>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table id="materials"
+                                        class="table table-striped table-hover table-sm data-table mt-4 mb-4">
+                                        <thead class="thead">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Material</th>
+                                            <th>Unidad de medida</th>
+                                            <th>Cantidad</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <span class="red">Para eliminar un material debe seleccionarlo con click en la tabla y
+                                    luego presionar el boton eliminar</span>
+                                </div>
+                                <div class="col-md-2">
+                                    <button id="del-material" type="button" class="btn btn-sm btn-danger float-right">
+                                        <i class="fa fa-fw fa-trash"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <hr>
@@ -302,6 +374,23 @@
 
     <script>
         $(document).ready(function () {
+            $("#cont_materiales").hide();
+            $("#cont_bodega").hide();
+
+            $("#mat_escalera").change(function(){
+                if($(this).is(':checked')) {
+                    $("#cont_materiales").show();
+                }else{
+                    $("#cont_materiales").hide();
+                }
+            });
+            $("#mat_bodega").change(function(){
+                if($(this).is(':checked')) {
+                    $("#cont_bodega").show();
+                }else{
+                    $("#cont_bodega").hide();
+                }
+            });
             $("#novelty").selectize({
                 allowClear: true,
                 create: false,

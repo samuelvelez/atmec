@@ -17,7 +17,7 @@ return [
     'deleteError'   => 'Error eliminando la alerta',
 
     'alerts-table' => [
-        'caption'   => '{1} Existe una única alerta.|[2,*] Cantidad total de alertas: :alertstotal.',
+        'caption'   => '{1} Existe una única Orden de trabajo.|[2,*] Cantidad total de Ordenes: :alertstotal.',
         'id'        => 'ID',
         'collector'     => 'Escalera',
         'creator'     => 'Creador',
