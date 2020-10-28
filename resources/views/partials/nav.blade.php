@@ -175,6 +175,7 @@
                            href="{{ URL::to('/traffic-lights/') }}">
                             {!! trans('titles.trafficLights') !!}
                         </a>
+                     
                     </div>
                 </li>
                 @endrole

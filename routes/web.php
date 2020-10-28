@@ -242,6 +242,12 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
         'index', 'show', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::get('/reports/{id}/create', 'ReportController@create');
+    
+    Route::resource('ubicacion', 'UbicacionController')->only([
+        'index', 'show', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::get('/ubicacion/{id}/create', 'UbicacionController@create');
+    
 });
 
 Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstorage|atmstockkeeper', 'activity', 'checkblocked']], function () {
@@ -310,6 +316,12 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin', 'activity',
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::post('search-workordertype', 'WorkOrderTypeController@search')->name('search-workordertype');
+    
+    Route::post('search-ubicacion', 'UbicacionController@search')->name('search-ubicacion');
+     Route::resource('ubicacion', 'UbicacionController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    Route::post('search-ubicacion', 'UbicacionController@search')->name('search-ubicacion');
     
 });
 
