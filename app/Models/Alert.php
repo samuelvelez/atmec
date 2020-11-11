@@ -16,7 +16,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property float $longitude
  * @property string $google_address
  * @property string $priority
- * @property string $motive
+ * @property string $reason
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -54,7 +54,10 @@ class Alert extends Eloquent
 		'google_address',
 		'priority_id',
 		'reason',
-		'description'
+		'tipoOrden',
+		'detail',
+		'description',
+
 	];
 
     public static function rules($merge = [])

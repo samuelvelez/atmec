@@ -213,8 +213,8 @@
                         lng = this.options[value].longitude;
 
                         if (lat == '' || lat == null) {
-                            lat = {{ env('APP_DEFAULT_LAT') }};
-                            lng = {{ env('APP_DEFAULT_LNG') }};
+                            lat = {{ env('APP_DEFAULT_LAT') ? env('APP_DEFAULT_LAT') : -2.1894128  }};
+                            lng = {{ {{ env('APP_DEFAULT_LNG') ? env('APP_DEFAULT_LNG') : -79.8890662 }};
                         }
 
                         show_location(lat, lng);

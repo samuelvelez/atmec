@@ -215,29 +215,51 @@ class ReportController extends Controller
                     }
                 }
             }
-
+            //materiales propios usados
             $materials = json_decode($request->input('materials_list'));
-            foreach ($materials as $material) {
-                $device = DevicesInventory::find($material->id);
-                $metric = MetricUnit::where('abbreviation', $material->metric)->first();
-
-                if ($device && $metric) {
-                    MaterialReport::create([
-                        'report_id' => $report->id,
-                        'material_id' => $device->id,
-                        'metric_id' => $metric->id,
-                        'amount' => $material->amount
-                    ]);
+            if($materials){
+                foreach ($materials as $material) {
+                    $device = DevicesInventory::find($material->id);
+                    $metric = MetricUnit::where('abbreviation', $material->metric)->first();
+    
+                    if ($device && $metric) {
+                        MaterialReport::create([
+                            'report_id' => $report->id,
+                            'material_id' => $device->id,
+                            'metric_id' => $metric->id,
+                            'amount' => $material->amount,
+                            'bodega' => 1
+                        ]);
+                    }
                 }
             }
-
+            //materiales a pedir a bodega
+            $materials = json_decode($request->input('materials_list2'));
+            if($materials){
+                foreach ($materials as $material) {
+                    $device = DevicesInventory::find($material->id);
+                    $metric = MetricUnit::where('abbreviation', $material->metric)->first();
+    
+                    if ($device && $metric) {
+                        MaterialReport::create([
+                            'report_id' => $report->id,
+                            'material_id' => $device->id,
+                            'metric_id' => $metric->id,
+                            'amount' => $material->amount,
+                            'bodega'    =>2
+                        ]);
+                    }
+                }
+    
+            }
+            
             // TODO set report status according to required materials and availability in collector ITO. If needed fire and event to notify stockkeeper about ITO to updates.
 
             $alert->mask_as_read();
             $alert->status_id = Status::where('name', Alert::STATUS_ATTENDED)->first()->id;
             $alert->save();
 
-            return redirect('reports/')->with('success', trans('reports.createSuccess'));
+            return redirect('ordenes/')->with('success', trans('Inspección Realizada'));
         }
 
         return back()->with('error', trans('reports.createError'));

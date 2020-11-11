@@ -109,7 +109,7 @@ class WorkorderController extends Controller
             $report->status_id = Status::where('name', Alert::STATUS_ATTENDED)->first()->id;
             $report->save();
 
-            return redirect('workorders/')->with('success', trans('workorders.createSuccess'));
+            return redirect('ordenes/')->with('success', trans('Orden de trabajo Reportada'));
         }
 
         return back()->with('error', trans('workorders.createError'));
@@ -259,7 +259,7 @@ class WorkorderController extends Controller
 
             if ($workorder->save()) {
                 $workorder->close();
-                return redirect('workorders/')->with('success', trans('workorders.closeSuccess'));
+                return redirect('ordenes/')->with('success', trans('workorders.closeSuccess'));
             }
         }
         else {

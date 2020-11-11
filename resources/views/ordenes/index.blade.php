@@ -89,19 +89,41 @@
                                         <td class="hidden-xs">{{$alert->description}}</td>
 
                                         <td>
-                                            @if (!$alert->report &&  (Auth::user()->hasRole('atmcollector') ||  Auth::user()->hasRole('ccitt')))
+                                            @if (!$alert->report['id'] &&  (Auth::user()->hasRole('atmcollector') ||  Auth::user()->hasRole('ccitt')))
                                                 <a class="btn btn-sm btn-danger btn-block"
                                                    href="{{ URL::to('reports/' . $alert->id . '/create/') }}"
                                                    data-toggle="tooltip" title="Realizar Inspección">
-                                                    {!! trans('Realizar Inspección') !!}
+                                                    {!! trans('Realizar Informe') !!}
                                                 </a>
+                                            @else
+                                                @if($alert->report['status_id']=="3" && (Auth::user()->hasRole('ccitt') || Auth::user()->hasRole('atmadmin')))
+                                                <a class="btn btn-sm btn-warning btn-block"
+                                                   href="{{ URL::to('workorders/' . $alert->report['id'] . '/create/') }}"
+                                                   data-toggle="tooltip" title="Crear Reporte">
+                                                    {!! trans('Crear Reporte') !!}
+                                                </a>
+                                                @endif
+                                            @endif
+                                            @if($alert->report['status_id']=="2" && (Auth::user()->hasRole('atmcollector')))
+                                                @php
+                                                    $workorder = App\Models\Workorder::where('report_id', $alert->report['id'])->first();
+                                                    
+
+                                                @endphp
+                                                @if($workorder['status_id']==5)
+                                                    <a class="btn btn-sm btn-warning btn-block"
+                                                    href="{{ URL::to('workorders/' . $workorder->id . '/close/') }}"
+                                                    data-toggle="tooltip" title="Crear Reporte">
+                                                        {!! trans('Finalizar Reporte') !!}
+                                                    </a>
+                                                @endif
                                             @endif
                                         </td>
 
                                         <td>
                                             <a class="btn btn-sm btn-success btn-block"
-                                               href="{{ URL::to('alerts/' . $alert->id) }}"
-                                               data-toggle="tooltip" title="Mostrar la alerta">
+                                               href="{{ URL::to('ordenes/' . $alert->id) }}"
+                                               data-toggle="tooltip" title="Mostrar la orden">
                                                 {!! trans('alerts.buttons.show') !!}
                                             </a>
                                         </td>
@@ -109,7 +131,7 @@
                                         @if (Auth::user()->hasRole('atmoperator') && !$alert->report)
                                         <td>
                                             <a class="btn btn-sm btn-info btn-block"
-                                               href="{{ URL::to('alerts/' . $alert->id . '/edit') }}"
+                                               href="{{ URL::to('ordenes/' . $alert->id . '/edit') }}"
                                                data-toggle="tooltip" title="Editar">
                                                 {!! trans('alerts.buttons.edit') !!}
                                             </a>

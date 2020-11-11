@@ -28,14 +28,16 @@ class MaterialReport extends Eloquent
 		'report_id' => 'int',
 		'material_id' => 'int',
 		'metric_id' => 'int',
-		'amount' => 'int'
+		'amount' => 'int',
+		'bodega'	=>'int'
 	];
 
 	protected $fillable = [
 		'report_id',
 		'material_id',
 		'metric_id',
-		'amount'
+		'amount',
+		'bodega'
 	];
 
 	public function material()

@@ -4,6 +4,7 @@
     var lng = 0;
    
     function show_location(lat, lng) {
+        console.log(lat, lng);
         show_map();
         document.getElementById('latitude').value = lat;
         document.getElementById('longitude').value = lng;
@@ -103,10 +104,17 @@
     lat = document.getElementById('latitude').value;
     lng = document.getElementById('longitude').value;
     if (lat == ''){
-        lat = {{ env('APP_DEFAULT_LAT') }};
-        lng = {{ env('APP_DEFAULT_LNG') }};
+        lat = {{ env('APP_DEFAULT_LAT') ? env('APP_DEFAULT_LAT') : -2.1894128  }};
+        lng = {{ env('APP_DEFAULT_LNG') ? env('APP_DEFAULT_LNG') : -79.8890662 }};
     }
     show_location(lat, lng);
+
+    function ubicar(){
+
+         lat = document.getElementById('latitude').value;
+         lng = document.getElementById('longitude').value;
+        show_location(lat, lng);        
+    }
 
 </script>
 

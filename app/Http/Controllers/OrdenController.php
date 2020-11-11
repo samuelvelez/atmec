@@ -6,6 +6,8 @@ use App\Models\Alert;
 use App\Models\Intersection;
 use App\Models\Status;
 use App\Models\Priority;
+use App\Models\WorkOrderType;
+use App\Models\MotiveWO;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +40,7 @@ class OrdenController extends Controller
         }
         else {
             $alerts = Alert::orderby('id', 'desc');
+            
         }
 
         $alertstotal = $alerts->count();
@@ -60,8 +63,10 @@ class OrdenController extends Controller
         $collectors = User::whereHas("roles", function($q){ $q->where("slug", "atmcollector"); })->get();
         $intersections = Intersection::all();
         $priorities = Priority::all();
+        $motivos = MotiveWO::all();
+        $tipos = WorkOrderType::all();
 
-        return view('ordenes.create', compact('collectors', 'intersections', 'priorities'));
+        return view('ordenes.create', compact('collectors', 'intersections', 'priorities', 'motivos', 'tipos'));
     }
 
     /**
@@ -93,7 +98,9 @@ class OrdenController extends Controller
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
             'priority_id'  => $request->input('priority'),
-            'reason'    => $request->input('motivo'),
+            'reason'    => $request->input('motivoOrden'),
+            'tipoOrden'    => $request->input('tipoOrden'),
+            'detail'    => $request->input('detail'),
             'google_address' => $request->input('google_address'),
             'description' => $request->input('description'),
         ]);
@@ -116,9 +123,12 @@ class OrdenController extends Controller
         $alert = Alert::find($id);
         $collectors = User::whereHas("roles", function($q){ $q->where("slug", "atmcollector"); })->get();
         $intersections = Intersection::all();
+        $priorities = Priority::all();
+        $motivos = MotiveWO::all();
+        $tipos = WorkOrderType::all();
 
         if ($alert) {
-            return view('alerts.edit', compact('alert', 'collectors', 'intersections'));
+            return view('ordenes.edit', compact('alert', 'collectors', 'intersections', 'priorities', 'motivos', 'tipos'));
         }
 
         return back()->with('error', trans('alerts.editError'));
@@ -160,7 +170,7 @@ class OrdenController extends Controller
 
             if ($alert->save()) {
                 $alert->mask_as_read();
-                return redirect('alerts/')->with('success', trans('alerts.updateSuccess'));
+                return redirect('ordenes/')->with('success', trans('Orden de trabajo modificada'));
             }
         }
 
@@ -174,7 +184,7 @@ class OrdenController extends Controller
         if ($alert) {
             $alert->mask_as_read();
 
-            return view('alerts.show', compact('alert'));
+            return view('ordenes.show', compact('alert'));
         }
 
         return back()->with('error', 'Alerta no encontrada.');

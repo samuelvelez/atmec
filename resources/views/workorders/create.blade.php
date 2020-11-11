@@ -17,13 +17,13 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            {!! trans('workorders.create-new-workorder') !!}
+                            {!! trans('Finalizar Orden de trabajo') !!}
                             <div class="pull-right">
                                 <a href="{{ route('workorders.index') }}" class="btn btn-light btn-sm float-right"
                                    data-toggle="tooltip" data-placement="left"
-                                   title="{{ trans('workorders.tooltips.back-workorders') }}">
+                                   title="{{ trans('Regresar') }}">
                                     <i class="fa fa-fw fa-reply-all" aria-hidden="true"></i>
-                                    {!! trans('workorders.buttons.back-to-workorders') !!}
+                                    {!! trans('Regresar a las ordenes de trabajo') !!}
                                 </a>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
 
                     <div class="card-body">
                         <div class="form-group row">
-                            {!! Form::label('report_collector', 'Escalera del reporte', array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('report_collector', 'Escalera Asignada', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
                                     {!! Form::text('report_collector', $report->alert->collector->full_name(), array('id' => 'report_collector', 'class' => 'form-control', 'readonly' => 'readonly')) !!}
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="form-group row">
-                            {!! Form::label('alert_description', 'Descripción de la alerta', array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('alert_description', 'Descripción del Reporte Inicial', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
                                     {!! Form::textarea('alert_description', $report->alert->description, array('id' => 'alert_description', 'rows' => '2', 'class' => 'form-control', 'readonly' => 'readonly')) !!}
@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="form-group row">
-                            {!! Form::label('report_description', 'Descripción del reporte', array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('report_description', 'Descripción del reporte en el sitio', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
                                     {!! Form::textarea('report_description', $report->description, array('id' => 'report_description', 'rows' => '2', 'class' => 'form-control', 'readonly' => 'readonly')) !!}
@@ -116,12 +116,25 @@
                                 @endif
                             </div>
                         </div>
+                     
 
+                        
                         {!! Form::hidden("report", $report->id, array('id' => 'report')) !!}
                         {!! Form::button(trans('workorders.create_button_text'), array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                         {!! Form::close() !!}
                     </div>
-
+                    <a class="btn btn-sm btn-info btn-block"
+                        href="{{ URL::to('ordenes/' . $report->alert['id'] . '/edit') }}"
+                        data-toggle="tooltip" title="Orden">
+                        Ver Orden de trabajo
+                    </a>
+                    @if (Auth::user()->hasRole('atmoperator') && !$report)
+                    <a class="btn btn-sm btn-info btn-block"
+                        href="{{ URL::to('report/' . $report->id . '/edit') }}"
+                        data-toggle="tooltip" title="Orden">
+                        Ver Inspección
+                    </a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -132,7 +145,7 @@
 @section('footer_scripts')
     <script type="text/javascript" src="{{ config('atm_app.selectizeJsCDN') }}"></script>
 
-    @role('atmoperator|ccitt')
+    @role('atmoperator|ccitt|atmadmin')
     <script>
         $(document).ready(function () {
             $("#collector").selectize({

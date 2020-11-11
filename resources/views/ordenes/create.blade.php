@@ -67,6 +67,7 @@
                             <div class="col-md-9">
                                 <div class="input-group">
                                     {!! Form::text('latitude', NULL, array('id' => 'latitude', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_latitude'))) !!}
+                                    <div class="input-group-append" onclick="ubicar()"><label for="name" class="input-group-text"><i aria-hidden="true" class="fa fa-map-marker"></i></label></div>
                                 </div>
                                 @if ($errors->has('latitude'))
                                     <span class="help-block">
@@ -81,6 +82,7 @@
                             <div class="col-md-9">
                                 <div class="input-group">
                                     {!! Form::text('longitude', NULL, array('id' => 'longitude', 'class' => 'form-control', 'placeholder' => trans('forms.create_vsignal_ph_longitude'))) !!}
+                                    <div class="input-group-append" onclick="ubicar()"><label for="name" class="input-group-text"><i aria-hidden="true" class="fa fa-map-marker"></i></label></div>
                                 </div>
                                 @if ($errors->has('longitude'))
                                     <span class="help-block">
@@ -94,7 +96,7 @@
                             {!! Form::label('google_address', trans('forms.create_vsignal_label_gaddress'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('google_address', NULL, array('id' => 'google_address', 'class' => 'form-control', 'readonly' => 'readonly', 'placeholder' => trans('forms.create_vsignal_ph_gaddress'))) !!}
+                                    {!! Form::text('google_address', "ok", array('id' => 'google_address', 'class' => 'form-control', 'readonly' => 'readonly', 'placeholder' => trans('forms.create_vsignal_ph_gaddress'))) !!}
                                 </div>
                                 @if ($errors->has('google_address'))
                                     <span class="help-block">
@@ -134,42 +136,37 @@
                         </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('longitude') ? ' has-error ' : '' }}">
-                            {!! Form::label('motivo', trans('Motivo de Orden de trabajo'), array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('motivoOrden', trans('Motivo de Orden de trabajo'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::text('motivo', NULL, array('id' => 'motivo', 'class' => 'form-control', 'placeholder' => trans('Seleccione el motivo de la orden de trabajo'))) !!}
+                                <div class="form-group">
+                                    <select name="motivoOrden" id="motivoOrden">
+                                        <option value="">Seleccione un motivo</option>
+                                    </select>
                                 </div>
-                                @if ($errors->has('motivo'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('longitude') }}</strong>
-                                        </span>
-                                @endif
+                                
                             </div>
                         </div>
 
                         <div class="form-group has-feedback row {{ $errors->has('tipo') ? ' has-error ' : '' }}">
                             {!! Form::label('tipo', trans('Tipo de Orden'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::text('tipo', NULL, array('id' => 'tipo', 'class' => 'form-control', 'placeholder' => trans('Seleccione el tipo de orden'))) !!}
+                                <div class="form-group">
+                                    <select name="tipoOrden" id="tipo">
+                                        <option value="">Seleccione un tipo </option>
+                                    </select>
                                 </div>
-                                @if ($errors->has('longitude'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('longitude') }}</strong>
-                                        </span>
-                                @endif
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('motivo') ? ' has-error ' : '' }}">
-                            {!! Form::label('motivo', trans('Motivo'), array('class' => 'col-md-3 control-label')); !!}
+                        <div class="form-group has-feedback row {{ $errors->has('detail') ? ' has-error ' : '' }}">
+                            {!! Form::label('detail', trans('Detalle'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                {!! Form::text('motivo', NULL, array('id' => 'motivo', 'class' => 'form-control', 'placeholder' => trans('Escriba el Motivo'))) !!}
+                                {!! Form::text('detail', NULL, array('id' => 'detail', 'class' => 'form-control', 'placeholder' => trans('Escriba el Detalle'))) !!}
                                 </div>
-                                @if ($errors->has('motivo'))
+                                @if ($errors->has('detail'))
                                     <span class="help-block">
-                                            <strong>{{ $errors->first('motivo') }}</strong>
+                                            <strong>{{ $errors->first('detail') }}</strong>
                                         </span>
                                 @endif
                             </div>
@@ -202,7 +199,7 @@
 
 @section('footer_scripts')
     <script type="text/javascript" src="{{ config('atm_app.selectizeJsCDN') }}"></script>
-
+        
     <script>
         $(document).ready(function () {
         @role('atmadmin|atmoperator|ccitt')
@@ -241,8 +238,8 @@
                         lng = this.options[value].longitude;
 
                         if (lat == '' || lat == null) {
-                            lat = {{ env('APP_DEFAULT_LAT') }};
-                            lng = {{ env('APP_DEFAULT_LNG') }};
+                            lat = {{ env('APP_DEFAULT_LAT') ? env('APP_DEFAULT_LAT') : -2.1894128 }};
+                            lng = {{ env('APP_DEFAULT_LNG') ? env('APP_DEFAULT_LNG') : -79.8890662 }};
                         }
 
                         show_location(lat, lng);
@@ -288,10 +285,57 @@
                     }
                 },
             });
+
+            $("#motivoOrden").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true,
+                options: {!! json_encode($motivos) !!},
+                valueField: 'id',
+                labelField: ['description'],
+                searchField: ['id', 'description'],
+                render: {
+                    option: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.description) + '</span>'
+                            + '</div>';
+                    },
+                    item: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.description) + '</span>'
+                            + '</div>';
+                    }
+                },
+            });
+
+            $("#tipo").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true,
+                options: {!! json_encode($tipos) !!},
+                valueField: 'id',
+                labelField: ['description'],
+                searchField: ['id', 'description'],
+                render: {
+                    option: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.description) + '</span>'
+                            + '</div>';
+                    },
+                    item: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.description) + '</span>'
+                            + '</div>';
+                    }
+                },
+            });
         });
     </script>
 
-    @if(config('settings.googleMapsAPIStatus'))
+    @if(true)
+    //config('settings.googleMapsAPIStatus')
         @include('scripts.show-alert')
     @endif
 @endsection

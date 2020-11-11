@@ -2,7 +2,7 @@
     var map = null;
 
     function google_maps_geocode_and_map() {
-        var LatitudeAndLongitude = new google.maps.LatLng({{ env('APP_DEFAULT_LAT') }}, {{ env('APP_DEFAULT_LNG') }});
+        var LatitudeAndLongitude = new google.maps.LatLng({{ env('APP_DEFAULT_LAT') ? env('APP_DEFAULT_LAT') : -2.1894128  }}, {{ {{ env('APP_DEFAULT_LNG') ? env('APP_DEFAULT_LNG') : -79.8890662 }});
 
         var mapOptions = {
             scrollwheel: false,
