@@ -24,7 +24,7 @@ return [
         'status'     => 'Estado',
         'address'     => 'Dirección',
         'readed'     => 'Lectura',
-        'description'     => 'Descripción',
+        'description'     => 'Comentario',
         'actions'   => 'Acciones',
     ],
 
@@ -56,7 +56,7 @@ return [
     'labelCollector' => 'Escalera: ',
     'labelOperator' => 'Operador: ',
     'labelStatus' => 'Estado: ',
-    'labelDescription' => 'Descripción: ',
+    'labelDescription' => 'Comentario: ',
     'labelCreated' => 'Creación: ',
     'labelUpdated' => 'Actualización: ',
     'labelReaded' => 'Lectura: ',
@@ -65,7 +65,7 @@ return [
     'create_button_text' => '<i class="fa fa-fw fa-save" aria-hidden="true"></i> Crear',
     'create_label_intersection' => 'Intersección',
     'create_label_name' => 'Nombre*',
-    'create_ph_name' => 'Escriba un nombre corto para el alerta.',
-    'create_label_description' => 'Descripción',
-    'create_ph_description' => 'Escriba la descripción para el alerta.',
+    'create_ph_name' => 'Escriba un nombre corto para la alerta.',
+    'create_label_description' => 'Comentario',
+    'create_ph_description' => 'Escriba el comentario para la alerta.',
 ];

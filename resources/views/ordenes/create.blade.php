@@ -158,20 +158,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('detail') ? ' has-error ' : '' }}">
-                            {!! Form::label('detail', trans('Detalle'), array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                {!! Form::text('detail', NULL, array('id' => 'detail', 'class' => 'form-control', 'placeholder' => trans('Escriba el Detalle'))) !!}
-                                </div>
-                                @if ($errors->has('detail'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('detail') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
+                 
                         <div class="form-group has-feedback row {{ $errors->has('description') ? ' has-error ' : '' }}">
                             {!! Form::label('description', trans('alerts.create_label_description'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">

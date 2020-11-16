@@ -100,7 +100,6 @@ class OrdenController extends Controller
             'priority_id'  => $request->input('priority'),
             'reason'    => $request->input('motivoOrden'),
             'tipoOrden'    => $request->input('tipoOrden'),
-            'detail'    => $request->input('detail'),
             'google_address' => $request->input('google_address'),
             'description' => $request->input('description'),
         ]);
