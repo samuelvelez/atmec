@@ -227,7 +227,7 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <select name="worktype" id="worktype">
-                                        <option value="">Seleccione una subnovedad</option>
+                                        <option value="">Seleccione el tipo de trabajo</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('worktype'))
@@ -425,6 +425,111 @@
 
             //show_location({{ $alert->latitude }}, {{ $alert->longitude }});
         });
+        
+        
+        //PARA REPORTE
+        
+        $("#novelty").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true,
+                options: {!! json_encode($novelties) !!},
+                valueField: 'id',
+                labelField: ['name'],
+                searchField: ['id', 'name'],
+                render: {
+                    option: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + '</span>'
+                            + '</div>';
+                    },
+                    item: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + '</span>'
+                            + '</div>';
+                    }
+                },
+            });
+
+            $("#subnovelty").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true,
+                options: {!! json_encode($subnovelties) !!},
+                valueField: 'id',
+                labelField: ['name'],
+                searchField: ['id', 'name'],
+                render: {
+                    option: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + '</span>'
+                            + '</div>';
+                    },
+                    item: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + '</span>'
+                            + '</div>';
+                    }
+                },
+            });
+
+            $("#worktype").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true,
+                options: {!! json_encode($worktypes) !!},
+                valueField: 'id',
+                labelField: ['name'],
+                searchField: ['id', 'name'],
+                render: {
+                    option: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + '</span>'
+                            + '</div>';
+                    },
+                    item: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + '</span>'
+                            + '</div>';
+                    }
+                },
+            });
+        
+        
+//        $("#novelty").selectize({
+//                allowClear: true,
+//                create: false,
+//                highlight: true,
+//                diacritics: true,
+//                           
+//            });
+//            
+//        $("#subnovelty").selectize({
+//                allowClear: true,
+//                create: false,
+//                highlight: true,
+//                diacritics: true,
+//                valueField: 'id',
+//                labelField: ['name'],
+//                searchField: ['id', 'name'],                
+//            });
+//            
+//              $("#worktype").selectize({
+//                allowClear: true,
+//                create: false,
+//                highlight: true,
+//                diacritics: true,
+//                options: {!! json_encode($priorities) !!},
+//                valueField: 'id',
+//                labelField: ['name'],
+//                searchField: ['id', 'name'],                
+//            });
+            
+            
+        
     </script>
 
     @if(config('settings.googleMapsAPIStatus'))

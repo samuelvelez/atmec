@@ -9,6 +9,7 @@ use App\Models\Priority;
 use App\Models\WorkOrderType;
 use App\Models\MotiveWO;
 use App\Models\User;
+use App\Models\Novelty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -125,9 +126,12 @@ class OrdenController extends Controller
         $priorities = Priority::all();
         $motivos = MotiveWO::all();
         $tipos = WorkOrderType::all();
-
+$novelties = Novelty::where('subcategory', false)->get();
+        $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
+        $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
         if ($alert) {
-            return view('ordenes.edit', compact('alert', 'collectors', 'intersections', 'priorities', 'motivos', 'tipos'));
+            return view('ordenes.edit', compact('alert', 'collectors', 'intersections', 'priorities', 'motivos', 'tipos',
+                    'novelties', 'subnovelties','worktypes'));
         }
 
         return back()->with('error', trans('alerts.editError'));
