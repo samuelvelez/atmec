@@ -129,9 +129,11 @@ class OrdenController extends Controller
 $novelties = Novelty::where('subcategory', false)->get();
         $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
         $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
+        $alertaid = $alert->id;         
+        $alertas = \App\Models\Report::select('*')->where('alert_id','like',$alertaid)->get(); 
         if ($alert) {
             return view('ordenes.edit', compact('alert', 'collectors', 'intersections', 'priorities', 'motivos', 'tipos',
-                    'novelties', 'subnovelties','worktypes'));
+                    'novelties', 'subnovelties','worktypes','alertas'));
         }
 
         return back()->with('error', trans('alerts.editError'));

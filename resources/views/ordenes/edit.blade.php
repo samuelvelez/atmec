@@ -185,70 +185,100 @@
                             </div>
                         </div>
                         
-                        <hr>
                         
                         
+                         @if ($alertas)
+                                            @foreach($alertas as $alerta)                                        
+                         <hr>                
                         <div class="text-center" style="color: royalblue;"><strong>Datos del reporte</strong></div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('novelty') ? ' has-error ' : '' }}">
+                         <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
                             {!! Form::label('novelty', 'Novedad', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <select name="novelty" id="novelty">
-                                        <option value="">Seleccione una novedad</option>
+                                        <option value="">Seleccione la novedad</option>
+@if ($alertas)
+                                            @foreach($alertas as $alerta)                                        
+                                          
+                                        @if ($novelties)
+                                            @foreach($novelties as $noveltie)
+                                                <option value="{{ $noveltie['id'] }}" {{ $alerta->novelty_id== $noveltie->id ? 'selected' : '' }}>{{ $noveltie['name'] }}</option>
+                                            
+                                            @endforeach
+                                        @endif
+                                        @endforeach
+                                        @endif
                                     </select>
                                 </div>
-                                @if ($errors->has('novelty'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('novelty') }}</strong>
-                                        </span>
-                                @endif
                             </div>
                         </div>
+                        
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
+                     {!! Form::label('subnovelty', 'Subnovedad', array('class' => 'col-md-3 control-label')); !!}
 
-                        <div class="form-group has-feedback row {{ $errors->has('subnovelty') ? ' has-error ' : '' }}">
-                            {!! Form::label('subnovelty', 'Subnovedad', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <select name="subnovelty" id="subnovelty">
-                                        <option value="">Seleccione una subnovedad</option>
+                                        <option value="">Seleccione la subnovedad</option>
+@if ($alertas)
+                                            @foreach($alertas as $alerta)                                        
+                                          
+                                        @if ($subnovelties)
+                                            @foreach($subnovelties as $subnoveltie)
+                                                <option value="{{ $subnoveltie['id'] }}" {{ $alerta->subnovelty_id== $subnoveltie->id ? 'selected' : '' }}>{{ $subnoveltie['name'] }}</option>
+                                            
+                                            @endforeach
+                                        @endif
+                                        @endforeach
+                                        @endif
                                     </select>
                                 </div>
-                                @if ($errors->has('subnovelty'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('subnovelty') }}</strong>
-                                        </span>
-                                @endif
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('worktype') ? ' has-error ' : '' }}">
+                        
+                        <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">                     
                             {!! Form::label('worktype', 'Tipo de trabajo', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <select name="worktype" id="worktype">
                                         <option value="">Seleccione el tipo de trabajo</option>
+@if ($alertas)
+                                            @foreach($alertas as $alerta)                                        
+                                          
+                                        @if ($worktypes)
+                                            @foreach($worktypes as $worktype)
+                                                <option value="{{ $worktype['id'] }}" {{ $alerta->worktype_id== $worktype->id ? 'selected' : '' }}>{{ $worktype['name'] }}</option>
+                                            
+                                            @endforeach
+                                        @endif
+                                        @endforeach
+                                        @endif
                                     </select>
                                 </div>
-                                @if ($errors->has('worktype'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('worktype') }}</strong>
-                                        </span>
-                                @endif
                             </div>
                         </div>
+                        
+                       
 
                         <div class="form-group has-feedback row {{ $errors->has('description') ? ' has-error ' : '' }}">
                             {!! Form::label('description', trans('reports.create_label_description'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::textarea('description', NULL, array('id' => 'description', 'rows' => '3', 'class' => 'form-control', 'placeholder' => trans('reports.create_ph_description'))) !!}
-                                </div>
-                                @if ($errors->has('description'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('description') }}</strong>
-                                        </span>
+                                 @if ($alertas)
+                                            @foreach($alertas as $alerta)                                        
+                                        
+                                    {!! Form::textarea('description',  $alerta->description , array('id' => 'description', 'rows' => '3', 'class' => 'form-control', 'placeholder' => trans('reports.create_ph_description'))) !!}
+                               @endforeach    
                                 @endif
+                                </div>
+                            
+                                <span class="help-block">
+                                            <strong></strong>
+                                        </span>
+                              
                             </div>
                         </div>
 
@@ -265,6 +295,10 @@
                                 @endif
                             </div>
                         </div>
+                        
+                        @endforeach
+                          @endif 
+                                        
                         
                         
                         
@@ -429,106 +463,35 @@
         
         //PARA REPORTE
         
-        $("#novelty").selectize({
+        
+         $("#novelty").selectize({
                 allowClear: true,
                 create: false,
                 highlight: true,
-                diacritics: true,
-                options: {!! json_encode($novelties) !!},
-                valueField: 'id',
-                labelField: ['name'],
-                searchField: ['id', 'name'],
-                render: {
-                    option: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    },
-                    item: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    }
-                },
+                diacritics: true
             });
-
+          
+              
             $("#subnovelty").selectize({
                 allowClear: true,
                 create: false,
                 highlight: true,
-                diacritics: true,
-                options: {!! json_encode($subnovelties) !!},
-                valueField: 'id',
-                labelField: ['name'],
-                searchField: ['id', 'name'],
-                render: {
-                    option: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    },
-                    item: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    }
-                },
+                diacritics: true
             });
-
+            
+            
+            
             $("#worktype").selectize({
                 allowClear: true,
                 create: false,
                 highlight: true,
-                diacritics: true,
-                options: {!! json_encode($worktypes) !!},
-                valueField: 'id',
-                labelField: ['name'],
-                searchField: ['id', 'name'],
-                render: {
-                    option: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    },
-                    item: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    }
-                },
+                diacritics: true
             });
-        
-        
-//        $("#novelty").selectize({
-//                allowClear: true,
-//                create: false,
-//                highlight: true,
-//                diacritics: true,
-//                           
-//            });
-//            
-//        $("#subnovelty").selectize({
-//                allowClear: true,
-//                create: false,
-//                highlight: true,
-//                diacritics: true,
-//                valueField: 'id',
-//                labelField: ['name'],
-//                searchField: ['id', 'name'],                
-//            });
-//            
-//              $("#worktype").selectize({
-//                allowClear: true,
-//                create: false,
-//                highlight: true,
-//                diacritics: true,
-//                options: {!! json_encode($priorities) !!},
-//                valueField: 'id',
-//                labelField: ['name'],
-//                searchField: ['id', 'name'],                
-//            });
             
             
+            
+            
+
         
     </script>
 

@@ -159,7 +159,7 @@
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <select name="worktype" id="worktype">
-                                        <option value="">Seleccione una subnovedad</option>
+                                        <option value="">Seleccione el tipo de trabajo</option>
                                     </select>
                                 </div>
                                 @if ($errors->has('worktype'))
