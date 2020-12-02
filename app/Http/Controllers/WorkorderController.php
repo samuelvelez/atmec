@@ -61,14 +61,17 @@ class WorkorderController extends Controller
     {
         $collectors = User::whereHas("roles", function($q){ $q->where("slug", "atmcollector"); })->get();
         $priorities = Priority::all();
-
+        
         $report = Report::find($id);
+        $alertaid = $report->alert_id;
+        $alertas= \App\Models\Alert::select('id','description')->where('id','like',$alertaid)->get();        
+
         if ($report) {
             if ($report->workorder) {
                 return redirect('workorders/')->with('error', 'El reporte ya posee una orden de trabajo.');
             }
 
-            return view('workorders.create', compact('collectors', 'priorities', 'report'));
+            return view('workorders.create', compact('collectors', 'priorities', 'report','alertas'));
         }
 
         return redirect('reports/')->with('error', 'El reporte seleccionado no existe.');

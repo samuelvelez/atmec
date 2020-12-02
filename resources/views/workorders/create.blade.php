@@ -116,6 +116,21 @@
                                 @endif
                             </div>
                         </div>
+<!--                        <div class="form-group has-feedback row {{ $errors->has('description') ? ' has-error ' : '' }}">
+                            {!! Form::label('description', trans('workorders.create_label_description'), array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    @if ($alertas)
+                                            @foreach($alertas as $alerta)
+                                    {!! Form::text('description', $alerta->description , array('id' => 'description', 'rows' => '3', 'class' => 'form-control' , 'placeholder' => trans('workorders.create_ph_description'))) !!}
+                                  @endforeach
+                                        @endif
+                                </div>
+                                    <span class="help-block">
+                                            <strong></strong>
+                                        </span>
+                            </div>
+                        </div>                        -->
                      
 
                         

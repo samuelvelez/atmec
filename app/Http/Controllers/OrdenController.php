@@ -179,11 +179,22 @@ class OrdenController extends Controller
     public function show($id)
     {
         $alert = Alert::find($id);
-
+        $alertaid = $alert->id; 
+        $ordenalertaid=$alert->tipoOrden;
+        $prioridadalertaid=$alert->priority_id;
+        $motivoalertaid=$alert->reason;        
+        $alerta = '';
+        $alertas = \App\Models\Report::select('*')->where('alert_id','like',$alertaid)->get();        
+        $noveltys = \App\Models\Novelty::select('*')->where('id','like','%%')->get();
+        $workordertypes = \App\Models\WorkOrderType::select('*')->where('id','like',$ordenalertaid)->get();
+        $priorityalerts = \App\Models\Priority::select('*')->where('id','like',$prioridadalertaid)->get();
+        $motivealerts = \App\Models\MotiveWO::select('*')->where('id','like',$motivoalertaid)->get();
+        $tiporeportes = \App\Models\Novelty::select('*')->where('id','like','%')->get();
+        $statusreportes = \App\Models\Status::select('*')->where('id','like','%')->get();
+        
         if ($alert) {
             $alert->mask_as_read();
-
-            return view('ordenes.show', compact('alert'));
+            return view('ordenes.show', compact('alert','alertas','noveltys','workordertypes','priorityalerts','motivealerts','tiporeportes','statusreportes'));
         }
 
         return back()->with('error', 'Alerta no encontrada.');

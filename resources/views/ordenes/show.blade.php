@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12" id="map-canvas">
-                                mapa
+                               Cargando mapa
                             </div>
                         </div>
 
@@ -59,9 +59,8 @@
                                     {{ $alert->operator->full_name() }}
                                 </div>
                             @endif
-                        </div>
-
-                        <div class="row">
+                            
+                       
                             @if ($alert->status)
                                 <div class="col-sm-6 col-6">
                                     <strong class="text-larger">
@@ -70,15 +69,165 @@
                                     {{ $alert->status->name }}
                                 </div>
                             @endif
-                            @if ($alert->description)
+                            
+                               @if ($workordertypes)
+                                            @foreach($workordertypes as $workordertype)
                                 <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Tipo de orden: 
+                                    </strong>
+                                    {{ $workordertype->description }}
+                                </div>
+                                            @endforeach
+                                            @endif
+                                            
+                                            
+                                              @if ($priorityalerts)
+                                            @foreach($priorityalerts as $priorityalert)
+                                <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Prioridad: 
+                                    </strong>
+                                    {{ $priorityalert->name }}
+                                </div>
+                                            @endforeach
+                                            @endif
+                                            
+                                            
+                                                      @if ($motivealerts)
+                                            @foreach($motivealerts as $motivealert)
+                                <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Motivo: 
+                                    </strong>
+                                    {{ $motivealert->description }}
+                                </div>
+                                            @endforeach
+                                            @endif
+                                            
+                                            
+                                            
+                            @if ($alert->description)
+                                <div class="col-sm-12 col-12">
                                     <strong class="text-larger">
                                         {{ trans('alerts.labelDescription') }}
                                     </strong>
                                     {{ $alert->description }}
                                 </div>
                             @endif
+                            
+                               
+                            
+                              @if ($alert->google_address)
+                                <div class="col-sm-12 col-12">
+                                    <strong class="text-larger">
+                                        Dirección de Google:
+                                    </strong>
+                                    {{ $alert->google_address }}
+                                </div>
+                            @endif
+                            
                         </div>
+                        
+                              <div class="clearfix"></div>
+                        <div class="border-bottom"></div>
+                        
+                         <div class="row">
+                        
+       
+                           @if ($alertas)
+                                            @foreach($alertas as $alerta)
+                               
+                                            
+                                            
+                                             @if ($noveltys)
+                                            @foreach($noveltys as $novelty)
+                             
+                                 <?php   
+                                 if ($alerta->novelty_id == $novelty->id)
+                                 
+                                    echo ' <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Novedad: 
+                                    </strong>'
+                                    .$novelty->name.'
+                                </div>      ';
+                                 
+                                       if ($alerta->subnovelty_id == $novelty->id)
+                                 
+                                    echo ' <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Subnovedad: 
+                                    </strong>'
+                                    .$novelty->name.'
+                                </div>      ';
+                                    
+                                    
+                                    ?>
+                                
+                                            
+                            @endforeach
+                            @endif
+                            
+                            
+                            
+
+                            
+                    
+                            
+                                  @if ($tiporeportes)
+                                            @foreach($tiporeportes as $tiporeporte)
+                             
+                                <?php   
+                                 if ($alerta->worktype_id  == $tiporeporte->id)
+                                 
+                                    echo ' <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Tipo de trabajo: 
+                                    </strong>'.$tiporeporte->name.'
+                                </div>';
+                                 ?>
+                                            
+                            @endforeach
+                            @endif
+                            
+                            
+                                  
+                            
+                            
+                                @if ($alertas)
+                                            @foreach($alertas as $alerta)
+                             
+                                              @if ($statusreportes)
+                                            @foreach($statusreportes as $statusreporte)
+                             
+                                <?php   
+                                 if ($alerta->status_id  == $statusreporte->id)
+                                 
+                                    echo ' <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Estado: 
+                                    </strong>'.$statusreporte->name.'
+                                </div>';
+                                 ?>
+                                            
+                            @endforeach
+                            @endif
+                                            
+                           <div class="col-sm-12 col-12">
+                                    <strong class="text-larger">
+                                        Descripción de la escalera: 
+                                    </strong>
+                                    {{ $alerta->description }}
+                                </div>
+                                            @endforeach
+                                            @endif
+                            
+                              @endforeach
+                            @endif
+                        </div> 
+                        
+                        
 
                         <div class="clearfix"></div>
                         <div class="border-bottom"></div>
