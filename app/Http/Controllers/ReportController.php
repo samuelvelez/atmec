@@ -139,9 +139,11 @@ class ReportController extends Controller
             return redirect('alerts')->with('error', 'La alerta ya posee un reporte.');
         }
 
+        $status_id = $request->get('tipo') == 0 ? Status::where('name', Report::STATUS_PENDING)->first()->id : $request->get('tipo');
+
         $report = Report::create([
             'alert_id' => $request->get('alert'),
-            'status_id' => Status::where('name', Report::STATUS_PENDING)->first()->id,
+            'status_id' => $status_id,
             'novelty_id' => $request->get('novelty'),
             'subnovelty_id' => $request->get('subnovelty'),
             'worktype_id' => $request->get('worktype'),
@@ -256,7 +258,7 @@ class ReportController extends Controller
             // TODO set report status according to required materials and availability in collector ITO. If needed fire and event to notify stockkeeper about ITO to updates.
 
             $alert->mask_as_read();
-            $alert->status_id = Status::where('name', Alert::STATUS_ATTENDED)->first()->id;
+            //$alert->status_id = Status::where('name', Alert::STATUS_ATTENDED)->first()->id;
             $alert->save();
 
             return redirect('ordenes/')->with('success', trans('Inspección Realizada'));
@@ -273,6 +275,7 @@ class ReportController extends Controller
      */
     public function edit($id)
     {
+        $alert = Alert::find($id);
         $report = Report::find($id);
         $novelties = Novelty::where('subcategory', false)->get();
         $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();

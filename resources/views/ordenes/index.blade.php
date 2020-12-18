@@ -103,7 +103,15 @@
                                                     {!! trans('Crear Reporte') !!}
                                                 </a>
                                                 @endif
+                                                @if(($alert->report['status_id']=="8" || $alert->report['status_id']=="9" ) && (Auth::user()->hasRole('atmcollector') ||  Auth::user()->hasRole('ccitt')))
+                                                <a class="btn btn-sm btn-warning btn-block"
+                                                   href="{{ URL::to('reports/' . $alert->report['id'] . '/edit/') }}"
+                                                   data-toggle="tooltip" title="Crear Reporte">
+                                                    {!! trans('Continuar Reporte') !!}
+                                                </a>
+                                                @endif
                                             @endif
+                                            
                                             @if($alert->report['status_id']=="2" && (Auth::user()->hasRole('atmcollector')))
                                                 @php
                                                     $workorder = App\Models\Workorder::where('report_id', $alert->report['id'])->first();

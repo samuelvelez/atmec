@@ -49,26 +49,33 @@
                         </div>
 
                         <br>
-                        {{--<div class="form-group row">
-                            {!! Form::label('alert', 'Número de alerta', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="form-group row">
+                            {!! Form::label('alert', 'Prioridad', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('alert', $alert->id, array('id' => 'alert', 'class' => 'form-control', 'readonly' => 'readonly')) !!}
+                                @php 
+                                $priority = DB::table('priorities')->where('id',$alert->priority_id)->first(); 
+                                @endphp
+                                    {!! Form::text('alert', $priority->name, array('id' => 'alert', 'class' => 'form-control', 'readonly' => 'readonly')) !!}
+                                   
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            {!! Form::label('address', 'Dirección Google', array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('address', 'Motivo', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('address', $alert->google_address, array('id' => 'alert', 'class' => 'form-control', 'readonly' => 'readonly')) !!}
+                                @php 
+                                $motive = DB::table('motive_workorder')->where('id',$alert->priority_id)->first(); 
+                                @endphp
+                                    {!! Form::text('address', $motive->description, array('id' => 'motive', 'class' => 'form-control', 'readonly' => 'readonly')) !!}
                                 </div>
                             </div>
-                        </div>--}}
+                        </div>
 
                         <div class="form-group row">
-                            {!! Form::label('alert_description', 'Descripción de la alerta', array('class' => 'col-md-3 control-label')); !!}
+                            {!! Form::label('alert_description', 'Descripción de la Orden', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
                                     {!! Form::textarea('alert_description', $alert->description, array('id' => 'alert_description', 'rows' => '2', 'class' => 'form-control', 'readonly' => 'readonly')) !!}
@@ -77,7 +84,7 @@
                         </div>
                         <hr/>
 
-                        {!! Form::open(array('route' => 'reports.store', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'files' => true)) !!}
+                        {!! Form::open(array('id' => 'form' ,'route' => 'reports.store', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'files' => true)) !!}
 
                         {!! csrf_field() !!}
 
@@ -351,9 +358,17 @@
                         {!! Form::hidden("materials_list", null, array('id' => 'materials_list')) !!}
                         {!! Form::hidden("materials_list2", null, array('id' => 'materials_list2')) !!}
                         {!! Form::hidden("alert", $alert->id, array('id' => 'alert')) !!}
+                        {!! Form::hidden("tipo", "0", array('id' => 'tipo')) !!}
+                        
 
-                        {!! Form::button(trans('reports.create_button_text'), array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
-                        {!! Form::close() !!}
+
+                        {!! Form::button(trans('Finalizar'), array('class' => 'btn btn-success margin-bottom-1 mb-1  mr-2 float-right','type' => 'submit', 'id'=>'finalizar')) !!}
+                        {!! Form::button(trans('Enviar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
+                        {!! Form::button(trans('Solicitar Materiales'), array('class' => 'btn btn-primary margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_materiales')) !!}
+                        
+                         {!! Form::close() !!}
+                        
+                      
                     </div>
 
                 </div>
@@ -377,6 +392,21 @@
         $(document).ready(function () {
             $("#cont_materiales").hide();
             $("#cont_bodega").hide();
+
+            $('#btn_enviar').click(function(){
+                $("#tipo").val("8");
+                console.log($('form').submit());
+            });
+            $('#btn_materiales').click(function(){
+                $("#tipo").val("9");
+                $('form').submit();
+            });
+            $('form').submit(function(){
+               
+                //alert(tipo);
+                //alert('I do something before the actual submission');
+                return true;
+            });
 
             $("#mat_escalera").change(function(){
                 if($(this).is(':checked')) {
