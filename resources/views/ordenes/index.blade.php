@@ -95,6 +95,7 @@
                                                    data-toggle="tooltip" title="Realizar Inspección">
                                                     {!! trans('Realizar Informe') !!}
                                                 </a>
+                                                
                                             @else
                                                 @if($alert->report['status_id']=="3" && (Auth::user()->hasRole('ccitt') || Auth::user()->hasRole('atmadmin')))
                                                 <a class="btn btn-sm btn-warning btn-block"
@@ -103,7 +104,7 @@
                                                     {!! trans('Crear Reporte') !!}
                                                 </a>
                                                 @endif
-                                                @if(($alert->report['status_id']=="8" || $alert->report['status_id']=="9" ) && (Auth::user()->hasRole('atmcollector') ||  Auth::user()->hasRole('ccitt')))
+                                                @if(($alert->report['status_id']=="8" || $alert->report['status_id']=="9" ) && (Auth::user()->hasRole('atmcollector') ))
                                                 <a class="btn btn-sm btn-warning btn-block"
                                                    href="{{ URL::to('reports/' . $alert->report['id'] . '/edit/') }}"
                                                    data-toggle="tooltip" title="Crear Reporte">
@@ -126,6 +127,13 @@
                                                     </a>
                                                 @endif
                                             @endif
+                                            @if(($alert->report['status_id']=="8" || $alert->report['status_id']=="9" ) && (Auth::user()->hasRole('atmadmin') ||  Auth::user()->hasRole('ccitt')))
+                                                <a class="btn btn-sm btn-info btn-block"
+                                                   href="#" disabled
+                                                   data-toggle="tooltip" title="Crear Reporte">
+                                                    En Proceso
+                                                </a>
+                                                @endif
                                         </td>
 
                                         <td>

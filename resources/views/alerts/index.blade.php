@@ -89,12 +89,21 @@
                                         <td class="hidden-xs">{{$alert->description}}</td>
 
                                         <td>
+                                        {{$alert->report['status']}}
                                             @if (!$alert->report &&  (Auth::user()->hasRole('atmcollector') ||  Auth::user()->hasRole('ccitt')))
                                                 <a class="btn btn-sm btn-danger btn-block"
                                                    href="{{ URL::to('reports/' . $alert->id . '/create/') }}"
                                                    data-toggle="tooltip" title="Crear reporte">
                                                     {!! trans('alerts.buttons.create_report') !!}
                                                 </a>
+                                            @else
+                                                @if($alert->report['status']==8 )
+                                                <a class="btn btn-sm btn-danger btn-block"
+                                                   href="{{ URL::to('reports/' . $alert->id . '/create/') }}"
+                                                   data-toggle="tooltip" title="Crear reporte">
+                                                    {!! trans('alerts.buttons.PROCESO') !!}
+                                                </a>
+                                                @endif
                                             @endif
                                         </td>
 
