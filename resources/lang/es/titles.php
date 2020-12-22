@@ -56,6 +56,7 @@ return [
     'light-totals'        => 'Totales de semáforos',
 
     'ordersList'      => 'Órdenes de trabajo',
+    'retirobodegaList'      => 'Ordenes de retiro',
     'alertsList'      => 'Alertas',
     'reportsList'      => 'Reportes',
     'materialsList'      => 'Materiales',

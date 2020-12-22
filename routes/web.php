@@ -224,6 +224,10 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
     Route::resource('alerts', 'AlertController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
+    Route::resource('/materials','MaterialController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    
 });
 
 Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|atmcollector|ccitt', 'activity', 'checkblocked']], function () {

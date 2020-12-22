@@ -360,6 +360,12 @@
                                         <i class="fa fa-fw fa-trash"></i>
                                     </button>
                                 </div>
+                                 <div class="col-md-2">
+                                     <a href="../../materials/<?php echo $report->id; ?>">Clic para solicitar materiales</a>
+                                     <button onclick="window.location='../../materials/<?php echo $report->id; ?>'"  id="del-material" type="button" class="btn btn-sm btn-danger float-right">
+                                        Solicitar materiales
+                                    </button>
+                                </div>
                             </div>
                         </div>
 <!--
