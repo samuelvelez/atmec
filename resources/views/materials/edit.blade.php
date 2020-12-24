@@ -20,11 +20,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             {!! trans('materials.showing-mt-title') !!}
                             <div class="float-right">
-                                <a href="{{ route('reports.index') }}" class="btn btn-light btn-sm float-right"
+                                <a href="{{ route('materials.index') }}" class="btn btn-light btn-sm float-right"
                                    data-toggle="tooltip" data-placement="left"
                                    title="{{ trans('reports.tooltips.back-reports') }}">
                                     <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-                                    {!! trans('reports.buttons.back-to-reports') !!}
+                                    {!! trans('materials.buttons.back-to-reports') !!}
                                 </a>
                             </div>
                         </div>
@@ -34,7 +34,11 @@
                    
 
                     <div class="card-body">
-                     
+                         {!! Form::open(array('route' => ['materials.update', $alert], 'method' => 'PUT', 'role' => 'form', 'class' => 'needs-validation')) !!}
+
+                        {!! csrf_field() !!}
+
+
                          <div class="form-group row">
                             {!! Form::label('alert', '# Reporte al que aplica', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -61,6 +65,7 @@
                                 <div class="col-12">
                                     <a class="btn btn-sm btn-info float-right"
                                        href="{{ URL::to('reports/ee/edit') }}">Enviar solicitud</span></a>
+                                    {{ $alert }}
                                 </div>
                             </div>
                         @endif

@@ -39,14 +39,9 @@
                                 {!! trans('reports.showing-all-reports') !!}
                                
                             </span>
-                             <span id="card_title">
-                                     <a href="{{ route('alerts.index') }}" class="btn btn-light btn-sm float-right"
-                                   data-toggle="tooltip" data-placement="left"
-                                   title="{{ trans('alerts.tooltips.back-alerts') }}">
-                                    <i class="fa fa-fw fa-reply-all" aria-hidden="true"></i>
-                                    {!! trans('Regresar a Ordenes') !!}
-                                </a>
-                            </span>
+                            <div class="btn-group pull-right btn-group-xs"><a href="/materials/create" class="btn btn-primary btn-sm">
+                                    Nueva Orden de Retiro
+                                </a></div>
                         </div>
                        
                     </div>

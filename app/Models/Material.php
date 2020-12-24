@@ -32,13 +32,18 @@ class Material extends Eloquent
 
     const STATUS_PENDING = 'Pendiente';
     const STATUS_POSTPONED = 'Aplazado';
-
 	protected $casts = [
-		'alert_id' => 'int',
-		'status_id' => 'int',
-		'novelty_id' => 'int',
-		'subnovelty_id' => 'int',
-		'worktype_id' => 'int'
+	     'id_matrepord',            
+            'description',
+                            'report_id',
+                            'material_id',
+                            'metric_id',
+                            'amount',
+                            'state',
+                            'id_userrequire',
+                            'id_usercreate',
+                            'date_aprob_or_neg',
+                            'id_useraproborneg'
 	];
 
 	protected $dates = [
@@ -46,14 +51,16 @@ class Material extends Eloquent
 	];
 
 	protected $fillable = [
-		'alert_id',
-		'status_id',
-		'novelty_id',
-		'subnovelty_id',
-		'worktype_id',
-		'pictures',
-		'description',
-		'readed_on'
+	    'id_matrepord',            
+            'description',
+            'report_id',
+            'material_id',
+            'metric_id',
+            'amount',
+            'state',
+            'id_userrequire',
+            'id_usercreate',
+            'id_useraproborneg'
 	];
 
     public static function rules($merge = [])

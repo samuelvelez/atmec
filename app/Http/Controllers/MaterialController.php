@@ -129,142 +129,37 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), Report::rules());
-
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
-
-        $alert = Alert::find($request->alert);
-        if ($alert->report) {
-            return redirect('alerts')->with('error', 'La alerta ya posee un reporte.');
-        }
-
-        $status_id = $request->get('tipo') == 0 ? Status::where('name', Report::STATUS_PENDING)->first()->id : $request->get('tipo');
-
-        $report = Report::create([
-            'alert_id' => $request->get('alert'),
-            'status_id' => $status_id,
-            'novelty_id' => $request->get('novelty'),
-            'subnovelty_id' => $request->get('subnovelty'),
-            'worktype_id' => $request->get('worktype'),
-            'description' => $request->get('description')
-        ]);
-
-        if ($report) {
-            if($request->hasFile('pictures')) {
-                $files = $request->file('pictures');
-                $names = [];
-                foreach($files as $file){
-                    $filename = Str::random() . '.' . $file->getClientOriginalExtension();
-                    $names[] = $filename;
-                    $file->storeAs('reports', $filename);
-                }
-
-                $report->pictures = json_encode($names);
-                $report->save();
-            }
-
-            if ($request->signals) {
-                foreach ($request->signals as $signal) {
-                    $item = VerticalSignal::find($signal);
-                    if ($item) {
-                        $report->vertical_signals()->save($item);
-                    }
-                }
-            }
-
-            if ($request->regulators) {
-                foreach ($request->regulators as $regulator) {
-                    $item = RegulatorBox::find($regulator);
-                    if ($item) {
-                        $report->regulator_boxes()->save($item);
-                    }
-                }
-            }
-
-            if ($request->devices) {
-                foreach ($request->devices as $device) {
-                    $item = TrafficDevice::find($device);
-                    if ($item) {
-                        $report->traffic_devices()->save($item);
-                    }
-                }
-            }
-
-            if ($request->poles) {
-                foreach ($request->poles as $pole) {
-                    $item = TrafficPole::find($pole);
-                    if ($item) {
-                        $report->traffic_poles()->save($item);
-                    }
-                }
-            }
-
-            if ($request->tensors) {
-                foreach ($request->tensors as $tensor) {
-                    $item = TrafficTensor::find($tensor);
-                    if ($item) {
-                        $report->traffic_tensors()->save($item);
-                    }
-                }
-            }
-
-            if ($request->lights) {
-                foreach ($request->lights as $light) {
-                    $item = TrafficLight::find($light);
-                    if ($item) {
-                        $report->traffic_lights()->save($item);
-                    }
-                }
-            }
             //materiales propios usados
             $materials = json_decode($request->input('materials_list'));
             if($materials){
                 foreach ($materials as $material) {
                     $device = DevicesInventory::find($material->id);
-                    $metric = MetricUnit::where('abbreviation', $material->metric)->first();
-    
+                    $metric = MetricUnit::where('abbreviation', $material->metric)->first();    
                     if ($device && $metric) {
-                        MaterialReport::create([
-                            'report_id' => $report->id,
-                            'material_id' => $device->id,
-                            'metric_id' => $metric->id,
-                            'amount' => $material->amount,
-                            'bodega' => 1
+           $materialinst = Material::create([
+            'id_matrepord' => 11,            
+            'description' => $request->get('description'),
+            'report_id' => 20,
+            'material_id' => $device->id,
+            'metric_id' => $metric->id,
+            'amount' => $material->amount,
+            'state' => 'Ingresado',
+            'id_userrequire' => 1,
+            'id_usercreate' => 1,
+            'id_useraproborneg' => 1                            
                         ]);
-                    }
+            $materialinst->save();       
+           }
+//                    echo $material;
+                   
                 }
-            }
-            //materiales a pedir a bodega
-            $materials = json_decode($request->input('materials_list2'));
-            if($materials){
-                foreach ($materials as $material) {
-                    $device = DevicesInventory::find($material->id);
-                    $metric = MetricUnit::where('abbreviation', $material->metric)->first();
-    
-                    if ($device && $metric) {
-                        MaterialReport::create([
-                            'report_id' => $report->id,
-                            'material_id' => $device->id,
-                            'metric_id' => $metric->id,
-                            'amount' => $material->amount,
-                            'bodega'    =>2
-                        ]);
-                    }
-                }
-    
-            }
-            
-            // TODO set report status according to required materials and availability in collector ITO. If needed fire and event to notify stockkeeper about ITO to updates.
+                                  
 
-            $alert->mask_as_read();
+            }          
+//            $materials->mask_as_read();
             //$alert->status_id = Status::where('name', Alert::STATUS_ATTENDED)->first()->id;
-            $alert->save();
-
-            return redirect('ordenes/')->with('success', trans('Inspección Realizada'));
-        }
-
+//            $material->save();
+            return redirect('materials/')->with('success', trans('Orden de retiro guardada con éxito.'));
         return back()->with('error', trans('reports.createError'));
     }
 
@@ -341,7 +236,8 @@ class MaterialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $report = Report::find($id);
+        $report = '18';
+                //Report::find($id);
 
         if ($report) {
             // Update basic attributes

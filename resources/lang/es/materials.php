@@ -6,7 +6,7 @@ return [
     'showing-all-reports'     => 'Mostrando todos los reportes',
     'create-new-report'       => 'Crear nueva orden de retiro',
     'editing-report'          => 'Editando el reporte :id',
-    'showing-mt-title'    => 'Creando la solicitud de material',
+    'showing-mt-title'    => 'Creando la orden de retiro de material',
 
     // Flash Messages
     'createSuccess'   => '¡Reporte creado!',
