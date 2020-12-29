@@ -51,7 +51,18 @@
                         <div class="text-center" style="color: royalblue;"><strong>Datos de la orden de retiro</strong></div>
 
                         
-
+@role('atmadmin|atmoperator|ccitt')
+                        <div class="form-group has-feedback row {{ $errors->has('collector') ? ' has-error ' : '' }}">
+                            {!! Form::label('collector', 'Escalera', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <select name="collector" id="collector">
+                                        <option value="">Seleccione una escalera</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        @endrole
                         <div class="form-group has-feedback row {{ $errors->has('description') ? ' has-error ' : '' }}">
                                 {!! Form::label('description', trans('reports.create_label_description'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -122,6 +133,10 @@
                                 <div class="col-md-10">
                                     <span class="red">Para eliminar un material debe seleccionarlo con click en la tabla y
                                     luego presionar el boton eliminar</span>
+                               
+<!--                                    <span>{{ $collectors }}</span>
+                                    <br>
+                                    <span>el id es: {{ $collector_id }}</span><br>-->
                                 </div>
                                 <div class="col-md-2">
                                     <button id="del-material" type="button" class="btn btn-sm btn-danger float-right">
@@ -129,13 +144,25 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                     
+                        </div>                     
                         <br>    
+  {!! Form::hidden("materials_list", null, array('id' => 'materials_list')) !!}
+  {!! Form::hidden("aprob", '', array('id' => 'aprob')) !!}
+                        {!! Form::button(trans('Guardar'), array('class' => 'btn btn-success margin-bottom-1 mb-1  mr-2 float-right','type' => 'submit', 'id'=>'finalizar')) !!}
 
-
-                        {!! Form::button(trans('Finalizar'), array('class' => 'btn btn-success margin-bottom-1 mb-1  mr-2 float-right','type' => 'submit', 'id'=>'finalizar')) !!}
-                        {!! Form::button(trans('Enviar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
+       <?php
+if (Auth::user()->hasRole('atmadmin') || Auth::user()->hasRole('ccitt')) {
+//            $collectors = 'admin o ccitt';
+//             $collector_id = Auth::user()->id;
+            //where('collector_id', Auth::user()->id)->
+             ?>
+{!! Form::button(trans('Guardar y Aprobar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit','onclick' => 'document.getElementById("aprob").value="Si"', 'id' => 'btn_enviar' )) !!}
+                        <?php
+        }                         
+        else {           
+        }
+        ?>                        
+             <!--{!! Form::button(trans('Enviar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit','onclick' => 'document.getElementById("aprob").value="No"', 'id' => 'btn_enviar' )) !!}-->
                         
                          {!! Form::close() !!}
                         
@@ -156,7 +183,30 @@
 
     <script>
         $(document).ready(function () {
-
+ @role('atmadmin|atmoperator|ccitt')
+            $("#collector").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true,
+                options: {!! json_encode($collectors) !!},
+                valueField: 'id',
+                labelField: ['email'],
+                searchField: ['id', 'name', 'email'],
+                render: {
+                    option: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + ' (' + escape(item.email) + ')</span>'
+                            + '</div>';
+                    },
+                    item: function (item, escape) {
+                        return '<div>'
+                            + '<span>' + escape(item.name) + ' (' + escape(item.email) + ')</span>'
+                            + '</div>';
+                    }
+                },
+            });
+        @endrole
             $('#btn_enviar').click(function(){
                 $("#tipo").val("8");
                 console.log($('form').submit());

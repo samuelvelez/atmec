@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {!! trans('reports.showing-all-reports') !!}
+    {!! trans('materials.showing-all-reports') !!}
 @endsection
 
 @section('template_linked_css')
@@ -36,7 +36,7 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span id="card_title">
-                                {!! trans('reports.showing-all-reports') !!}
+                                {!! trans('materials.showing-all-reports') !!}
                                
                             </span>
                             <div class="btn-group pull-right btn-group-xs"><a href="/materials/create" class="btn btn-primary btn-sm">
@@ -50,46 +50,31 @@
                         <div class="table-responsive reports-table">
                             <table class="table table-striped table-hover table-sm data-table">
                                 <caption id="reports_count">
-                                    {{ trans_choice('reports.reports-table.caption', $reports->count(), ['reportstotal' => $reportstotal]) }}
+                                    {{ trans_choice('materials.reports-table.caption', $reports->count(), ['reportstotal' => $reportstotal]) }}
                                 </caption>
                                 <thead class="thead">
                                 <tr>
-                                    <th>{!! trans('reports.reports-table.id') !!}</th>
-                                    <th>{!! trans('reports.reports-table.alert') !!}</th>
-                                    <th>{!! trans('reports.reports-table.status') !!}</th>
-                                    <th>{!! trans('reports.reports-table.novelty') !!}</th>
-                                    <th>{!! trans('reports.reports-table.subnovelty') !!}</th>
-                                    <th>{!! trans('reports.reports-table.worktype') !!}</th>
-                                    <th class="hidden-xs">{!! trans('reports.reports-table.readed') !!}</th>
-                                    <th class="hidden-xs">{!! trans('reports.reports-table.description') !!}</th>
+                                    <th>{!! trans('materials.reports-table.id') !!}</th>
+                                    <th>{!! trans('materials.reports-table.reportid') !!}</th>
+                                    <th>{!! trans('materials.reports-table.status') !!}</th>                                    
+                                    <th class="hidden-xs">{!! trans('materials.reports-table.description') !!}</th>
 
-                                    <th>{!! trans('reports.reports-table.actions') !!}</th>
-                                    <th class="no-search no-sort"></th>
-                                    <th class="no-search no-sort"></th>
-                                    <th class="no-search no-sort"></th>
+                                    <th style="text-align:center" colspan="4">{!! trans('materials.reports-table.actions') !!}</th>                                    
                                 </tr>
                                 </thead>
                                 <tbody id="reports_table">
                                 @foreach($reports as $report)
                                     <tr>
-                                        <td><a href="{{ URL::to('reports/' . $report->id) }}" data-toggle="tooltip"
-                                               title="Mostrar reporte">{{ $report->id }}</a></td>
-                                        <td><a href="{{ URL::to('alerts/' . $report->alert_id) }}" data-toggle="tooltip"
-                                               title="Mostrar alerta">{{ $report->alert_id }}</a></td>
-                                        <td>{{ $report->status->name }}</td>
-                                        <td>{{ $report->novelty->name }}</td>
-                                        <td>{{ $report->subnovelty->name }}</td>
-                                        <td>{{ $report->worktype->name }}</td>
-                                        <td class="hidden-xs">
-                                            @if ($report->readed_on)
-                                                {{ $report->readed_on }}
-                                            @else
-                                                No leido
-                                            @endif
-                                        </td>
+                                        <td><a href="{{ URL::to('materials/' . $report->id_matrepord) }}" data-toggle="tooltip"
+                                               title="Mostrar orden de retiro">{{ $report->id_matrepord }}</a></td>
+                                        <td><a href="{{ URL::to('materials/' . $report->alert_id) }}" data-toggle="tooltip"
+                                               title="Mostrar orden de retiro">{{ $report->alert_id }}</a></td>
+                                        <td>{{ $report->state }}</td>
+                                       
+                                     
                                         <td class="hidden-xs">{{$report->description}}</td>
 
-                                        <td>
+<!--                                        <td>
                                             @if ( (Auth::user()->hasRole('atmoperator') || Auth::user()->hasRole('ccitt')) && !$report->workorder)
                                                 <a class="btn btn-sm btn-warning btn-block"
                                                    href="{{ URL::to('workorders/' . $report->id . '/create/') }}"
@@ -97,31 +82,31 @@
                                                     {!! trans('reports.buttons.create_workorder') !!}
                                                 </a>
                                             @endif
-                                        </td>
+                                        </td>-->
 
                                         <td>
                                             <a class="btn btn-sm btn-success btn-block"
-                                               href="{{ URL::to('reports/' . $report->id) }}"
-                                               data-toggle="tooltip" title="Mostrar el reporte">
-                                                {!! trans('reports.buttons.show') !!}
+                                               href="{{ URL::to('materials/' . $report->id_matrepord) }}"
+                                               data-toggle="tooltip" title="Mostrar la orden de retiro">
+                                                {!! trans('materials.buttons.show') !!}
                                             </a>
                                         </td>
 
                                         @role('atmoperator|ccitt')
                                         <td>
                                             <a class="btn btn-sm btn-info btn-block"
-                                               href="{{ URL::to('reports/' . $report->id . '/edit') }}"
+                                               href="{{ URL::to('materials/' . $report->id_matrepord . '/edit') }}"
                                                data-toggle="tooltip" title="Editar">
-                                                {!! trans('reports.buttons.edit') !!}
+                                                {!! trans('materials.buttons.edit') !!}
                                             </a>
                                         </td>
                                         @endrole
 
                                         @role('atmoperator|atmcollector|ccitt')
                                         <td>
-                                            {!! Form::open(array('url' => 'reports/' . $report->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Eliminar')) !!}
+                                            {!! Form::open(array('url' => 'materials/' . $report->id_matrepord, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Eliminar')) !!}
                                             {!! Form::hidden('_method', 'DELETE') !!}
-                                            {!! Form::button(trans('reports.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => trans('reports.modals.delete_report_title'), 'data-message' => trans('reports.modals.delete_report_message', ['id' => $report->id]))) !!}
+                                            {!! Form::button(trans('materials.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => trans('materials.modals.delete_report_title'), 'data-message' => trans('materials.modals.delete_report_message', ['id' => $report->id_matrepord]))) !!}
                                             {!! Form::close() !!}
                                         </td>
                                         @endrole

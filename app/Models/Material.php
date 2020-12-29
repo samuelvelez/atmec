@@ -32,6 +32,7 @@ class Material extends Eloquent
 
     const STATUS_PENDING = 'Pendiente';
     const STATUS_POSTPONED = 'Aplazado';
+protected $table = 'material_report_order';
 	protected $casts = [
 	     'id_matrepord',            
             'description',
@@ -60,6 +61,7 @@ class Material extends Eloquent
             'state',
             'id_userrequire',
             'id_usercreate',
+            'date_aprob_or_neg',
             'id_useraproborneg'
 	];
 

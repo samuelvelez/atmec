@@ -3,23 +3,24 @@
 return [
 
     // Titles
-    'showing-all-reports'     => 'Mostrando todos los reportes',
+    'showing-all-reports'     => 'Mostrando todas las ordenes de retiro',
     'create-new-report'       => 'Crear nueva orden de retiro',
     'editing-report'          => 'Editando el reporte :id',
     'showing-mt-title'    => 'Creando la orden de retiro de material',
+    'showing-report-title'     => 'Mostrando la orden de retiro :id',
 
     // Flash Messages
-    'createSuccess'   => '¡Reporte creado!',
-    'createError'   => 'Error creando el reporte',
-    'updateSuccess'   => '¡Reporte actualizado!',
-    'updateError'   => 'Error actualizado el reporte',
-    'deleteSuccess'   => '¡Reporte eliminado!',
-    'deleteError'   => 'Error eliminando el reporte',
+    'createSuccess'   => '¡Orden de retiro creado!',
+    'createError'   => 'Error creando la Orden de retiro',
+    'updateSuccess'   => '¡Orden de retiro actualizado!',
+    'updateError'   => 'Error actualizado la Orden de retiro',
+    'deleteSuccess'   => '¡Orden de retiro eliminado!',
+    'deleteError'   => 'Error eliminando la Orden de retiro',
 
     'reports-table' => [
-        'caption'   => '{1} Existe un único reporte.|[2,*] Cantidad total de reportes: :reportstotal.',
+        'caption'   => '{1} Existe una orden de retiro.|[2,*] Cantidad total de ordenes de retiro: :reportstotal.',
         'id'        => 'ID',
-        'alert'     => 'Alerta',
+        'reportid'     => 'ID Reporte',
         'order'     => 'Orden de trabajo',
         'creator'     => 'Creador',
         'novelty'     => 'Novedad',
@@ -52,8 +53,8 @@ return [
     ],
 
     'modals' => [
-        'delete_report_title' => 'Eliminar reporte',
-        'delete_report_message' => '¿Está seguro de borrar el reporte :id?',
+        'delete_report_title' => 'Eliminar orden de retiro',
+        'delete_report_message' => '¿Está seguro de borrar la orden de retiro # :id?',
     ],
 
     'labelCollector' => 'Escalera: ',

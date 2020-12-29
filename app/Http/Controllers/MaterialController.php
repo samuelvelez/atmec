@@ -45,15 +45,17 @@ class MaterialController extends Controller
     {
         $pagintaionEnabled = config('atm_app.enablePagination');
 
-        if (Auth::user()->hasRole('atmcollector')) {
-            $reports = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');
-            //->where('alerts.collector_id', Auth::user()->id)
+        if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+            $reports = Material::select('material_report_order.*')->groupby('id_matrepord')->orderby('id', 'asc');
+//$reports = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');            
+//->where('alerts.collector_id', Auth::user()->id)
         }
         else {
             $reports = Report::orderby('id', 'asc');
         }
 
-        $reportstotal = $reports->count();
+        //$reportstotal = $reports->count();
+         $reportstotal = Material::max('id_matrepord');
 
         if ($pagintaionEnabled) {
             $reports = $reports->paginate(config('atm_app.paginateListSize'));
@@ -68,56 +70,26 @@ class MaterialController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {       
+        $collectors = User::whereHas("roles", function($q){ $q->where("slug", "atmcollector"); })->get();
         $alert = '';
         $novelties = Novelty::where('subcategory', false)->get();
         $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
         $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
         $materials = DevicesInventory::all();
         $metrics = MetricUnit::all();
-//
-//        $collectors = User::whereHas("roles", function($q){ $q->where("slug", "atmcollector"); })->get();
-//
-//        $signals = VerticalSignal::select(\DB::raw('6371 * acos(cos(radians(' .
-//            $alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//            $alert->longitude . ')) + sin(radians(' . $alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'vertical_signals.*')
-//            ->whereNotNull(['latitude', 'longitude'])
-//            ->orderBy('distance')
-//            ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//            ->get();
-//        $regulators = RegulatorBox::select(\DB::raw('6371 * acos(cos(radians(' .
-//            $alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//            $alert->longitude . ')) + sin(radians(' . $alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'regulator_boxes.*')
-//            ->whereNotNull(['latitude', 'longitude'])
-//            ->orderBy('distance')
-//            ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//            ->get();
-//        $devices = TrafficDevice::select(\DB::raw('6371 * acos(cos(radians(' .
-//            $alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//            $alert->longitude . ')) + sin(radians(' . $alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'traffic_devices.*', 'regulator_boxes.latitude', 'regulator_boxes.longitude')
-//            ->join('regulator_boxes', 'regulator_boxes.id', '=', 'traffic_devices.regulatorbox_id')
-//            ->whereNotNull(['latitude', 'longitude'])
-//            ->orderBy('distance')
-//            ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//            ->get();
-//        $poles = TrafficPole::select(\DB::raw('6371 * acos(cos(radians(' .
-//            $alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//            $alert->longitude . ')) + sin(radians(' . $alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'traffic_poles.*')
-//            ->whereNotNull(['latitude', 'longitude'])
-//            ->orderBy('distance')
-//            ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//            ->get();
-//        $tensors = TrafficTensor::all();
-//        $lights = TrafficLight::select(\DB::raw('6371 * acos(cos(radians(' .
-//            $alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//            $alert->longitude . ')) + sin(radians(' . $alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'traffic_lights.*', 'traffic_poles.latitude', 'traffic_poles.longitude')
-//            ->join('traffic_poles', 'traffic_lights.pole_id', '=', 'traffic_poles.id')
-//            ->whereNotNull(['latitude', 'longitude'])
-//            ->orderBy('distance')
-//            ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//            ->get();
-//
-        return view('materials.create', compact('novelties','subnovelties','worktypes','materials','metrics','alert'));
+        $collector_id = '';
+//        $collectors = User::whereHas("roles", function($q){ $q->where("slug","isno", "atmadmin"); })->get();
+            if (Auth::user()->hasRole('atmadmin') || Auth::user()->hasRole('ccitt')) {
+            $collectorsa = 'admin o ccitt';
+            $collector_id = Auth::user()->id;
+            //where('collector_id', Auth::user()->id)->
+        }
+        else if (Auth::user()->hasRole('atmcollector')) {
+            $collectorsa =  'escalera';
+            $collector_id = Auth::user()->id;
+        }
+        return view('materials.create', compact('novelties','subnovelties','worktypes','materials','metrics','alert','collectors','collector_id','collectorsa'));
   
     }
 
@@ -129,27 +101,80 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
-            //materiales propios usados
-            $materials = json_decode($request->input('materials_list'));
+        $matdev = 0;
+                $matdev=  Material::max('id_matrepord');
+
+//$matdev =Material::orderBy('id_matrepord','desc')->take(1)->get();
+//$materialid = $materialid+1;
+       if (Auth::user()->hasRole('atmadmin') || Auth::user()->hasRole('ccitt')) {
+            $collectors = 'adminccitt';
+             $collector_id = Auth::user()->id;
+            //where('collector_id', Auth::user()->id)->
+        }
+        else if (Auth::user()->hasRole('atmcollector')) {
+            $collectors =  'escalera';
+            $collector_id = Auth::user()->id;
+        }
+$matdev=$matdev+1;        
+$valor = '';
+$concat = '';
+$valor = $request->get('aprob');
+
+
+            $materials = json_decode($request->input('materials_list'));            
             if($materials){
+                $factual = date('Y-m-d H:i:s');
                 foreach ($materials as $material) {
                     $device = DevicesInventory::find($material->id);
                     $metric = MetricUnit::where('abbreviation', $material->metric)->first();    
                     if ($device && $metric) {
+                        if ($collectors=='escalera'){
            $materialinst = Material::create([
-            'id_matrepord' => 11,            
-            'description' => $request->get('description'),
-            'report_id' => 20,
+            'id_matrepord' => $matdev,            
+            'description' => $request->get('description'),   
+            'report_id' => null,
             'material_id' => $device->id,
             'metric_id' => $metric->id,
             'amount' => $material->amount,
             'state' => 'Ingresado',
-            'id_userrequire' => 1,
-            'id_usercreate' => 1,
-            'id_useraproborneg' => 1                            
+            'id_usercreate' => $collector_id,
+            'id_useraproborneg' => null                           
                         ]);
             $materialinst->save();       
-           }
+           } else  if ($collectors=='adminccitt'){
+if ($valor=='Si'){ 
+    $materialinst = Material::create([
+            'id_matrepord' => $matdev,            
+            'description' => $request->get('description'),   
+            'id_useraproborneg' => $collector_id,
+            'report_id' => null,
+            'material_id' => $device->id,
+            'metric_id' => $metric->id,
+            'amount' => $material->amount,
+            'state' => 'Aprobada',
+            'id_usercreate' => $collector_id,
+            'id_userrequire' =>$request->collector,
+            'date_aprob_or_neg' => $factual,
+            'id_useraproborneg' => $collector_id                           
+                        ]);
+            $materialinst->save();   
+} else {                
+           $materialinst = Material::create([
+            'id_matrepord' => $matdev,            
+            'description' => $request->get('description'),   
+           'id_useraproborneg' => $collector_id,
+            'report_id' => null,
+            'material_id' => $device->id,
+            'metric_id' => $metric->id,
+            'amount' => $material->amount,
+            'state' => 'Ingresada',
+            'id_usercreate' => $collector_id,
+               'id_userrequire' =>$request->collector,
+               'date_aprob_or_neg' => null,
+            'id_useraproborneg' => null,                           
+                        ]);
+            $materialinst->save();       
+         }  } }
 //                    echo $material;
                    
                 }
@@ -172,57 +197,15 @@ class MaterialController extends Controller
     public function edit($id)
     {
         $alert =($id);
-//        $report = Report::find($id);
-//        $novelties = Novelty::where('subcategory', false)->get();
-//        $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
-//        $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
-//        $materials = DevicesInventory::all();
-//        $metrics = MetricUnit::all();
-
-//        if ($report) {
-//            $signals = VerticalSignal::select(\DB::raw('6371 * acos(cos(radians(' .
-//                $report->alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//                $report->alert->longitude . ')) + sin(radians(' . $report->alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'vertical_signals.*')
-//                ->whereNotNull(['latitude', 'longitude'])
-//                ->orderBy('distance')
-//                ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//                ->get();
-//            $regulators = RegulatorBox::select(\DB::raw('6371 * acos(cos(radians(' .
-//                $report->alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//                $report->alert->longitude . ')) + sin(radians(' . $report->alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'regulator_boxes.*')
-//                ->whereNotNull(['latitude', 'longitude'])
-//                ->orderBy('distance')
-//                ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//                ->get();
-//            $devices = TrafficDevice::select(\DB::raw('6371 * acos(cos(radians(' .
-//                $report->alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//                $report->alert->longitude . ')) + sin(radians(' . $report->alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'traffic_devices.*', 'regulator_boxes.latitude', 'regulator_boxes.longitude')
-//                ->join('regulator_boxes', 'regulator_boxes.id', '=', 'traffic_devices.regulatorbox_id')
-//                ->whereNotNull(['latitude', 'longitude'])
-//                ->orderBy('distance')
-//                ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//                ->get();
-//            $poles = TrafficPole::select(\DB::raw('6371 * acos(cos(radians(' .
-//                $report->alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//                $report->alert->longitude . ')) + sin(radians(' . $report->alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'traffic_poles.*')
-//                ->whereNotNull(['latitude', 'longitude'])
-//                ->orderBy('distance')
-//                ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//                ->get();
-//            $tensors = TrafficTensor::all();
-//            $lights = TrafficLight::select(\DB::raw('6371 * acos(cos(radians(' .
-//                $report->alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
-//                $report->alert->longitude . ')) + sin(radians(' . $report->alert->latitude . ')) * sin(radians(latitude))) AS distance'), 'traffic_lights.*', 'traffic_poles.latitude', 'traffic_poles.longitude')
-//                ->join('traffic_poles', 'traffic_lights.pole_id', '=', 'traffic_poles.id')
-//                ->whereNotNull(['latitude', 'longitude'])
-//                ->orderBy('distance')
-//                ->havingRaw('distance < ' . env('APP_MAP_RADIUS', 0.2) . ' and distance > 0')
-//                ->get();
-//
-//            return view('reports.edit', compact('report', 'novelties', 'subnovelties', 'worktypes',
-//                'signals', 'regulators', 'devices', 'poles', 'tensors', 'lights', 'materials', 'metrics'));
-//        }
- return view('materials.edit', compact('alert'));
+        //$alert = Alert::find($id);
+        $report = Report::find($id);
+        $novelties = Novelty::where('subcategory', false)->get();
+        $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
+        $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
+        $materials = DevicesInventory::all();
+        $metrics = MetricUnit::all();
+ return view('materials.edit', compact('alert','report', 'novelties', 'subnovelties', 'worktypes',
+         'materials', 'metrics'));
        
 //        return back()->with('error', trans('reports.editError'));
     }
@@ -376,15 +359,20 @@ class MaterialController extends Controller
 
     public function show($id)
     {
-        $report = Report::find($id);
-
-        if ($report) {
-            $report->mask_as_read();
-
-            return view('materials.show', compact('report'));
+        $reports = Material::select('material_report_order.*')->where('id_matrepord',$id)->orderby('id', 'asc')->get();
+        $idusercrea = Material::select('id_usercreate')->where('id_matrepord',$id)->groupby('id_matrepord')->get();
+      $usersol = User::all();
+       //Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');
+        $report = $id;
+//   $groups= \App\Models\Brandstype::orderby('id','asc')->get();  
+                $materials = DevicesInventory::all();
+        $metrics = MetricUnit::all();
+        if ($reports) {
+//            $reports->mask_as_read();
+            return view('materials.show', compact('reports','report','materials','metrics','idusercrea','usersol'));
         }
 
-        return back()->with('error', 'Alerta no encontrada.');
+        return back()->with('error', 'Orden de retiro no encontrada.');
     }
 
     /**
@@ -395,29 +383,39 @@ class MaterialController extends Controller
      */
     public function destroy($id)
     {
-        $report = Report::find($id);
-
-        if ($report) {
-            if (!Auth::user()->hasRole(['atmadmin', 'atmoperator']) && $report->alert->owner_id != Auth::user()->id) {
-                return redirect('reports/')->with('error', 'No tiene permisos para realizar esta acción.');
-            }
-
-            $pictures = json_decode($report->pictures);
-            foreach ($pictures as $picture) {
-                Storage::delete('reports/' . $picture);
-            }
-
-            $report->vertical_signals()->detach();
-            $report->regulator_boxes()->detach();
-            $report->traffic_devices()->detach();
-            $report->traffic_poles()->detach();
-            $report->traffic_tensors()->detach();
-            $report->traffic_lights()->detach();
-
-            $report->delete();
-
-            return redirect('reports')->with('success', trans('reports.deleteSuccess'));
-        }
+//        $report = Material::all();
+        $reports = Material::select('material_report_order.*')->where('id_matrepord','=',$id);
+        foreach ($reports as $report) {
+                  $report->delete();
+   }
+   return redirect('materials')->with('success', trans('materials.deleteSuccess'));
+//   
+//
+//            return redirect('reports')->with('success', trans('reports.deleteSuccess'));
+//   foreach ($materials as $material) {
+//                    $device = DevicesInventory::find($material->id);
+//   }
+//        if ($report) {
+//            if (!Auth::user()->hasRole(['atmadmin', 'atmoperator']) && $report->alert->owner_id != Auth::user()->id) {
+//                return redirect('reports/')->with('error', 'No tiene permisos para realizar esta acción.');
+//            }
+//
+//            $pictures = json_decode($report->pictures);
+//            foreach ($pictures as $picture) {
+//                Storage::delete('reports/' . $picture);
+//            }
+//
+//            $report->vertical_signals()->detach();
+//            $report->regulator_boxes()->detach();
+//            $report->traffic_devices()->detach();
+//            $report->traffic_poles()->detach();
+//            $report->traffic_tensors()->detach();
+//            $report->traffic_lights()->detach();
+//
+//            $report->delete();
+//
+//            return redirect('reports')->with('success', trans('reports.deleteSuccess'));
+//        }
 
         return back()->with('error', trans('reports.deleteError'));
     }
