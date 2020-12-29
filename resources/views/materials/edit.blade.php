@@ -43,62 +43,13 @@
                         
                         <br>
 
-                        {!! Form::open(array('route' => ['reports.update', $report->id], 'method' => 'PUT', 'role' => 'form', 'class' => 'needs-validation', 'files' => true)) !!}
+                        {!! Form::open(array('route' => ['materials.store', $report->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'files' => true)) !!}
 
                         {!! csrf_field() !!}
 
                       
 
                         <div class="text-center" style="color: royalblue;"><strong>Datos de la orden de retiro</strong></div>
-
-                        <div style="display: hidden" class="form-group has-feedback row {{ $errors->has('novelty') ? ' has-error ' : '' }}">
-                            {!! Form::label('novelty', 'Novedad', array('class' => 'col-md-3 control-label')); !!}
-                            <div  class="col-md-9">
-                                <div class="form-group">
-                                    <select name="novelty" id="novelty"style="display: hidden"  >
-                                        <option value="">Seleccione una novedad</option>
-                                    </select>
-                                </div>
-                                @if ($errors->has('novelty'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('novelty') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('subnovelty') ? ' has-error ' : '' }}">
-                            {!! Form::label('subnovelty', 'Subnovedad', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="subnovelty" id="subnovelty">
-                                        <option value="">Seleccione una subnovedad</option>
-                                    </select>
-                                </div>
-                                @if ($errors->has('subnovelty'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('subnovelty') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('worktype') ? ' has-error ' : '' }}">
-                            {!! Form::label('worktype', 'Tipo de trabajo', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="form-group">
-                                    <select name="worktype" id="worktype">
-                                        <option value="">Seleccione el tipo de trabajo</option>
-                                    </select>
-                                </div>
-                                @if ($errors->has('worktype'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('worktype') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group has-feedback row {{ $errors->has('description') ? ' has-error ' : '' }}">
                             {!! Form::label('description', trans('reports.create_label_description'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -239,8 +190,8 @@
                         </div>-->
                         <hr>
                         {!! Form::hidden("tipo", "0", array('id' => 'tipo')) !!}
-                        {!! Form::hidden("materials_list", null, array('id' => 'materials_list')) !!}
-
+                        {!! Form::hidden("materials_list", '', array('id' => 'materials_list')) !!}
+                        {!! Form::hidden("orderid", $report->id, array('id' => 'orderid')) !!}
                   
                         {!! Form::button(trans('Regresar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
                         {!! Form::button(trans('Solicitar Materiales'), array('class' => 'btn btn-primary margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_materiales')) !!}
@@ -293,79 +244,7 @@
                 }
             });
 
-            $("#novelty").selectize({
-                allowClear: true,
-                create: false,
-                highlight: true,
-                diacritics: true,
-                options: {!! json_encode($novelties) !!},
-                valueField: 'id',
-                labelField: ['name'],
-                searchField: ['id', 'name'],
-                render: {
-                    option: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    },
-                    item: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    }
-                },
-            });
-            $("#novelty")[0].selectize.addItem({{ $report->novelty_id }});
-
-            $("#subnovelty").selectize({
-                allowClear: true,
-                create: false,
-                highlight: true,
-                diacritics: true,
-                options: {!! json_encode($subnovelties) !!},
-                valueField: 'id',
-                labelField: ['name'],
-                searchField: ['id', 'name'],
-                render: {
-                    option: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    },
-                    item: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    }
-                },
-            });
-            $("#subnovelty")[0].selectize.addItem({{ $report->subnovelty_id }});
-
-            $("#worktype").selectize({
-                allowClear: true,
-                create: false,
-                highlight: true,
-                diacritics: true,
-                options: {!! json_encode($worktypes) !!},
-                valueField: 'id',
-                labelField: ['name'],
-                searchField: ['id', 'name'],
-                render: {
-                    option: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    },
-                    item: function (item, escape) {
-                        return '<div>'
-                            + '<span>' + escape(item.name) + '</span>'
-                            + '</div>';
-                    }
-                },
-            });
-            $("#worktype")[0].selectize.addItem({{ $report->worktype_id }});
-
-          
+    
 
             let data = {!! json_encode($report->materials()->with(['material','metric_unit'])->get()) !!};
             let materials_tbl = $('#materials').DataTable({

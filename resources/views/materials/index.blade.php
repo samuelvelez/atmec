@@ -39,9 +39,13 @@
                                 {!! trans('materials.showing-all-reports') !!}
                                
                             </span>
-                            <div class="btn-group pull-right btn-group-xs"><a href="/materials/create" class="btn btn-primary btn-sm">
+                            @role('atmoperator|ccitt||atmadmin')
+                                     <div class="btn-group pull-right btn-group-xs"><a href="/materials/create" class="btn btn-primary btn-sm">
                                     Nueva Orden de Retiro
                                 </a></div>
+                                        @endrole
+                            
+                           
                         </div>
                        
                     </div>
@@ -56,6 +60,8 @@
                                 <tr>
                                     <th>{!! trans('materials.reports-table.id') !!}</th>
                                     <th>{!! trans('materials.reports-table.reportid') !!}</th>
+                                    <th>{!! trans('materials.reports-table.namecollector') !!}</th>
+                                    <th>{!! trans('materials.reports-table.nameaprob') !!}</th>
                                     <th>{!! trans('materials.reports-table.status') !!}</th>                                    
                                     <th class="hidden-xs">{!! trans('materials.reports-table.description') !!}</th>
 
@@ -67,8 +73,11 @@
                                     <tr>
                                         <td><a href="{{ URL::to('materials/' . $report->id_matrepord) }}" data-toggle="tooltip"
                                                title="Mostrar orden de retiro">{{ $report->id_matrepord }}</a></td>
-                                        <td><a href="{{ URL::to('materials/' . $report->alert_id) }}" data-toggle="tooltip"
-                                               title="Mostrar orden de retiro">{{ $report->alert_id }}</a></td>
+
+                                               <td><a href="{{ URL::to('materials/' . $report->alert_id) }}" data-toggle="tooltip"
+                                               title="Mostrar orden de retiro">{{ $report->report_id }}</a></td>
+                                               <td>{{ $report->name }}</td>
+                                               <td>{{ $report->name }}</td>
                                         <td>{{ $report->state }}</td>
                                        
                                      

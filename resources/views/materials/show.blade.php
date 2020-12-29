@@ -40,7 +40,9 @@
                                 </div>
                                @if ($reports)
                               @foreach($reports as $reporte)
-                                   
+                                 <?php 
+                                 $escaleraid = $reporte->id_userrequire;
+                                 ?>  
                              <br>
                              <!--'materials','metrics'-->
                             
@@ -77,8 +79,8 @@
 //                          echo '<div class="col-sm-6 col-6">-'. $valor[$index].' cantidad: '. $cantidad[$index]. '  </div> <br>';
 //                                   }
                                    ?>                      
-                             <div class="col-md-12" style="margin-top: -55px">
-                     {!! Form::open(array('route' => ['materials.update', $report], 'method' => 'PUT', 'role' => 'form')) !!}                             
+                             <div class="col-md-12" style="margin-top: -35px">
+                     {!! Form::open(array('route' => ['materials.update', $report], 'method' => 'PUT', 'role' => 'form')) !!}
                      <table id="materials2"
                                         class="table table-striped table-hover table-sm data-table mt-4 mb-4">
                                         <thead class="thead">
@@ -123,28 +125,53 @@
                                 <strong class="text-larger">
                                     Solicitante:
                                 </strong>
-                            </div>
-                             <div class="col-sm-6 col-6">
-                                <strong class="text-larger">
-                                    Escalera:
-                                </strong>
-                       
-                                 
-                                 <?php 
+                                   <?php 
                                   $datos = json_decode($idusercrea, true);
                                   foreach ($datos as $cliente) {
     $iduser = $cliente['id_usercreate'];
 }
+//echo $iduser .' id user<br>';
 $datospersonas = json_decode($usersol, true);                                
 foreach ($datospersonas as $cliente) {
     $nombre=$cliente['name'];
     $id = $cliente['id'];
+//    echo $nombre .' id '. $id. '<br>';
     if ($id==$iduser)
     {
         $nombrem = $nombre;
-    } else {
-        $nombrem = '';
-        
+    } else {        
+    }
+//
+}
+      echo $nombrem .'<br>';      
+
+
+                                 ?>
+                            </div>
+                             <div class="col-sm-6 col-6">
+                                <strong class="text-larger">
+                                    Escalera:                   
+                                </strong>
+                       
+                                 
+                            
+                                 
+                                 
+                                    <?php 
+//                                  $datos = json_decode($idusercrea, true);
+//                                  foreach ($datos as $cliente) {
+//    $iduser = $cliente['id_usercreate'];
+//}
+$iduser =$escaleraid;
+$datospersonas = json_decode($usersol, true);                                
+foreach ($datospersonas as $cliente) {
+    $nombre=$cliente['name'];
+    $id = $cliente['id'];
+//    echo $nombre .' id '. $id. '<br>';
+    if ($id==$iduser)
+    {
+        $nombrem = $nombre;
+    } else {        
     }
 //
 }
@@ -156,11 +183,13 @@ foreach ($datospersonas as $cliente) {
                         </div>
 
                         <hr/>
-               
+
+
                         @if (Auth::user()->hasRole('atmadmin'))
                             <br/>
                             <div class="row">
                                 <div class="col-12">
+                                                      
                                       {!! Form::button(trans('<i class="fa fa-check"></i> Aprobar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
 <!--                                    <a class="btn btn-sm btn-info float-right"
                                        href="{{ URL::to('materials//edit') }}"><i
@@ -170,6 +199,10 @@ foreach ($datospersonas as $cliente) {
                         @endif
                     </div>
                 </div>
+                  {!! Form::open(array('id' => 'form' ,'route' => ['materials.update', $report], 'method' => 'POST', 'role' => 'form')) !!}
+                  {!! Form::hidden("state", $report, array('id' => 'state')) !!}
+                     {!! Form::button(trans('Guardar'), array('class' => 'btn btn-success margin-bottom-1 mb-1  mr-2 float-right','type' => 'submit', 'id'=>'finalizar')) !!}
+
             </div>
         </div>
     </div>

@@ -210,6 +210,10 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstockkeepe
     Route::resource('ito-templates', 'ItorderTemplateController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
+    
+        Route::resource('materials', 'MaterialController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
 
     Route::resource('itorders', 'ItorderController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
@@ -224,7 +228,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
     Route::resource('alerts', 'AlertController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
-    Route::resource('/materials','MaterialController')->only([
+    Route::resource('materials','MaterialController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     
@@ -254,8 +258,12 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
     
 });
 
-Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstorage|atmstockkeeper', 'activity', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstorage|atmstockkeeper|atmcollector', 'activity', 'checkblocked']], function () {
     Route::resource('storage-inventory', 'StorageInventoryController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+    
+           Route::resource('materials', 'MaterialController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
 });

@@ -30,6 +30,8 @@ return [
         'readed'     => 'Lectura',
         'description'     => 'Descripción',
         'actions'   => 'Acciones',
+        'namecollector'   => 'Solicitante',
+        'nameaprob'   => 'Aprobador',
     ],
 
     'buttons' => [

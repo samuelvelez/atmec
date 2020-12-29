@@ -45,13 +45,16 @@ class MaterialController extends Controller
     {
         $pagintaionEnabled = config('atm_app.enablePagination');
 
-        if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
-            $reports = Material::select('material_report_order.*')->groupby('id_matrepord')->orderby('id', 'asc');
-//$reports = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');            
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+//    $reports2 = Material::select('*')->join('users', 'users.id', 'material_report_order.id_useraproborneg')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->groupby('id_matrepord')->orderby('id', 'asc');
+    
+//$NO = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');            
 //->where('alerts.collector_id', Auth::user()->id)
         }
-        else {
-            $reports = Report::orderby('id', 'asc');
+        else  if (Auth::user()->hasRole('atmstockkeeper')) {
+    $reports = Material::select('material_report_order.*')->where('state','Aprobada')->groupby('id_matrepord')->orderby('id', 'asc');
         }
 
         //$reportstotal = $reports->count();
@@ -138,7 +141,8 @@ $valor = $request->get('aprob');
             'amount' => $material->amount,
             'state' => 'Ingresado',
             'id_usercreate' => $collector_id,
-            'id_useraproborneg' => null                           
+            'id_useraproborneg' => null,
+            'report_id' => $request->get('orderid')
                         ]);
             $materialinst->save();       
            } else  if ($collectors=='adminccitt'){
@@ -155,7 +159,8 @@ if ($valor=='Si'){
             'id_usercreate' => $collector_id,
             'id_userrequire' =>$request->collector,
             'date_aprob_or_neg' => $factual,
-            'id_useraproborneg' => $collector_id                           
+            'id_useraproborneg' => $collector_id,
+        'report_id' => $request->get('orderid')
                         ]);
             $materialinst->save();   
 } else {                
@@ -171,7 +176,8 @@ if ($valor=='Si'){
             'id_usercreate' => $collector_id,
                'id_userrequire' =>$request->collector,
                'date_aprob_or_neg' => null,
-            'id_useraproborneg' => null,                           
+            'id_useraproborneg' => null,  
+               'report_id' => $request->get('orderid')
                         ]);
             $materialinst->save();       
          }  } }
@@ -219,6 +225,19 @@ if ($valor=='Si'){
      */
     public function update(Request $request, $id)
     {
+        
+            $material = Material::find($id);
+                //Report::find($id);
+        if ($material) {
+            // Update basic attributes
+            if ($request->state && $request->state != $material->state) {
+                $material->state = $request->state;
+            }
+            if ($material->save()) {
+                $material->mask_as_read();
+                return redirect('materials/')->with('success', trans('material.updateSuccess'));
+            }
+        }
         $report = '18';
                 //Report::find($id);
 
@@ -356,12 +375,32 @@ if ($valor=='Si'){
 
         return back()->with('error', trans('reports.udpateError'));
     }
+    
+    
+    public function aprob(Request $request, $id)
+    {
+        $material = Material::find($id);
+                //Report::find($id);
+        if ($material) {
+            // Update basic attributes
+            if ($request->state && $request->state != $material->state) {
+                $report->novelty_id = $request->novelty;
+            }
+            if ($material->save()) {
+                $material->mask_as_read();
+                return redirect('materials/')->with('success', trans('material.updateSuccess'));
+            }
+        }
+
+        return back()->with('error', trans('material.udpateError'));
+    }
 
     public function show($id)
     {
         $reports = Material::select('material_report_order.*')->where('id_matrepord',$id)->orderby('id', 'asc')->get();
         $idusercrea = Material::select('id_usercreate')->where('id_matrepord',$id)->groupby('id_matrepord')->get();
       $usersol = User::all();
+      $reporteee = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('id_matrepord',$id)->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
        //Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');
         $report = $id;
 //   $groups= \App\Models\Brandstype::orderby('id','asc')->get();  
@@ -369,7 +408,7 @@ if ($valor=='Si'){
         $metrics = MetricUnit::all();
         if ($reports) {
 //            $reports->mask_as_read();
-            return view('materials.show', compact('reports','report','materials','metrics','idusercrea','usersol'));
+            return view('materials.show', compact('reports','report','materials','metrics','idusercrea','usersol','reporteee'));
         }
 
         return back()->with('error', 'Orden de retiro no encontrada.');
