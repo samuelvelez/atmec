@@ -74,31 +74,52 @@
                                         <td><a href="{{ URL::to('materials/' . $report->id_matrepord) }}" data-toggle="tooltip"
                                                title="Mostrar orden de retiro">{{ $report->id_matrepord }}</a></td>
 
-                                               <td><a href="{{ URL::to('materials/' . $report->alert_id) }}" data-toggle="tooltip"
+                                               <td><a href="{{ URL::to('reports/' . $report->report_id .'/edit') }}" data-toggle="tooltip"
                                                title="Mostrar orden de retiro">{{ $report->report_id }}</a></td>
                                                <td>{{ $report->name }}</td>
-                                               <td>{{ $report->name }}</td>
+                                                   <?php 
+                          $iduser = $report->id_useraproborneg;
+                          $nombrem = '';
+$datospersonas = json_decode($usersol, true);                                
+foreach ($datospersonas as $cliente) {
+    $nombre=$cliente['name'];
+    $id = $cliente['id'];
+//    echo $nombre .' id '. $id. '<br>';
+    if ($id==$iduser)
+    {
+        $nombrem = $nombre;
+    } else {        
+    }
+//
+}
+      echo '<td>'.$nombrem .'</td>';      
+
+
+                                 ?>
                                         <td>{{ $report->state }}</td>
                                        
                                      
                                         <td class="hidden-xs">{{$report->description}}</td>
-
-<!--                                        <td>
-                                            @if ( (Auth::user()->hasRole('atmoperator') || Auth::user()->hasRole('ccitt')) && !$report->workorder)
-                                                <a class="btn btn-sm btn-warning btn-block"
-                                                   href="{{ URL::to('workorders/' . $report->id . '/create/') }}"
-                                                   data-toggle="tooltip" title="Crear órden de trabajo">
-                                                    {!! trans('reports.buttons.create_workorder') !!}
-                                                </a>
-                                            @endif
-                                        </td>-->
-
+<td>
+    @if ($report->report_id)
+    <a class="btn btn-sm btn-danger  btn-block" style="color:#dc3545; width: 20px"
+                                               data-toggle="tooltip" title="Proridades">
+                                              i  
+                                            </a>
+    @else
+    <a class="btn btn-sm btn-info  btn-block"style="color:#17a2b8; width: 20px"
+                                               data-toggle="tooltip" title="Proridades">
+                                              n
+                                            </a>
+    @endif
+                                            </td>
                                         <td>
                                             <a class="btn btn-sm btn-success btn-block"
                                                href="{{ URL::to('materials/' . $report->id_matrepord) }}"
                                                data-toggle="tooltip" title="Mostrar la orden de retiro">
                                                 {!! trans('materials.buttons.show') !!}
                                             </a>
+                                        
                                         </td>
 
                                         @role('atmoperator|ccitt')

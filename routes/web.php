@@ -214,6 +214,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstockkeepe
         Route::resource('materials', 'MaterialController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
+Route::get('/materials/aprobar/{id}', 'MaterialController@aprobar')->name('aprobar');
+Route::get('/materials/entregar/{id}', 'MaterialController@entregar')->name('entregar');
 
     Route::resource('itorders', 'ItorderController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
@@ -231,6 +233,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
     Route::resource('materials','MaterialController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
+    Route::get('/materials/recibir/{id}', 'MaterialController@recibir')->name('recibir');
+
     
 });
 

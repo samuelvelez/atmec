@@ -34,6 +34,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 col-12">
+                                
+                      
+                                
+                                
+                                
+                                
+                                
                                 <center><strong class="text-larger" >
                                         Materiales solicitados
                                     </strong></center>
@@ -80,8 +87,8 @@
 //                                   }
                                    ?>                      
                              <div class="col-md-12" style="margin-top: -35px">
-                     {!! Form::open(array('route' => ['materials.update', $report], 'method' => 'PUT', 'role' => 'form')) !!}
-                     <table id="materials2"
+                   
+                                                       <table id="materials2"
                                         class="table table-striped table-hover table-sm data-table mt-4 mb-4">
                                         <thead class="thead">
                                         <tr>
@@ -91,6 +98,7 @@
                                         </tr>
                                         </thead>
                                         <?php 
+                                        $estadodeor = $reporte->state;
                                    for ($index = 0; $index < count($valor); $index++) {
                           echo '<tr>
                                        <td>'. $valor[$index].'</td>
@@ -184,25 +192,70 @@ foreach ($datospersonas as $cliente) {
 
                         <hr/>
 
-
+ <?php if ($estadodeor=='Ingresada'){ ?>
                         @if (Auth::user()->hasRole('atmadmin'))
                             <br/>
                             <div class="row">
                                 <div class="col-12">
-                                                      
+                                   {!! Form::open(array('route' => ['aprobar', $report], 'method' => 'GET', 'role' => 'form')) !!}
+                    {!! csrf_field() !!}
+                                     
                                       {!! Form::button(trans('<i class="fa fa-check"></i> Aprobar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
-<!--                                    <a class="btn btn-sm btn-info float-right"
+
+       
+                         {!! Form::close() !!}
+                                      <!--                                    <a class="btn btn-sm btn-info float-right"
                                        href="{{ URL::to('materials//edit') }}"><i
                                                 class="fa fa-check"></i> <span class="hidden-xs">Aprobar</span></a>-->
                                 </div>
                             </div>
                         @endif
+                        
+ <?php } ?>
+                       
+                        <?php if ($estadodeor=='Entregada'){ ?>
+                         @if (Auth::user()->hasRole('atmcollector'))
+                            <br/>
+                            <div class="row">
+                                <div class="col-12">
+                                   {!! Form::open(array('route' => ['recibir', $report], 'method' => 'GET', 'role' => 'form')) !!}
+                    {!! csrf_field() !!}
+                                     
+                                      {!! Form::button(trans('<i class="fa fa-check"></i> Recibido'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
+
+       
+                         {!! Form::close() !!}
+                                      <!--                                    <a class="btn btn-sm btn-info float-right"
+                                       href="{{ URL::to('materials//edit') }}"><i
+                                                class="fa fa-check"></i> <span class="hidden-xs">Aprobar</span></a>-->
+                                </div>
+                            </div>
+                        @endif
+                        <?php } ?>
+                              <?php if ($estadodeor=='Aprobada'){ ?>
+                         @if (Auth::user()->hasRole('atmstockkeeper'))
+                            <br/>
+                            <div class="row">
+                                <div class="col-12">
+                                   {!! Form::open(array('route' => ['entregar', $report], 'method' => 'GET', 'role' => 'form')) !!}
+                    {!! csrf_field() !!}
+                                     
+                                      {!! Form::button(trans('<i class="fa fa-check"></i> Entregada'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
+
+       
+                         {!! Form::close() !!}
+                                      <!--                                    <a class="btn btn-sm btn-info float-right"
+                                       href="{{ URL::to('materials//edit') }}"><i
+                                                class="fa fa-check"></i> <span class="hidden-xs">Aprobar</span></a>-->
+                                </div>
+                            </div>
+                        @endif
+                        <?php } ?>
+                        
+                        
                     </div>
                 </div>
-                  {!! Form::open(array('id' => 'form' ,'route' => ['materials.update', $report], 'method' => 'POST', 'role' => 'form')) !!}
-                  {!! Form::hidden("state", $report, array('id' => 'state')) !!}
-                     {!! Form::button(trans('Guardar'), array('class' => 'btn btn-success margin-bottom-1 mb-1  mr-2 float-right','type' => 'submit', 'id'=>'finalizar')) !!}
-
+                
             </div>
         </div>
     </div>

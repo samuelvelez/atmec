@@ -11,6 +11,7 @@ use App\Models\Novelty;
 use App\Models\RegulatorBox;
 use App\Models\Report;
 use App\Models\Status;
+use App\Models\Material;
 use App\Models\TrafficDevice;
 use App\Models\TrafficLight;
 use App\Models\TrafficPole;
@@ -282,7 +283,7 @@ class ReportController extends Controller
         $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
         $materials = DevicesInventory::all();
         $metrics = MetricUnit::all();
-
+ $hasmaterials = Material::select('material_report_order.*')->where('report_id',$id)->orderby('id', 'asc')->get();
         if ($report) {
             $signals = VerticalSignal::select(\DB::raw('6371 * acos(cos(radians(' .
                 $report->alert->latitude . ')) * cos(radians(latitude)) * cos(radians(longitude) - radians(' .
@@ -324,9 +325,8 @@ class ReportController extends Controller
                 ->get();
 
             return view('reports.edit', compact('report', 'novelties', 'subnovelties', 'worktypes',
-                'signals', 'regulators', 'devices', 'poles', 'tensors', 'lights', 'materials', 'metrics'));
+                'signals', 'regulators', 'devices', 'poles', 'tensors', 'lights', 'materials', 'metrics','hasmaterials'));
         }
-
         return back()->with('error', trans('reports.editError'));
     }
 

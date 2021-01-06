@@ -47,6 +47,8 @@ class MaterialController extends Controller
 
     if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
     $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+      $usersol = User::all();
+        
 //    $reports2 = Material::select('*')->join('users', 'users.id', 'material_report_order.id_useraproborneg')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
 //    $reports = Material::select('material_report_order.*')->groupby('id_matrepord')->orderby('id', 'asc');
     
@@ -54,7 +56,10 @@ class MaterialController extends Controller
 //->where('alerts.collector_id', Auth::user()->id)
         }
         else  if (Auth::user()->hasRole('atmstockkeeper')) {
-    $reports = Material::select('material_report_order.*')->where('state','Aprobada')->groupby('id_matrepord')->orderby('id', 'asc');
+            $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('state','=','Aprobada')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->where('state','=','Aprobada')->groupby('id_matrepord')->orderby('id', 'asc');
+      $usersol = User::all();
+        
         }
 
         //$reportstotal = $reports->count();
@@ -64,7 +69,7 @@ class MaterialController extends Controller
             $reports = $reports->paginate(config('atm_app.paginateListSize'));
         }
 
-        return View('materials.index', compact('reports', 'reportstotal'));
+        return View('materials.index', compact('reports', 'reportstotal','usersol'));
     }
 
     /**
@@ -139,8 +144,9 @@ $valor = $request->get('aprob');
             'material_id' => $device->id,
             'metric_id' => $metric->id,
             'amount' => $material->amount,
-            'state' => 'Ingresado',
+            'state' => 'Ingresada',
             'id_usercreate' => $collector_id,
+               'id_userrequire' =>$collector_id,
             'id_useraproborneg' => null,
             'report_id' => $request->get('orderid')
                         ]);
@@ -225,176 +231,231 @@ if ($valor=='Si'){
      */
     public function update(Request $request, $id)
     {
-        
-            $material = Material::find($id);
+        $material = Material::select('material_report_order.*')->where('id_matrepord',$id)->orderby('id', 'asc')->get();
+//            $material = Material::find($id);
                 //Report::find($id);
         if ($material) {
             // Update basic attributes
-            if ($request->state && $request->state != $material->state) {
-                $material->state = $request->state;
-            }
-            if ($material->save()) {
+//            if ($request->state && $request->state != $material->state) {
+                $material->state = 'Aprobada';
+//            }
+         
+        }
+           if ($material->save()) {
                 $material->mask_as_read();
                 return redirect('materials/')->with('success', trans('material.updateSuccess'));
             }
+//        $report = '18';
+//                //Report::find($id);
+//
+//        if ($report) {
+//            // Update basic attributes
+//            if ($request->novelty && $request->novelty != $report->novelty_id) {
+//                $report->novelty_id = $request->novelty;
+//            }
+//
+//            if ($request->subnovelty && $request->subnovelty != $report->subnovelty_id) {
+//                $report->subnovelty_id = $request->subnovelty;
+//            }
+//
+//            if ($request->worktype && $request->worktype != $report->worktype_id) {
+//                $report->worktype_id = $request->worktype;
+//            }
+//
+//            if ($request->description && $request->description != $report->description) {
+//                $report->description = $request->description;
+//            }
+//
+//            // Update material list
+//            if ($request->input('materials_list')) {
+//                foreach ($report->materials as $material) {
+//                    $material->delete();
+//                }
+//
+//                $materials = json_decode($request->input('materials_list'));
+//                foreach ($materials as $material) {
+//                    $device = DevicesInventory::find($material->id);
+//                    $metric = MetricUnit::where('abbreviation', $material->metric)->first();
+//
+//                    if ($device && $metric) {
+//                        MaterialReport::create([
+//                            'report_id' => $report->id,
+//                            'material_id' => $device->id,
+//                            'metric_id' => $metric->id,
+//                            'amount' => $material->amount
+//                        ]);
+//                    }
+//                }
+//            }
+//
+//            // Update pictures
+//            if($request->hasFile('pictures')) {
+//                $pictures = json_decode($report->pictures);
+//                foreach ($pictures as $picture) {
+//                    Storage::delete('reports/' . $picture);
+//                }
+//
+//                $files = $request->file('pictures');
+//                $names = [];
+//                foreach($files as $file){
+//                    $filename = Str::random() . '.' . $file->getClientOriginalExtension();
+//                    $names[] = $filename;
+//                    $file->storeAs('reports', $filename);
+//                }
+//
+//                $report->pictures = json_encode($names);
+//            }
+//
+//            // Update devices
+//            if ($request->signals) {
+//                $report->vertical_signals()->detach();
+//
+//                foreach ($request->signals as $signal) {
+//                    $item = VerticalSignal::find($signal);
+//                    if ($item) {
+//                        $report->vertical_signals()->save($item);
+//                    }
+//                }
+//            }
+//
+//            if ($request->regulators) {
+//                $report->regulator_boxes()->detach();
+//
+//                foreach ($request->regulators as $regulator) {
+//                    $item = RegulatorBox::find($regulator);
+//                    if ($item) {
+//                        $report->regulator_boxes()->save($item);
+//                    }
+//                }
+//            }
+//
+//            if ($request->devices) {
+//                $report->traffic_devices()->detach();
+//
+//                foreach ($request->devices as $device) {
+//                    $item = TrafficDevice::find($device);
+//                    if ($item) {
+//                        $report->traffic_devices()->save($item);
+//                    }
+//                }
+//            }
+//
+//            if ($request->poles) {
+//                $report->traffic_poles()->detach();
+//
+//                foreach ($request->poles as $pole) {
+//                    $item = TrafficPole::find($pole);
+//                    if ($item) {
+//                        $report->traffic_poles()->save($item);
+//                    }
+//                }
+//            }
+//
+//            if ($request->tensors) {
+//                $report->traffic_tensors()->detach();
+//
+//                foreach ($request->tensors as $tensor) {
+//                    $item = TrafficTensor::find($tensor);
+//                    if ($item) {
+//                        $report->traffic_tensors()->save($item);
+//                    }
+//                }
+//            }
+//
+//            if ($request->lights) {
+//                $report->traffic_lights()->detach();
+//
+//                foreach ($request->lights as $light) {
+//                    $item = TrafficLight::find($light);
+//                    if ($item) {
+//                        $report->traffic_lights()->save($item);
+//                    }
+//                }
+//            }
+//
+//
+//            if ($report->save()) {
+//                $report->mask_as_read();
+//                return redirect('reports/')->with('success', trans('reports.updateSuccess'));
+//            }
         }
-        $report = '18';
-                //Report::find($id);
 
-        if ($report) {
-            // Update basic attributes
-            if ($request->novelty && $request->novelty != $report->novelty_id) {
-                $report->novelty_id = $request->novelty;
-            }
-
-            if ($request->subnovelty && $request->subnovelty != $report->subnovelty_id) {
-                $report->subnovelty_id = $request->subnovelty;
-            }
-
-            if ($request->worktype && $request->worktype != $report->worktype_id) {
-                $report->worktype_id = $request->worktype;
-            }
-
-            if ($request->description && $request->description != $report->description) {
-                $report->description = $request->description;
-            }
-
-            // Update material list
-            if ($request->input('materials_list')) {
-                foreach ($report->materials as $material) {
-                    $material->delete();
-                }
-
-                $materials = json_decode($request->input('materials_list'));
-                foreach ($materials as $material) {
-                    $device = DevicesInventory::find($material->id);
-                    $metric = MetricUnit::where('abbreviation', $material->metric)->first();
-
-                    if ($device && $metric) {
-                        MaterialReport::create([
-                            'report_id' => $report->id,
-                            'material_id' => $device->id,
-                            'metric_id' => $metric->id,
-                            'amount' => $material->amount
-                        ]);
-                    }
-                }
-            }
-
-            // Update pictures
-            if($request->hasFile('pictures')) {
-                $pictures = json_decode($report->pictures);
-                foreach ($pictures as $picture) {
-                    Storage::delete('reports/' . $picture);
-                }
-
-                $files = $request->file('pictures');
-                $names = [];
-                foreach($files as $file){
-                    $filename = Str::random() . '.' . $file->getClientOriginalExtension();
-                    $names[] = $filename;
-                    $file->storeAs('reports', $filename);
-                }
-
-                $report->pictures = json_encode($names);
-            }
-
-            // Update devices
-            if ($request->signals) {
-                $report->vertical_signals()->detach();
-
-                foreach ($request->signals as $signal) {
-                    $item = VerticalSignal::find($signal);
-                    if ($item) {
-                        $report->vertical_signals()->save($item);
-                    }
-                }
-            }
-
-            if ($request->regulators) {
-                $report->regulator_boxes()->detach();
-
-                foreach ($request->regulators as $regulator) {
-                    $item = RegulatorBox::find($regulator);
-                    if ($item) {
-                        $report->regulator_boxes()->save($item);
-                    }
-                }
-            }
-
-            if ($request->devices) {
-                $report->traffic_devices()->detach();
-
-                foreach ($request->devices as $device) {
-                    $item = TrafficDevice::find($device);
-                    if ($item) {
-                        $report->traffic_devices()->save($item);
-                    }
-                }
-            }
-
-            if ($request->poles) {
-                $report->traffic_poles()->detach();
-
-                foreach ($request->poles as $pole) {
-                    $item = TrafficPole::find($pole);
-                    if ($item) {
-                        $report->traffic_poles()->save($item);
-                    }
-                }
-            }
-
-            if ($request->tensors) {
-                $report->traffic_tensors()->detach();
-
-                foreach ($request->tensors as $tensor) {
-                    $item = TrafficTensor::find($tensor);
-                    if ($item) {
-                        $report->traffic_tensors()->save($item);
-                    }
-                }
-            }
-
-            if ($request->lights) {
-                $report->traffic_lights()->detach();
-
-                foreach ($request->lights as $light) {
-                    $item = TrafficLight::find($light);
-                    if ($item) {
-                        $report->traffic_lights()->save($item);
-                    }
-                }
-            }
-
-
-            if ($report->save()) {
-                $report->mask_as_read();
-                return redirect('reports/')->with('success', trans('reports.updateSuccess'));
-            }
-        }
-
-        return back()->with('error', trans('reports.udpateError'));
-    }
     
     
-    public function aprob(Request $request, $id)
+    public function aprobar($id)
     {
-        $material = Material::find($id);
-                //Report::find($id);
+        $material = Material::where('id_matrepord','=',$id)->get();         
+//        dd($material);
+        $factual = date('Y-m-d H:i:s');
+             $collector_id = Auth::user()->id;
+            //where('collector_id', Auth::user()->id)->
+      
         if ($material) {
+            foreach ($material as $materia) {
+         $materia->state='Aprobada';        
+         $materia->date_aprob_or_neg=$factual;
+         $materia->id_useraproborneg=$collector_id;
+            if ($materia->save()) {
+                $materia->mask_as_read();
+                
+            }
+              }
             // Update basic attributes
-            if ($request->state && $request->state != $material->state) {
-                $report->novelty_id = $request->novelty;
-            }
-            if ($material->save()) {
-                $material->mask_as_read();
-                return redirect('materials/')->with('success', trans('material.updateSuccess'));
-            }
+                return redirect('materials/')->with('success', trans('materials.aprobSuccess'));
+          
         }
 
         return back()->with('error', trans('material.udpateError'));
+//        echo $id;
     }
 
+    
+     
+    public function entregar($id)
+    {
+        $material = Material::where('id_matrepord','=',$id)->get();         
+//        dd($material);
+        $factual = date('Y-m-d H:i:s');
+             $collector_id = Auth::user()->id;
+            //where('collector_id', Auth::user()->id)->      
+        if ($material) {
+            foreach ($material as $materia) {
+         $materia->state='Entregada';        
+         $materia->date_delivery=$factual;
+            if ($materia->save()) {
+                $materia->mask_as_read();                
+            }
+              }
+            // Update basic attributes
+                return redirect('materials/')->with('success', trans('materials.entregSuccess'));          
+        }
+        return back()->with('error', trans('materials.udpateError'));
+//        echo $id;
+    }
+    
+    public function recibir($id)
+    {
+        $material = Material::where('id_matrepord','=',$id)->get();         
+//        dd($material);
+        $factual = date('Y-m-d H:i:s');
+             $collector_id = Auth::user()->id;
+            //where('collector_id', Auth::user()->id)->      
+        if ($material) {
+            foreach ($material as $materia) {
+         $materia->state='Recibido';        
+         $materia->receipt=$factual;
+            if ($materia->save()) {
+                $materia->mask_as_read();                
+            }
+              }
+            // Update basic attributes
+                return redirect('materials/')->with('success', trans('materials.recibSuccess'));          
+        }
+        return back()->with('error', trans('materials.udpateError'));
+//        echo $id;
+    }
+
+    
     public function show($id)
     {
         $reports = Material::select('material_report_order.*')->where('id_matrepord',$id)->orderby('id', 'asc')->get();
