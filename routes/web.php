@@ -216,6 +216,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstockkeepe
     ]);
 Route::get('/materials/aprobar/{id}', 'MaterialController@aprobar')->name('aprobar');
 Route::get('/materials/entregar/{id}', 'MaterialController@entregar')->name('entregar');
+Route::post('/materials/entregarnew/{id}', 'MaterialController@entregarnew')->name('entregarnew');
 
     Route::resource('itorders', 'ItorderController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'

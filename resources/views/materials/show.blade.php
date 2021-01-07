@@ -62,6 +62,8 @@
       
 <!--{{ $material->id == $reporte->material_id  ? $valor[] =  $material ->name  : '' }}-->   
 <!--{{ $material->id == $reporte->material_id  ? $cantidad[] =  $reporte ->amount  : '' }}-->  
+<!--{{ $material->id == $reporte->material_id  ? $cantidades[] =  $reporte ->id  : '' }}-->  
+<!--{{ $material->id == $reporte->material_id  ? $entregadovalor[] =  $reporte ->amount_delivery  : '' }}-->  
 
                                                             </div>          
 
@@ -82,11 +84,13 @@
                                              
 
                                    <?php 
+                                                                           $estadodeor = $reporte->state;
+
 //                                   for ($index = 0; $index < count($valor); $index++) {
 //                          echo '<div class="col-sm-6 col-6">-'. $valor[$index].' cantidad: '. $cantidad[$index]. '  </div> <br>';
 //                                   }
                                    ?>                      
-                             <div class="col-md-12" style="margin-top: -35px">
+                             <div class="col-md-12" >
                    
                                                        <table id="materials2"
                                         class="table table-striped table-hover table-sm data-table mt-4 mb-4">
@@ -95,37 +99,50 @@
                                             <th>Material</th>
                                             <th>Unidad de medida</th>
                                             <th>Cantidad</th>
+                                             <?php 
+                                            if ($estadodeor=='Aprobada'){
+                                            ?> 
+                                              @if (Auth::user()->hasRole('atmstockkeeper'))                      
+                                            <th style="width: 8px">Entregado</th>
+                                            @endif
+                                            <?php 
+                                            }
+                                            if ($estadodeor=='Entregada' || $estadodeor=='Recibido'){
+                                            ?> 
+                                            <th style="width: 8px">Entregado</th>
+                                            <?php } ?>
                                         </tr>
                                         </thead>
                                         <?php 
-                                        $estadodeor = $reporte->state;
                                    for ($index = 0; $index < count($valor); $index++) {
                           echo '<tr>
                                        <td>'. $valor[$index].'</td>
 <td>'.$metrica[$index].'</td>
-                                      <td>'. $cantidad[$index]. '</td>
-                                      
-                                   <br>';
-                                  //<td>'. $metrica[$index]. '</td>
-                          ?>
-
+                                      <td>'. $cantidad[$index]. '</td>';
+                                    if ($estadodeor=='Aprobada'){
+                                               ?>
                                         
-                                        <?php
+                                          @if (Auth::user()->hasRole('atmstockkeeper'))
+                                          <td>
+{!! Form::text($cantidades[$index], null, array('id' => $cantidades[$index], 'class' => 'form-control mr-2', 'placeholder' => '#')) !!}
+                      @endif                
+                                          </td>
+  <?php
+    }
+                                                                                           
+                                                           if ($estadodeor=='Entregada' || $estadodeor=='Recibido'){
+                                       echo '<td>'. $entregadovalor[$index]. '</td>';
+                                                } 
+                                                
                           }
                                    ?>
                                         <tr>
-                                           
+                                        
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                               
-<div class="col-sm-6 col-6">
-                                    <strong class="text-larger">
-                                        Fecha de creación
-                                    </strong>
-                                    {{ $reporte->created_at }}
-                                </div>
+                  
 
                              @endif
                                  
@@ -188,10 +205,107 @@ foreach ($datospersonas as $cliente) {
 
                                  ?>
                             </div>
+                                          
+<div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Fecha de creación
+                                    </strong>
+                                    {{ $reporte->created_at }}
+                                </div>
+                           @if ($reporte->date_aprob_or_neg)
+                             <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Fecha de aprobación
+                                    </strong>
+                                    {{ $reporte->date_aprob_or_neg }}
+                                </div>
+                           @endif
+                           @if ($reporte->date_delivery)
+                              <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Fecha de entrega
+                                    </strong>
+                                    {{ $reporte->date_delivery }}
+                                </div>
+                           @endif
+                           @if ($reporte->receipt)
+                              <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Fecha de recibido
+                                    </strong>
+                                    {{ $reporte->receipt }}
+                                </div>
+                           @endif
                         </div>
 
                         <hr/>
 
+@section('footer_scripts')
+    <script type="text/javascript" src="{{ config('atm_app.selectizeJsCDN') }}"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function() {
+    var valor =  new Array();
+    var id =  new Array();
+    var nuevo = '';
+    var iteracion = 0;
+ $('.form-control').change(function() {
+var name1 = $(this).attr("value");
+var name2 = $(this).attr("name");
+        if (iteracion==0){
+        valor.push(name1);
+        id.push(name2);
+    }       
+//alert(name1 +' nombre '+ name2);
+//if (iteracion>0){
+var siono = 0;
+//if (iteracion==1){
+//    console.clear();
+for (i=0; i< valor.length; i++){           
+if (id[i]==name2){
+//    alert('igual');
+    id.splice(i,1);
+    valor.splice(i,1);
+   siono =1;
+            }else { 
+                siono=1;
+            }
+}
+if (siono==1){
+     valor.push(name1);
+          id.push(name2);    
+}
+var nuevo = '';
+for (i=0; i< valor.length; i++){
+    document.getElementById('p'+id[i]).value=valor[i];
+    console.log(id[i]);
+    console.log(valor[i]);
+     nuevo = nuevo +name1;
+    }
+//}
+  iteracion = 1;
+       nuevo = nuevo +name1;
+    
+//document.getElementById('cantidad').value = nuevo;
+ });
+});
+</script>
+<!--  <script>
+        $(document).ready(function () {               
+//    alert('hola');        
+      
+              });
+        function hola(){
+   $('.form-control').change(function() {
+var name1 = $(this).attr("value");
+alert(name1);
+ });
+            //alert('hola')
+        }
+ </script>-->
+@endsection
  <?php if ($estadodeor=='Ingresada'){ ?>
                         @if (Auth::user()->hasRole('atmadmin'))
                             <br/>
@@ -237,9 +351,17 @@ foreach ($datospersonas as $cliente) {
                             <br/>
                             <div class="row">
                                 <div class="col-12">
-                                   {!! Form::open(array('route' => ['entregar', $report], 'method' => 'GET', 'role' => 'form')) !!}
+                                   {!! Form::open(array('route' => ['entregarnew', $report], 'method' => 'POST', 'role' => 'form')) !!}
                     {!! csrf_field() !!}
-                                     
+<?php
+  for ($index = 0; $index < count($valor); $index++) {
+      ?>
+{!! Form::hidden('p'.$cantidades[$index], null, array('id' => 'p'.$cantidades[$index], 'class' => 'form-control mr-2', 'placeholder' => '#')) !!}
+                    <?php                       
+  }
+                          ?>
+                     
+  <!--<input type="text" id="cantidad" name="cantidad"  >-->
                                       {!! Form::button(trans('<i class="fa fa-check"></i> Entregada'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
 
        
@@ -259,6 +381,7 @@ foreach ($datospersonas as $cliente) {
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('footer_scripts')
@@ -266,3 +389,4 @@ foreach ($datospersonas as $cliente) {
         @include('scripts.tooltips')
     @endif
 @endsection
+

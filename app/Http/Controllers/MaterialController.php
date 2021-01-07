@@ -433,6 +433,34 @@ if ($valor=='Si'){
 //        echo $id;
     }
     
+    
+    
+    public function entregarnew(Request $request, $id)
+    {
+        $material = Material::where('id_matrepord','=',$id)->get();         
+//        dd($material);
+        $factual = date('Y-m-d H:i:s');
+        if ($material) {
+            foreach ($material as $materia) {
+            $nuevacantidad = $materia->amount;
+//echo $request->get($materia->id);
+                  if ($request->get('p'.$materia->id) <> ''){
+$nuevacantidad=$request->get('p'.$materia->id); 
+                  } else { }
+         $materia->amount_delivery=$nuevacantidad;
+         $materia->state='Entregada';        
+         $materia->date_delivery=$factual;
+            if ($materia->save()) {
+                $materia->mask_as_read();                
+            }
+              }
+            // Update basic attributes
+                return redirect('materials/')->with('success', trans('materials.entregSuccess'));          
+        }
+        return back()->with('error', trans('materials.udpateError'));
+//        echo $id;
+    }
+    
     public function recibir($id)
     {
         $material = Material::where('id_matrepord','=',$id)->get();         
