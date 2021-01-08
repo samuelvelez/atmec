@@ -69,7 +69,16 @@
                                 </tr>
                                 </thead>
                                 <tbody id="reports_table">
+                                    <?php 
+                                    $valor1 = '';
+                                    ?>
                                 @foreach($reports as $report)
+                                <?php
+                                $valor0 = $report->id_matrepord;
+                                if ($valor1==$valor0) { }
+                                else { 
+                                    $valor1 = $valor0;
+                                ?>
                                     <tr>
                                         <td><a href="{{ URL::to('materials/' . $report->id_matrepord) }}" data-toggle="tooltip"
                                                title="Mostrar orden de retiro">{{ $report->id_matrepord }}</a></td>
@@ -142,7 +151,10 @@ foreach ($datospersonas as $cliente) {
                                         @endrole
                                         </td>
                                     </tr>
+                                    
+                                    <?php } ?>
                                 @endforeach
+                                
                                 </tbody>
                             </table>
 

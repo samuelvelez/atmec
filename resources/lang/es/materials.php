@@ -23,7 +23,7 @@ return [
     'reports-table' => [
         'caption'   => '{1} Existe una orden de retiro.|[2,*] Cantidad total de ordenes de retiro: :reportstotal.',
         'id'        => 'ID',
-        'reportid'     => 'ID Reporte',
+        'reportid'     => 'ID Orden Trabajo',
         'order'     => 'Orden de trabajo',
         'creator'     => 'Creador',
         'novelty'     => 'Novedad',

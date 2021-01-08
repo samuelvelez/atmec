@@ -361,14 +361,13 @@
                                     </button>
                                 </div>
                                
-                                     <a href="../../materials/<?php echo $report->id; ?>/edit">Clic para solicitar materiales</a>
+<!--                                     <a href="../../materials/<?php echo $report->id; ?>/edit">Clic para solicitar materiales</a>
                                      <button onclick="window.location='../../materials/<?php echo $report->id; ?>/edit'"  id="del-material" type="button" class="btn btn-sm btn-danger float-right">
                                         Solicitar materiales
-                                    </button>
+                                    </button>-->
                                 </div>
                                 
                             </div>
-                        </div>
 <!--
                         <div class="text-center" style="color: royalblue;"><strong>Materiales requeridos</strong></div>
                         <div class="row">
@@ -436,7 +435,9 @@
                         {!! Form::button(trans('Finalizar'), array('class' => 'btn btn-success margin-bottom-1 mb-1  mr-2 float-right','type' => 'submit', 'id'=>'finalizar')) !!}
                         {!! Form::button(trans('Enviar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
                         {!! Form::button(trans('Solicitar Materiales'), array('class' => 'btn btn-primary margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_materiales')) !!}
-                        
+                        <button onclick="window.location='../../materials/<?php echo $report->id; ?>/edit'"  id="del-material" type="button" class="btn btn-light margin-bottom-1 mb-1 mr-2 float-right">
+                                        Solicitar materiales
+                                    </button>
                         {!! Form::close() !!}
                     </div>
 

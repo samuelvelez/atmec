@@ -216,16 +216,21 @@
                             {!! trans('titles.retirobodegaList') !!}
                         </a>
                         @endrole
-
+                        @role('atmstockkeeper')
+                        <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+                           href="{{ URL::to('/materials/') }}">
+                            {!! trans('titles.retirobodegaList') !!}
+                        </a>
+                        @endrole
                         @role('atmstockkeeper|atmadmin')
                         <a class="dropdown-item {{ Request::is('storage-inventoy', 'storage-inventory/*') ? 'active' : null }}"
                            href="{{ URL::to('/storage-inventory/') }}">
                             {!! trans('Gestion de Bodega') !!}
                         </a>
-                          <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+<!--                          <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
                            href="{{ URL::to('/materials/') }}">
                             {!! trans('titles.retirobodegaList') !!}
-                        </a>
+                        </a>-->
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item {{ Request::is('itorders', 'itorders/*') ? 'active' : null }}"
                            href="{{ URL::to('/itorders/') }}">

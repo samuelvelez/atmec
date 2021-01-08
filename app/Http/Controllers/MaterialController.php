@@ -46,7 +46,7 @@ class MaterialController extends Controller
         $pagintaionEnabled = config('atm_app.enablePagination');
 
     if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
-    $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+    $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->orderby('material_report_order.id', 'desc');
       $usersol = User::all();
         
 //    $reports2 = Material::select('*')->join('users', 'users.id', 'material_report_order.id_useraproborneg')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
@@ -56,7 +56,7 @@ class MaterialController extends Controller
 //->where('alerts.collector_id', Auth::user()->id)
         }
         else  if (Auth::user()->hasRole('atmstockkeeper')) {
-            $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('state','=','Aprobada')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+            $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('state','=','Aprobada')->orderby('material_report_order.id', 'desc');
 //    $reports = Material::select('material_report_order.*')->where('state','=','Aprobada')->groupby('id_matrepord')->orderby('id', 'asc');
       $usersol = User::all();
         
@@ -140,7 +140,6 @@ $valor = $request->get('aprob');
            $materialinst = Material::create([
             'id_matrepord' => $matdev,            
             'description' => $request->get('description'),   
-            'report_id' => null,
             'material_id' => $device->id,
             'metric_id' => $metric->id,
             'amount' => $material->amount,
@@ -487,9 +486,9 @@ $nuevacantidad=$request->get('p'.$materia->id);
     public function show($id)
     {
         $reports = Material::select('material_report_order.*')->where('id_matrepord',$id)->orderby('id', 'asc')->get();
-        $idusercrea = Material::select('id_usercreate')->where('id_matrepord',$id)->groupby('id_matrepord')->get();
+        $idusercrea = Material::select('id_usercreate')->where('id_matrepord',$id)->get();
       $usersol = User::all();
-      $reporteee = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('id_matrepord',$id)->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+      $reporteee = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('id_matrepord',$id)->orderby('material_report_order.id', 'desc');
        //Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');
         $report = $id;
 //   $groups= \App\Models\Brandstype::orderby('id','asc')->get();  
