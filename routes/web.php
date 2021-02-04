@@ -212,11 +212,13 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstockkeepe
     ]);
     
         Route::resource('materials', 'MaterialController')->only([
-        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+        'index', 'show', 'create', 'store', 'edit', 'store2', 'editar', 'update', 'destroy'
     ]);
+Route::get('/materials/{id}/editar', 'MaterialController@editar')->name('editar');
 Route::get('/materials/aprobar/{id}', 'MaterialController@aprobar')->name('aprobar');
+Route::post('/materials/negar/{id}', 'MaterialController@negar')->name('negar');
 Route::get('/materials/entregar/{id}', 'MaterialController@entregar')->name('entregar');
-Route::post('/materials/entregarnew/{id}', 'MaterialController@entregarnew')->name('entregarnew');
+Route::post('/materials/entregarnewmaterial/{id}', 'MaterialController@entregarnewmaterial')->name('entregarnewmaterial');
 
     Route::resource('itorders', 'ItorderController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
@@ -228,14 +230,22 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
     Route::resource('/ordenes','OrdenController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
+    Route::get('/ordenes/{id}/close', 'OrdenController@close');
+    
+    
     Route::resource('alerts', 'AlertController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::resource('materials','MaterialController')->only([
-        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+        'index', 'show', 'create', 'store', 'edit', 'update', 'store2', 'destroy'
     ]);
     Route::get('/materials/recibir/{id}', 'MaterialController@recibir')->name('recibir');
 
+    Route::resource('delivery-material','DeliveryMaterialController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
+    ]);
+//    Route::get('/materials/recibir/{id}', 'MaterialController@recibir')->name('recibir');
+    
     
 });
 
@@ -269,8 +279,17 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstorage|at
     ]);
     
            Route::resource('materials', 'MaterialController')->only([
+        'index', 'show', 'create', 'store', 'edit', 'update', 'store2', 'destroy'
+    ]);
+           Route::get('/materials/{id}/editar', 'MaterialController@editar')->name('editar');
+Route::get('/materials/aprobar/{id}', 'MaterialController@aprobar')->name('aprobar');
+Route::post('/materials/negar/{id}', 'MaterialController@negar')->name('negar');
+Route::get('/materials/entregar/{id}', 'MaterialController@entregar')->name('entregar');
+Route::post('/materials/entregarnewmaterial/{id}', 'MaterialController@entregarnewmaterial')->name('entregarnewmaterial');
+              Route::resource('delivery-material','DeliveryMaterialController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
+              Route::post('/delivery-material/entregarnew/{id}', 'DeliveryMaterialController@entregarnew')->name('entregarnew');
 });
 
 // Registered, activated, and is atmadmin routes.

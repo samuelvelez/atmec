@@ -27,7 +27,7 @@
                                    data-toggle="tooltip" data-placement="left"
                                    title="{{ trans('Regresar') }}">
                                     <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-                                    {!! trans('Regresar a las ordenes') !!}
+                                    {!! trans('Regresar a las ordenes' ) !!}
                                 </a>
                             </div>
                         </div>
@@ -227,10 +227,17 @@
                             @endif
                         </div> 
                         
-                        
+                                                
 
                         <div class="clearfix"></div>
                         <div class="border-bottom"></div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
 
                         <div class="row">
                             @if ($alert->created_at)
@@ -238,6 +245,7 @@
                                     <strong class="text-larger">
                                         {{ trans('alerts.labelCreated') }}
                                     </strong>
+                                   
                                     {{ $alert->created_at }}
                                 </div>
                             @endif
@@ -259,12 +267,58 @@
                                     No leida
                                 @endif
                             </div>
+                            <?php                              
+                            $idmaterialfk = '';   
+                            ?>
+                            @if ($materialid)
+                            @foreach ($materialid as $materialess)
+                            <?php 
+                            $idmaterialfk = $materialess->id_matrepord;
+                            ?>
+                            @endforeach
+                            @endif
+                            @if ($idmaterialfk<>'')
+                            <div class="col-sm-12 col-12">
+                                    <strong class="text-larger">
+                                        Orden de Retiro asociada:
+                                    </strong>
+                                <a target="_blank" href="../materials/{{ $idmaterialfk }}">{{ $idmaterialfk }}</a>
+                                </div>
+                            @endif
+                            
+                            
+                             <?php 
+                             $delf[0]='';
+                             if (count($report)>0){
+                                    $del1 = explode(':', $report) ;
+                                            $delf = explode('}', $del1[1]);
+                             }
+                                            ?>
+                            @if($delf[0])
+                            <div class="col-sm-12 col-12">
+                                    <strong class="text-larger">
+                                        Reporte asociado: 
+                                    </strong>
+                                <a target="_blank" href="../reports/{{ $delf[0] }}">{{ $delf[0] }}</a>
+                                </div>
+                            @endif
+                            
+                           
+                            
                         </div>
 
                         <div class="clearfix"></div>
                         <div class="border-bottom"></div>
 
                         <br/>
+                        <div class="row" id="esconder" style="display: none">
+                             <div class="col-12">
+                                
+                                 <input type="text" class="form-control" placeholder="Escriba el motivo para anular la orden de trabajo">
+                            </div>
+                             <br>
+                        </div>
+                       
                         <div class="row">
                             <div class="col-4">
                                 <a class="btn btn-sm btn-success btn-block"
@@ -273,20 +327,39 @@
                                             class="hidden-xs"> Nueva Orden</span></a>
                             </div>
                             <div class="col-4">
-                            </div>
-                            <div class="col-4">
                                 @role('atmoperator|atmadmin')
                                 <a class="btn btn-sm btn-info btn-block"
                                    href="{{ URL::to('ordenes/' . $alert->id . '/edit') }}"><i
                                             class="fa fa-edit"></i> <span class="hidden-xs">Editar</span></a>
+                                   
                                 @endif
                             </div>
+                            <div class="col-4">
+                                
+                                <a id="btenviar"  style="color: white" class="btn btn-sm btn-danger btn-block"
+                                             onclick="mostrar()"><i
+                                                 class="fa fa-ban"></i> <span class="hidden-xs">Anular</span></a>
+                            </div>
+                            
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<script>
+var contador =0;
+    function mostrar(){
+        contador = contador +1;
+                if (contador==2){
+                    
+                } else { 
+                                    document.getElementById('esconder').style.display = 'inherit';    
+
+                }
+    }
+    </script>
 
     @include('modals.modal-delete')
 

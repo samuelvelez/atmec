@@ -215,11 +215,23 @@
                            href="{{ URL::to('/materials/') }}">
                             {!! trans('titles.retirobodegaList') !!}
                         </a>
+                        <div class="dropdown-divider"></div>
+                          
+                        <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+                           href="{{ URL::to('/delivery-material/') }}">
+                            {!! trans('titles.entregamaterialList') !!}
+                        </a>
                         @endrole
                         @role('atmstockkeeper')
                         <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
                            href="{{ URL::to('/materials/') }}">
                             {!! trans('titles.retirobodegaList') !!}
+                        </a>
+                        <div class="dropdown-divider"></div>
+                          
+                        <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+                           href="{{ URL::to('/delivery-material/') }}">
+                            {!! trans('titles.entregamaterialList') !!}
                         </a>
                         @endrole
                         @role('atmstockkeeper|atmadmin')

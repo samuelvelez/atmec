@@ -34,8 +34,19 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 col-12">
-                                
-                      
+                                 @if ($reports)
+                              @foreach($reports as $reporte)
+                              <?php 
+                               $recibido= $reporte->state;
+                               ?>
+                              @endforeach
+                              @endif  
+                       <?php if ($recibido == 'Recibido') {?>
+                                <form action="../../pdf.php" method="POST" target="_blank">
+                                    <input type="hidden" name="material" value="<?php echo $report ?>">                                    
+                                    <button type="submit">PDF</button>
+                                </form>
+                               <?php } ?>
                                 
                                 
                                 
@@ -113,20 +124,22 @@
                                             <?php } ?>
                                         </tr>
                                         </thead>
+                                          
                                         <?php 
                                    for ($index = 0; $index < count($valor); $index++) {
                           echo '<tr>
                                        <td>'. $valor[$index].'</td>
 <td>'.$metrica[$index].'</td>
-                                      <td>'. $cantidad[$index]. '</td>';
+                                      <td id='.'abcd'.$cantidades[$index].' >'. $cantidad[$index]. '</td>';
                                     if ($estadodeor=='Aprobada'){
                                                ?>
                                         
                                           @if (Auth::user()->hasRole('atmstockkeeper'))
                                           <td>
-{!! Form::text($cantidades[$index], null, array('id' => $cantidades[$index], 'class' => 'form-control mr-2', 'placeholder' => '#')) !!}
-                      @endif                
+<input type="text" id="<?php echo $cantidades[$index]?>" name="<?php echo $cantidades[$index]?>" onblur="validacion(<?php echo $cantidades[$index] ?>)" class="form-control mr-2" placeholder="#">
+@endif                
                                           </td>
+                                       
   <?php
     }
                                                                                            
@@ -136,6 +149,28 @@
                                                 
                           }
                                    ?>
+                                           <script>
+                                              function validacion(valor){
+                                             content = document.getElementById('abcd'+valor);                                          
+//        alert (content.innerHTML);
+//                                                  alert(document.getElementById('abc'+valor).value);
+                                                  var original = new Number(content.innerHTML); //document.getElementById('abc'+valor).value;
+//                                                  alert(original);
+                                                  var nuevo= new Number(document.getElementById(valor).value);                                                  
+//                                                  alert(nuevo +' + ' + original)
+                                                  if (nuevo<=original) {
+                                                      document.getElementById('p'+valor).value= nuevo;   
+                                                  }
+                                                  else {
+//                                                      alert(nuevo + ' valor ori '+ original)
+                                                      alert('Por favor, el número entregado no puede ser mayor al pedido originalmente.');
+                                                   document.getElementById(valor).value= '';   
+                                                   document.getElementById('p'+valor).value= '';   
+                                                  }
+                                                  //alert (getvalor);
+                                                  //alert('bien');
+                                              }
+                                              </script>
                                         <tr>
                                         
                                         </tr>
@@ -145,6 +180,15 @@
                   
 
                              @endif
+                             
+                              @if ($reporte->description)
+                             <div class="col-sm-12 col-12">
+                                    <strong class="text-larger">
+                                        Descripción: 
+                                    </strong>
+                                    {{ $reporte->description }}
+                                </div>
+                           @endif
                                  
                             <div class="col-sm-6 col-6">
                                 <strong class="text-larger">
@@ -210,20 +254,36 @@ foreach ($datospersonas as $cliente) {
                                     <strong class="text-larger">
                                         Fecha de creación
                                     </strong>
-                                    {{ $reporte->created_at }}
+                                    {{ $reporte->date_create_ori }}
                                 </div>
                            @if ($reporte->date_aprob_or_neg)
                              <div class="col-sm-6 col-6">
                                     <strong class="text-larger">
-                                        Fecha de aprobación
+                                        Fecha de cambio de estado:
                                     </strong>
                                     {{ $reporte->date_aprob_or_neg }}
+                                </div>
+                           @endif
+                           @if ($reporte->state)
+                             <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Estado:
+                                    </strong>
+                                    {{ $reporte->state }}
+                                </div>
+                           @endif
+                           @if ($reporte->date_aprob_or_neg)
+                             <div class="col-sm-6 col-6">
+                                    <strong class="text-larger">
+                                        Observación o Motivo:
+                                    </strong>
+                                    {{ $reporte->observations }}
                                 </div>
                            @endif
                            @if ($reporte->date_delivery)
                               <div class="col-sm-6 col-6">
                                     <strong class="text-larger">
-                                        Fecha de entrega
+                                        Fecha de entrega:
                                     </strong>
                                     {{ $reporte->date_delivery }}
                                 </div>
@@ -231,7 +291,7 @@ foreach ($datospersonas as $cliente) {
                            @if ($reporte->receipt)
                               <div class="col-sm-6 col-6">
                                     <strong class="text-larger">
-                                        Fecha de recibido
+                                        Fecha de recibido:
                                     </strong>
                                     {{ $reporte->receipt }}
                                 </div>
@@ -239,13 +299,19 @@ foreach ($datospersonas as $cliente) {
                         </div>
 
                         <hr/>
+                        <div class="row" id="observaciondiv" style="display: none">
+                                <div class="col-10">
+                                    Indique el motivo de la negación
+                                    <input type="text" id="obs" class="form-control" onkeyup="document.getElementById('observtxt').value=(this.value)" name="obs" placeholder="Por favor, ingrese el motivo.">
+                                </div>
+                              </div>
 
 @section('footer_scripts')
     <script type="text/javascript" src="{{ config('atm_app.selectizeJsCDN') }}"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-<script>
+<!--<script>
 $(document).ready(function() {
     var valor =  new Array();
     var id =  new Array();
@@ -291,7 +357,7 @@ for (i=0; i< valor.length; i++){
 //document.getElementById('cantidad').value = nuevo;
  });
 });
-</script>
+</script>-->
 <!--  <script>
         $(document).ready(function () {               
 //    alert('hola');        
@@ -310,7 +376,7 @@ alert(name1);
                         @if (Auth::user()->hasRole('atmadmin'))
                             <br/>
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-10" id="negard">
                                    {!! Form::open(array('route' => ['aprobar', $report], 'method' => 'GET', 'role' => 'form')) !!}
                     {!! csrf_field() !!}
                                      
@@ -322,7 +388,20 @@ alert(name1);
                                        href="{{ URL::to('materials//edit') }}"><i
                                                 class="fa fa-check"></i> <span class="hidden-xs">Aprobar</span></a>-->
                                 </div>
+                                <div class="col-2" id="negar1">                                
+                                     <button  class='btn btn-danger margin-bottom-1 mb-1 mr-2 float-left' type="button" onclick="document.getElementById('observaciondiv').style.display='inherit';document.getElementById('negar1').style.display='none'; document.getElementById('negarsi').style.display='inline';   "><i class="fa fa-close"></i> Negar</button>
+                                     </div>
+                                <div class="col-2"  id="negarsi" style="display: none">
+                                   {!! Form::open(array('route' => ['negar', $report], 'method' => 'POST', 'role' => 'form')) !!}
+                    {!! csrf_field() !!}
+                                     {!! Form::hidden('observtxt', null, array('id' => 'observtxt')) !!}
+                                      {!! Form::button(trans('<i class="fa fa-close"></i> Negar'), array('class' => 'btn btn-danger margin-bottom-1 mb-1 mr-2 float-left','type' => 'submit', 'id' => 'btn_enviar' )) !!}
+
+       
+                         {!! Form::close() !!}
+                                     </div>
                             </div>
+                          
                         @endif
                         
  <?php } ?>
@@ -351,7 +430,7 @@ alert(name1);
                             <br/>
                             <div class="row">
                                 <div class="col-12">
-                                   {!! Form::open(array('route' => ['entregarnew', $report], 'method' => 'POST', 'role' => 'form')) !!}
+                                   {!! Form::open(array('route' => ['entregarnewmaterial', $report], 'method' => 'POST', 'role' => 'form')) !!}
                     {!! csrf_field() !!}
 <?php
   for ($index = 0; $index < count($valor); $index++) {
@@ -362,8 +441,8 @@ alert(name1);
                           ?>
                      
   <!--<input type="text" id="cantidad" name="cantidad"  >-->
-                                      {!! Form::button(trans('<i class="fa fa-check"></i> Entregada'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
-
+                                      {!! Form::button(trans('<i class="fa fa-check"></i> Entregada'), array('class' => 'btn btn-success margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
+{!! Form::button(trans('<i class="fa fa-pencil"></i> Editar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'button', 'id' => 'btn_enviar', 'onclick'=>'window.location="'.$report.'/editar"' )) !!}
        
                          {!! Form::close() !!}
                                       <!--                                    <a class="btn btn-sm btn-info float-right"

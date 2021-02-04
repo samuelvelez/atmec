@@ -233,7 +233,7 @@
                         </div>
                         <div class="row">
                             <input type="checkbox" name="materiales" id="mat_escalera" class="form-control col-3"/>
-                            <label for="mat_escalera" class="col-3">Usa Materiales</label>
+                            <label for="mat_escalera" class="col-3">Usa Materiales (Propios de escalera)</label>
                         </div>
                         <div id="cont_materiales">
                             <div class="text-center" style="color: royalblue;"><strong>Materiales requeridos</strong></div>
@@ -297,7 +297,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="row mt-3">
+<!--                        <div class="row mt-3">
                             <input type="checkbox" name="materiales2" id="mat_bodega" class="form-control col-3"/>
                             <label for="mat_bodega" class="col-3">Requiere Materiales Adicionales</label>
                         </div>
@@ -359,15 +359,15 @@
                                     <button id="del-material" type="button" class="btn btn-sm btn-danger float-right">
                                         <i class="fa fa-fw fa-trash"></i>
                                     </button>
-                                </div>
+                                </div>-->
                                
 <!--                                     <a href="../../materials/<?php echo $report->id; ?>/edit">Clic para solicitar materiales</a>
                                      <button onclick="window.location='../../materials/<?php echo $report->id; ?>/edit'"  id="del-material" type="button" class="btn btn-sm btn-danger float-right">
                                         Solicitar materiales
-                                    </button>-->
+                                    </button>
                                 </div>
+                            </div>-->
                                 
-                            </div>
 <!--
                         <div class="text-center" style="color: royalblue;"><strong>Materiales requeridos</strong></div>
                         <div class="row">
@@ -428,16 +428,25 @@
                                 </button>
                             </div>
                         </div>-->
-                        <hr>
                         {!! Form::hidden("tipo", "0", array('id' => 'tipo')) !!}
                         {!! Form::hidden("materials_list", null, array('id' => 'materials_list')) !!}
 
                         {!! Form::button(trans('Finalizar'), array('class' => 'btn btn-success margin-bottom-1 mb-1  mr-2 float-right','type' => 'submit', 'id'=>'finalizar')) !!}
                         {!! Form::button(trans('Enviar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
-                        {!! Form::button(trans('Solicitar Materiales'), array('class' => 'btn btn-primary margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_materiales')) !!}
-                        <button onclick="window.location='../../materials/<?php echo $report->id; ?>/edit'"  id="del-material" type="button" class="btn btn-light margin-bottom-1 mb-1 mr-2 float-right">
-                                        Solicitar materiales
-                                    </button>
+<!--                        {!! Form::button(trans('Solicitar Materiales'), array('class' => 'btn btn-primary margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_materiales')) !!}
+                        -->
+                        @if ($materialid)
+                        @foreach ($materialid as $materiales)
+<?php 
+$materialid = $materiales->id_matrepord;
+?>                        
+                        
+                        @endforeach
+                        <a href="../../materials/<?php echo  $materialid; ?>" target="_blank"> 
+                            <button  id="del-material" type="button" class="btn btn-primary margin-bottom-1 mb-1 mr-2 float-right">
+                            Ver materiales adicionales
+                                   </button></a>       
+                        @endif
                         {!! Form::close() !!}
                     </div>
 
@@ -467,8 +476,8 @@
                 $("#tipo").val("8");
                 console.log($('form').submit());
             });
-            $('#btn_materiales').click(function(){
-                $("#tipo").val("9");
+            $('#finalizar').click(function(){
+                $("#tipo").val("3");
                 $('form').submit();
             });
             $('form').submit(function(){

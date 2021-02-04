@@ -57,6 +57,7 @@ return [
 
     'ordersList'      => 'Órdenes de trabajo',
     'retirobodegaList'      => 'Ordenes de retiro',
+    'entregamaterialList'      => 'Entrega de materiales',
     'alertsList'      => 'Alertas',
     'reportsList'      => 'Reportes',
     'materialsList'      => 'Materiales',

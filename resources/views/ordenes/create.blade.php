@@ -60,6 +60,26 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+              {!! Form::label('bodegalbl', 'Escoja la bodega', array('class' => 'col-md-3 control-label')); !!}
+                              <div class="col-md-9">
+                                <div class="form-group">
+                                    <select id="bodega" name="bodega">
+                                        <option value="">Seleccione la bodega</option>
+                                        <option value="Bodega Mapasingue">Bodega Mapasingue</option>
+                                        <option value="Sitio específico">Sitio específico</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"  id="sitiodetalle" style="display: none" >
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  {!! Form::text('sitioespecificodetail', NULL, array('id' => 'sitioespecificodetail', 'class' => 'form-control', 'placeholder' => 'Escriba el sitio específico de la orden')) !!}
+                                </div>
+                            </div>
+                        </div>
+                        
                         <hr>
 
                         <div class="form-group has-feedback row {{ $errors->has('latitude') ? ' has-error ' : '' }}">
@@ -135,7 +155,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('longitude') ? ' has-error ' : '' }}">
+                        <div id="motivoordenview" class="form-group has-feedback row {{ $errors->has('longitude') ? ' has-error ' : '' }}">
                             {!! Form::label('motivoOrden', trans('Motivo de Orden de trabajo'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
@@ -147,7 +167,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('tipo') ? ' has-error ' : '' }}">
+                        <div id="tipoordenview" class="form-group has-feedback row {{ $errors->has('tipo') ? ' has-error ' : '' }}">
                             {!! Form::label('tipo', trans('Tipo de Orden'), array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
@@ -189,6 +209,28 @@
         
     <script>
         $(document).ready(function () {
+            
+        $('#bodega').change(function(){    
+var valor='';
+     valor = this.value;
+     if (valor=='Bodega Mapasingue'){
+       document.getElementById('sitioespecificodetail').value = '';
+       document.getElementById('sitiodetalle').style.display = 'none';  
+       document.getElementById("motivoOrden").disabled = true;
+       document.getElementById('tipo').disabled = true;  
+       document.getElementById('tipoordenview').style.display = 'none';  
+       document.getElementById('motivoordenview').style.display = 'none';            
+     } else if (valor=='Sitio específico'){
+        document.getElementById('sitiodetalle').style.display = 'inherit'; 
+        document.getElementById('tipoordenview').style.display = 'none';  
+       document.getElementById('motivoordenview').style.display = 'none';  
+        } else {
+        document.getElementById('tipoordenview').style.display = 'inline';  
+       document.getElementById('motivoordenview').style.display = 'inline';       
+        }      
+//     alert(valor);
+});
+
         @role('atmadmin|atmoperator|ccitt')
             $("#collector").selectize({
                 allowClear: true,
@@ -318,6 +360,16 @@
                     }
                 },
             });
+            
+             $("#bodega").selectize({
+                allowClear: true,
+                create: false,
+                highlight: true,
+                diacritics: true     
+            }); 
+            
+            
+            
         });
     </script>
 

@@ -30,10 +30,11 @@ class Alert extends Eloquent
 {
     use ReadedByCollector;
 
-    const STATUS_UNATTENDED = 'No atendido';
+    const STATUS_UNATTENDED = 'Iniciada';
     const STATUS_ATTENDED = 'atendido';
 
 	protected $casts = [
+            
 		'owner_id' => 'int',
 		'collector_id' => 'int',
 		'status_id' => 'int',
@@ -46,7 +47,8 @@ class Alert extends Eloquent
     ];
 
 	protected $fillable = [
-		'owner_id',
+		'id',
+                'owner_id',
 		'collector_id',
 		'status_id',
 		'latitude',
@@ -57,7 +59,8 @@ class Alert extends Eloquent
 		'tipoOrden',
 		'detail',
 		'description',
-
+                'storage_or_site',
+                'site_detail',
 	];
 
     public static function rules($merge = [])
@@ -91,4 +94,10 @@ class Alert extends Eloquent
     {
         return $this->hasOne(Report::class);
     }
+    
+    	public function materials()
+    {
+        return $this->hasMany(MaterialReport::class, 'id');
+    }
+
 }

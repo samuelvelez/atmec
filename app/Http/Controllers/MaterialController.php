@@ -109,6 +109,137 @@ class MaterialController extends Controller
      */
     public function store(Request $request)
     {
+        ////ES EDICION
+        if (isset($_REQUEST['esedicion'])){
+            //echo $_REQUEST['esedicion'];
+//               $matdev = 0;
+//                $matdev=  Material::max('id_matrepord');
+
+//$matdev =Material::orderBy('id_matrepord','desc')->take(1)->get();
+//$materialid = $materialid+1;
+//$fechac = Material::select('created_at')->where('id_matrepord',$request->get('idmtr'))->orderby('id', 'asc')->get();            
+            
+       if (Auth::user()->hasRole('atmadmin') || Auth::user()->hasRole('ccitt')) {
+            $collectors = 'adminccitt';
+             $collector_id = Auth::user()->id;
+            //where('collector_id', Auth::user()->id)->
+        }
+        else if (Auth::user()->hasRole('atmcollector')) {
+            $collectors =  'escalera';
+            $collector_id = Auth::user()->id;
+        } else {
+               $collectors =  'bodega';
+            $collector_id = Auth::user()->id;
+        }
+//$matdev=$matdev+1;        
+$valor = '';
+$concat = '';
+$valor = $request->get('aprob');
+
+$matdev = $request->get('idmtr');
+
+//BORRAR ANTERIORES REGISTROS
+//$vsignal = Material::select('*')->where('id_matrepord','=',$matdev)->orderby('id', 'asc')->get();            
+//            $vsignal->delete();
+
+           Material::select('material_report_order')->where('id_matrepord', $matdev)->delete();
+           
+            $materials = json_decode($request->input('materials_list'));            
+            if($materials){
+//            dd($materials);
+                $factual = date('Y-m-d H:i:s');
+                foreach ($materials as $material) {
+                    $device = DevicesInventory::find($material->id);
+                    $metric = MetricUnit::where('abbreviation', $material->metric)->first();    
+
+                    if ($device && $metric) {
+                        if ($collectors=='escalera'){
+           $materialinst = Material::create([
+            'id_matrepord' => $matdev,            
+            'description' => $request->get('description'),   
+            'material_id' => $device->id,
+            'metric_id' => $metric->id,
+            'amount' => $material->amount,
+            'state' => 'Ingresada',
+            'id_usercreate' => $collector_id,
+               'id_userrequire' =>$collector_id,
+            'id_useraproborneg' => null,
+            'report_id' => $request->get('orderid'),
+               'date_create_ori' =>$request->get('fechac'),
+                        ]);
+            $materialinst->save();       
+           } else  if ($collectors=='adminccitt'){
+if ($valor=='Si'){ 
+    $materialinst = Material::create([
+            'id_matrepord' => $matdev,            
+            'description' => $request->get('description'),   
+            'id_useraproborneg' => $collector_id,
+            'report_id' => null,
+            'material_id' => $device->id,
+            'metric_id' => $metric->id,
+            'amount' => $material->amount,
+            'state' => 'Aprobada',
+            'id_usercreate' => $collector_id,
+            'id_userrequire' =>$request->collector,
+            'date_aprob_or_neg' => $factual,
+            'id_useraproborneg' => $collector_id,
+        'report_id' => $request->get('orderid'),
+        'date_create_ori' =>$request->get('fechac'),
+                        ]);
+            $materialinst->save();   
+} else {                
+           $materialinst = Material::create([
+            'id_matrepord' => $matdev,            
+            'description' => $request->get('description'),   
+           'id_useraproborneg' => null,
+            'report_id' => null,
+            'material_id' => $device->id,
+            'metric_id' => $metric->id,
+            'amount' => $material->amount,
+            'state' => 'Ingresada',
+            'id_usercreate' => $request->get('iduserc'),
+               'id_userrequire' =>$request->get('iduserr'),
+               'date_aprob_or_neg' => null,
+            'id_useraproborneg' => null,  
+               'date_create_ori' =>$request->get('fechac'),
+                        ]);
+//           dd($materialinst);
+            $materialinst->save();       
+         }  } else  if ($collectors=='bodega'){
+    $materialinst = Material::create([
+            'id_matrepord' => $matdev,            
+            'description' => $request->get('description'),   
+            'id_useraproborneg' => $request->get('iduseraon'),
+            'report_id' => $request->get('reporid'),
+            'material_id' => $device->id,
+            'metric_id' => $metric->id,
+            'amount' => $material->amount,
+            'state' => 'Aprobada',
+            'id_usercreate' => $request->get('iduserc'),
+            'id_userrequire' =>$request->get('iduserr'),
+            'date_aprob_or_neg' => $request->get('dateaporne'),
+        'report_id' => $request->get('orderid'),
+        'date_create_ori' =>$request->get('fechac'),
+                        ]);
+            $materialinst->save();   
+      
+         } }
+//                    echo $material;
+                   
+                }
+                                  
+            return redirect('materials/'.$matdev)->with('success', trans('Orden de retiro edita con éxito.'));
+
+            }          
+//            $materials->mask_as_read();
+            //$alert->status_id = Status::where('name', Alert::STATUS_ATTENDED)->first()->id;
+//            $material->save();
+        return back()->with('error', trans('reports.createError'));
+            
+            
+        } 
+        //FIN DE EDICION DEL MATERIAL
+        else {
         $matdev = 0;
                 $matdev=  Material::max('id_matrepord');
 
@@ -147,7 +278,8 @@ $valor = $request->get('aprob');
             'id_usercreate' => $collector_id,
                'id_userrequire' =>$collector_id,
             'id_useraproborneg' => null,
-            'report_id' => $request->get('orderid')
+            'report_id' => $request->get('orderid'),
+               'date_create_ori' =>$factual,
                         ]);
             $materialinst->save();       
            } else  if ($collectors=='adminccitt'){
@@ -165,7 +297,8 @@ if ($valor=='Si'){
             'id_userrequire' =>$request->collector,
             'date_aprob_or_neg' => $factual,
             'id_useraproborneg' => $collector_id,
-        'report_id' => $request->get('orderid')
+        'report_id' => $request->get('orderid'),
+        'date_create_ori' =>$factual,
                         ]);
             $materialinst->save();   
 } else {                
@@ -182,7 +315,8 @@ if ($valor=='Si'){
                'id_userrequire' =>$request->collector,
                'date_aprob_or_neg' => null,
             'id_useraproborneg' => null,  
-               'report_id' => $request->get('orderid')
+               'report_id' => $request->get('orderid'),
+               'date_create_ori' =>$factual,
                         ]);
             $materialinst->save();       
          }  } }
@@ -190,13 +324,14 @@ if ($valor=='Si'){
                    
                 }
                                   
+            return redirect('materials/')->with('success', trans('Orden de retiro guardada con éxito.'));
 
             }          
 //            $materials->mask_as_read();
             //$alert->status_id = Status::where('name', Alert::STATUS_ATTENDED)->first()->id;
 //            $material->save();
-            return redirect('materials/')->with('success', trans('Orden de retiro guardada con éxito.'));
         return back()->with('error', trans('reports.createError'));
+    }
     }
 
     /**
@@ -209,7 +344,7 @@ if ($valor=='Si'){
     {
         $alert =($id);
         //$alert = Alert::find($id);
-        $report = Report::find($id);
+        $report = Alert::find($id);
         $novelties = Novelty::where('subcategory', false)->get();
         $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
         $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
@@ -408,7 +543,32 @@ if ($valor=='Si'){
 //        echo $id;
     }
 
+        
     
+    public function negar(Request $request, $id)
+    {
+        $material = Material::where('id_matrepord','=',$id)->get();         
+//        dd($material);
+        $collector_id = Auth::user()->id;
+        $factual = date('Y-m-d H:i:s');
+        if ($material) {
+            foreach ($material as $materia) {
+        
+         $materia->observations=$request->get('observtxt');
+         $materia->state='Negada';        
+         $materia->date_aprob_or_neg=$factual;
+         $materia->id_useraproborneg=$collector_id;
+         
+            if ($materia->save()) {
+                $materia->mask_as_read();                
+            }
+              }
+            // Update basic attributes
+                return redirect('materials/')->with('success', trans('materials.entregSuccess'));          
+        }
+        return back()->with('error', trans('materials.udpateError'));
+//        echo $id;
+    }
      
     public function entregar($id)
     {
@@ -421,6 +581,7 @@ if ($valor=='Si'){
             foreach ($material as $materia) {
          $materia->state='Entregada';        
          $materia->date_delivery=$factual;
+         $materia->id_userdelivery=$collector_id;
             if ($materia->save()) {
                 $materia->mask_as_read();                
             }
@@ -434,11 +595,11 @@ if ($valor=='Si'){
     
     
     
-    public function entregarnew(Request $request, $id)
+    public function entregarnewmaterial(Request $request, $id)
     {
         $material = Material::where('id_matrepord','=',$id)->get();         
-//        dd($material);
         $factual = date('Y-m-d H:i:s');
+                   $collector_id = Auth::user()->id;
         if ($material) {
             foreach ($material as $materia) {
             $nuevacantidad = $materia->amount;
@@ -449,6 +610,7 @@ $nuevacantidad=$request->get('p'.$materia->id);
          $materia->amount_delivery=$nuevacantidad;
          $materia->state='Entregada';        
          $materia->date_delivery=$factual;
+         $materia->id_userdelivery=$collector_id;
             if ($materia->save()) {
                 $materia->mask_as_read();                
             }
@@ -546,4 +708,35 @@ $nuevacantidad=$request->get('p'.$materia->id);
 
         return back()->with('error', trans('reports.deleteError'));
     }
+    
+    
+       public function editar($id)
+     {       
+        $collectors = User::whereHas("roles", function($q){ $q->where("slug", "atmstockkeeper"); })->get();
+        $alert = '';
+        $novelties = Novelty::where('subcategory', false)->get();
+        $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
+        $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
+        $materials = DevicesInventory::all();
+        $metrics = MetricUnit::all();
+        $collector_id = '';
+//        $collectors = User::whereHas("roles", function($q){ $q->where("slug","isno", "atmadmin"); })->get();
+            if (Auth::user()->hasRole('atmadmin') || Auth::user()->hasRole('ccitt')) {
+            $collectorsa = 'admin o ccitt';
+            $collector_id = Auth::user()->id;
+            //where('collector_id', Auth::user()->id)->
+        }
+        else if (Auth::user()->hasRole('atmcollector')) {
+            $collectorsa =  'escalera';
+            $collector_id = Auth::user()->id;
+        } 
+        else {
+              $collectorsa =  'bodega';
+            $collector_id = Auth::user()->id;
+        }        
+$materialid = Material::select('*')->where('id_matrepord','=',$id)->orderby('id', 'asc')->get();               
+        return view('materials.editar', compact('novelties','subnovelties','worktypes','materials','metrics','alert','collectors','collector_id','collectorsa','materialid'));
+  
+    }
+    
 }

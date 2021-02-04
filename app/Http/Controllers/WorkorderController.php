@@ -109,6 +109,12 @@ class WorkorderController extends Controller
         ]);
 
         if ($workorder) {
+             
+         $alert = Alert::find($report->alert_id); 
+             $alert->status_id = 13;
+             if ($alert->save()) {
+                $alert->mask_as_read();
+            }                 
             $report->status_id = Status::where('name', Alert::STATUS_ATTENDED)->first()->id;
             $report->save();
 
@@ -209,7 +215,7 @@ class WorkorderController extends Controller
 
     public function add_pictures($id)
     {
-        $workorder = Workorder::find($id);
+        $workorder = $id;// Workorder::find($id);
         if ($workorder) {
             if ($workorder->completed_on) {
                 return redirect('workorders')->with('error', 'La orden de trabajo ya está cerrada.');
@@ -217,7 +223,7 @@ class WorkorderController extends Controller
 
             return view('workorders.close', compact('workorder'));
         }
-
+  return view('workorders.close', compact('workorder'));
         return redirect('workorders')->with('error', 'Orden de trabajo no encontrada.');
     }
 
@@ -225,7 +231,7 @@ class WorkorderController extends Controller
         $validator = Validator::make($request->all(), [
             'pictures'  => 'required'
         ], [
-            'pictures.required'       => 'Al menos una imagen es requerida',
+            'pictures.required' => 'Al menos una imagen es requerida',
         ]);
 
         if ($validator->fails()) {

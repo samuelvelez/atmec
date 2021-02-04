@@ -12,6 +12,7 @@ use App\Models\RegulatorBox;
 use App\Models\Report;
 use App\Models\Status;
 use App\Models\Material;
+use App\Models\AlertsComments;
 use App\Models\TrafficDevice;
 use App\Models\TrafficLight;
 use App\Models\TrafficPole;
@@ -68,7 +69,17 @@ class ReportController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create($id)
-    {
+    {        
+         $alert = Alert::find($id);               
+        ////PARA EDITAR EL ESTADO A VISTO
+        if ($alert->status_id==1){
+        if ((Auth::user()->hasRole('atmcollector') )) {
+               $alert->status_id = 10;
+             if ($alert->save()) {
+                $alert->mask_as_read();
+            }
+        }
+        }
         $alert = Alert::find($id);
         $novelties = Novelty::where('subcategory', false)->get();
         $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
@@ -139,9 +150,37 @@ class ReportController extends Controller
         if ($alert->report) {
             return redirect('alerts')->with('error', 'La alerta ya posee un reporte.');
         }
-
-        $status_id = $request->get('tipo') == 0 ? Status::where('name', Report::STATUS_PENDING)->first()->id : $request->get('tipo');
-
+        
+        $materiales = Material::select('material_report_order.*')->where('report_id',$request->alert)->orderby('id', 'asc')->get();               
+//        dd($material);
+        $status_id = null;
+        foreach ($materiales as $material){
+        if ($material->id<>'' or $material->id<>null){
+          $status_id =11;  
+        }         
+        }
+        
+        if ($status_id<>null){
+               $alert->status_id = $status_id;
+             if ($alert->save()) {
+                $alert->mask_as_read();
+            } 
+        }
+        
+        $status_id = $request->get('tipo') == 0 ? Status::where('name', Report::STATUS_PENDING)->first()->id : $request->get('tipo');        
+        
+         if ($status_id==13){
+             $alert->status_id = 12;
+             if ($alert->save()) {
+                $alert->mask_as_read();
+            }                 
+         }
+         else {
+             $alert->status_id = 12;
+             if ($alert->save()) {
+                $alert->mask_as_read();
+            }    
+        } 
         $report = Report::create([
             'alert_id' => $request->get('alert'),
             'status_id' => $status_id,
@@ -277,7 +316,9 @@ class ReportController extends Controller
     public function edit($id)
     {
         $alert = Alert::find($id);
-        $report = Report::find($id);
+        $report = Report::find($id);        
+        $materialid = Material::select('id_matrepord')->where('report_id','=', $report->alert->id)->get();
+//        dd($materialid);
         $novelties = Novelty::where('subcategory', false)->get();
         $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
         $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
@@ -325,7 +366,7 @@ class ReportController extends Controller
                 ->get();
 
             return view('reports.edit', compact('report', 'novelties', 'subnovelties', 'worktypes',
-                'signals', 'regulators', 'devices', 'poles', 'tensors', 'lights', 'materials', 'metrics','hasmaterials'));
+                'signals', 'regulators', 'devices', 'poles', 'tensors', 'lights', 'materials', 'metrics','hasmaterials','materialid'));
         }
         return back()->with('error', trans('reports.editError'));
     }
@@ -340,8 +381,30 @@ class ReportController extends Controller
     public function update(Request $request, $id)
     {
         $report = Report::find($id);
+$status_id = $request->get('tipo') == 0 ? Status::where('name', Report::STATUS_PENDING)->first()->id : $request->get('tipo');
 
+$alert = Alert::find($report->alert_id);
+$descriptionold = $report->description;
+        if ($alert){
+               $alert->status_id = 7;
+             if ($alert->save()) {
+                $alert->mask_as_read();
+            } 
+        } 
+ $collector_id = Auth::user()->id;
+    if ($descriptionold==$request->description){ 
+        
+    }    else { 
+        //INGRESAR LOS COMENTARIOS UNO TRAS OTRO, DEJANDO EL MÁS ACTUAL EN LA TB ALERTS
+        AlertsComments::create([
+                            'alert_id' => $report->alert_id,
+                            'comment_old' => $descriptionold,
+                            'user_create' => $collector_id
+                        ]);
+    }
+            
         if ($report) {
+            $report->status_id = $status_id;
             // Update basic attributes
             if ($request->novelty && $request->novelty != $report->novelty_id) {
                 $report->novelty_id = $request->novelty;
@@ -469,7 +532,11 @@ class ReportController extends Controller
 
             if ($report->save()) {
                 $report->mask_as_read();
-                return redirect('reports/')->with('success', trans('reports.updateSuccess'));
+                if ($request->get('tipo') == 3){
+                return redirect('ordenes/')->with('success', 'Orden de trabajo finalizada, por favor, modifique los dispositivos afectados.' );
+                } else {
+                return redirect('ordenes/')->with('success', trans('reports.updateSuccess'));
+                }
             }
         }
 
@@ -479,11 +546,15 @@ class ReportController extends Controller
     public function show($id)
     {
         $report = Report::find($id);
-
-        if ($report) {
+     
+  if ($report) {
             $report->mask_as_read();
+            $valores = $report['alert_id'];
+//dd($valores);
 
-            return view('reports.show', compact('report'));
+$alertcomments = AlertsComments::select('*')->where('alert_id','=', $valores)->get();
+      
+            return view('reports.show', compact('report','alertcomments'));
         }
 
         return back()->with('error', 'Alerta no encontrada.');

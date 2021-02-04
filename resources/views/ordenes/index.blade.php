@@ -97,14 +97,14 @@
                                                 </a>
                                                 
                                             @else
-                                                @if($alert->report['status_id']=="3" && (Auth::user()->hasRole('ccitt') || Auth::user()->hasRole('atmadmin')))
+<!--                                                @if($alert->report['status_id']=="3"   && (Auth::user()->hasRole('atmcollector')))
                                                 <a class="btn btn-sm btn-warning btn-block"
                                                    href="{{ URL::to('workorders/' . $alert->report['id'] . '/create/') }}"
                                                    data-toggle="tooltip" title="Crear Reporte">
                                                     {!! trans('Crear Reporte') !!}
                                                 </a>
-                                                @endif
-                                                @if(($alert->report['status_id']=="8" || $alert->report['status_id']=="9" ) && (Auth::user()->hasRole('atmcollector') ))
+                                                @endif-->
+                                                @if(($alert->report['status_id']=="8" || $alert->report['status_id']=="9" || $alert->report['status_id']=="11" ) && (Auth::user()->hasRole('atmcollector') ))
                                                 <a class="btn btn-sm btn-warning btn-block"
                                                    href="{{ URL::to('reports/' . $alert->report['id'] . '/edit/') }}"
                                                    data-toggle="tooltip" title="Crear Reporte">

@@ -77,6 +77,19 @@
                                 {{ $report->description }}
                             </div>
                         </div>
+                        
+                       @if ($alertcomments)
+                         <div class="row">
+                             @foreach ($alertcomments as $alertcomment)
+                            <div class="col-sm-12 col-12">
+                                <strong class="text-larger">
+                                    Comentario a las {{ $alertcomment->created_at }}:
+                                </strong>
+                                {{ $alertcomment->comment_old }}
+                            </div>
+                            @endforeach
+                             @endif
+                        </div>
 
                         @if ($report->pictures)
                             <hr/>

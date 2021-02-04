@@ -39,7 +39,7 @@
                                 {!! trans('materials.showing-all-reports') !!}
                                
                             </span>
-                            @role('atmoperator|ccitt||atmadmin')
+                            @role('atmoperator|ccitt|atmcollector||atmadmin')
                                      <div class="btn-group pull-right btn-group-xs"><a href="/materials/create" class="btn btn-primary btn-sm">
                                     Nueva Orden de Retiro
                                 </a></div>
@@ -79,13 +79,13 @@
                                 else { 
                                     $valor1 = $valor0;
                                 ?>
-                                    <tr>
+                                    <tr >
                                         <td><a href="{{ URL::to('materials/' . $report->id_matrepord) }}" data-toggle="tooltip"
-                                               title="Mostrar orden de retiro">{{ $report->id_matrepord }}</a></td>
+                                               title="Mostrar orden de retiro">OR-{{ $report->id_matrepord }}</a></td>
 
-                                               <td><a href="{{ URL::to('reports/' . $report->report_id .'/edit') }}" data-toggle="tooltip"
-                                               title="Mostrar orden de retiro">{{ $report->report_id }}</a></td>
-                                               <td>{{ $report->name }}</td>
+                                               <td><a href="{{ URL::to('ordenes/' . $report->report_id .'') }}" data-toggle="tooltip"
+                                               title="Mostrar orden de trabajo"> @if ($report->report_id) OT-{{$report->report_id}} @else No tiene OT @endif </a></td>
+                                               <td>{{ $report->name }}</td> 
                                                    <?php 
                           $iduser = $report->id_useraproborneg;
                           $nombrem = '';

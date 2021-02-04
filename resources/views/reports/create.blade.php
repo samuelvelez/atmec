@@ -61,19 +61,20 @@
                                 </div>
                             </div>
                         </div>
-
+   @php 
+                                $motive = DB::table('motive_workorder')->where('id',$alert->reason)->first(); 
+                                @endphp
+                                @if ($motive<>'')
                         <div class="form-group row">
                             {!! Form::label('address', 'Motivo', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                @php 
-                                $motive = DB::table('motive_workorder')->where('id',$alert->priority_id)->first(); 
-                                @endphp
+                             
                                     {!! Form::text('address', $motive->description, array('id' => 'motive', 'class' => 'form-control', 'readonly' => 'readonly')) !!}
                                 </div>
                             </div>
                         </div>
-
+@endif
                         <div class="form-group row">
                             {!! Form::label('alert_description', 'Descripción de la Orden', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -224,7 +225,7 @@
 
                         <div class="row">
                             <input type="checkbox" name="materiales" id="mat_escalera" class="form-control col-3"/>
-                            <label for="mat_escalera" class="col-3">Usa Materiales</label>
+                            <label for="mat_escalera" class="col-4">Usa Materiales (Propios de escalera)</label>
                         </div>
                         <div id="cont_materiales">
                             <div class="text-center" style="color: royalblue;"><strong>Materiales requeridos</strong></div>
@@ -288,7 +289,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="row mt-3">
+<!--                        <div class="row mt-3">
                             <input type="checkbox" name="materiales2" id="mat_bodega" class="form-control col-3"/>
                             <label for="mat_bodega" class="col-3">Requiere Materiales Adicionales</label>
                         </div>
@@ -352,8 +353,7 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                        <hr>
+                        </div>-->
 
                         {!! Form::hidden("materials_list", null, array('id' => 'materials_list')) !!}
                         {!! Form::hidden("materials_list2", null, array('id' => 'materials_list2')) !!}
@@ -364,8 +364,10 @@
 
                         {!! Form::button(trans('Finalizar'), array('class' => 'btn btn-success margin-bottom-1 mb-1  mr-2 float-right','type' => 'submit', 'id'=>'finalizar')) !!}
                         {!! Form::button(trans('Enviar'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}
-                        {!! Form::button(trans('Solicitar Materiales'), array('class' => 'btn btn-primary margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_materiales')) !!}
-                        
+                        <!--{!! Form::button(trans('Solicitar Materiales'), array('class' => 'btn btn-primary margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_materiales')) !!}-->
+                           <a href="../../materials/<?php echo $alert->id; ?>/edit" target="_blank"> <button type="button" class="btn btn-primary margin-bottom-1 mb-1 mr-2 float-right">
+                            Solicitar materiales adicionales
+                                   </button></a>    
                          {!! Form::close() !!}
                         
                       
@@ -394,13 +396,19 @@
             $("#cont_bodega").hide();
 
             $('#btn_enviar').click(function(){
-                $("#tipo").val("8");
+                $("#tipo").val("9");
                 console.log($('form').submit());
             });
             $('#btn_materiales').click(function(){
                 $("#tipo").val("9");
                 $('form').submit();
             });
+            
+              $('#finalizar').click(function(){
+                $("#tipo").val("3");
+                $('form').submit();
+            });
+            
             $('form').submit(function(){
                
                 //alert(tipo);

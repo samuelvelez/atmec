@@ -7,8 +7,11 @@ use App\Models\Intersection;
 use App\Models\Status;
 use App\Models\Priority;
 use App\Models\WorkOrderType;
+use App\Models\WorkOrder;
 use App\Models\MotiveWO;
 use App\Models\User;
+use App\Models\Report;
+use App\Models\Material;
 use App\Models\Novelty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -103,6 +106,8 @@ class OrdenController extends Controller
             'tipoOrden'    => $request->input('tipoOrden'),
             'google_address' => $request->input('google_address'),
             'description' => $request->input('description'),
+            'storage_or_site' => $request->input('bodega'),
+            'site_detail' => $request->input('sitioespecificodetail'),
         ]);
 
         if ($alert) {
@@ -184,11 +189,35 @@ $novelties = Novelty::where('subcategory', false)->get();
 
     public function show($id)
     {
+        $alert = Alert::find($id);  
+ $report = Report::select('id')->where('alert_id','=', $id)->get();
+ 
+
+        ////PARA EDITAR EL ESTADO A VISTO
+        if ($alert->status_id==1){
+        if ((Auth::user()->hasRole('atmcollector') )) {
+               $alert->status_id = 10;
+             if ($alert->save()) {
+                $alert->mask_as_read();
+            }
+        }
+        }
+         
+            
         $alert = Alert::find($id);
-        $alertaid = $alert->id; 
+        $alertaid = $alert->id;         
         $ordenalertaid=$alert->tipoOrden;
+        if ($ordenalertaid<>''){            
+        } else {
+            $ordenalertaid = ' ';
+        }
         $prioridadalertaid=$alert->priority_id;
-        $motivoalertaid=$alert->reason;        
+        $motivoalertaid=$alert->reason;   
+        if ($motivoalertaid<>''){            
+        } else {
+            $motivoalertaid = ' ';
+        }
+        $materialid = Material::select('id_matrepord')->where('report_id','=', $alert->id)->get();
         $alerta = '';
         $alertas = \App\Models\Report::select('*')->where('alert_id','like',$alertaid)->get();        
         $noveltys = \App\Models\Novelty::select('*')->where('id','like','%%')->get();
@@ -197,10 +226,11 @@ $novelties = Novelty::where('subcategory', false)->get();
         $motivealerts = \App\Models\MotiveWO::select('*')->where('id','like',$motivoalertaid)->get();
         $tiporeportes = \App\Models\Novelty::select('*')->where('id','like','%')->get();
         $statusreportes = \App\Models\Status::select('*')->where('id','like','%')->get();
-        
+//dd($report);
         if ($alert) {
+         
             $alert->mask_as_read();
-            return view('ordenes.show', compact('alert','alertas','noveltys','workordertypes','priorityalerts','motivealerts','tiporeportes','statusreportes'));
+            return view('ordenes.show', compact('alert','alertas','noveltys','workordertypes','priorityalerts','motivealerts','tiporeportes','statusreportes','materialid','report'));
         }
 
         return back()->with('error', 'Alerta no encontrada.');
@@ -232,4 +262,30 @@ $novelties = Novelty::where('subcategory', false)->get();
 
         return back()->with('error', trans('alerts.deleteError'));
     }
+    
+    
+      public function close(Request $request, $id) {
+     
+
+        $workorder = Alert::find($id);
+        if ($workorder) {            
+
+            if ($request->input('description') && !$workorder->complete_description) {
+                $workorder->complete_description = $request->input('description');
+            }
+
+            if ($workorder->save()) {
+                $workorder->close();
+                return redirect('ordenes/')->with('success', trans('workorders.closeSuccess'));
+            }
+        }
+        else {
+            return redirect('workorders')->with('error', 'La orden de trabajo no existe.');
+        }
+
+        return redirect('workorders')->with('error', trans('reports.closeError'));
+    }
+
+    
+    
 }

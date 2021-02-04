@@ -43,8 +43,10 @@ protected $table = 'material_report_order';
                             'state',
                             'id_userrequire',
                             'id_usercreate',
+            'id_userdelivery',
+            'date_create_ori',
                             'date_aprob_or_neg',
-                            'id_useraproborneg'
+                            'id_useraproborneg',
 	];
 
 	protected $dates = [
@@ -61,6 +63,8 @@ protected $table = 'material_report_order';
             'state',
             'id_userrequire',
             'id_usercreate',
+            'id_userdelivery',
+            'date_create_ori',
             'date_aprob_or_neg',
             'id_useraproborneg'
 	];
@@ -116,8 +120,18 @@ protected $table = 'material_report_order';
 
 	public function materials()
     {
-        return $this->hasMany(MaterialReport::class, 'report_id');
+        return $this->hasMany(Material::class, 'id_matrepord');
     }
+    	public function material()
+	{
+		return $this->belongsTo(DevicesInventory::class, 'material_id');
+	}
+
+	public function metric_unit()
+	{
+		return $this->belongsTo(MetricUnit::class, 'metric_id');
+	}
+
 
     public function vertical_signals()
     {
