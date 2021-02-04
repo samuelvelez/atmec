@@ -361,6 +361,7 @@ alert(name1);
                                 <div class="col-12" >
                                    {!! Form::open(array('route' => ['entregarnew', $report], 'method' => 'POST', 'role' => 'form')) !!}
                     {!! csrf_field() !!}
+                    Ingrese algun comentario sobre la entrega de la escalera
 {!! Form::text('commentreceipt', null, array('id' => 'commentreceipt', 'class' => 'form-control mr-2', 'placeholder' => 'Ingrese algún comentario sobre la entrega de material')) !!}            
 <br>
 {!! Form::button(trans('<i class="fa fa-check"></i> Recibido'), array('class' => 'btn btn-info margin-bottom-1 mb-1 mr-2 float-right','type' => 'submit', 'id' => 'btn_enviar' )) !!}

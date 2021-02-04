@@ -338,14 +338,20 @@ foreach($db1->query("SELECT dm.*, dm.receipt as fecha_recibido,  mu.name as unid
     <table style='width: 100%; margin-top:80px'>
     
         <tr>  
-<td style="text-align: center; width:50%" >
+            <td style="text-align: center; width:20%" >
+    Firma autorizada de bodega
+</td>
+<td style="text-align: center; width:40%" >
     Firma entregado
 </td>
-<td style="text-align: center; width:50%" >
+<td style="text-align: center; width:40%" >
     Firma recibido
 </td>
 		</tr>
                     <tr style="text-align:center">
+                        <td style="text-align: center;" >
+    
+            </td>
             <td style="text-align: center;" >
     <?php echo $nombre_entrega  ?>
             </td>
