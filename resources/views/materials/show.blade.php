@@ -136,7 +136,7 @@
                                         
                                           @if (Auth::user()->hasRole('atmstockkeeper'))
                                           <td>
-<input type="text" id="<?php echo $cantidades[$index]?>" name="<?php echo $cantidades[$index]?>" onblur="validacion(<?php echo $cantidades[$index] ?>)" class="form-control mr-2" placeholder="#">
+<input type="text" id="<?php echo $cantidades[$index]?>" name="<?php echo $cantidades[$index]?>"  class="form-control mr-2" placeholder="#">
 @endif                
                                           </td>
                                        
