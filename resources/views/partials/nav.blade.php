@@ -215,6 +215,26 @@
                            href="{{ URL::to('/materials/') }}">
                             {!! trans('titles.retirobodegaList') !!}
                         </a>
+                        <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+                           href="{{ URL::to('/materials/aprobadas/0') }}">
+                            {!! trans('titles.materialsListaprob') !!}
+                        </a>
+                        <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+                           href="{{ URL::to('/materials/negadas/0') }}">
+                            {!! trans('titles.materialsListneg') !!}
+                        </a>
+                        <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+                           href="{{ URL::to('/materials/ingresadas/0') }}">
+                            {!! trans('titles.materialsListing') !!}
+                        </a>
+                        <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+                           href="{{ URL::to('/materials/recibidos/0') }}">
+                            {!! trans('titles.materialsListrec') !!}
+                        </a>
+                        <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+                           href="{{ URL::to('/materials/entregadas/0') }}">
+                            {!! trans('titles.materialsListent') !!}
+                        </a>
                         <div class="dropdown-divider"></div>
                           
                         <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
@@ -226,6 +246,10 @@
                         <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
                            href="{{ URL::to('/materials/') }}">
                             {!! trans('titles.retirobodegaList') !!}
+                        </a>
+                        <a class="dropdown-item {{ Request::is('alerts', 'alerts/*') ? 'active' : null }}"
+                           href="{{ URL::to('/materials/entregadas/0') }}">
+                            {!! trans('titles.materialsListent') !!}
                         </a>
                         <div class="dropdown-divider"></div>
                           

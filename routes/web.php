@@ -216,6 +216,11 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstockkeepe
     ]);
 Route::get('/materials/{id}/editar', 'MaterialController@editar')->name('editar');
 Route::get('/materials/aprobar/{id}', 'MaterialController@aprobar')->name('aprobar');
+Route::get('/materials/aprobadas/{id}', 'MaterialController@index2')->name('index2');
+Route::get('/materials/negadas/{id}', 'MaterialController@index3')->name('index3');
+Route::get('/materials/ingresadas/{id}', 'MaterialController@index4')->name('index4');
+Route::get('/materials/recibidos/{id}', 'MaterialController@index5')->name('index5');
+Route::get('/materials/entregadas/{id}', 'MaterialController@index6')->name('index6');
 Route::post('/materials/negar/{id}', 'MaterialController@negar')->name('negar');
 Route::get('/materials/entregar/{id}', 'MaterialController@entregar')->name('entregar');
 Route::post('/materials/entregarnewmaterial/{id}', 'MaterialController@entregarnewmaterial')->name('entregarnewmaterial');
@@ -284,6 +289,11 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstorage|at
            Route::get('/materials/{id}/editar', 'MaterialController@editar')->name('editar');
 Route::get('/materials/aprobar/{id}', 'MaterialController@aprobar')->name('aprobar');
 Route::post('/materials/negar/{id}', 'MaterialController@negar')->name('negar');
+Route::get('/materials/aprobadas/{id}', 'MaterialController@index2')->name('index2');
+Route::get('/materials/negadas/{id}', 'MaterialController@index3')->name('index3');
+Route::get('/materials/ingresadas/{id}', 'MaterialController@index4')->name('index4');
+Route::get('/materials/recibidos/{id}', 'MaterialController@index5')->name('index5');
+Route::get('/materials/entregadas/{id}', 'MaterialController@index6')->name('index6');
 Route::get('/materials/entregar/{id}', 'MaterialController@entregar')->name('entregar');
 Route::post('/materials/entregarnewmaterial/{id}', 'MaterialController@entregarnewmaterial')->name('entregarnewmaterial');
               Route::resource('delivery-material','DeliveryMaterialController')->only([

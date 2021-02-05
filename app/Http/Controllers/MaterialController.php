@@ -739,4 +739,168 @@ $materialid = Material::select('*')->where('id_matrepord','=',$id)->orderby('id'
   
     }
     
+    
+    
+    public function index2()
+    {
+        $pagintaionEnabled = config('atm_app.enablePagination');
+
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Aprobada')->orderby('material_report_order.id', 'desc');
+      $usersol = User::all();
+        
+//    $reports2 = Material::select('*')->join('users', 'users.id', 'material_report_order.id_useraproborneg')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->groupby('id_matrepord')->orderby('id', 'asc');
+    
+//$NO = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');            
+//->where('alerts.collector_id', Auth::user()->id)
+        }
+        else  if (Auth::user()->hasRole('atmstockkeeper')) {
+            $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('state','=','Aprobada')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->where('state','=','Aprobada')->groupby('id_matrepord')->orderby('id', 'asc');
+      $usersol = User::all();
+        
+        }
+
+        //$reportstotal = $reports->count();
+         $reportstotal = Material::max('id_matrepord');
+
+        if ($pagintaionEnabled) {
+            $reports = $reports->paginate(config('atm_app.paginateListSize'));
+        }
+
+        return View('materials.index2', compact('reports', 'reportstotal','usersol'));
+    }
+    
+    
+       
+    public function index3()
+    {
+        $pagintaionEnabled = config('atm_app.enablePagination');
+
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Negada')->orderby('material_report_order.id', 'desc');
+      $usersol = User::all();
+        
+//    $reports2 = Material::select('*')->join('users', 'users.id', 'material_report_order.id_useraproborneg')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->groupby('id_matrepord')->orderby('id', 'asc');
+    
+//$NO = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');            
+//->where('alerts.collector_id', Auth::user()->id)
+        }
+        else  if (Auth::user()->hasRole('atmstockkeeper')) {
+            $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('state','=','Negada')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->where('state','=','Aprobada')->groupby('id_matrepord')->orderby('id', 'asc');
+      $usersol = User::all();
+        
+        }
+
+        //$reportstotal = $reports->count();
+         $reportstotal = Material::max('id_matrepord');
+
+        if ($pagintaionEnabled) {
+            $reports = $reports->paginate(config('atm_app.paginateListSize'));
+        }
+
+        return View('materials.index3', compact('reports', 'reportstotal','usersol'));
+    }
+    
+     public function index4()
+    {
+        $pagintaionEnabled = config('atm_app.enablePagination');
+
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Ingresada')->orderby('material_report_order.id', 'desc');
+      $usersol = User::all();
+        
+//    $reports2 = Material::select('*')->join('users', 'users.id', 'material_report_order.id_useraproborneg')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->groupby('id_matrepord')->orderby('id', 'asc');
+    
+//$NO = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');            
+//->where('alerts.collector_id', Auth::user()->id)
+        }
+        else  if (Auth::user()->hasRole('atmstockkeeper')) {
+            $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('state','=','Ingresada')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->where('state','=','Aprobada')->groupby('id_matrepord')->orderby('id', 'asc');
+      $usersol = User::all();
+        
+        }
+
+        //$reportstotal = $reports->count();
+         $reportstotal = Material::max('id_matrepord');
+
+        if ($pagintaionEnabled) {
+            $reports = $reports->paginate(config('atm_app.paginateListSize'));
+        }
+
+        return View('materials.index3', compact('reports', 'reportstotal','usersol'));
+    }
+    
+    
+    
+    
+     public function index5()
+    {
+        $pagintaionEnabled = config('atm_app.enablePagination');
+
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Recibido')->orderby('material_report_order.id', 'desc');
+      $usersol = User::all();
+        
+//    $reports2 = Material::select('*')->join('users', 'users.id', 'material_report_order.id_useraproborneg')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->groupby('id_matrepord')->orderby('id', 'asc');
+    
+//$NO = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');            
+//->where('alerts.collector_id', Auth::user()->id)
+        }
+        else  if (Auth::user()->hasRole('atmstockkeeper')) {
+            $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('state','=','Recibido')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->where('state','=','Aprobada')->groupby('id_matrepord')->orderby('id', 'asc');
+      $usersol = User::all();
+        
+        }
+
+        //$reportstotal = $reports->count();
+         $reportstotal = Material::max('id_matrepord');
+
+        if ($pagintaionEnabled) {
+            $reports = $reports->paginate(config('atm_app.paginateListSize'));
+        }
+
+        return View('materials.index5', compact('reports', 'reportstotal','usersol'));
+    }
+    
+    
+     
+     public function index6()
+    {
+        $pagintaionEnabled = config('atm_app.enablePagination');
+
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Entregada')->orderby('material_report_order.id', 'desc');
+      $usersol = User::all();
+        
+//    $reports2 = Material::select('*')->join('users', 'users.id', 'material_report_order.id_useraproborneg')->groupby('id_matrepord')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->groupby('id_matrepord')->orderby('id', 'asc');
+    
+//$NO = Report::select('reports.*')->join('alerts', 'alerts.id', '=', 'reports.alert_id')->orderby('id', 'asc');            
+//->where('alerts.collector_id', Auth::user()->id)
+        }
+        else  if (Auth::user()->hasRole('atmstockkeeper')) {
+            $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('state','=','Entregada')->orderby('material_report_order.id', 'desc');
+//    $reports = Material::select('material_report_order.*')->where('state','=','Aprobada')->groupby('id_matrepord')->orderby('id', 'asc');
+      $usersol = User::all();
+        
+        }
+
+        //$reportstotal = $reports->count();
+         $reportstotal = Material::max('id_matrepord');
+
+        if ($pagintaionEnabled) {
+            $reports = $reports->paginate(config('atm_app.paginateListSize'));
+        }
+
+        return View('materials.index6', compact('reports', 'reportstotal','usersol'));
+    }
+    
 }
