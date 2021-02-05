@@ -257,14 +257,14 @@
                 },
             });
 
-            $.each(data, function(index, val) {
-                materials_tbl.row.add([
-                    val.material.id,
-                    val.material.name,
-                    val.metric_unit.abbreviation,
-                    val.amount,
-                ]).draw(false);
-            });
+//            $.each(data, function(index, val) {
+//                materials_tbl.row.add([
+//                    val.material.id,
+//                    val.material.name,
+//                    val.metric_unit.abbreviation,
+//                    val.amount,
+//                ]).draw(false);
+//            });
 
             let serialize_table = function() {
                 let data = [];

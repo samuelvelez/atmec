@@ -373,7 +373,7 @@ alert(name1);
  </script>-->
 @endsection
  <?php if ($estadodeor=='Ingresada'){ ?>
-                        @if (Auth::user()->hasRole('atmadmin'))
+                        @if (Auth::user()->hasRole('atmadmin') || Auth::user()->hasRole('ccitt'))
                             <br/>
                             <div class="row">
                                 <div class="col-10" id="negard">

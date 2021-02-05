@@ -278,7 +278,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
     
 });
 
-Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstorage|atmstockkeeper|atmcollector', 'activity', 'checkblocked']], function () {
+Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmstorage|atmstockkeeper|atmcollector|ccitt', 'activity', 'checkblocked']], function () {
     Route::resource('storage-inventory', 'StorageInventoryController')->only([
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);

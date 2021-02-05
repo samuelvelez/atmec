@@ -45,7 +45,7 @@ class MaterialController extends Controller
     {
         $pagintaionEnabled = config('atm_app.enablePagination');
 
-    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')|| Auth::user()->hasRole('ccitt')) {
     $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->orderby('material_report_order.id', 'desc');
       $usersol = User::all();
         
@@ -745,7 +745,7 @@ $materialid = Material::select('*')->where('id_matrepord','=',$id)->orderby('id'
     {
         $pagintaionEnabled = config('atm_app.enablePagination');
 
-    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')|| Auth::user()->hasRole('ccitt')) {
     $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Aprobada')->orderby('material_report_order.id', 'desc');
       $usersol = User::all();
         
@@ -778,7 +778,7 @@ $materialid = Material::select('*')->where('id_matrepord','=',$id)->orderby('id'
     {
         $pagintaionEnabled = config('atm_app.enablePagination');
 
-    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')|| Auth::user()->hasRole('ccitt')) {
     $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Negada')->orderby('material_report_order.id', 'desc');
       $usersol = User::all();
         
@@ -809,7 +809,7 @@ $materialid = Material::select('*')->where('id_matrepord','=',$id)->orderby('id'
     {
         $pagintaionEnabled = config('atm_app.enablePagination');
 
-    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')|| Auth::user()->hasRole('ccitt')) {
     $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Ingresada')->orderby('material_report_order.id', 'desc');
       $usersol = User::all();
         
@@ -843,7 +843,7 @@ $materialid = Material::select('*')->where('id_matrepord','=',$id)->orderby('id'
     {
         $pagintaionEnabled = config('atm_app.enablePagination');
 
-    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')|| Auth::user()->hasRole('ccitt')) {
     $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Recibido')->orderby('material_report_order.id', 'desc');
       $usersol = User::all();
         
@@ -876,7 +876,7 @@ $materialid = Material::select('*')->where('id_matrepord','=',$id)->orderby('id'
     {
         $pagintaionEnabled = config('atm_app.enablePagination');
 
-    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')) {
+    if (Auth::user()->hasRole('atmcollector') || Auth::user()->hasRole('atmadmin')|| Auth::user()->hasRole('ccitt')) {
     $reports = Material::select('*')->join('users', 'users.id', 'material_report_order.id_userrequire')->where('material_report_order.state','=','Entregada')->orderby('material_report_order.id', 'desc');
       $usersol = User::all();
         

@@ -131,7 +131,7 @@ foreach ($datospersonas as $cliente) {
                                         
                                         </td>
 
-                                        @role('atmoperator|ccitt')
+<!--                                        @role('atmoperator|ccitt')
                                         <td>
                                             <a class="btn btn-sm btn-info btn-block"
                                                href="{{ URL::to('materials/' . $report->id_matrepord . '/edit') }}"
@@ -148,7 +148,7 @@ foreach ($datospersonas as $cliente) {
                                             {!! Form::button(trans('materials.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => trans('materials.modals.delete_report_title'), 'data-message' => trans('materials.modals.delete_report_message', ['id' => $report->id_matrepord]))) !!}
                                             {!! Form::close() !!}
                                         </td>
-                                        @endrole
+                                        @endrole-->
                                         </td>
                                     </tr>
                                     
