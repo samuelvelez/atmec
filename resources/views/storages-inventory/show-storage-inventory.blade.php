@@ -57,7 +57,7 @@
                                     
                                 </div>
                             @endif
-                                  <div class="col-sm-6 col-6">
+<!--                                  <div class="col-sm-6 col-6">
                                     <strong class="text-larger">
                                         Bodega:
                                     </strong>
@@ -68,7 +68,7 @@
                                         @endif                                    
                                     
                                     
-                                </div>
+                                </div>-->
                             
                             
                              <div class="col-sm-6 col-6">

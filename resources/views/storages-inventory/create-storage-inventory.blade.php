@@ -39,7 +39,7 @@
 
                         {!! csrf_field() !!}
 
-                        <div class="form-group has-feedback row {{ $errors->has('storage') ? ' has-error ' : '' }}">
+<!--                        <div class="form-group has-feedback row {{ $errors->has('storage') ? ' has-error ' : '' }}">
                             {!! Form::label('storage', "Bodega", array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="form-group">
@@ -53,7 +53,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
                         <div class="form-group has-feedback row {{ $errors->has('storage') ? ' has-error ' : '' }}">
                             {!! Form::label('product', "Producto", array('class' => 'col-md-3 control-label')); !!}

@@ -14,6 +14,7 @@ use App\Models\Status;
 use App\Models\TrafficDevice;
 use App\Models\TrafficLight;
 use App\Models\TrafficPole;
+use App\Models\StorageInventory;
 use App\Models\TrafficTensor;
 use App\Models\User;
 use App\Models\Material;
@@ -84,7 +85,8 @@ class MaterialController extends Controller
         $novelties = Novelty::where('subcategory', false)->get();
         $subnovelties = Novelty::where('subcategory', true)->where('group', false)->get();
         $worktypes = Novelty::where('subcategory', true)->where('group', true)->get();
-        $materials = DevicesInventory::all();
+        $materials = StorageInventory::select('devices_inventory.*')->join('devices_inventory','storage_inventory.device_id','devices_inventory.id')->get();
+//        dd($materials);
         $metrics = MetricUnit::all();
         $collector_id = '';
 //        $collectors = User::whereHas("roles", function($q){ $q->where("slug","isno", "atmadmin"); })->get();
@@ -601,6 +603,31 @@ if ($valor=='Si'){
         $factual = date('Y-m-d H:i:s');
                    $collector_id = Auth::user()->id;
         if ($material) {
+            ///FOR PARA VER SI ESTA BIEN O NO
+            $contador=0;
+            $sicumple=0;
+              foreach ($material as $materia) {
+                  $contador=$contador+1;
+            $nuevacantidad = $materia->amount;
+//echo $request->get($materia->id);
+                  if ($request->get('p'.$materia->id) <> ''){
+$nuevacantidad=$request->get('p'.$materia->id); 
+                  } else { }
+$validarstock = StorageInventory::select('quantity')->where('device_id',$materia->material_id)->get();
+$va1 = explode('":', $validarstock);
+        $va2 = explode('}', $va1[1]);
+        echo 'if '.$nuevacantidad.'<='.$va2[0] .'<br>';
+        if ($nuevacantidad<=$va2[0]){
+            $sicumple=$sicumple+1;
+        } else {
+            $sicumple=$sicumple+0;
+        }
+              }
+            
+        //SI CUMPLE VALIDA QUE LO ENTREGADO ESTÉ DENTRO DEL STOCK
+//              echo $sicumple.'<br>'.$contador;
+//              dd($sicumple);
+            if ($sicumple ==$contador){   
             foreach ($material as $materia) {
             $nuevacantidad = $materia->amount;
 //echo $request->get($materia->id);
@@ -614,9 +641,23 @@ $nuevacantidad=$request->get('p'.$materia->id);
             if ($materia->save()) {
                 $materia->mask_as_read();                
             }
+       $nuevastock = StorageInventory::select('*')->where('device_id',$materia->material_id)->get();
+               foreach ($nuevastock as $nuest) {
+         $nuest->quantity=($nuest->quantity)-$nuevacantidad;
+          if ($nuest->save()) {
+//                $nuest->mask_as_read();                
+            }
               }
+            
+            
+            }
             // Update basic attributes
                 return redirect('materials/')->with('success', trans('materials.entregSuccess'));          
+        } else {
+            // Update basic attributes
+                return redirect('materials/'.$id)->with('success', "Lo entregado es mayor a lo que se posee en stock. Por favor, valide.");          
+        } 
+            
         }
         return back()->with('error', trans('materials.udpateError'));
 //        echo $id;
@@ -655,10 +696,11 @@ $nuevacantidad=$request->get('p'.$materia->id);
         $report = $id;
 //   $groups= \App\Models\Brandstype::orderby('id','asc')->get();  
                 $materials = DevicesInventory::all();
+                $cantstocks = StorageInventory::all();
         $metrics = MetricUnit::all();
         if ($reports) {
 //            $reports->mask_as_read();
-            return view('materials.show', compact('reports','report','materials','metrics','idusercrea','usersol','reporteee'));
+            return view('materials.show', compact('reports','report','materials','metrics','idusercrea','usersol','reporteee','cantstocks'));
         }
 
         return back()->with('error', 'Orden de retiro no encontrada.');

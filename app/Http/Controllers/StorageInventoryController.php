@@ -65,7 +65,7 @@ class StorageInventoryController extends Controller
         
 
         $storage_inventory = StorageInventory::create([
-            'storage_id' => $request->input('storage'),
+//            'storage_id' => $request->input('storage'),
             'device_id' => $request->input('product'),
             'quantity' => $request->input('quantity'),
             

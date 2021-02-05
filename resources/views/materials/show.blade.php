@@ -89,6 +89,13 @@
 
                               @endforeach
                              @endif
+                             
+                               @if ($cantstocks)
+                              @foreach($cantstocks as $cantstock)
+ <!--{{ $cantstock->device_id == $reporte->material_id  ?  $stockactual[] =  $cantstock ->quantity  : '' }}-->  
+
+                              @endforeach
+                             @endif
                               
                              
                              @endforeach
@@ -107,8 +114,9 @@
                                         class="table table-striped table-hover table-sm data-table mt-4 mb-4">
                                         <thead class="thead">
                                         <tr>
-                                            <th>Material</th>
+                                            <th style="width: 50%">Material</th>
                                             <th>Unidad de medida</th>
+                                            <th style=" background-color: yellow"><strong>Stock</strong></th>
                                             <th>Cantidad</th>
                                              <?php 
                                             if ($estadodeor=='Aprobada'){
@@ -129,14 +137,17 @@
                                    for ($index = 0; $index < count($valor); $index++) {
                           echo '<tr>
                                        <td>'. $valor[$index].'</td>
-<td>'.$metrica[$index].'</td>
-                                      <td id='.'abcd'.$cantidades[$index].' >'. $cantidad[$index]. '</td>';
+<td>'.$metrica[$index].'</td>';
+                           echo "<td>$stockactual[$index]</td>";
+                          echo '<td id='.'abcd'.$cantidades[$index].' >'. $cantidad[$index]. '</td>';
+                                                   
+
                                     if ($estadodeor=='Aprobada'){
                                                ?>
                                         
                                           @if (Auth::user()->hasRole('atmstockkeeper'))
                                           <td>
-<input type="text" id="<?php echo $cantidades[$index]?>" name="<?php echo $cantidades[$index]?>"  class="form-control mr-2" placeholder="#">
+                                              <input type="text" id="<?php echo $cantidades[$index]?>"  onblur="validacion(<?php echo $cantidades[$index] ?>)" name="<?php echo $cantidades[$index]?>"  class="form-control mr-2" placeholder="#">
 @endif                
                                           </td>
                                        
@@ -146,7 +157,6 @@
                                                            if ($estadodeor=='Entregada' || $estadodeor=='Recibido'){
                                        echo '<td>'. $entregadovalor[$index]. '</td>';
                                                 } 
-                                                
                           }
                                    ?>
                                            <script>
@@ -154,21 +164,22 @@
                                              content = document.getElementById('abcd'+valor);                                          
 //        alert (content.innerHTML);
 //                                                  alert(document.getElementById('abc'+valor).value);
-                                                  var original = new Number(content.innerHTML); //document.getElementById('abc'+valor).value;
+//                                                  var original = new Number(content.innerHTML); //document.getElementById('abc'+valor).value;
 //                                                  alert(original);
                                                   var nuevo= new Number(document.getElementById(valor).value);                                                  
 //                                                  alert(nuevo +' + ' + original)
-                                                  if (nuevo<=original) {
-                                                      document.getElementById('p'+valor).value= nuevo;   
-                                                  }
-                                                  else {
-//                                                      alert(nuevo + ' valor ori '+ original)
-                                                      alert('Por favor, el número entregado no puede ser mayor al pedido originalmente.');
-                                                   document.getElementById(valor).value= '';   
-                                                   document.getElementById('p'+valor).value= '';   
-                                                  }
+//                                                  if (nuevo<=original) {
+//                                                      document.getElementById('p'+valor).value= nuevo;   
+//                                                  }
+//                                                  else {
+////                                                      alert(nuevo + ' valor ori '+ original)
+//                                                      alert('Por favor, el número entregado no puede ser mayor al pedido originalmente.');
+//                                                   document.getElementById(valor).value= '';   
+//                                                   document.getElementById('p'+valor).value= '';   
+//                                                  }
                                                   //alert (getvalor);
                                                   //alert('bien');
+                                                  document.getElementById('p'+valor).value= nuevo;   
                                               }
                                               </script>
                                         <tr>

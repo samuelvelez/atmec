@@ -64,9 +64,9 @@
                                 <thead class="thead">
                                 <tr>
                                     <th>{!! trans('Producto') !!}</th>
-                                    <th>{!! trans('Bodega') !!}</th>
+                                    <!--<th>{!! trans('Bodega') !!}</th>-->
                                     <th>{!! trans('Cantidad') !!}</th>
-                                    <th>{!! trans('device-inventory.devices-inventories-table.actions') !!}</th>
+                                    <th colspan="2" style="text-align:center">{!! trans('device-inventory.devices-inventories-table.actions') !!}</th>
                                 </tr>
                                 </thead>
                                 <tbody id="inventory_table">
@@ -80,14 +80,14 @@
                                         @endif                                                         
                                             
                                             </td>
-                                        <td>
+<!--                                        <td>
      @if ($storages)
   @foreach($storages as $storage)
 {{ $inventory->storage_id == $storage->id ? $storage->name : '' }}                                                
                                             @endforeach
                                         @endif                                                          
                                         
-                                        </td>
+                                        </td>-->
                                         <td>{{$inventory->quantity}}</td>
                                         <td>
                                             <a class="btn btn-sm btn-success btn-block"
