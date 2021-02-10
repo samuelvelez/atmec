@@ -477,7 +477,7 @@ $materialid = $materiales->id_matrepord;
                 console.log($('form').submit());
             });
             $('#finalizar').click(function(){
-                $("#tipo").val("3");
+                $("#tipo").val("4");
                 $('form').submit();
             });
             $('form').submit(function(){

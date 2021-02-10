@@ -122,7 +122,7 @@
                                                 @if($workorder['status_id']==5)
                                                     <a class="btn btn-sm btn-warning btn-block"
                                                     href="{{ URL::to('workorders/' . $workorder->id . '/close/') }}"
-                                                    data-toggle="tooltip" title="Crear Reporte">
+                                                    data-toggle="tooltip" title="Finalizar Reporte">
                                                         {!! trans('Finalizar Reporte') !!}
                                                     </a>
                                                 @endif
@@ -132,6 +132,13 @@
                                                    href="#" disabled
                                                    data-toggle="tooltip" title="Crear Reporte">
                                                     En Proceso
+                                                </a>
+                                                @endif
+                                                 @if(($alert->status_id=="7" || $alert->report['status_id']=="9" ) && (Auth::user()->hasRole('atmadmin') ||  Auth::user()->hasRole('ccitt')))
+                                                <a class="btn btn-sm btn-info btn-block"
+                                                   href="ordenes/<?php echo $alert->id ?>/worked" disabled
+                                                   data-toggle="tooltip" title="Orden trabajada">
+                                                    Orden trabajada
                                                 </a>
                                                 @endif
                                         </td>

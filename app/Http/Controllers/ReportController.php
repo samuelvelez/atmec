@@ -383,10 +383,16 @@ class ReportController extends Controller
         $report = Report::find($id);
 $status_id = $request->get('tipo') == 0 ? Status::where('name', Report::STATUS_PENDING)->first()->id : $request->get('tipo');
 
+if ($request->get('tipo')==8){
+    $statusalertid=12;
+} else if ($request->get('tipo')==4){
+    $statusalertid=7;
+}
+
 $alert = Alert::find($report->alert_id);
 $descriptionold = $report->description;
         if ($alert){
-               $alert->status_id = 7;
+               $alert->status_id = $statusalertid;
              if ($alert->save()) {
                 $alert->mask_as_read();
             } 
@@ -532,7 +538,7 @@ $descriptionold = $report->description;
 
             if ($report->save()) {
                 $report->mask_as_read();
-                if ($request->get('tipo') == 3){
+                if ($request->get('tipo') == 4){
                 return redirect('ordenes/')->with('success', 'Orden de trabajo finalizada, por favor, modifique los dispositivos afectados.' );
                 } else {
                 return redirect('ordenes/')->with('success', trans('reports.updateSuccess'));

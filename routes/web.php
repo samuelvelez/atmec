@@ -236,6 +236,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:atmadmin|atmoperator|a
         'index', 'show', 'create', 'store', 'edit', 'update', 'destroy'
     ]);
     Route::get('/ordenes/{id}/close', 'OrdenController@close');
+    Route::get('/ordenes/{id}/worked', 'OrdenController@worked');
     
     
     Route::resource('alerts', 'AlertController')->only([

@@ -225,10 +225,8 @@
                             
                               @endforeach
                             @endif
-                        </div> 
+                        </div>
                         
-                                                
-
                         <div class="clearfix"></div>
                         <div class="border-bottom"></div>
                         

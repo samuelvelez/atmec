@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alert;
+use App\Models\AlertsComments;
 use App\Models\Intersection;
 use App\Models\Status;
 use App\Models\Priority;
 use App\Models\WorkOrderType;
 use App\Models\WorkOrder;
+use App\Models\RepairableDvc;
 use App\Models\MotiveWO;
 use App\Models\User;
 use App\Models\Report;
@@ -226,11 +228,12 @@ $novelties = Novelty::where('subcategory', false)->get();
         $motivealerts = \App\Models\MotiveWO::select('*')->where('id','like',$motivoalertaid)->get();
         $tiporeportes = \App\Models\Novelty::select('*')->where('id','like','%')->get();
         $statusreportes = \App\Models\Status::select('*')->where('id','like','%')->get();
+        $alertcomments = AlertsComments::select('*')->where('alert_id','=',$alert->id)->orderby('id', 'asc')->get();
 //dd($report);
         if ($alert) {
          
             $alert->mask_as_read();
-            return view('ordenes.show', compact('alert','alertas','noveltys','workordertypes','priorityalerts','motivealerts','tiporeportes','statusreportes','materialid','report'));
+            return view('ordenes.show', compact('alert','alertas','noveltys','alertcomments','workordertypes','priorityalerts','motivealerts','tiporeportes','statusreportes','materialid','report'));
         }
 
         return back()->with('error', 'Alerta no encontrada.');
@@ -287,5 +290,72 @@ $novelties = Novelty::where('subcategory', false)->get();
     }
 
     
+     public function worked(Request $request, $id) {
+     $actualizado=0;
+     $contadordispo = 0;
+        $alert = Alert::find($id);
+        $fechacrea = $alert->created_at;
+         $devices = RepairableDvc::select('*')->where('report_id','=', $id)->orderby('repairable_type')->get();
+         if ($devices){
+              foreach ($devices as $device){
+                  $contadordispo=$contadordispo+1;
+        if ($device->repairable_type=='App\Models\VerticalSignal'){
+         $deviceverticalsignals = \App\Models\VerticalSignal::select('*')->where('id','=',$device->repairable_id)->get();
+           if ($deviceverticalsignals){
+              foreach ($deviceverticalsignals as $deviceverticalsignal){
+                  $fechaupdvs = $deviceverticalsignal->updated_at;                 
+              }
+              }
+            if ($fechaupdvs>$fechacrea){
+                $actualizado=$actualizado+1;
+            }
+              }
+           if ($device->repairable_type=='App\Models\TrafficLight'){
+          
+                 $devicetrafficlights = \App\Models\TrafficLight::select('*')->where('id','=',$device->repairable_id)->get();
+           if ($devicetrafficlights){
+              foreach ($devicetrafficlights as $devicetrafficlight){
+                  $fechaupdts = $devicetrafficlight->updated_at;                 
+              }
+              }
+            if ($fechaupdts>$fechacrea){
+                $actualizado=$actualizado+1;
+            }
+               
+        }    
+        if ($device->repairable_type=='App\Models\TrafficDevice'){
+          
+                   $devicetrafficdevices = \App\Models\TrafficDevice::select('*')->where('id','=',$device->repairable_id)->get();
+           if ($devicetrafficdevices){
+              foreach ($devicetrafficdevices as $devicetrafficdevice){
+                  $fechaupdtd = $devicetrafficdevice->updated_at;                 
+              }
+              }
+            if ($fechaupdtd>$fechacrea){
+                $actualizado=$actualizado+1;
+            }
+            
+        }    
+         }    
+           
+         }
+             
+         if ($actualizado==$contadordispo){
+        if ($alert) {            
+                $alert->status_id = 13;
+            if ($alert->save()) {
+                $alert->mask_as_read();
+                return redirect('ordenes/')->with('success', 'Orden de trabajo ejecutada.');
+            }
+        }
+        else {
+            return redirect('ordenes')->with('error', 'La orden de trabajo no existe.');
+        }
+         } else {
+            return redirect('ordenes')->with('error', 'Los items que se trabajaron no han sido modificados.');
+        }      
+        return redirect('ordenes')->with('error', trans('reports.closeError'));
+    }
+
     
 }

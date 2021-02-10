@@ -609,31 +609,40 @@ if ($valor=='Si'){
               foreach ($material as $materia) {
                   $contador=$contador+1;
             $nuevacantidad = $materia->amount;
-//echo $request->get($materia->id);
-                  if ($request->get('p'.$materia->id) <> ''){
+
+                  if ($request->get('p'.$materia->id) <> '' ){
+                  if ($request->get('p'.$materia->id) > 0){
 $nuevacantidad=$request->get('p'.$materia->id); 
-                  } else { }
-$validarstock = StorageInventory::select('quantity')->where('device_id',$materia->material_id)->get();
-$va1 = explode('":', $validarstock);
-        $va2 = explode('}', $va1[1]);
-        echo 'if '.$nuevacantidad.'<='.$va2[0] .'<br>';
-        if ($nuevacantidad<=$va2[0]){
+                  }
+                  }
+//                  echo $materia->material_id.' es id material<br>';
+$validarstock = StorageInventory::select('quantity')->where('device_id','=',$materia->material_id)->get();
+$va1 = explode('":"', $validarstock);
+//echo $validarstock.' validarstock<br>';
+        $va2 = explode('"}', $va1[1]);
+        echo 'if '.intval($nuevacantidad).'<='.intval($va2[0]).'<br>';
+        if (intval($nuevacantidad)<=intval($va2[0])){
+//            echo 'si cumple<br>';
             $sicumple=$sicumple+1;
         } else {
+//            echo 'NO cumple<br>';
             $sicumple=$sicumple+0;
         }
               }
-            
+
         //SI CUMPLE VALIDA QUE LO ENTREGADO ESTÉ DENTRO DEL STOCK
-//              echo $sicumple.'<br>'.$contador;
-//              dd($sicumple);
+//              echo $sicumple.'='.$contador;
+//                                        dd($sicumple);
+
             if ($sicumple ==$contador){   
             foreach ($material as $materia) {
             $nuevacantidad = $materia->amount;
 //echo $request->get($materia->id);
-                  if ($request->get('p'.$materia->id) <> ''){
+                    if ($request->get('p'.$materia->id) <> '' ){
+                  if ($request->get('p'.$materia->id) > 0){
 $nuevacantidad=$request->get('p'.$materia->id); 
-                  } else { }
+                  }
+                  }
          $materia->amount_delivery=$nuevacantidad;
          $materia->state='Entregada';        
          $materia->date_delivery=$factual;

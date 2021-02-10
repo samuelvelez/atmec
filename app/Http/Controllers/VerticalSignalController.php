@@ -312,7 +312,7 @@ class VerticalSignalController extends Controller
 
             $vsignal->picture = $picture_name;
         }
-        if($vsignal->user_id == Auth::user()->id || Auth::user()->hasRole('atmadmin')){
+        if($vsignal->user_id == Auth::user()->id || Auth::user()->hasRole('atmadmin') || Auth::user()->hasRole('atmcollector')){
             $vsignal->user_id = Auth::user()->id;
 
             if ($vsignal->save()) {
